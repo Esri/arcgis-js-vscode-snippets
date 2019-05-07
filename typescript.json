@@ -1,0 +1,68 @@
+{
+  "TypeScriptCreateMap": {
+    "prefix": "esri-ts-create-map",
+    "body": [
+      "import Map = require(\"esri/Map\");",
+      "import MapView = require(\"esri/views/MapView\");",
+      "const map = new Map({",
+      "basemap: \"${1:streets}\"",
+      "});",
+      "const view = new MapView({",
+      "map:map,",
+      "container:\"viewDiv\",",
+      "center:[${2: -118.244,34.052}],",
+      "zoom:${3:12}",
+      "});"
+    ],
+    "description": "Create Map TypeScript"
+  },
+  "TypeScriptCreateScene": {
+    "prefix": "esri-ts-create-scene",
+    "body": [
+      "import Map = require(\"esri/Map\");",
+      "import SceneView = require(\"esri/views/SceneView\");",
+      "const map = new Map({",
+      "basemap:\"${1:streets}\" as string as any",
+      "});",
+      "const view = new SceneView({",
+      "map:map,",
+      "container:\"viewDiv\"",
+      "});"
+    ],
+    "description": "Create Scene TypeScript"
+  },
+  "TypeScriptCreateWebMap": {
+    "prefix": "esri-ts-create-webmap",
+    "body": [
+      "import WebMap = require(\"esri/WebMap\");",
+      "import MapView = require(\"esri/views/MapView\");",
+      "const map = new WebMap({",
+      "portalItem:{",
+      "id: \"${1:6a7794164bc3428692fa771cd04c0d4b}\"",
+      "}",
+      "});",
+      "const view = new MapView({",
+      "map:map,",
+      "container:\"${2:viewDiv}\"",
+      "});"
+    ],
+    "description": "Create Web Map TypeScript"
+  },
+  "TypeScriptCreateWebScene": {
+    "prefix": "esri-ts-create-webscene",
+    "body": [
+      "import WebScene = require(\"esri/WebScene\");",
+      "import SceneView = require(\"esri/views/SceneView\");",
+      "const map = new WebScene({",
+      "portalItem:{",
+      "id: \"${1:3a9976baef9240ab8645ee25c7e9c096}\"",
+      "}",
+      "});",
+      "const view = new SceneView({",
+      "map:map,",
+      "container:\"${2:viewDiv}\"",
+      "});"
+    ],
+    "description": "Create Web Scene TypeScript"
+  }
+}

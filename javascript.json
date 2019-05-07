@@ -1,0 +1,24 @@
+{
+  "Require": {
+    "prefix": "esri-require",
+    "body": [
+      "require([\"esri/Map\", \"esri/views/MapView\",\"dojo/domReady!\"],function(Map, MapView){",
+      "",
+      " });"
+    ],
+    "description": "Simple require example"
+  },
+  "CreateMap": {
+    "prefix": "esri-create-map",
+    "body": [
+      "var map = new Map({basemap:${1:\"streets\"}});",
+      "var view = new MapView({",
+      "container:${2:\"viewDiv\"},",
+      "map:map,",
+      "zoom: ${3: 4},",
+      "center:${4:[15,65]}",
+      "});"
+    ],
+    "description": "Create map and view"
+  }
+}
