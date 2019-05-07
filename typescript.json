@@ -8,7 +8,7 @@
       "basemap: \"${1:streets}\"",
       "});",
       "const view = new MapView({",
-      "map:map,",
+      "map,",
       "container:\"viewDiv\",",
       "center:[${2: -118.244,34.052}],",
       "zoom:${3:12}",
@@ -25,7 +25,7 @@
       "basemap:\"${1:streets}\" as string as any",
       "});",
       "const view = new SceneView({",
-      "map:map,",
+      "map,",
       "container:\"viewDiv\"",
       "});"
     ],
@@ -42,7 +42,7 @@
       "}",
       "});",
       "const view = new MapView({",
-      "map:map,",
+      "map,",
       "container:\"${2:viewDiv}\"",
       "});"
     ],
@@ -59,7 +59,7 @@
       "}",
       "});",
       "const view = new SceneView({",
-      "map:map,",
+      "map,",
       "container:\"${2:viewDiv}\"",
       "});"
     ],
