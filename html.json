@@ -1,22 +1,23 @@
 {
+
   "Get the API": {
     "prefix": "esri-get-api",
     "body": [
       "<link rel=\"stylesheet\" href=\"https://js.arcgis.com/${1|4.11,4.10|}/esri/css/main.css\">",
       "<script>",
-        "// configure loader to get modules (non-CDN) from the correct location",
-        "var locationPath = location.pathname.replace(/\\/[^\\/]+$/,\"\");",
-        "window.dojoConfig = {",
-          "packages:[",
-            "{",
-              "name:\"app\",",
-              "location: locationPath + \"/app\"",
-            "}",
-          "]",
-        "}",
+      "\tvar locationPath = location.pathname.replace(/\\/[^\\/]+$/,\"\");",
+      "\twindow.dojoConfig = {",
+      "\tpackages:[",
+      "\t\t{",
+      "\t\tname:\"app\",",
+      "\t\tlocation: locationPath + \"/app\"",
+      "\t\t}",
+      "\t]",
+      "\t}",
       "</script>",
       "<script src=\"https://js.arcgis.com/${2|4.11, 4.10|}\"></script>"
     ],
     "description": "Add script and link tags for jsapi"
   }
+
 }
