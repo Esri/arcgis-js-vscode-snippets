@@ -11,12 +11,14 @@
   "CreateMap": {
     "prefix": "esri-create-map",
     "body": [
-      "var map = new Map({basemap:${1:\"streets\"}});",
+      "var map = new Map({",
+      "\tbasemap:${1:\"streets\"}",
+      "});",
       "var view = new MapView({",
-      "container:${2:\"viewDiv\"},",
-      "map:map,",
-      "zoom: ${3: 4},",
-      "center:${4:[15,65]}",
+      "\tcontainer:${2:\"viewDiv\"},",
+      "\tmap:map,",
+      "\tzoom: ${3: 4},",
+      "\tcenter:${4:[15,65]}",
       "});"
     ],
     "description": "Create map and view"
