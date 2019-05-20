@@ -117,7 +117,7 @@
       "\t]",
       "}"
     ],
-    "description": "Generate a SizeVisualVariable."
+    "description": "Generate a ColorVisualVariable."
   },
   "LabelingInfo2D": {
     "prefix": "esri-2d-labeling",
@@ -263,7 +263,6 @@
       "\tsymbolLayers: [{",
       "\t\ttype: \"fill\",",
       "\t\tmaterial: { color: ${1:[255, 250, 239, 0.8]} },",
-      "\t\toutline: { color: ${2:[70, 70, 70, 0.7]}}",
       "\t}]",
       "}"
     ],
