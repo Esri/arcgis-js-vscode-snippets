@@ -1,6 +1,6 @@
 {
   "CreateMap": {
-    "prefix": "esri-create-map",
+    "prefix": "createMap",
     "body": [
       "import Map = require(\"esri/Map\");",
       "import MapView = require(\"esri/views/MapView\");",
@@ -17,7 +17,7 @@
     "description": "Create Map TypeScript"
   },
   "CreateScene": {
-    "prefix": "esri-create-scene",
+    "prefix": "createScene",
     "body": [
       "import Map = require(\"esri/Map\");",
       "import SceneView = require(\"esri/views/SceneView\");",
@@ -32,7 +32,7 @@
     "description": "Create Scene TypeScript"
   },
   "CreateWebMap": {
-    "prefix": "esri-create-webmap",
+    "prefix": "createWebmap",
     "body": [
       "import WebMap = require(\"esri/WebMap\");",
       "import MapView = require(\"esri/views/MapView\");",
@@ -49,7 +49,7 @@
     "description": "Create Web Map TypeScript"
   },
   "CreateWebScene": {
-    "prefix": "esri-create-webscene",
+    "prefix": "createWebscene",
     "body": [
       "import WebScene = require(\"esri/WebScene\");",
       "import SceneView = require(\"esri/views/SceneView\");",
@@ -66,7 +66,7 @@
     "description": "Create Web Scene TypeScript"
   },
   "SimpleRenderer": {
-    "prefix": "esri-simple",
+    "prefix": "simple",
     "body": [
       "new SimpleRenderer({",
       "\tsymbol: ${1:symbol}",
@@ -75,7 +75,7 @@
     "description": "Generate a SimpleRenderer"
   },
   "UniqueValueRenderer": {
-    "prefix": "esri-uniqueValue",
+    "prefix": "uniqueValue",
     "body": [
       "new UniqueValueRenderer({",
       "\tfield: \"${1:REGION}\",",
@@ -90,7 +90,7 @@
     "description": "Generate a UniqueValueRenderer"
   },
   "ClassBreaksRenderer": {
-    "prefix": "esri-classBreaks",
+    "prefix": "classBreaks",
     "body": [
       "new ClassBreaksRenderer({",
       "\tfield: \"${1:MAGNITUDE}\",",
@@ -106,7 +106,7 @@
     "description": "Generate a ClassBreaksRenderer"
   },
   "SizeVisualVariable": {
-    "prefix": "esri-size-variable",
+    "prefix": "sizeVar",
     "body": [
       "new SizeVariable({",
       "\tfield: \"${1:POP_POVERTY}\",",
@@ -125,7 +125,7 @@
     "description": "Generate a SizeVisualVariable."
   },
   "ColorVisualVariable": {
-    "prefix": "esri-color-variable",
+    "prefix": "colorVar",
     "body": [
       "new SizeVariable({",
       "\tfield: \"${1:POP_POVERTY}\",",
@@ -142,7 +142,7 @@
     "description": "Generate a ColorVisualVariable."
   },
   "LabelingInfo2D": {
-    "prefix": "esri-2d-labeling",
+    "prefix": "labeling2d",
     "body": [
       "[",
       "\tnew LabelClass({",
@@ -158,7 +158,7 @@
     "description": "Generate 2D labelingInfo for a layer"
   },
   "LabelingInfo3D": {
-    "prefix": "esri-3d-labeling",
+    "prefix": "labeling3d",
     "body": [
       "[",
       "\tnew LabelClass({",
@@ -184,7 +184,7 @@
     "description": "Generate 3D labelingInfo for a layer"
   },
   "IconPoint3D": {
-    "prefix": "esri-3d-icon",
+    "prefix": "icon",
     "body": [
       "new PointSymbol3D({",
       "\tsymbolLayers: [new IconSymbol3DLayer({",
@@ -197,7 +197,7 @@
     "description": "Generate PointSymbol3D with a IconSymbol3DLayer"
   },
   "ObjectPoint3D": {
-    "prefix": "esri-3d-object",
+    "prefix": "object",
     "body": [
       "new PointSymbol3D({",
       "\tsymbolLayers: [new ObjectSymbol3DLayer({",
@@ -212,7 +212,7 @@
     "description": "Generate PointSymbol3D with a ObjectSymbol3DLayer"
   },
   "Line3D": {
-    "prefix": "esri-3d-line",
+    "prefix": "line",
     "body": [
       "new LineSymbol3D({",
       "\tsymbolLayers: [new LineSymbol3DLayer({",
@@ -224,7 +224,7 @@
     "description": "Generate LineSymbol3D with a LineSymbol3DLayer"
   },
   "Path3D": {
-    "prefix": "esri-3d-path",
+    "prefix": "path",
     "body": [
       "new LineSymbol3D({",
       "\tsymbolLayers: [new PathSymbol3DLayer({",
@@ -236,7 +236,7 @@
     "description": "Generate LineSymbol3D with a PathSymbol3DLayer"
   },
   "FillPolygon3D": {
-    "prefix": "esri-3d-fill",
+    "prefix": "fill",
     "body": [
       "new PolygonSymbol3D({",
       "\tsymbolLayers: [ new FillSymbol3DLayer({",
@@ -248,7 +248,7 @@
     "description": "Generate PolygonSymbol3D with a FillSymbol3DLayer"
   },
   "ExtrudePolygon3D": {
-    "prefix": "esri-3d-extrude",
+    "prefix": "extrude",
     "body": [
       "new PolygonSymbol3D({",
       "\tsymbolLayers: [ new ExtrudeSymbol3DLayer({",
@@ -260,7 +260,7 @@
     "description": "Generate PolygonSymbol3D with a ExtrudeSymbol3DLayer"
   },
   "FillMesh3D": {
-    "prefix": "esri-3d-mesh",
+    "prefix": "mesh",
     "body": [
       "new MeshSymbol3D({",
       "\tsymbolLayers: [ new FillSymbol3DLayer({",
@@ -271,7 +271,7 @@
     "description": "Generate MeshSymbol3D with a FillSymbol3DLayer"
   },
   "SketchEdges": {
-    "prefix": "esri-3d-sketch-edges",
+    "prefix": "sketchEdges",
     "body": [
       "new SketchEdges3D({",
       "\tcolor: ${1:[50, 50, 50, 0.5]},",
@@ -281,8 +281,8 @@
     ]
   },
 
-  "Solid_edges": {
-    "prefix": "esri-3d-solid-edges",
+  "SolidEdges": {
+    "prefix": "solidEdges",
     "body": [
       "new SolidEdges3D({",
       "\tcolor: ${1:[50, 50, 50, 0.5]},",
@@ -291,8 +291,8 @@
     ]
   },
 
-  "CalloutCity": {
-    "prefix": "esri-callout-city",
+  "CalloutSmall": {
+    "prefix": "calloutSmall",
     "body": [
       "verticalOffset: {",
       "\tscreenLength: 20,",
@@ -311,8 +311,8 @@
     "description": "Generate callouts for city scale"
   },
 
-  "CalloutWorld": {
-    "prefix": "esri-callout-world",
+  "CalloutLarge": {
+    "prefix": "calloutLarge",
     "body": [
       "verticalOffset: {",
       "\tscreenLength: 40,",
@@ -331,7 +331,7 @@
     "description": "Generate callouts for world scale"
   },
   "ElevationInfo": {
-    "prefix": "esri-elev-info",
+    "prefix": "elevInfo",
     "body": [
       "{",
       "\tmode: \"${1|on-the-ground,relative-to-ground,absolute-height,relative-to-scene|}\",",
@@ -345,7 +345,7 @@
     "description": "Set elevationInfo for a layer"
   },
   "SceneBackground": {
-    "prefix": "esri-3d-background",
+    "prefix": "background",
     "body": [
       "environment: {",
       "\tbackground: {",

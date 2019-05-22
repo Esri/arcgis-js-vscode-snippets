@@ -1,6 +1,6 @@
 {
   "Require": {
-    "prefix": "esri-require",
+    "prefix": "require",
     "body": [
       "require([\"esri/Map\", \"esri/views/MapView\",\"dojo/domReady!\"],function(Map, MapView){",
       "",
@@ -9,7 +9,7 @@
     "description": "Simple require example"
   },
   "CreateMap": {
-    "prefix": "esri-create-map",
+    "prefix": "createMap",
     "body": [
       "var map = new Map({",
       "\tbasemap:${1:\"streets\"}",
@@ -24,7 +24,7 @@
     "description": "Create map and view"
   },
   "CreateScene": {
-    "prefix": "esri-create-scene",
+    "prefix": "createScene",
     "body": [
       "var webscene = new WebScene({",
       "\tportalItem: {",
@@ -39,7 +39,7 @@
     "description": "Create web scene and scene view"
   },
   "SimpleRenderer": {
-    "prefix": "esri-simple",
+    "prefix": "simple",
     "body": [
       "{",
       "\ttype: \"simple\",",
@@ -49,7 +49,7 @@
     "description": "Generate a SimpleRenderer"
   },
   "UniqueValueRenderer": {
-    "prefix": "esri-uniqueValue",
+    "prefix": "uniqueValue",
     "body": [
       "{",
       "\ttype: \"unique-value\",",
@@ -65,7 +65,7 @@
     "description": "Generate a UniqueValueRenderer"
   },
   "ClassBreaksRenderer": {
-    "prefix": "esri-classBreaks",
+    "prefix": "classBreaks",
     "body": [
       "{",
       "\ttype: \"class-breaks\",",
@@ -82,7 +82,7 @@
     "description": "Generate a ClassBreaksRenderer"
   },
   "SizeVisualVariable": {
-    "prefix": "esri-size-variable",
+    "prefix": "sizeVar",
     "body": [
       "{",
       "\ttype: \"size\",",
@@ -102,7 +102,7 @@
     "description": "Generate a SizeVisualVariable."
   },
   "ColorVisualVariable": {
-    "prefix": "esri-color-variable",
+    "prefix": "colorVar",
     "body": [
       "{",
       "\ttype: \"color\",",
@@ -120,7 +120,7 @@
     "description": "Generate a ColorVisualVariable."
   },
   "LabelingInfo2D": {
-    "prefix": "esri-2d-labeling",
+    "prefix": "labeling2d",
     "body": [
       "[",
       "\tnew LabelClass({",
@@ -137,7 +137,7 @@
     "description": "Generate 2D labelingInfo for a layer"
   },
   "LabelingInfo3D": {
-    "prefix": "esri-3d-labeling",
+    "prefix": "labeling3d",
     "body": [
       "[",
       "\tnew LabelClass({",
@@ -165,7 +165,7 @@
     "description": "Generate 3D labelingInfo for a layer"
   },
   "IconPoint3D": {
-    "prefix": "esri-3d-icon",
+    "prefix": "icon",
     "body": [
       "{",
       "\ttype: \"point-3d\",",
@@ -181,7 +181,7 @@
   },
 
   "ObjectPoint3D": {
-    "prefix": "esri-3d-object",
+    "prefix": "object",
     "body": [
       "{",
       "\ttype: \"point-3d\",",
@@ -199,7 +199,7 @@
   },
 
   "Line3D": {
-    "prefix": "esri-3d-line",
+    "prefix": "line",
     "body": [
       "{",
       "\ttype: \"line-3d\",",
@@ -214,7 +214,7 @@
   },
 
   "Path3D": {
-    "prefix": "esri-3d-path",
+    "prefix": "path",
     "body": [
       "{",
       "\ttype: \"line-3d\",",
@@ -228,7 +228,7 @@
     "description": "Generate LineSymbol3D with a PathSymbol3DLayer"
   },
   "FillPolygon3D": {
-    "prefix": "esri-3d-fill",
+    "prefix": "fill",
     "body": [
       "{",
       "\ttype: \"polygon-3d\",",
@@ -242,7 +242,7 @@
     "description": "Generate PolygonSymbol3D with a FillSymbol3DLayer"
   },
   "ExtrudePolygon3D": {
-    "prefix": "esri-3d-extrude",
+    "prefix": "extrude",
     "body": [
       "{",
       "\ttype: \"polygon-3d\",",
@@ -256,7 +256,7 @@
     "description": "Generate PolygonSymbol3D with a ExtrudeSymbol3DLayer"
   },
   "FillMesh3D": {
-    "prefix": "esri-3d-mesh",
+    "prefix": "mesh",
     "body": [
       "{",
       "\ttype: \"mesh-3d\",",
@@ -269,7 +269,7 @@
     "description": "Generate MeshSymbol3D with a FillSymbol3DLayer"
   },
   "Edges": {
-    "prefix": "esri-3d-edges",
+    "prefix": "edges",
     "body": [
       "{",
       "\ttype: \"${1|solid,sketch|}\",",
@@ -279,8 +279,8 @@
       "}"
     ]
   },
-  "CalloutCity": {
-    "prefix": "esri-callout-city",
+  "CalloutSmall": {
+    "prefix": "calloutSmall",
     "body": [
       "verticalOffset: {",
       "\tscreenLength: 20,",
@@ -299,8 +299,8 @@
     "description": "Generate 3D callouts for city scale"
   },
 
-  "CalloutWorld": {
-    "prefix": "esri-callout-world",
+  "CalloutLarge": {
+    "prefix": "calloutLarge",
     "body": [
       "verticalOffset: {",
       "\tscreenLength: 40,",
@@ -319,7 +319,7 @@
     "description": "Generate 3D callouts for world scale"
   },
   "ElevationInfo": {
-    "prefix": "esri-elev-info",
+    "prefix": "elevInfo",
     "body": [
       "{",
       "\tmode: \"${1|on-the-ground,relative-to-ground,absolute-height,relative-to-scene|}\",",
@@ -332,7 +332,7 @@
     ]
   },
   "SceneBackground": {
-    "prefix": "esri-3d-background",
+    "prefix": "background",
     "body": [
       "environment: {",
       "\tbackground: {",
