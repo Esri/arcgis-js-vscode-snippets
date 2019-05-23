@@ -1,6 +1,6 @@
 {
   "tsconfig": {
-    "prefix": "esri-tsconfig",
+    "prefix": "tsConfig",
     "body": [
       "{",
       "    \"compilerOptions\": {",
@@ -28,7 +28,7 @@
     "description": "TypeScript Configuration"
   },
   "tsconfig-basic": {
-    "prefix": "esri-tsconfig-basic",
+    "prefix": "tsConfig-basic",
     "body": [
       "{",
       "  \"compilerOptions\": {",
