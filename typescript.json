@@ -357,5 +357,18 @@
       "}"
     ],
     "description": "Change the background of a scene"
+  },
+  "Add a layer from a portal item ": {
+    "prefix": "addLayerFromPortalItem",
+    "body": [
+      "Layer.fromPortalItem({",
+      "\tportalItem: new PortalItem({",
+      "\t\tid: \"${1:af1ad38816814b7eba3fe74a3b84412d}\"",
+      "\t})",
+      "\t}).then(function(layer) {",
+      "\t\tmap.add(layer);",
+      "\t});"
+    ],
+    "description": "Add a layer from a portal item "
   }
 }

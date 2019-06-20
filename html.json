@@ -1,7 +1,7 @@
 {
 
   "Get the API": {
-    "prefix": "get-api",
+    "prefix": "getApi",
     "body": [
       "<link rel=\"stylesheet\" href=\"https://js.arcgis.com/${1|4.11,4.10|}/esri/css/main.css\">",
       "<script>",

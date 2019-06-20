@@ -1,6 +1,6 @@
 {
   "Widget Starter": {
-    "prefix": "esri-widget-starter",
+    "prefix": "widgetStarter",
     "body": [
       "/// <amd-dependency path=\"esri/core/tsSupport/declareExtendsHelper\" name=\"__extends\" />",
       "/// <amd-dependency path=\"esri/core/tsSupport/decorateHelper\" name=\"__decorate\" />",
@@ -54,7 +54,7 @@
     "description": "Widget Starter"
   },
   "Renderable Property": {
-    "prefix": "esri-renderable-property",
+    "prefix": "renderableProperty",
     "body": [
       "@property()",
       "@renderable()",
@@ -63,7 +63,7 @@
     "description": "Renderable Property"
   },
   "Constructor": {
-    "prefix": "esri-constructor",
+    "prefix": "Constructor",
     "body": [
       " constructor() {",
       "    super();",

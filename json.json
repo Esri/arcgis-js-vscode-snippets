@@ -28,7 +28,7 @@
     "description": "TypeScript Configuration"
   },
   "tsconfig-basic": {
-    "prefix": "tsConfig-basic",
+    "prefix": "tsConfigBasic",
     "body": [
       "{",
       "  \"compilerOptions\": {",
