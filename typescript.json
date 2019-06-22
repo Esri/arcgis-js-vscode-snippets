@@ -228,8 +228,14 @@
     "body": [
       "new LineSymbol3D({",
       "\tsymbolLayers: [new PathSymbol3DLayer({",
-      "\t\tmaterial: { color: ${1:[255, 250, 239, 0.8]} },",
-      "\t\tsize: ${2:15}",
+        "\t\tprofile: \"${1|circle,quad|}\",",
+        "\t\tmaterial: { color: ${2:[255, 250, 239, 0.8]} },",
+        "\t\twidth: ${3:15},",
+        "\t\theight: ${3:15},",
+        "\t\tjoin:\"${4|miter,bevel,round|}\",",
+        "\t\tcap:\"${5|butt,square,round,none|}\",",
+        "\t\tanchor:\"${6|bottom,center|}\",",
+        "\t\tprofileRotation:\"${7|all,heading|}\",",
       "\t})]",
       "})"
     ],
