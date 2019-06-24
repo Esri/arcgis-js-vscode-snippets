@@ -9,10 +9,10 @@
     "description": "Simple require example"
   },
   "CreateMap": {
-    "prefix": "createMap",
+    "prefix": "map",
     "body": [
       "var map = new Map({",
-      "\tbasemap:${1:\"streets\"}",
+      "\tbasemap: \"${1:streets}\"",
       "});",
       "var view = new MapView({",
       "\tcontainer:${2:\"viewDiv\"},",
@@ -21,10 +21,38 @@
       "\tcenter:${4:[15,65]}",
       "});"
     ],
-    "description": "Create map and view"
+    "description": "Create map and map view"
   },
   "CreateScene": {
-    "prefix": "createScene",
+    "prefix": "scene",
+    "body": [
+      "var map = new Map({",
+      "\tbasemap: \"${1:streets}\"",
+      "});",
+      "var view = new SceneView({",
+      "\tcontainer: \"${2:viewDiv}\",",
+      "\tmap:map",
+      "});"
+    ],
+    "description": "Create map and scene view"
+  },
+  "CreateWebMap": {
+    "prefix": "webmap",
+    "body": [
+      "var webmap = new WebMap({",
+      "\tportalItem: {",
+      "\t\tid: \"${1:webmap_id}\"",
+      "\t}",
+      "});",
+      "var view = new MapView({",
+      "\tcontainer: \"${2:viewDiv}\",",
+      "\tmap: webmap",
+      "});"
+    ],
+    "description": "Create web map and a map view"
+  },
+  "CreateWebScene": {
+    "prefix": "webscene",
     "body": [
       "var webscene = new WebScene({",
       "\tportalItem: {",
@@ -33,10 +61,23 @@
       "});",
       "var view = new SceneView({",
       "\tcontainer: \"${2:viewDiv}\",",
-      "\tmap: webscene,",
+      "\tmap: webscene",
       "});"
     ],
     "description": "Create web scene and scene view"
+  },
+  "Add a layer from a portal item ": {
+    "prefix": "addLayerFromPortalItem",
+    "body": [
+      "Layer.fromPortalItem({",
+      "\tportalItem: {",
+      "\t\tid: \"${1:af1ad38816814b7eba3fe74a3b84412d}\"",
+      "\t}",
+      "\t}).then(function(layer) {",
+      "\t\tmap.add(layer);",
+      "\t});"
+    ],
+    "description": "Add a layer from a portal item "
   },
   "SimpleRenderer": {
     "prefix": "simple",
@@ -94,8 +135,7 @@
       "\t},",
       "\tstops: [",
       "\t\t{ value: ${4:0.15}, size: ${5:4}, label: \"${6:<15%}\" },",
-      "\t\t{ value: ${7:0.25}, size: ${8:12}, label: \"${9:25%}\" },",
-      "\t\t{ value: ${10:0.35}, size: ${11:24}, label: \"${12:>35%}\" }",
+      "\t\t{ value: ${7:0.25}, size: ${8:12}, label: \"${9:25%}\" }",
       "\t]",
       "}"
     ],
@@ -117,7 +157,7 @@
       "\t]",
       "}"
     ],
-    "description": "Generate a ColorVisualVariable."
+    "description": "Generate a ColorVisualVariable with 2 color stops."
   },
   "LabelingInfo2D": {
     "prefix": "labeling2d",
@@ -155,7 +195,7 @@
       "\t\t\t\t},",
       "\t\t\t\tfont: {",
       "\t\t\t\t\tsize: ${5: 11},",
-      "\t\t\t\t\tfamily: ${6:\"sans-serif\"},",
+      "\t\t\t\t\tfamily: ${6:\"sans-serif\"}",
       "\t\t\t\t}",
       "\t\t\t}]",
       "\t\t}",
@@ -283,7 +323,8 @@
       "\tsize: ${3:1}",
       "\textensionLength: ${4:0}",
       "}"
-    ]
+    ],
+    "description": "Creates and EdgeSymbol3D"
   },
   "CalloutSmall": {
     "prefix": "calloutSmall",
@@ -304,7 +345,6 @@
     ],
     "description": "Generate 3D callouts for city scale"
   },
-
   "CalloutLarge": {
     "prefix": "calloutLarge",
     "body": [
@@ -350,18 +390,5 @@
       "}"
     ],
     "description": "Change the background of a scene"
-  },
-  "Add a layer from a portal item ": {
-    "prefix": "addLayerFromPortalItem",
-    "body": [
-      "Layer.fromPortalItem({",
-      "\tportalItem: {",
-      "\t\tid: \"${1:af1ad38816814b7eba3fe74a3b84412d}\"",
-      "\t}",
-      "\t}).then(function(layer) {",
-      "\t\tmap.add(layer);",
-      "\t});"
-    ],
-    "description": "Add a layer from a portal item "
   }
 }

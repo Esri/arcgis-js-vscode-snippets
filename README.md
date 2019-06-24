@@ -10,22 +10,110 @@ Collection of Visual Studio Code snippets for common code patterns.
 
   **require**: Simple require example that loads the Map and MapView modules.
 
-  **createMap**: Create a new Map. Contains placeholders to replace the basemap, container value, zoom and center
+  **map**: Create a new Map with a MapView. Contains placeholders to replace the basemap, container value, zoom and center.
 
-  **addLayerFromPortalItem**: Add a new layer to the map from an ArcGIS Online or Enterprise portal item. Contains a placeholder for the portal item id. 
+  **scene**: Create a new Map with a SceneView. Contains placeholders to replace the basemap and the container value.
 
+  **webmap**: Create a new WebMap from an ArcGIS Online or Enterprise portal item. Contains a placeholder for the portal item id and for the container.
+
+  **webscene**: Create a new WebScene from an ArcGIS Online or Enterprise portal item. Contains a placeholder for the portal item id and for the container.
+
+  **addLayerFromPortalItem**: Add a new layer to the map from an ArcGIS Online or Enterprise portal item. Contains a placeholder for the portal item id.
+
+  **simple**: Generates a SimpleRenderer. Contains a placeholder for the symbol.
+
+  **uniqueValue**: Generates a UniqueValueRenderer. Contains a placeholder for the field, the symbol and it generates a uniqueValueInfos array with placeholers for value, symbol and label for the legend.
+
+  **classBreaks**: Generates a ClassBreaksRenderer. Contains a placeholder for the field, the default symbol and it generates a classBreakInfos array with placeholers for minValue, maxValue, symbol and label for the legend.
+
+  **sizeVar**: Creates a SizeVariable with 2 size stops. The axis property is only used in 3D. It contains placeholders for field, normalizationField, the legend title and the size stop values.
+
+  **colorVar**: Creates a ColorVariable with 2 color stops. It contains placeholders for field, normalizationField, the legend title and the color stop values.
+
+  **labeling2d**: Creates the labelingInfo for labels in a MapView.
+
+  **labeling3d**: Creates the labelingInfo for labels in a SceneView.
+
+  **icon**: Creates a PointSymbol3D with IconSymbol3DLayer in a SceneView. Contains placeholders for primitive, color and size.
+
+  **object**: Creates a PointSymbol3D with ObjectSymbol3DLayer in a SceneView. Contains placeholders for primitive, color, height, depth and width.
+
+  **line**: Creates a LineSymbol3D with a LineSymbol3DLayer in a SceneView. Contains placeholders for color and size.
+
+  **path**: Creates a LineSymbol3D with a PathSymbol3DLayer in a SceneView. Contains placeholders for profile, color, width, height,
+  join, cap, anchor and profileRotation.
+
+  **fill**: Creates a PolygonSymbol3D with a FillSymbol3DLayer in a SceneView. Contains placeholders for material color and outline color.
+
+  **extrude**: Creates a PolygonSymbol3D with an ExtrudeSymbol3DLayer in a SceneView. Contains placeholders for material color and size.
+
+  **mesh**: Creates a MeshSymbol3D with a FillSymbol3DLayer in a SceneView. Contains placeholder for color.
+
+  **edges**: Creates an edges object that can be applied to a FillSymbol3DLayer.
+  Contains placeholders for the type of edges (solid or sketch), the color, the size and the extensionLength.
+
+  **calloutSmall**: Generates the verticalOffset for a city scale level and the callout property. They should be set on PointSymbol3D or LabelSymbol3D. Contains placeholders for size, color and border color.
+
+  **calloutLarge**: Generates the verticalOffset for a globe scale level and the callout property. They should be set on PointSymbol3D or LabelSymbol3D. Contains placeholders for size, color and border color.
+
+  **elevationInfo**: Creates an object for elevationInfo to be set on layers. Contains placeholders for mode, offset, arcade driven expression and unit.
+
+  **background**: Creates an environment object for changing the background of a scene. It should be set on a SceneView and it contains a placeholder for color.
 
 - [TypeScript snippets](typescript.json)
 
-  **createMap**: Import the map and map view modules then create a new Map and MapView. Contains placeholders for basemap, center and zoom.
+  **map**: Import the map and map view modules then create a new Map and MapView. Contains placeholders for basemap, center and zoom.
 
-  **createScene**: Import the map and scene view modules then create a new Scene and Scene view. Contains a placeholder for the basemap
+  **scene**: Import the map and scene view modules then create a new Scene and Scene view. Contains a placeholder for the basemap
 
-  **createWebmap** Import the WebMap and MapView modules and create a new MapView from a web map id. Contains a placeholder for the web map id and map container.
+  **webmap** Import the WebMap and MapView modules and create a new MapView from a web map id. Contains a placeholder for the web map id and map container.
 
-  **createWebscene** Import the WebScene and SceneView modules and create a new SceneView from a portal item id. Contains a placeholder for the item id and map container.
+  **webscene** Import the WebScene and SceneView modules and create a new SceneView from a portal item id. Contains a placeholder for the item id and map container.
 
-   **addLayerFromPortalItem**: Add a new layer to the map from an ArcGIS Online or Enterprise portal item. Contains a placeholder for the portal item id. 
+  **addLayerFromPortalItem**: Add a new layer to the map from an ArcGIS Online or Enterprise portal item. Contains a placeholder for the portal item id.
+
+  **simple**: Generates a SimpleRenderer. Contains a placeholder for the symbol.
+
+  **uniqueValue**: Generates a UniqueValueRenderer. Contains a placeholder for the field, the symbol and it generates a uniqueValueInfos array with placeholers for value, symbol and label for the legend.
+
+  **classBreaks**: Generates a ClassBreaksRenderer. Contains a placeholder for the field, the default symbol and it generates a classBreakInfos array with placeholers for minValue, maxValue, symbol and label for the legend.
+
+  **sizeVar**: Creates a SizeVariable with 2 size stops. The axis property is only used in 3D. It contains placeholders for field, normalizationField, the legend title and the size stop values.
+
+  **colorVar**: Creates a ColorVariable with 2 color stops. It contains placeholders for field, normalizationField, the legend title and the color stop values.
+
+  **labeling2d**: Creates the labelingInfo for labels in a MapView.
+
+  **labeling3d**: Creates the labelingInfo for labels in a SceneView.
+
+  **icon**: Creates a PointSymbol3D with IconSymbol3DLayer in a SceneView. Contains placeholders for primitive, color and size.
+
+  **object**: Creates a PointSymbol3D with ObjectSymbol3DLayer in a SceneView. Contains placeholders for primitive, color, height, depth and width.
+
+  **line**: Creates a LineSymbol3D with a LineSymbol3DLayer in a SceneView. Contains placeholders for color and size.
+
+  **path**: Creates a LineSymbol3D with a PathSymbol3DLayer in a SceneView. Contains placeholders for profile, color, width, height,
+  join, cap, anchor and profileRotation.
+
+  **fill**: Creates a PolygonSymbol3D with a FillSymbol3DLayer in a SceneView. Contains placeholders for material color and outline color.
+
+  **extrude**: Creates a PolygonSymbol3D with an ExtrudeSymbol3DLayer in a SceneView. Contains placeholders for material color and size.
+
+  **mesh**: Creates a MeshSymbol3D with a FillSymbol3DLayer in a SceneView. Contains placeholder for color.
+
+  **sketchEdges**: Creates SketchEdges3D that can be applied to a FillSymbol3DLayer.
+  Contains placeholders for the color, the size and the extensionLength.
+
+  **solidEdges**: Creates SolidEdges3D that can be applied to a FillSymbol3DLayer.
+  Contains placeholders for the color and the size.
+
+  **calloutSmall**: Generates the verticalOffset for a city scale level and the callout property. They should be set on PointSymbol3D or LabelSymbol3D. Contains placeholders for size, color and border color.
+
+  **calloutLarge**: Generates the verticalOffset for a globe scale level and the callout property. They should be set on PointSymbol3D or LabelSymbol3D. Contains placeholders for size, color and border color.
+
+  **elevationInfo**: Creates an object for elevationInfo to be set on layers. Contains placeholders for mode, offset, arcade driven expression and unit.
+
+  **background**: Creates an environment object for changing the background of a scene. It should be set on a SceneView and it contains a placeholder for color.
 
 - [JSON snippets](json.json)
 
@@ -47,6 +135,7 @@ Collection of Visual Studio Code snippets for common code patterns.
 - [Visual Studio Code Snippets](https://code.visualstudio.com/docs/editor/userdefinedsnippets#_add-snippets-from-the-marketplace)
 - [VS Code Snippet Generator](https://snippet-generator.app/)
 - [twitter@esri](http://twitter.com/esri)
+- [twitter@arcgisjsapi](http://twitter.com/arcgisjsapi)
 
 ## Issues
 

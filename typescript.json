@@ -1,6 +1,6 @@
 {
   "CreateMap": {
-    "prefix": "createMap",
+    "prefix": "map",
     "body": [
       "import Map = require(\"esri/Map\");",
       "import MapView = require(\"esri/views/MapView\");",
@@ -14,10 +14,10 @@
       "\tzoom:${3:12}",
       "});"
     ],
-    "description": "Create Map TypeScript"
+    "description": "Create Map"
   },
   "CreateScene": {
-    "prefix": "createScene",
+    "prefix": "scene",
     "body": [
       "import Map = require(\"esri/Map\");",
       "import SceneView = require(\"esri/views/SceneView\");",
@@ -29,10 +29,10 @@
       "\tcontainer:\"viewDiv\"",
       "});"
     ],
-    "description": "Create Scene TypeScript"
+    "description": "Create Scene"
   },
   "CreateWebMap": {
-    "prefix": "createWebmap",
+    "prefix": "webmap",
     "body": [
       "import WebMap = require(\"esri/WebMap\");",
       "import MapView = require(\"esri/views/MapView\");",
@@ -46,10 +46,10 @@
       "\tcontainer:\"${2:viewDiv}\"",
       "});"
     ],
-    "description": "Create Web Map TypeScript"
+    "description": "Create Web Map"
   },
   "CreateWebScene": {
-    "prefix": "createWebscene",
+    "prefix": "webscene",
     "body": [
       "import WebScene = require(\"esri/WebScene\");",
       "import SceneView = require(\"esri/views/SceneView\");",
@@ -63,7 +63,20 @@
       "\tcontainer:\"${2:viewDiv}\"",
       "});"
     ],
-    "description": "Create Web Scene TypeScript"
+    "description": "Create Web Scene"
+  },
+  "Add a layer from a portal item ": {
+    "prefix": "addLayerFromPortalItem",
+    "body": [
+      "Layer.fromPortalItem({",
+      "\tportalItem: new PortalItem({",
+      "\t\tid: \"${1:af1ad38816814b7eba3fe74a3b84412d}\"",
+      "\t})",
+      "\t}).then(function(layer) {",
+      "\t\tmap.add(layer);",
+      "\t});"
+    ],
+    "description": "Add a layer from a portal item "
   },
   "SimpleRenderer": {
     "prefix": "simple",
@@ -117,8 +130,7 @@
       "\t},",
       "\tstops: [",
       "\t\t{ value: ${4:0.15}, size: ${5:4}, label: \"${6:<15%}\" },",
-      "\t\t{ value: ${7:0.25}, size: ${8:12}, label: \"${9:25%}\" },",
-      "\t\t{ value: ${10:0.35}, size: ${11:24}, label: \"${12:>35%}\" }",
+      "\t\t{ value: ${7:0.25}, size: ${8:12}, label: \"${9:25%}\" }",
       "\t]",
       "})"
     ],
@@ -174,7 +186,7 @@
       "\t\t\t\t},",
       "\t\t\t\tfont: {",
       "\t\t\t\t\tsize: ${5: 11},",
-      "\t\t\t\t\tfamily: ${6:\"sans-serif\"},",
+      "\t\t\t\t\tfamily: ${6:\"sans-serif\"}",
       "\t\t\t\t}",
       "\t\t\t})]",
       "\t\t})",
@@ -363,18 +375,5 @@
       "}"
     ],
     "description": "Change the background of a scene"
-  },
-  "Add a layer from a portal item ": {
-    "prefix": "addLayerFromPortalItem",
-    "body": [
-      "Layer.fromPortalItem({",
-      "\tportalItem: new PortalItem({",
-      "\t\tid: \"${1:af1ad38816814b7eba3fe74a3b84412d}\"",
-      "\t})",
-      "\t}).then(function(layer) {",
-      "\t\tmap.add(layer);",
-      "\t});"
-    ],
-    "description": "Add a layer from a portal item "
   }
 }
