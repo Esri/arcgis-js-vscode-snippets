@@ -1,0 +1,379 @@
+{
+  "CreateMap": {
+    "prefix": "map",
+    "body": [
+      "import Map = require(\"esri/Map\");",
+      "import MapView = require(\"esri/views/MapView\");",
+      "const map = new Map({",
+      "\tbasemap: \"${1:streets}\"",
+      "});",
+      "const view = new MapView({",
+      "\tmap,",
+      "\tcontainer:\"viewDiv\",",
+      "\tcenter:[${2: -118.244,34.052}],",
+      "\tzoom:${3:12}",
+      "});"
+    ],
+    "description": "Create Map"
+  },
+  "CreateScene": {
+    "prefix": "scene",
+    "body": [
+      "import Map = require(\"esri/Map\");",
+      "import SceneView = require(\"esri/views/SceneView\");",
+      "const map = new Map({",
+      "\tbasemap:\"${1:streets}\"",
+      "});",
+      "const view = new SceneView({",
+      "\tmap,",
+      "\tcontainer:\"viewDiv\"",
+      "});"
+    ],
+    "description": "Create Scene"
+  },
+  "CreateWebMap": {
+    "prefix": "webmap",
+    "body": [
+      "import WebMap = require(\"esri/WebMap\");",
+      "import MapView = require(\"esri/views/MapView\");",
+      "const map = new WebMap({",
+      "\tportalItem:{",
+      "\t\tid: \"${1:6a7794164bc3428692fa771cd04c0d4b}\"",
+      "\t}",
+      "});",
+      "const view = new MapView({",
+      "\tmap,",
+      "\tcontainer:\"${2:viewDiv}\"",
+      "});"
+    ],
+    "description": "Create Web Map"
+  },
+  "CreateWebScene": {
+    "prefix": "webscene",
+    "body": [
+      "import WebScene = require(\"esri/WebScene\");",
+      "import SceneView = require(\"esri/views/SceneView\");",
+      "const map = new WebScene({",
+      "\tportalItem:{",
+      "\t\tid: \"${1:3a9976baef9240ab8645ee25c7e9c096}\"",
+      "\t}",
+      "});",
+      "const view = new SceneView({",
+      "\tmap,",
+      "\tcontainer:\"${2:viewDiv}\"",
+      "});"
+    ],
+    "description": "Create Web Scene"
+  },
+  "Add a layer from a portal item ": {
+    "prefix": "addLayerFromPortalItem",
+    "body": [
+      "Layer.fromPortalItem({",
+      "\tportalItem: new PortalItem({",
+      "\t\tid: \"${1:af1ad38816814b7eba3fe74a3b84412d}\"",
+      "\t})",
+      "\t}).then(function(layer) {",
+      "\t\tmap.add(layer);",
+      "\t});"
+    ],
+    "description": "Add a layer from a portal item "
+  },
+  "SimpleRenderer": {
+    "prefix": "simple",
+    "body": [
+      "new SimpleRenderer({",
+      "\tsymbol: ${1:symbol}",
+      "})"
+    ],
+    "description": "Generate a SimpleRenderer"
+  },
+  "UniqueValueRenderer": {
+    "prefix": "uniqueValue",
+    "body": [
+      "new UniqueValueRenderer({",
+      "\tfield: \"${1:REGION}\",",
+      "\tdefaultSymbol: ${2:symbol},",
+      "\tuniqueValueInfos: [{",
+      "\t\tvalue: \"${3:value}\",",
+      "\t\tsymbol: ${2:symbol},",
+      "\t\tlabel: \"${4:label for the legend}\"",
+      "\t}]",
+      "})"
+    ],
+    "description": "Generate a UniqueValueRenderer"
+  },
+  "ClassBreaksRenderer": {
+    "prefix": "classBreaks",
+    "body": [
+      "new ClassBreaksRenderer({",
+      "\tfield: \"${1:MAGNITUDE}\",",
+      "\tdefaultSymbol: ${2:symbol},",
+      "\tclassBreakInfos: [{",
+      "\t\tminValue: ${3:0},",
+      "\t\tmaxValue: ${4:10},",
+      "\t\tsymbol: ${2:symbol},",
+      "\t\tlabel: \"${5:label for the legend}\"",
+      "\t}]",
+      "})"
+    ],
+    "description": "Generate a ClassBreaksRenderer"
+  },
+  "SizeVisualVariable": {
+    "prefix": "sizeVar",
+    "body": [
+      "new SizeVariable({",
+      "\tfield: \"${1:POP_POVERTY}\",",
+      "\tnormalizationField: \"${2:POP_TOT}\",",
+      "\taxis: \"height\",",
+      "\tlegendOptions: {",
+      "\t\ttitle: \"${3:% population in poverty by county}\"",
+      "\t},",
+      "\tstops: [",
+      "\t\t{ value: ${4:0.15}, size: ${5:4}, label: \"${6:<15%}\" },",
+      "\t\t{ value: ${7:0.25}, size: ${8:12}, label: \"${9:25%}\" }",
+      "\t]",
+      "})"
+    ],
+    "description": "Generate a SizeVisualVariable."
+  },
+  "ColorVisualVariable": {
+    "prefix": "colorVar",
+    "body": [
+      "new SizeVariable({",
+      "\tfield: \"${1:POP_POVERTY}\",",
+      "\tnormalizationField: \"${2:POP_TOT}\",",
+      "\tlegendOptions: {",
+      "\t\ttitle: \"${3:% population in poverty by county}\"",
+      "\t},",
+      "\tstops: [",
+      "\t\t{ value: ${4:0.15}, color: ${5: \"#FFFCD4\" }, label: \"${6:<15%}\" },",
+      "\t\t{ value: ${7:0.25}, color: ${8: \"#0D2644\"}, label: \"${9:>25%}\" }",
+      "\t]",
+      "}"
+    ],
+    "description": "Generate a ColorVisualVariable."
+  },
+  "LabelingInfo2D": {
+    "prefix": "labeling2d",
+    "body": [
+      "[",
+      "\tnew LabelClass({",
+      "\t\tlabelExpressionInfo: { expression: \"${1:\\$feature.NAME}\"},",
+      "\t\tsymbol: new TextSymbol({",
+      "\t\t\tcolor: ${2:[0, 0, 0, 0.5]},",
+      "\t\t\thaloSize: ${3:1},",
+      "\t\t\thaloColor: ${4:[255, 255, 255, 0.9]}",
+      "\t\t})",
+      "\t})",
+      "]"
+    ],
+    "description": "Generate 2D labelingInfo for a layer"
+  },
+  "LabelingInfo3D": {
+    "prefix": "labeling3d",
+    "body": [
+      "[",
+      "\tnew LabelClass({",
+      "\t\tlabelExpressionInfo: { expression: \"${1:\\$feature.NAME}\"},",
+      "\t\tsymbol: new LabelSymbol3D({",
+      "\t\t\tsymbolLayers: [new TextSymbol3DLayer({",
+      "\t\t\t\tmaterial: {",
+      "\t\t\t\t\tcolor: ${2:[0, 0, 0, 0.5]}",
+      "\t\t\t\t},",
+      "\t\t\t\thalo: {",
+      "\t\t\t\t\tsize: ${3: 1},",
+      "\t\t\t\t\tcolor: ${4:[255, 255, 255, 0.9]}",
+      "\t\t\t\t},",
+      "\t\t\t\tfont: {",
+      "\t\t\t\t\tsize: ${5: 11},",
+      "\t\t\t\t\tfamily: ${6:\"sans-serif\"}",
+      "\t\t\t\t}",
+      "\t\t\t})]",
+      "\t\t})",
+      "\t})",
+      "]"
+    ],
+    "description": "Generate 3D labelingInfo for a layer"
+  },
+  "IconPoint3D": {
+    "prefix": "icon",
+    "body": [
+      "new PointSymbol3D({",
+      "\tsymbolLayers: [new IconSymbol3DLayer({",
+      "\t\tresource: { primitive: \"${1|circle,square,cross,x,kite,triangle|}\"},",
+      "\t\tmaterial: { color: ${2:[255, 250, 239, 0.8]} },",
+      "\t\tsize: ${3:20}",
+      "\t})]",
+      "})"
+    ],
+    "description": "Generate PointSymbol3D with a IconSymbol3DLayer"
+  },
+  "ObjectPoint3D": {
+    "prefix": "object",
+    "body": [
+      "new PointSymbol3D({",
+      "\tsymbolLayers: [new ObjectSymbol3DLayer({",
+      "\t\tresource: { primitive: \"${1|sphere,cylinder,cube,cone,inverted-cone,diamond,tetrahedron|}\"},",
+      "\t\tmaterial: { color: ${2:[255, 250, 239, 0.8]} },",
+      "\t\tdepth: ${3:15},",
+      "\t\theight: ${4:20},",
+      "\t\twidth: ${5:5}",
+      "\t})]",
+      "})"
+    ],
+    "description": "Generate PointSymbol3D with a ObjectSymbol3DLayer"
+  },
+  "Line3D": {
+    "prefix": "line",
+    "body": [
+      "new LineSymbol3D({",
+      "\tsymbolLayers: [new LineSymbol3DLayer({",
+      "\t\tmaterial: { color: ${1:[255, 250, 239, 0.8]} },",
+      "\t\tsize: ${2:15}",
+      "\t})]",
+      "})"
+    ],
+    "description": "Generate LineSymbol3D with a LineSymbol3DLayer"
+  },
+  "Path3D": {
+    "prefix": "path",
+    "body": [
+      "new LineSymbol3D({",
+      "\tsymbolLayers: [new PathSymbol3DLayer({",
+        "\t\tprofile: \"${1|circle,quad|}\",",
+        "\t\tmaterial: { color: ${2:[255, 250, 239, 0.8]} },",
+        "\t\twidth: ${3:15},",
+        "\t\theight: ${3:15},",
+        "\t\tjoin: \"${4|miter,bevel,round|}\",",
+        "\t\tcap: \"${5|butt,square,round,none|}\",",
+        "\t\tanchor: \"${6|bottom,center|}\",",
+        "\t\tprofileRotation: \"${7|all,heading|}\"",
+      "\t})]",
+      "})"
+    ],
+    "description": "Generate LineSymbol3D with a PathSymbol3DLayer"
+  },
+  "FillPolygon3D": {
+    "prefix": "fill",
+    "body": [
+      "new PolygonSymbol3D({",
+      "\tsymbolLayers: [ new FillSymbol3DLayer({",
+      "\t\tmaterial: { color: ${1:[255, 250, 239, 0.8]} },",
+      "\t\toutline: { color: ${2:[70, 70, 70, 0.7]}}",
+      "\t})]",
+      "})"
+    ],
+    "description": "Generate PolygonSymbol3D with a FillSymbol3DLayer"
+  },
+  "ExtrudePolygon3D": {
+    "prefix": "extrude",
+    "body": [
+      "new PolygonSymbol3D({",
+      "\tsymbolLayers: [ new ExtrudeSymbol3DLayer({",
+      "\t\tmaterial: { color: ${1:[255, 250, 239, 0.8]} },",
+      "\t\tsize: ${2:20}",
+      "\t})]",
+      "})"
+    ],
+    "description": "Generate PolygonSymbol3D with a ExtrudeSymbol3DLayer"
+  },
+  "FillMesh3D": {
+    "prefix": "mesh",
+    "body": [
+      "new MeshSymbol3D({",
+      "\tsymbolLayers: [ new FillSymbol3DLayer({",
+      "\t\tmaterial: { color: ${1:[255, 250, 239, 0.8]} },",
+      "\t})]",
+      "})"
+    ],
+    "description": "Generate MeshSymbol3D with a FillSymbol3DLayer"
+  },
+  "SketchEdges": {
+    "prefix": "sketchEdges",
+    "body": [
+      "new SketchEdges3D({",
+      "\tcolor: ${1:[50, 50, 50, 0.5]},",
+      "\tsize: ${2:1},",
+      "\textensionLength: ${3:0}",
+      "})"
+    ]
+  },
+
+  "SolidEdges": {
+    "prefix": "solidEdges",
+    "body": [
+      "new SolidEdges3D({",
+      "\tcolor: ${1:[50, 50, 50, 0.5]},",
+      "\tsize: ${2:1}",
+      "})"
+    ]
+  },
+
+  "CalloutSmall": {
+    "prefix": "calloutSmall",
+    "body": [
+      "verticalOffset: {",
+      "\tscreenLength: 20,",
+      "\tmaxWorldLength: 200,",
+      "\tminWorldLength: 20",
+      "},",
+      "callout: {",
+      "\ttype: \"line\",",
+      "\tsize: ${1:1.5},",
+      "\tcolor: ${2:[255, 255, 255, 0.9]},",
+      "\tborder: {",
+      "\t\tcolor: ${3:[0, 0, 0, 0.5]}",
+      "\t}",
+      "}"
+    ],
+    "description": "Generate callouts for city scale"
+  },
+
+  "CalloutLarge": {
+    "prefix": "calloutLarge",
+    "body": [
+      "verticalOffset: {",
+      "\tscreenLength: 40,",
+      "\tmaxWorldLength: 500000,",
+      "\tminWorldLength: 0",
+      "},",
+      "callout: {",
+      "\ttype: \"line\",",
+      "\tsize: ${1:1.5},",
+      "\tcolor: ${2:[255, 255, 255, 0.9]},",
+      "\tborder: {",
+      "\t\tcolor: ${3:[0, 0, 0, 0.5]}",
+      "\t}",
+      "}"
+    ],
+    "description": "Generate callouts for world scale"
+  },
+  "ElevationInfo": {
+    "prefix": "elevInfo",
+    "body": [
+      "{",
+      "\tmode: \"${1|on-the-ground,relative-to-ground,absolute-height,relative-to-scene|}\",",
+      "\toffset: ${2:10},",
+      "\tfeatureExpressionInfo: {",
+      "\t\texpression: \"${3:Geometry(\\$feature).z\"}",
+      "\t},",
+      "\tunit: \"${4|feet,meters,kilometers,miles,us-feet,yards|}\"",
+      "}"
+    ],
+    "description": "Set elevationInfo for a layer"
+  },
+  "SceneBackground": {
+    "prefix": "background",
+    "body": [
+      "environment: {",
+      "\tbackground: {",
+      "\t\ttype: \"color\",",
+      "\t\tcolor: ${1:[0, 0, 0, 0]}",
+      "\t},",
+      "\tstarsEnabled: false,",
+      "\tatmosphereEnabled: false",
+      "}"
+    ],
+    "description": "Change the background of a scene"
+  }
+}
