@@ -112,7 +112,7 @@ Esri welcomes contributions from anyone and everyone. Please see our [guidelines
 
 Copyright 2019 Esri
 
-Licensed under the Apache License, Version 2.0 (the "License");
+The snippets are licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
@@ -126,5 +126,5 @@ limitations under the License.
 
 A copy of the license is available in the repository's [license.txt](License.txt) file.
 
-
+Information on the ArcGIS API for JavaScript licensing can be found here: https://developers.arcgis.com/javascript/latest/guide/licensing/.
 
