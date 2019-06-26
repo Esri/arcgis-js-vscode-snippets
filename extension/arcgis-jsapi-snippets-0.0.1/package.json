@@ -1,7 +1,7 @@
 {
   "name": "arcgis-jsapi-snippets",
-  "displayName": "ArcGIS JSAPI Snippets",
-  "description": "",
+  "displayName": "ArcGIS API for JavaScript Snippets",
+  "description": "Code snippets for the ArcGIS API for JavaScript for 2D and 3D mapping and visualization.",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.35.0"
