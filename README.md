@@ -1,6 +1,8 @@
-# arcgis-js-vscode-snippets
+# arcgis-jsapi-snippets README
 
 Collection of Visual Studio Code snippets for common code patterns.
+
+## Features
 
 ### [HTML snippets](html.json)
 
@@ -8,7 +10,7 @@ Collection of Visual Studio Code snippets for common code patterns.
 | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | getApi | Add the css and javascript for the Esri jsapi from the CDN. This snippet also stubs out the package paths that point to an app folder that can contain the js and ts. |
 
-## [JavaScript snippets](javascript.json)
+### [JavaScript snippets](javascript.json)
 
 | Prefix                 | Description                                                                                                                                                                                                   |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -38,7 +40,7 @@ Collection of Visual Studio Code snippets for common code patterns.
 | background             | Creates an environment object for changing the background of a scene. It should be set on a SceneView and it contains a placeholder for color.                                                                |
 
 
-## [TypeScript snippets](typescript.json)
+### [TypeScript snippets](typescript.json)
 
 | Prefix                 | Description                                                                                                                                                                                                  |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -69,7 +71,7 @@ Collection of Visual Studio Code snippets for common code patterns.
 | background             | Creates an environment object for changing the background of a scene. It should be set on a SceneView and it contains a placeholder for color.                                                               |
 
 
-## [JSON snippets](json.json)
+### [JSON snippets](json.json)
 
 | Prefix        | Description           |
 | ------------- | --------------------- |
@@ -77,13 +79,18 @@ Collection of Visual Studio Code snippets for common code patterns.
 | tsconfigBasic | Simple tsconfig file  |
 
 
-## [TSX snippets](typescriptreact.json)
+### [TSX snippets](typescriptreact.json)
 
 | Prefix             | Description                                                                                                      |
 | ------------------ | ---------------------------------------------------------------------------------------------------------------- |
 | widgetStarter      | Basic starter for creating an esri widget. Contains placeholders for the widget name and default css class name. |
 | renderableProperty | Add a renderable property. Contains placeholder for the property name.                                           |
 | constructor        | Add a constructor                                                                                                |
+## Release Notes
+
+### 1.0.0
+
+Initial release of the ArcGIS API for JavaScript snippet extension.
 
 ## Resources
 
@@ -118,3 +125,6 @@ See the License for the specific language governing permissions and
 limitations under the License.
 
 A copy of the license is available in the repository's [license.txt](License.txt) file.
+
+
+
