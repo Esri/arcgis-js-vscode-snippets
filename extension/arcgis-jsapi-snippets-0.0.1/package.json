@@ -5,14 +5,14 @@
   "description": "Code snippets for the ArcGIS API for JavaScript for 2D and 3D mapping and visualization.",
   "license": "See license in License.txt",
   "keywords": ["ArcGIS", "Esri", "GIS", "map", "mapping", "ArcGIS API for JavaScript", "TypeScript", "snippet", "JavaScript"],
-  "version": "0.0.1",
+  "version": "1.0.0",
   "icon": "images/esri-logo-550.png",
   "engines": {
     "vscode": "^1.35.0"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ArcGIS/arcgis-js-vscode-snippets"
+    "url": "https://github.com/Esri/arcgis-js-vscode-snippets"
   },
   "categories": [
     "Snippets"
