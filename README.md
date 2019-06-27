@@ -6,8 +6,8 @@ Collection of Visual Studio Code snippets for common code patterns.
 
 ### [HTML snippets](html.json)
 
-| Prefix | Description                                                                                                                                                           |
-| ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Prefix | Description                                                                                                                                                                               |
+| ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | getApi | Add the css and javascript for the Esri ArcGIS API for JavaScript from the CDN. This snippet also stubs out the package paths that point to an app folder that can contain the js and ts. |
 
 ### [JavaScript snippets](javascript.json)
@@ -91,6 +91,13 @@ Collection of Visual Studio Code snippets for common code patterns.
 ### 1.0.0
 
 Initial release of the ArcGIS API for JavaScript snippet extension.
+
+## Instructions 
+  * Install the extension  using the ***Install from VSIX*** command in Visual Studio Code then navigate to extension/arcgis-jsapi-snippets/arcgis-jsapi-snippets-1.0.0.vsix
+  * Or copy/paste the snippets you want to use into the appropriate snippet file. To open the snippet files in Visual Studio Code select **User Snippets** under File > Preferences (Code > Preferences on macOS) and select the language**
+
+## Requirements
+ * Visual Studio Code 
 
 ## Resources
 
