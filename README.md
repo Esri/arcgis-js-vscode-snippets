@@ -8,7 +8,7 @@ Collection of Visual Studio Code snippets for common code patterns and a Visual 
 
 | Prefix | Description                                                                                                                                                                               |
 | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| getApi | Add the css and javascript for the Esri ArcGIS API for JavaScript from the CDN. This snippet also stubs out the package paths that point to an app folder that can contain the js and ts. |
+| getApi | Add the css and javascript for the Esri ArcGIS API for JavaScript from the CDN. This snippet also stubs out the package paths. |
 
 ### [JavaScript snippets](snippets/javascript.json)
 
