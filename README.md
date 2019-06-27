@@ -4,13 +4,13 @@ Collection of Visual Studio Code snippets for common code patterns and a Visual 
 
 ## Features
 
-### [HTML snippets](html.json)
+### [HTML snippets](snippets/html.json)
 
 | Prefix | Description                                                                                                                                                                               |
 | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | getApi | Add the css and javascript for the Esri ArcGIS API for JavaScript from the CDN. This snippet also stubs out the package paths that point to an app folder that can contain the js and ts. |
 
-### [JavaScript snippets](javascript.json)
+### [JavaScript snippets](snippets/javascript.json)
 
 | Prefix                 | Description                                                                                                                                                                                                   |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -71,7 +71,7 @@ Collection of Visual Studio Code snippets for common code patterns and a Visual 
 | background             | Creates an environment object for changing the background of a scene. It should be set on a SceneView and it contains a placeholder for color.                                                               |
 
 
-### [JSON snippets](json.json)
+### [JSON snippets](snippets/json.json)
 
 | Prefix        | Description           |
 | ------------- | --------------------- |
@@ -79,7 +79,7 @@ Collection of Visual Studio Code snippets for common code patterns and a Visual 
 | tsconfigBasic | Simple tsconfig file  |
 
 
-### [TSX snippets](typescriptreact.json)
+### [TSX snippets](snippets/typescriptreact.json)
 
 | Prefix             | Description                                                                                                      |
 | ------------------ | ---------------------------------------------------------------------------------------------------------------- |
@@ -93,7 +93,8 @@ Collection of Visual Studio Code snippets for common code patterns and a Visual 
 Initial release of the ArcGIS API for JavaScript snippet extension.
 
 ## Instructions 
-  * Install the extension using the ***Install from VSIX*** command in Visual Studio Code then navigate to extension/arcgis-jsapi-snippets/arcgis-jsapi-snippets-1.0.0.vsix
+  * [Visual Studio Code marketplace](https://marketplace.visualstudio.com/items?itemName=Esri.arcgis-jsapi-snippets)
+  * Install the extension using the ***Install from VSIX*** command in Visual Studio Code then import the arcgis-jsapi-snippets-1.0.0.vsix file.
   * Or copy/paste the snippets you want to use into the appropriate snippet file. To open the snippet files in Visual Studio Code select **User Snippets** under File > Preferences (Code > Preferences on macOS) and select the language**
 
 ## Requirements
