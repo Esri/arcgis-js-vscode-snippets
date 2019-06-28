@@ -3,7 +3,7 @@
   "Get the API": {
     "prefix": "getApi",
     "body": [
-      "<link rel=\"stylesheet\" href=\"https://js.arcgis.com/${1|4.11,4.10|}/esri/css/main.css\">",
+      "<link rel=\"stylesheet\" href=\"https://js.arcgis.com/${1|4.12,4.11|}/esri/css/main.css\">",
       "<script>",
       "\tvar locationPath = location.pathname.replace(/\\/[^\\/]+$/,\"\");",
       "\twindow.dojoConfig = {",
@@ -15,7 +15,7 @@
       "\t]",
       "\t}",
       "</script>",
-      "<script src=\"https://js.arcgis.com/${2|4.11, 4.10|}\"></script>"
+      "<script src=\"https://js.arcgis.com/${2|4.12,4.11|}\"></script>"
     ],
     "description": "Add script and link tags for jsapi"
   }
