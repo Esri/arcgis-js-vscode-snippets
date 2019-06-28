@@ -1,6 +1,19 @@
 # arcgis-jsapi-snippets README
 
-Collection of Visual Studio Code snippets for common code patterns and a Visual Studio Code extension (in the extension folder) that you can view in [Visual Studio Code marketplace](https://marketplace.visualstudio.com/items?itemName=Esri.arcgis-jsapi-snippets)
+Collection of VSCode snippets for common code patterns with [ArcGIS API for JavaScript](https://developers.arcgis.com/javascript/) and a VSCode extension (in the extension folder) that you can view in [VSCode marketplace](https://marketplace.visualstudio.com/items?itemName=Esri.arcgis-jsapi-snippets).
+
+## How to use it
+
+To install this extension you need to have VSCode version 1.35 or higher.
+
+After installing type in the prefix for the code snippet followed by the `Tab` key:
+
+![example](./images/code-snippets.gif)
+
+- make sure to have `"editor.tabCompletion": "on"` in the settings (`Preferences` > `Open Settings(JSON)`)
+- if pressing Tab doesn't work then you might have several snippets with the same prefix. Press `Ctrl-Space` (`Cmd-Space` on mac) to select the one you need.
+
+Read more about this feature in the official [VSCode documentation](https://code.visualstudio.com/docs/editor/userdefinedsnippets).
 
 ## Features
 
@@ -92,13 +105,13 @@ Collection of Visual Studio Code snippets for common code patterns and a Visual 
 
 Initial release of the ArcGIS API for JavaScript snippet extension.
 
-## Instructions 
+## Instructions
   * [Visual Studio Code marketplace](https://marketplace.visualstudio.com/items?itemName=Esri.arcgis-jsapi-snippets)
   * Install the extension using the ***Install from VSIX*** command in Visual Studio Code then import the arcgis-jsapi-snippets-1.0.0.vsix file.
   * Or copy/paste the snippets you want to use into the appropriate snippet file. To open the snippet files in Visual Studio Code select **User Snippets** under File > Preferences (Code > Preferences on macOS) and select the language**
 
 ## Requirements
- * Visual Studio Code 
+ * Visual Studio Code
 
 ## Resources
 
