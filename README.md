@@ -19,8 +19,8 @@ Read more about this feature in the official [VSCode documentation](https://code
 
 ### [HTML snippets](snippets/html.json)
 
-| Prefix | Description                                                                                                                                                                               |
-| ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Prefix | Description                                                                                                                    |
+| ------ | ------------------------------------------------------------------------------------------------------------------------------ |
 | getApi | Add the css and javascript for the Esri ArcGIS API for JavaScript from the CDN. This snippet also stubs out the package paths. |
 
 ### [JavaScript snippets](snippets/javascript.json)
