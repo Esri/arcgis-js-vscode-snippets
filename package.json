@@ -28,7 +28,7 @@
       "language": "json",
       "path": "./snippets/json.json"
     }, {
-      "language": "typesccript",
+      "language": "typescript",
       "path": "./snippets/typescript.json"
     }, {
       "language": "typescriptreact",
