@@ -53,7 +53,7 @@ Read more about this feature in the official [VSCode documentation](https://code
 | background             | Creates an environment object for changing the background of a scene. It should be set on a SceneView and it contains a placeholder for color.                                                                |
 
 
-### [TypeScript snippets](typescript.json)
+### [TypeScript snippets](snippets/typescript.json)
 
 | Prefix                 | Description                                                                                                                                                                                                  |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
