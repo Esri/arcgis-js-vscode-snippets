@@ -240,14 +240,14 @@
     "body": [
       "new LineSymbol3D({",
       "\tsymbolLayers: [new PathSymbol3DLayer({",
-        "\t\tprofile: \"${1|circle,quad|}\",",
-        "\t\tmaterial: { color: ${2:[255, 250, 239, 0.8]} },",
-        "\t\twidth: ${3:15},",
-        "\t\theight: ${3:15},",
-        "\t\tjoin: \"${4|miter,bevel,round|}\",",
-        "\t\tcap: \"${5|butt,square,round,none|}\",",
-        "\t\tanchor: \"${6|bottom,center|}\",",
-        "\t\tprofileRotation: \"${7|all,heading|}\"",
+      "\t\tprofile: \"${1|circle,quad|}\",",
+      "\t\tmaterial: { color: ${2:[255, 250, 239, 0.8]} },",
+      "\t\twidth: ${3:15},",
+      "\t\theight: ${3:15},",
+      "\t\tjoin: \"${4|miter,bevel,round|}\",",
+      "\t\tcap: \"${5|butt,square,round,none|}\",",
+      "\t\tanchor: \"${6|bottom,center|}\",",
+      "\t\tprofileRotation: \"${7|all,heading|}\"",
       "\t})]",
       "})"
     ],
@@ -298,7 +298,6 @@
       "})"
     ]
   },
-
   "SolidEdges": {
     "prefix": "solidEdges",
     "body": [
@@ -308,7 +307,6 @@
       "})"
     ]
   },
-
   "CalloutSmall": {
     "prefix": "calloutSmall",
     "body": [
@@ -328,7 +326,6 @@
     ],
     "description": "Generate callouts for city scale"
   },
-
   "CalloutLarge": {
     "prefix": "calloutLarge",
     "body": [
@@ -375,5 +372,125 @@
       "}"
     ],
     "description": "Change the background of a scene"
+  },
+  "SimpleMarkerSymbol": {
+    "prefix": "sms",
+    "body": [
+      "const sms = new SimpleMarkerSymbol({",
+      "  color: [255, 255, 255, 0.25],",
+      "  size: 12,",
+      "  style: \"${1|circle,square,cross,x,diamond,triangle,path|}\",",
+      "  outline: {",
+      "    width: 1,",
+      "    color: [255, 255, 255, 1]",
+      "  }",
+      "});"
+    ],
+    "description": "Create a SimpleMarkerSymbol"
+  },
+  "PictureMarkerSymbol": {
+    "prefix": "pms",
+    "body": [
+      "const pms = new PictureMarkerSymbol({",
+      "  url: \"image-url\",",
+      "  height: 12,",
+      "  width: 12",
+      "});"
+    ],
+    "description": "Create a PictureMarkerSymbol"
+  },
+  "SimpleLineSymbol": {
+    "prefix": "sls",
+    "body": [
+      "const sls = new SimpleLineSymbol({",
+      "  width: 1,",
+      "  color: [255, 255, 255, 1],",
+      "  style: \"${1|solid,dash,dash-dot,dot,long-dash,long-dash-dot,long-dash-dot-dot,none,short-dash,short-dash-dot,short-dash-dot-dot,short-dot|}\",",
+      "  cap: \"${2|round,butt,square|}\",",
+      "  join: \"${3|round,miter,bevel|}\"",
+      "});"
+    ],
+    "description": "Create a SimpleLineSymbol"
+  },
+  "SimpleFillSymbol": {
+    "prefix": "sfs",
+    "body": [
+      "const sfs = new SimpleFillSymbol({",
+      "  color: [0, 0, 0, 0.25],",
+      "  style: \"${1|solid,backward-diagonal,cross,diagonal-cross,forward-diagonal,horizontal,none,vertical|}\",",
+      "  outline: {",
+      "    width: 1,",
+      "    color: [255, 255, 255, 1]",
+      "  }",
+      "});"
+    ],
+    "description": "Create a SimpleFillSymbol"
+  },
+  "PictureFillSymbol": {
+    "prefix": "pfs",
+    "body": [
+      "const pfs = new PictureFillSymbol({",
+      "  url: \"image-url\",",
+      "  width: 12,",
+      "  height: 12,",
+      "  xoffset: 0,",
+      "  yoffset: 0",
+      "});"
+    ]
+  },
+  "FeatureReductionCluster": {
+    "prefix": "clusterConfig",
+    "body": [
+      "const featureReduction = new FeatureReductionCluster({",
+      "  clusterRadius: 60,",
+      "  clusterMinSize: 16.5,",
+      "  clusterMaxSize: 37.5,",
+      "  popupTemplate: new PopupTemplate({",
+      "    title: \"Cluster summary\",",
+      "    content: \"This cluster represents <b>{cluster_count}</b> features.\",",
+      "    fieldInfos: [{",
+      "      fieldName: \"cluster_count\",",
+      "      label: \"Number of features\",",
+      "      format: {",
+      "        digitSeparator: true,",
+      "        places: 0",
+      "      }",
+      "    }]",
+      "  }),",
+      "  popupEnabled: true,",
+      "  labelingInfo: [new LabelClass({",
+      "    deconflictionStrategy: \"none\",",
+      "    labelExpressionInfo: {",
+      "      expression: `",
+      "        \\$feature[\"cluster_count\"];",
+      "        var value = \\$feature[\"cluster_count\"];",
+      "        var num = Count(Text(Round(value)));",
+      "        var label = When(",
+      "          num < 4, Text(value, \"#.#\"),",
+      "          num == 4, Text(value / Pow(10, 3), \"#.0k\"),",
+      "          num <= 6, Text(value / Pow(10, 3), \"#k\"),",
+      "          num == 7, Text(value / Pow(10, 6), \"#.0m\"),",
+      "          num > 7, Text(value / Pow(10, 6), \"#m\"),",
+      "          Text(value, \"#,###\")",
+      "        );",
+      "        return label;",
+      "      `",
+      "    },",
+      "    symbol: new TextSymbol({",
+      "      color: \"rgba(240,240,240,1)\",",
+      "      haloColor: \"rgba(55,56,55,1)\",",
+      "      haloSize: 0.75,",
+      "      font: {",
+      "        weight: \"bold\",",
+      "        family: \"Noto Sans\",",
+      "        size: \"12px\"",
+      "      }",
+      "    }),",
+      "    labelPlacement: \"center-center\",",
+      "  })],",
+      "  labelsVisible: true",
+      "});"
+    ],
+    "description": "Enable clustering on a layer"
   }
 }
