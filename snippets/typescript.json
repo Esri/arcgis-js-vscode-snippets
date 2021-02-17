@@ -177,7 +177,7 @@
   },
   "FeatureReductionCluster": {
     "body": [
-      "const featureReduction = new FeatureReductionCluster({",
+      "new FeatureReductionCluster({",
       "  clusterRadius: 60,",
       "  clusterMinSize: 16.5,",
       "  clusterMaxSize: 37.5,",
@@ -355,7 +355,7 @@
   },
   "PictureFillSymbol": {
     "body": [
-      "const pfs = new PictureFillSymbol({",
+      "new PictureFillSymbol({",
       "  url: \"image-url\",",
       "  width: 12,",
       "  height: 12,",
@@ -367,7 +367,7 @@
   },
   "PictureMarkerSymbol": {
     "body": [
-      "const pms = new PictureMarkerSymbol({",
+      "new PictureMarkerSymbol({",
       "  url: \"image-url\",",
       "  height: 12,",
       "  width: 12",
@@ -392,7 +392,7 @@
   },
   "SimpleFillSymbol": {
     "body": [
-      "const sfs = new SimpleFillSymbol({",
+      "new SimpleFillSymbol({",
       "  color: [0, 0, 0, 0.25],",
       "  style: \"${1|solid,backward-diagonal,cross,diagonal-cross,forward-diagonal,horizontal,none,vertical|}\",",
       "  outline: {",
@@ -406,7 +406,7 @@
   },
   "SimpleLineSymbol": {
     "body": [
-      "const sls = new SimpleLineSymbol({",
+      "new SimpleLineSymbol({",
       "  width: 1,",
       "  color: [255, 255, 255, 1],",
       "  style: \"${1|solid,dash,dash-dot,dot,long-dash,long-dash-dot,long-dash-dot-dot,none,short-dash,short-dash-dot,short-dash-dot-dot,short-dot|}\",",
@@ -419,7 +419,7 @@
   },
   "SimpleMarkerSymbol": {
     "body": [
-      "const sms = new SimpleMarkerSymbol({",
+      "new SimpleMarkerSymbol({",
       "  color: [255, 255, 255, 0.25],",
       "  size: 12,",
       "  style: \"${1|circle,square,cross,x,diamond,triangle,path|}\",",

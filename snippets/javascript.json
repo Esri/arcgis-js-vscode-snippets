@@ -184,7 +184,7 @@
   },
   "FeatureReductionCluster": {
     "body": [
-      "const featureReduction = {",
+      "{",
       "  type: \"cluster\",",
       "  clusterRadius: 60,",
       "  clusterMinSize: 16.5,",
@@ -379,7 +379,7 @@
   },
   "PictureFillSymbol": {
     "body": [
-      "const pfs = {",
+      "{",
       "  type: \"picture-fill\",",
       "  url: \"image-url\",",
       "  width: 12,",
@@ -393,7 +393,7 @@
   },
   "PictureMarkerSymbol": {
     "body": [
-      "const pms = {",
+      "{",
       "  type: \"picture-marker\",",
       "  url: \"image-url\",",
       "  height: 12,",
@@ -428,7 +428,7 @@
   },
   "SimpleFillSymbol": {
     "body": [
-      "const sfs = {",
+      "{",
       "  type: \"simple-fill\",",
       "  color: [0, 0, 0, 0.25],",
       "  style: \"${1|solid,backward-diagonal,cross,diagonal-cross,forward-diagonal,horizontal,none,vertical|}\",",
@@ -443,7 +443,7 @@
   },
   "SimpleLineSymbol": {
     "body": [
-      "const sls = {",
+      "{",
       "  type: \"simple-line\",",
       "  width: 1,",
       "  color: [255, 255, 255, 1],",
@@ -457,7 +457,7 @@
   },
   "SimpleMarkerSymbol": {
     "body": [
-      "const sms = {",
+      "{",
       "  type: \"simple-marker\",",
       "  color: [255, 255, 255, 0.25],",
       "  size: 12,",
