@@ -13,12 +13,5 @@ All notable changes to the "arcgis-jsapi-snippets" extension will be documented 
 ## [Version 1.1.1]
 
 - Add latest versions to the getAPI snippet
-- Fix typo in package.json
+- fix typo in package.json
 - Update tsconfig snippet to include ```importHelpers``` and ```moduleResolution```
-
-## [Version 1.1.2]
-
-- Updates JavaScript and TypeScript files with new snippets for `SimpleMarkerSymbol`, `PictureMarkerSymbol`, `SimpleLineSymbol`, `SimpleFillSymbol`, `PictureFillSymbol`, `WaterSymbol3DLayer` and `FeatureReductionCluster`
-- Added new `pattern` property on `FillSymbol3DLayer` in both JavaScript and TypeScript snippets
-- Fixed missing comma in JavaScript `edges` snippet
-- Added latest versions to the getAPI snippet
