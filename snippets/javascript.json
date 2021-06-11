@@ -344,6 +344,13 @@
     "description": "Generate LineSymbol3D with a LineSymbol3DLayer",
     "prefix": "line"
   },
+  "List map styles":{
+    "prefix": "basemapStyle",
+    "body":[
+      "\"${1|arcgis-imagery,arcgis-imagery-standard,arcgis-imagery-labels,arcgis-light-gray,arcgis-dark-gray,arcgis-navigation,arcgis-navigation-night,arcgis-streets,arcgis-streets-night,arcgis-streets-relief,arcgis-topographic,arcgis-oceans,osm-standard,osm-standard-relief,osm-streets,osm-streets-relief,osm-light-gray,osm-dark-gray,arcgis-terrain,arcgis-community,arcgis-charted-territory,arcgis-colored-pencil,arcgis-nova,arcgis-modern-antique,arcgis-midcentury,arcgis-newspaper,arcgis-hillshade-light,arcgis-hillshade-dark|}\""
+    ],
+    "description": "List map styles"
+  },
   "ObjectPoint3D": {
     "body": [
       "{",

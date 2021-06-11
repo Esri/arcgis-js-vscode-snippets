@@ -15,9 +15,45 @@
       "\t]",
       "\t}",
       "</script>",
-      "<script src=\"https://js.arcgis.com/${2|4.18,4.17,4.16,4.15,4.14|}\"></script>"
+      "<script src=\"https://js.arcgis.com/${2|4.19,4.18,4.17,4.16,4.15,4.14|}\"></script>"
     ],
     "description": "Add script and link tags for jsapi"
+  },
+  "Import ESM modules":{
+    "prefix": "importESM",
+    "body": [
+      "<link rel=\"stylesheet\" href=\"https://js.arcgis.com/${2|4.19,4.18|}/esri/themes/light/main.css\">",
+      "<style type=\"text/css\">",
+      "\thtml,",
+      "\tbody,",
+      "\t#viewDiv {",
+      "\t\tmargin: 0;",
+      "\t\tpadding: 0;",
+      "\t\twidth: 100%;",
+      "\t\theight: 100%;",
+      "\t}",
+      "</style>",
+      "<script type=\"module\">",
+      "\timport MapView from \"https://js.arcgis.com/${2|4.19,4.18|}/@arcgis/core/views/MapView.js\";", 
+      "\timport esriConfig from \"https://js.arcgis.com/${2|4.19,4.18|}/@arcgis/core/config.js\";", 
+      "\t", 
+      "\tesriConfig.apiKey = \"YOUR_FREE_API_KEY_FROM_DEVELOPERS.ARCGIS.COM\";", 
+      "\t", 
+      "\tconst view = new MapView({", 
+      "\t\tcontainer: \"viewDiv\",", 
+      "\t\tmap: {", 
+      "\t\t\tbasemap: \"arcgis-newspaper\"", 
+      "\t\t},", 
+      "\t\tcenter: {", 
+      "\t\t\tlatitude: 40.7353,", 
+      "\t\t\tlongitude: -3.149945", 
+      "\t\t},", 
+      "\t\tzoom: 5", 
+      "\t});",
+      "</script>",
+      "<div id=\"viewDiv\"></div>"
+    ],
+    "description": "Import ESM Modules"
   }
 
 }
