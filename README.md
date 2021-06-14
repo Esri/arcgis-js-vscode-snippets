@@ -22,6 +22,7 @@ Read more about this feature in the official [VSCode documentation](https://code
 | Prefix | Description                                                                                                                    |
 | ------ | ------------------------------------------------------------------------------------------------------------------------------ |
 | getApi | Add the css and javascript for the Esri ArcGIS API for JavaScript from the CDN. This snippet also stubs out the package paths. |
+| calcite| Add the css and javascript for the Esri Calcite Design System from the CDN. |
 
 ### [JavaScript snippets](snippets/javascript.json)
 
