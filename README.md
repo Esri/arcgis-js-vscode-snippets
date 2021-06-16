@@ -113,7 +113,14 @@ Read more about this feature in the official [VSCode documentation](https://code
 | widgetStarter      | Basic starter for creating an esri widget. Contains placeholders for the widget name and default css class name. |
 | renderableProperty | Add a renderable property. Contains placeholder for the property name.                                           |
 | constructor        | Add a constructor                                                                                                |
+
 ## Release Notes
+
+### 1.0.1
+
+Adding new snippets:
+
+* JavaScript: `basemapStyle`
 
 ### 1.0.0
 
