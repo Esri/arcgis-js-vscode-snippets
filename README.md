@@ -22,7 +22,6 @@ Read more about this feature in the official [VSCode documentation](https://code
 | Prefix | Description                                                                                                                    |
 | ------ | ------------------------------------------------------------------------------------------------------------------------------ |
 | getApi | Add the css and javascript for the Esri ArcGIS API for JavaScript from the CDN. This snippet also stubs out the package paths. |
-| importESM| Add the css and javascript (using ES Modules) for the Esri ArcGIS API for JavaScript from the CDN.
 
 ### [JavaScript snippets](snippets/javascript.json)
 
