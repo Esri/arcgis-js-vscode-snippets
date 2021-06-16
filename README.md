@@ -116,12 +116,6 @@ Read more about this feature in the official [VSCode documentation](https://code
 
 ## Release Notes
 
-### 1.0.1
-
-Adding new snippets:
-
-* JavaScript: `basemapStyle`
-
 ### 1.0.0
 
 Initial release of the ArcGIS API for JavaScript snippet extension.
