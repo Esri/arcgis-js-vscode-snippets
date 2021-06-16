@@ -22,3 +22,8 @@ All notable changes to the "arcgis-jsapi-snippets" extension will be documented 
 - Added new `pattern` property on `FillSymbol3DLayer` in both JavaScript and TypeScript snippets
 - Fixed missing comma in JavaScript `edges` snippet
 - Added latest versions to the getAPI snippet
+
+## [Version 1.1.3]
+
+- Adding `basemapStyle` snippet
+- Added latest versions to the getAPI snippet
