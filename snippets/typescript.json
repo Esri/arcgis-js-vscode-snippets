@@ -85,8 +85,6 @@
   },
   "CreateMap": {
     "body": [
-      "import Map = require(\"esri/Map\");",
-      "import MapView = require(\"esri/views/MapView\");",
       "const map = new Map({",
       "\tbasemap: \"${1:streets}\"",
       "});",
@@ -102,8 +100,6 @@
   },
   "CreateScene": {
     "body": [
-      "import Map = require(\"esri/Map\");",
-      "import SceneView = require(\"esri/views/SceneView\");",
       "const map = new Map({",
       "\tbasemap:\"${1:streets}\"",
       "});",
@@ -117,8 +113,6 @@
   },
   "CreateWebMap": {
     "body": [
-      "import WebMap = require(\"esri/WebMap\");",
-      "import MapView = require(\"esri/views/MapView\");",
       "const map = new WebMap({",
       "\tportalItem:{",
       "\t\tid: \"${1:6a7794164bc3428692fa771cd04c0d4b}\"",
@@ -134,8 +128,6 @@
   },
   "CreateWebScene": {
     "body": [
-      "import WebScene = require(\"esri/WebScene\");",
-      "import SceneView = require(\"esri/views/SceneView\");",
       "const map = new WebScene({",
       "\tportalItem:{",
       "\t\tid: \"${1:3a9976baef9240ab8645ee25c7e9c096}\"",
@@ -199,9 +191,9 @@
       "\t\tlabelExpressionInfo: {",
       "\t\t\texpression: `",
       "\t\t\t\t\\$feature[\"cluster_count\"];",
-      "\t\t\t\tvar value = \\$feature[\"cluster_count\"];",
-      "\t\t\t\tvar num = Count(Text(Round(value)));",
-      "\t\t\t\tvar label = When(",
+      "\t\t\t\tconst value = \\$feature[\"cluster_count\"];",
+      "\t\t\t\tconst num = Count(Text(Round(value)));",
+      "\t\t\t\tconst label = When(",
       "\t\t\t\t\tnum < 4, Text(value, \"#.#\"),",
       "\t\t\t\t\tnum == 4, Text(value / Pow(10, 3), \"#.0k\"),",
       "\t\t\t\t\tnum <= 6, Text(value / Pow(10, 3), \"#k\"),",
@@ -434,7 +426,7 @@
       "});"
     ],
     "description": "Create a SimpleMarkerSymbol",
-    "prefix": "sms"
+    "prefix": "simplemarkersymbol"
   },
   "SimpleRenderer": {
     "body": [
