@@ -58,7 +58,7 @@ Read more about this feature in the official [VSCode documentation](https://code
 | calloutLarge           | Generates the verticalOffset for a globe scale level and the callout property. They should be set on PointSymbol3D or LabelSymbol3D. Contains placeholders for size, color and border color.                  |
 | elevationInfo          | Creates an object for elevationInfo to be set on layers. Contains placeholders for mode, offset, arcade driven expression and unit.                                                                           |
 | background             | Creates an environment object for changing the background of a scene. It should be set on a SceneView and it contains a placeholder for color.                                                                |
-
+| basemapStyle           | List all basemap strings                   |
 
 ### [TypeScript snippets](snippets/typescript.json)
 
@@ -113,6 +113,7 @@ Read more about this feature in the official [VSCode documentation](https://code
 | widgetStarter      | Basic starter for creating an esri widget. Contains placeholders for the widget name and default css class name. |
 | renderableProperty | Add a renderable property. Contains placeholder for the property name.                                           |
 | constructor        | Add a constructor                                                                                                |
+
 ## Release Notes
 
 ### 1.0.0
