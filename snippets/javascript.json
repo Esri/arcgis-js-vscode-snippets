@@ -87,10 +87,10 @@
   },
   "CreateMap": {
     "body": [
-      "var map = new Map({",
+      "const map = new Map({",
       "\tbasemap: \"${1:streets}\"",
       "});",
-      "var view = new MapView({",
+      "const view = new MapView({",
       "\tcontainer:${2:\"viewDiv\"},",
       "\tmap:map,",
       "\tzoom: ${3: 4},",
@@ -102,10 +102,10 @@
   },
   "CreateScene": {
     "body": [
-      "var map = new Map({",
+      "const map = new Map({",
       "\tbasemap: \"${1:streets}\"",
       "});",
-      "var view = new SceneView({",
+      "const view = new SceneView({",
       "\tcontainer: \"${2:viewDiv}\",",
       "\tmap:map",
       "});"
@@ -115,12 +115,12 @@
   },
   "CreateWebMap": {
     "body": [
-      "var webmap = new WebMap({",
+      "const webmap = new WebMap({",
       "\tportalItem: {",
       "\t\tid: \"${1:webmap_id}\"",
       "\t}",
       "});",
-      "var view = new MapView({",
+      "const view = new MapView({",
       "\tcontainer: \"${2:viewDiv}\",",
       "\tmap: webmap",
       "});"
@@ -130,12 +130,12 @@
   },
   "CreateWebScene": {
     "body": [
-      "var webscene = new WebScene({",
+      "const webscene = new WebScene({",
       "\tportalItem: {",
       "\t\tid: \"${1:webscene_id}\"",
       "\t}",
       "});",
-      "var view = new SceneView({",
+      "const view = new SceneView({",
       "\tcontainer: \"${2:viewDiv}\",",
       "\tmap: webscene",
       "});"
@@ -207,9 +207,9 @@
       "\t\tlabelExpressionInfo: {",
       "\t\t\texpression: `",
       "\t\t\t\t\\$feature[\"cluster_count\"];",
-      "\t\t\t\tvar value = \\$feature[\"cluster_count\"];",
-      "\t\t\t\tvar num = Count(Text(Round(value)));",
-      "\t\t\t\tvar label = When(",
+      "\t\t\t\tconst value = \\$feature[\"cluster_count\"];",
+      "\t\t\t\tconst num = Count(Text(Round(value)));",
+      "\t\t\t\tconst label = When(",
       "\t\t\t\t\tnum < 4, Text(value, \"#.#\"),",
       "\t\t\t\t\tnum == 4, Text(value / Pow(10, 3), \"#.0k\"),",
       "\t\t\t\t\tnum <= 6, Text(value / Pow(10, 3), \"#k\"),",
@@ -344,9 +344,9 @@
     "description": "Generate LineSymbol3D with a LineSymbol3DLayer",
     "prefix": "line"
   },
-  "List map styles":{
+  "List map styles": {
     "prefix": "basemapStyle",
-    "body":[
+    "body": [
       "\"${1|arcgis-imagery,arcgis-imagery-standard,arcgis-imagery-labels,arcgis-light-gray,arcgis-dark-gray,arcgis-navigation,arcgis-navigation-night,arcgis-streets,arcgis-streets-night,arcgis-streets-relief,arcgis-topographic,arcgis-oceans,osm-standard,osm-standard-relief,osm-streets,osm-streets-relief,osm-light-gray,osm-dark-gray,arcgis-terrain,arcgis-community,arcgis-charted-territory,arcgis-colored-pencil,arcgis-nova,arcgis-modern-antique,arcgis-midcentury,arcgis-newspaper,arcgis-hillshade-light,arcgis-hillshade-dark|}\""
     ],
     "description": "List map styles"
