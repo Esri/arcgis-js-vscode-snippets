@@ -27,3 +27,9 @@ All notable changes to the "arcgis-jsapi-snippets" extension will be documented 
 
 - Adding `basemapStyle` snippet
 - Added latest versions to the getAPI snippet
+
+## [Version 1.1.4]
+
+- Added React Map snippet
+- Added Calcite snippet 
+- Added latest versions to the getAPI snippet
