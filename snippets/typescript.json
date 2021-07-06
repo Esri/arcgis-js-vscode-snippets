@@ -64,7 +64,7 @@
       "})"
     ],
     "description": "Generate a ClassBreaksRenderer",
-    "prefix": "classBreaks"
+    "prefix": "classBreaksRenderer"
   },
   "ColorVisualVariable": {
     "body": [
@@ -165,7 +165,7 @@
       "})"
     ],
     "description": "Generate PolygonSymbol3D with a ExtrudeSymbol3DLayer",
-    "prefix": "extrude"
+    "prefix": "extrudePolygon3d"
   },
   "FeatureReductionCluster": {
     "body": [
@@ -231,7 +231,7 @@
       "})"
     ],
     "description": "Generate MeshSymbol3D with a FillSymbol3DLayer",
-    "prefix": "mesh"
+    "prefix": "fillMesh3d"
   },
   "FillPolygon3D": {
     "body": [
@@ -247,7 +247,7 @@
       "})"
     ],
     "description": "Generate PolygonSymbol3D with a FillSymbol3DLayer",
-    "prefix": "fill"
+    "prefix": "fillPolygon3d"
   },
   "IconPoint3D": {
     "body": [
@@ -260,7 +260,7 @@
       "})"
     ],
     "description": "Generate PointSymbol3D with a IconSymbol3DLayer",
-    "prefix": "icon"
+    "prefix": "iconPoint3d"
   },
   "LabelingInfo2D": {
     "body": [
@@ -304,7 +304,7 @@
     "description": "Generate 3D labelingInfo for a layer",
     "prefix": "labeling3d"
   },
-  "Line3D": {
+  "LineSymbol3D": {
     "body": [
       "new LineSymbol3D({",
       "\tsymbolLayers: [new LineSymbol3DLayer({",
@@ -314,7 +314,7 @@
       "})"
     ],
     "description": "Generate LineSymbol3D with a LineSymbol3DLayer",
-    "prefix": "line"
+    "prefix": "lineSymbol3d"
   },
   "ObjectPoint3D": {
     "body": [
@@ -329,7 +329,7 @@
       "})"
     ],
     "description": "Generate PointSymbol3D with a ObjectSymbol3DLayer",
-    "prefix": "object"
+    "prefix": "objectPoint3d"
   },
   "Path3D": {
     "body": [
@@ -347,7 +347,7 @@
       "})"
     ],
     "description": "Generate LineSymbol3D with a PathSymbol3DLayer",
-    "prefix": "path"
+    "prefix": "path3d"
   },
   "PictureFillSymbol": {
     "body": [
@@ -359,7 +359,7 @@
       "\tyoffset: 0",
       "});"
     ],
-    "prefix": "pfs"
+    "prefix": "pictureFillSymbol"
   },
   "PictureMarkerSymbol": {
     "body": [
@@ -370,7 +370,7 @@
       "});"
     ],
     "description": "Create a PictureMarkerSymbol",
-    "prefix": "pms"
+    "prefix": "pictureMarkerSymbol"
   },
   "SceneBackground": {
     "body": [
@@ -384,7 +384,7 @@
       "}"
     ],
     "description": "Change the background of a scene",
-    "prefix": "background"
+    "prefix": "sceneBackground"
   },
   "SimpleFillSymbol": {
     "body": [
@@ -398,7 +398,7 @@
       "});"
     ],
     "description": "Create a SimpleFillSymbol",
-    "prefix": "sfs"
+    "prefix": "simpleFillSymbol"
   },
   "SimpleLineSymbol": {
     "body": [
@@ -411,7 +411,7 @@
       "});"
     ],
     "description": "Create a SimpleLineSymbol",
-    "prefix": "sls"
+    "prefix": "simpleLineSymbol"
   },
   "SimpleMarkerSymbol": {
     "body": [
@@ -426,7 +426,7 @@
       "});"
     ],
     "description": "Create a SimpleMarkerSymbol",
-    "prefix": "simplemarkersymbol"
+    "prefix": "simpleMarkerSymbol"
   },
   "SimpleRenderer": {
     "body": [
@@ -435,7 +435,7 @@
       "})"
     ],
     "description": "Generate a SimpleRenderer",
-    "prefix": "simple"
+    "prefix": "simpleRenderer"
   },
   "SizeVisualVariable": {
     "body": [
@@ -487,10 +487,10 @@
       "})"
     ],
     "description": "Generate a UniqueValueRenderer",
-    "prefix": "uniqueValue"
+    "prefix": "uniqueValueRenderer"
   },
   "WaterSymbol3DLayer": {
-    "prefix": "water",
+    "prefix": "waterSymbol3dLayer",
     "body": [
       "new PolygonSymbol3D({",
       "\ttype: \"polygon-3d\",",
