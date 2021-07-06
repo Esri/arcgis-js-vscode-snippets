@@ -18,6 +18,15 @@
       "<script src=\"https://js.arcgis.com/${2|4.19,4.18,4.17,4.16,4.15,4.14|}\"></script>"
     ],
     "description": "Add script and link tags for jsapi"
+  },
+  "Get Calcite": {
+    "prefix": "calcite",
+    "body" : [
+      "<script type=\"module\" src=\"https://js.arcgis.com/calcite-components/${1|1.0.0-beta.52,1.0.0-next.218|}/calcite.esm.js\"></script>",
+      "<script nomodule=\"\" src=\"https://js.arcgis.com/calcite-components/${2|1.0.0-beta.52,1.0.0-next.218|}/calcite.js\"></script>",
+      "<link rel=\"stylesheet\" type=\"text/css\" href=\"https://js.arcgis.com/calcite-components/${3|1.0.0-beta.52,1.0.0-next.218|}/calcite.css\" />"
+    ],
+    "description": "Get Calcite library"
   }
   
 }
