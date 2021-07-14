@@ -537,7 +537,7 @@
     "description": "Create PolygonSymbol3D with a WaterSymbol3DLayer"
   },
   "Generate a DotDensity Renderer": {
-    "prefix": "dotdensity",
+    "prefix": "dotDensity",
     "body": [
       "{",
       "\ttype: 'dot-density',",
