@@ -542,5 +542,31 @@
       "}"
     ],
     "description": "Create PolygonSymbol3D with a WaterSymbol3DLayer"
+  },
+  "Generate a DotDensity Renderer": {
+    "prefix": "dotDensity",
+    "body": [
+      "{",
+      "\ttype: 'dot-density',",
+      "\tdotValue: ${1:initialValue},",
+      "\toutline: null,",
+      "\tlegendOptions: {",
+      "\t\tunit: \"${2:unitDot}\"",
+      "\t},",
+      "\tattributes: [",
+      "\t\t{",
+      "\t\t\tfield: \"${3:field_1}\",",
+      "\t\t\tcolor: \"${4:color_1}\",",
+      "\t\t\tlabel: \"${5:label_1}\"",
+      "\t\t},",
+      "\t\t{",
+      "\t\t\tfield: \"${6:field_2}\",",
+      "\t\t\tcolor: \"${7:color_2}\",",
+      "\t\t\tlabel: \"${8:label_2}\"",
+      "\t\t}",
+      "\t]",
+      "}"
+    ],
+    "description": "Generate a DotDensity Renderer"
   }
 }
