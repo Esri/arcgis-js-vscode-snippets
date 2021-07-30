@@ -8,6 +8,8 @@ To install this extension you need to have VSCode version 1.35 or higher.
 
 After installing type in the prefix for the code snippet followed by the `Tab` key:
 
+Another option for working with snippets is to install the [Snippet Viewer](https://marketplace.visualstudio.com/items?itemName=RandomFractalsInc.snippets-viewer) Visual Studio Code extension. This extension adds a new option to the activity bar that lets you quickly browse and insert built-in and custom snippts. 
+
 ![example](./images/code-snippets.gif)
 
 - make sure to have `"editor.tabCompletion": "on"` in the settings (`Preferences` > `Open Settings(JSON)`)
