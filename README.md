@@ -8,6 +8,8 @@ To install this extension you need to have VSCode version 1.35 or higher.
 
 After installing type in the prefix for the code snippet followed by the `Tab` key:
 
+Another option for working with snippets is to install the [Snippet Viewer](https://marketplace.visualstudio.com/items?itemName=RandomFractalsInc.snippets-viewer) Visual Studio Code extension. This extension adds a new option to the activity bar that lets you quickly browse and insert built-in and custom snippts. 
+
 ![example](./images/code-snippets.gif)
 
 - make sure to have `"editor.tabCompletion": "on"` in the settings (`Preferences` > `Open Settings(JSON)`)
@@ -73,6 +75,7 @@ Read more about this feature in the official [VSCode documentation](https://code
 | simple                 | Generates a SimpleRenderer. Contains a placeholder for the symbol.                                                                                                                                           |
 | uniqueValue            | Generates a UniqueValueRenderer. Contains a placeholder for the field, the symbol and it generates a uniqueValueInfos array with placeholers for value, symbol and label for the legend.                     |
 | classBreaks            | Generates a ClassBreaksRenderer. Contains a placeholder for the field, the default symbol and it generates a classBreakInfos array with placeholers for minValue, maxValue, symbol and label for the legend. |
+| dotDensity            | Generates a DotDensityRenderer. Contains a placeholder for the dotValue, the unit, the field, the color and the label. |
 | sizeVar                | Creates a SizeVariable with 2 size stops. The axis property is only used in 3D. It contains placeholders for field, normalizationField, the legend title and the size stop values.                           |
 | colorVar               | Creates a ColorVariable with 2 color stops. It contains placeholders for field, normalizationField, the legend title and the color stop values.                                                              |
 | clusterConfig          | Generates the configuration for clustering in a MapView. This should be set on layers containing point geometry.                                                                                             |
