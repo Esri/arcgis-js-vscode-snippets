@@ -37,7 +37,8 @@
       "\t\t\"module\": \"amd\",",
       "\t\t\"sourceMap\": true,",
       "\t\t\"target\": \"es2019\",",
-      "\t\t\"esModuleInterop\": true",
+      "\t\t\"esModuleInterop\": true,",
+      "\t\t\"jsxFactory\": \"tsx\",",
       "\t}",
       "}"
     ],
