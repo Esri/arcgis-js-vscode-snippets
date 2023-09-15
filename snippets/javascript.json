@@ -239,6 +239,13 @@
     "description": "Enable clustering on a layer",
     "prefix": "clusterConfig"
   },
+  "Find a layer by it's name": {
+    "prefix": "findLayer",
+    "body": [
+      "view.map.layers.find( l => l.title === \"${1:LayerTitle}\" );"
+    ],
+    "description": "Find a layer in the MapView by it's title"
+  },
   "FillMesh3D": {
     "body": [
       "{",
