@@ -351,6 +351,18 @@
     ],
     "description": "List map styles"
   },
+  "Load a MapView (2D)": {
+    "prefix": "MapView",
+    "body": [
+      "new MapView({",
+      "\tcenter: Number[] | Point",
+      "\tcontainer: String | HTMLDivElement,",
+      "\tmap: Map,",
+      "\tzoom: 10",
+      "})"
+    ],
+    "description": "Create an instance of esri/views/MapView."
+  },
   "ObjectPoint3D": {
     "body": [
       "{",
