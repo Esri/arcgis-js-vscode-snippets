@@ -1,30 +1,75 @@
-# arcgis-jsapi-snippets README
+# arcgis-js-vscode-snippets
 
-Collection of VSCode snippets for common code patterns with [ArcGIS API for JavaScript](https://developers.arcgis.com/javascript/) and a VSCode extension (in the extension folder) that you can view in [VSCode marketplace](https://marketplace.visualstudio.com/items?itemName=Esri.arcgis-jsapi-snippets).
+Visual Studio Code extension that contains a collection of snippets for common code patterns with [ArcGIS Maps SDK for JavaScript](https://developers.arcgis.com/javascript/).
 
-## How to use it
 
-To install this extension you need to have VSCode version 1.35 or higher.
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  
 
-After installing type in the prefix for the code snippet followed by the `Tab` key:
+- [Get started](#get-started)
+  - [Prerequisites](#prerequisites)
+  - [Usage](#usage)
+- [Snippets available](#snippets-available)
+  - [HTML snippets](#html-snippets)
+  - [JavaScript snippets](#javascript-snippets)
+  - [TypeScript snippets](#typescript-snippets)
+  - [JSON snippets](#json-snippets)
+  - [TSX snippets](#tsx-snippets)
+- [Issues](#issues)
+- [Contributing](#contributing)
+- [License](#license)
 
-Another option for working with snippets is to install the [Snippet Viewer](https://marketplace.visualstudio.com/items?itemName=RandomFractalsInc.snippets-viewer) Visual Studio Code extension. This extension adds a new option to the activity bar that lets you quickly browse and insert built-in and custom snippts. 
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-![example](./images/code-snippets.gif)
+## Get started
 
-- make sure to have `"editor.tabCompletion": "on"` in the settings (`Preferences` > `Open Settings(JSON)`)
-- if pressing Tab doesn't work then you might have several snippets with the same prefix. Press `Ctrl-Space` (`Cmd-Space` on mac) to select the one you need.
+### Prerequisites
 
-Read more about this feature in the official [VSCode documentation](https://code.visualstudio.com/docs/editor/userdefinedsnippets).
+To use this extension you will need to install:
+1. [Visual Studio Code](https://code.visualstudio.com/download) (version 1.35 or higher).
+2. The extension. There are three possibilities:
+    - From the [Visual Studio Code marketplace](https://marketplace.visualstudio.com/items?itemName=Esri.arcgis-jsapi-snippets).
+    - Using the ***[Install from VSIX](https://code.visualstudio.com/docs/editor/extension-marketplace#_install-from-a-vsix)*** command in Visual Studio Code then import the [arcgis-jsapi-snippets-1.0.0.vsix](./arcgis-jsapi-snippets-1.0.0.vsix) file.
+    - Or copy/paste the snippets you want to use into the appropriate snippet file ([learn more](./CONTRIBUTING.md#how-to-add-new-snippets-using-vs-code-user-snippets)). 
 
-## Features
+### Usage
+
+After installing, there are two ways to use it:
+
+**Option 1**) Using [built-in VS Code Intellisense](https://code.visualstudio.com/docs/languages/javascript#_intellisense):
+1. Start typing the prefix for the code snippet.
+2. Select the snippet by pressing `Tab` or `Enter` key.
+
+<img src="./images/code-snippets.gif" width="400px" alt="Intelissense demo"/>
+
+> **Notes:**
+> - Make sure to have `"editor.tabCompletion": "on"` in the settings (`Preferences` > `Open Settings(JSON)`)
+> - If pressing Tab doesn't work then you might have several snippets with the same prefix. Press `Ctrl-Space` (`Cmd-Space` on mac) to select the one you need.
+>
+> Read more about this feature in the official [VSCode documentation](https://code.visualstudio.com/docs/editor/userdefinedsnippets).
+
+---
+
+**Option 2**) Installing the [Snippet Viewer](https://marketplace.visualstudio.com/items?itemName=RandomFractalsInc.snippets-viewer) extension
+
+This extension adds a new option to the activity bar that lets you quickly browse and insert built-in and custom snippets:
+
+<img src="./images/snippets-viewer.gif" width="700px" alt="Intelissense demo"/>
+
+
+
+
+
+
+## Snippets available
 
 ### [HTML snippets](snippets/html.json)
 
 | Prefix | Description                                                                                                                    |
 | ------ | ------------------------------------------------------------------------------------------------------------------------------ |
-| getApi | Add the css and javascript for the Esri ArcGIS API for JavaScript from the CDN. This snippet also stubs out the package paths. |
-| calcite| Add the css and javascript for the Esri Calcite Design System from the CDN. |
+| getApi | Add the CSS and JavaScript for the Esri ArcGIS Maps SDK for JavaScript from the CDN. This snippet also stubs out the package paths. |
+| calcite| Add the CSS and JavaScript for the Esri Calcite Design System from the CDN. |
 
 ### [JavaScript snippets](snippets/javascript.json)
 
@@ -114,44 +159,24 @@ Read more about this feature in the official [VSCode documentation](https://code
 
 | Prefix             | Description                                                                                                      |
 | ------------------ | ---------------------------------------------------------------------------------------------------------------- |
-| widgetStarter      | Basic starter for creating an esri widget. Contains placeholders for the widget name and default css class name. |
+| widgetStarter      | Basic starter for creating an esri widget. Contains placeholders for the widget name and default CSS class name. |
 | renderableProperty | Add a renderable property. Contains placeholder for the property name.                                           |
 | constructor        | Add a constructor        
 |reactmap             | Create a react map or scene component                                                                           |
 
-## Release Notes
-
-### 1.0.0
-
-Initial release of the ArcGIS API for JavaScript snippet extension.
-
-## Instructions
-  * [Visual Studio Code marketplace](https://marketplace.visualstudio.com/items?itemName=Esri.arcgis-jsapi-snippets)
-  * Install the extension using the ***Install from VSIX*** command in Visual Studio Code then import the arcgis-jsapi-snippets-1.0.0.vsix file.
-  * Or copy/paste the snippets you want to use into the appropriate snippet file. To open the snippet files in Visual Studio Code select **User Snippets** under File > Preferences (Code > Preferences on macOS) and select the language**
-
-## Requirements
- * Visual Studio Code
-
-## Resources
-
-- [ArcGIS for JavaScript API Resource Center](http://help.arcgis.com/en/webapi/javascript/arcgis/index.html)
-- [Visual Studio Code Snippets](https://code.visualstudio.com/docs/editor/userdefinedsnippets#_add-snippets-from-the-marketplace)
-- [VS Code Snippet Generator](https://snippet-generator.app/)
-- [twitter@esri](http://twitter.com/esri)
-- [twitter@arcgisjsapi](http://twitter.com/arcgisjsapi)
-
 ## Issues
 
-Find a bug or want to request a new feature? Please let us know by submitting an issue.
+If something isn't working the way you expected, please take a look at [previously logged issues](https://github.com/Esri/arcgis-js-vscode-snippets/issues/) first. Have you found a new bug? Want to request a new feature? [Open a new issue](https://github.com/Esri/arcgis-js-vscode-snippets/issues/), we'd love to hear from you.
+
+If you're looking for help you can also post issues on Stack Overflow with the "[**esri-oss**](https://stackoverflow.com/questions/tagged/esri-oss)" tag.
 
 ## Contributing
 
-Esri welcomes contributions from anyone and everyone. Please see our [guidelines for contributing](https://github.com/esri/contributing).
+Esri welcomes contributions from anyone and everyone. Please see our [guidelines for contributing](./CONTRIBUTING.md).
 
-## Licensing
+## License
 
-Copyright 2019 Esri
+Copyright 2023 Esri
 
 The snippets are licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -167,5 +192,5 @@ limitations under the License.
 
 A copy of the license is available in the repository's [license.txt](License.txt) file.
 
-Information on the ArcGIS API for JavaScript licensing can be found here: https://developers.arcgis.com/javascript/latest/guide/licensing/.
+Information on the ArcGIS Maps SDK for JavaScript licensing can be found here: https://developers.arcgis.com/javascript/latest/guide/licensing/.
 
