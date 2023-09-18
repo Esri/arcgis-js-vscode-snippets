@@ -10,12 +10,14 @@ Visual Studio Code extension that contains a collection of snippets for common c
 - [Get started](#get-started)
   - [Prerequisites](#prerequisites)
   - [Usage](#usage)
+  - [Configuration](#configuration)
 - [Snippets available](#snippets-available)
   - [HTML snippets](#html-snippets)
   - [JavaScript snippets](#javascript-snippets)
   - [TypeScript snippets](#typescript-snippets)
   - [JSON snippets](#json-snippets)
   - [TSX snippets](#tsx-snippets)
+- [Community snippets](#community-snippets)
 - [Issues](#issues)
 - [Contributing](#contributing)
 - [License](#license)
@@ -28,10 +30,9 @@ Visual Studio Code extension that contains a collection of snippets for common c
 
 To use this extension you will need to install:
 1. [Visual Studio Code](https://code.visualstudio.com/download) (version 1.35 or higher).
-2. The extension. There are three possibilities:
+2. The extension. There are two possibilities:
     - From the [Visual Studio Code marketplace](https://marketplace.visualstudio.com/items?itemName=Esri.arcgis-jsapi-snippets).
     - Using the ***[Install from VSIX](https://code.visualstudio.com/docs/editor/extension-marketplace#_install-from-a-vsix)*** command in Visual Studio Code then import the [arcgis-jsapi-snippets-1.0.0.vsix](./arcgis-jsapi-snippets-1.0.0.vsix) file.
-    - Or copy/paste the snippets you want to use into the appropriate snippet file ([learn more](./CONTRIBUTING.md#how-to-add-new-snippets-using-vs-code-user-snippets)). 
 
 ### Usage
 
@@ -57,10 +58,11 @@ This extension adds a new option to the activity bar that lets you quickly brows
 
 <img src="./images/snippets-viewer.gif" width="700px" alt="Intelissense demo"/>
 
+### Configuration
 
+If you want to create you own custom snippets you can do so. Read [about User defined snippets in Visual Studio official documentation](https://code.visualstudio.com/docs/editor/userdefinedsnippets#_create-your-own-snippets).
 
-
-
+If you do so, please consider [contributing to this repository](#contributing) or join [other developers sharing their snippets](#community-snippets).
 
 ## Snippets available
 
@@ -163,6 +165,10 @@ This extension adds a new option to the activity bar that lets you quickly brows
 | renderableProperty | Add a renderable property. Contains placeholder for the property name.                                           |
 | constructor        | Add a constructor        
 |reactmap             | Create a react map or scene component                                                                           |
+
+## Community snippets
+
+* [github.com/hhkaos/esri-vscode-snippets](https://github.com/hhkaos/esri-vscode-snippets#readme)
 
 ## Issues
 
