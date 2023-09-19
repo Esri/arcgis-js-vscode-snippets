@@ -63,7 +63,8 @@ We accept different type of snippets:
 
 > These [conventions were discussed on issue #21](https://github.com/Esri/arcgis-js-vscode-snippets/issues/21). 
 
-*To be decided*
+* It should be a proper description of what the snippet does, and reuse text from the API reference whenever possible.
+* If it is a snippet related to a class/module include the AMD and ESM paths. For example: `Convert a geometry from Web Mercator units (wkid: 3857) to geographic units (wkid: 4326). AMD path:  esri/geometry/support/webMercatorUtils | ESM path: @arcgis/core/geometry/support/webMercatorUtils.js`
 
 ### `body` conventions
 
