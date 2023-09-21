@@ -1,0 +1,57 @@
+* {
+  box-sizing: border-box;
+}
+#container {
+  width: 1024px;
+  max-width: 80%;
+  margin: 0 auto;
+}
+form {
+  width: 50%;
+}
+#codePreview {
+  width: 50%;
+}
+form,
+#codePreview {
+  float: left;
+  padding: 1rem;
+}
+textarea#body {
+  height: 200px;
+}
+.screenshot {
+  max-width: 100%;
+  width: 500px;
+}
+.text-center {
+  text-align: center;
+}
+calcite-label calcite-icon {
+  float: right;
+}
+calcite-popover div {
+  padding: 1rem;
+  line-height: 1.25rem;
+  max-width: 400px;
+}
+.mt1 {
+  margin-top: 1rem;
+}
+.mt0 {
+  margin-top: 0rem;
+}
+.mb0 {
+  margin-bottom: 0rem;
+}
+
+#footer {
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}
+#ribbon {
+  position: fixed;
+  top: 0;
+  right: 0;
+}
