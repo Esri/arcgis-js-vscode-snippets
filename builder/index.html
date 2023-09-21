@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VS Code Snippets Builder</title>
+    <script
+      type="module"
+      src="https://unpkg.com/@esri/calcite-components/dist/calcite/calcite.esm.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://unpkg.com/@esri/calcite-components/dist/calcite/calcite.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/ocean.min.css"
+    />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js"></script>
+    <script src="https://zebzhao.github.io/indent.js/js/indent.min.js"></script>
+
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <div id="container">
+      <h1 class="text-center mb0">Visual Studio Code Snippets Builder</h1>
+      <p class="text-center mt0">
+        Enhance
+        <a href="https://github.com/Esri/arcgis-js-vscode-snippets"
+          >arcgis-js-vscode-snippets</a
+        >
+        extension
+      </p>
+
+      <form action="">
+        <h2>Custom Snippet</h2>
+        <calcite-label layout="default">
+          <span
+            >Prefix *
+            <calcite-popover-manager>
+              <calcite-popover
+                label="Popover label"
+                reference-element="prefix-popover"
+              >
+                <div>
+                  <p>
+                    <b>Prefix</b><br />
+                    Defines one or more <b>trigger words</b> that display the
+                    snippet in IntelliSense. Substring matching is performed on
+                    prefixes, so in this case, "fc" could match "for-const".
+                  </p>
+                  <p>
+                    <b>Recomendations</b><br />
+                    Good prefixes are short and easy to remember, so you can
+                    include the name of the method, class or property. Avoid
+                    using just acronyms.
+                  </p>
+                </div>
+              </calcite-popover>
+              <calcite-icon
+                icon="question"
+                scale="s"
+                class="popover"
+                id="prefix-popover"
+              ></calcite-icon>
+            </calcite-popover-manager>
+          </span>
+          <calcite-input required id="prefix"></calcite-input>
+        </calcite-label>
+        <calcite-label layout="default">
+          <span>
+            Name *
+            <calcite-popover-manager>
+              <calcite-popover
+                label="Popover label"
+                reference-element="name-popover"
+              >
+                <div>
+                  <p>
+                    <b>Name</b><br />
+                    Short description that follows the prefix.
+                  </p>
+                  <p>
+                    <b>Recomendations</b><br />
+                    To differentiate from other IntelliSense we recommend you to
+                    include (Esri JSAPI)
+                  </p>
+                </div>
+              </calcite-popover>
+              <calcite-icon
+                icon="question"
+                scale="s"
+                class="popover"
+                id="name-popover"
+              ></calcite-icon>
+            </calcite-popover-manager>
+          </span>
+          <calcite-input required id="name"></calcite-input>
+        </calcite-label>
+        <calcite-label layout="default">
+          <span> Description</span>
+          <calcite-popover-manager>
+            <calcite-popover
+              label="Popover label"
+              reference-element="desc-popover"
+            >
+              <div>
+                <p>
+                  <b>Description</b><br />
+                  It is an optional description of the snippet displayed by
+                  IntelliSense.
+                </p>
+                <!-- <p>
+                    <b>Recomendations</b><br>
+                    You can add a more detailed information about what the snippet 
+                </p> -->
+              </div>
+            </calcite-popover>
+            <calcite-icon
+              icon="question"
+              scale="s"
+              class="popover"
+              id="desc-popover"
+            ></calcite-icon>
+          </calcite-popover-manager>
+          <calcite-input required id="desc"></calcite-input>
+        </calcite-label>
+        <calcite-label layout="default">
+          <span>
+            Body *
+            <calcite-popover-manager>
+              <calcite-popover
+                label="Popover label"
+                reference-element="body-popover"
+              >
+                <div>
+                  <p>
+                    <b>Description</b><br />
+                    Code snippet that will be place in the file. Newlines and
+                    embedded tabs will be formatted according to the context in
+                    which the snippet is inserted.
+                  </p>
+                  <p>
+                    <b>Recomendations</b><br />
+                    Placeholders (${1:foo}) and Choices (${1|value1,value2})
+                    when possible.
+                  </p>
+                </div>
+              </calcite-popover>
+              <calcite-icon
+                icon="question"
+                scale="s"
+                class="popover"
+                id="body-popover"
+              ></calcite-icon>
+            </calcite-popover-manager>
+          </span>
+
+          <calcite-input required type="textarea" id="body"></calcite-input>
+        </calcite-label>
+      </form>
+
+      <div id="codePreview">
+        <h2>How snippets works</h2>
+        <p>
+          <img src="assets/use-sample.png" class="screenshot" />
+        </p>
+        <p>
+          VS Code documentation:
+          <calcite-link
+            href="https://code.visualstudio.com/docs/editor/userdefinedsnippets#_snippet-syntax"
+            >Snippets syntax</calcite-link
+          >
+        </p>
+        <h2>Custom snippet code:</h2>
+        <pre><code id="snippets"></code></pre>
+        <p>
+          Do you think more users would benefit from this snippet? <br />
+          If so, please consider
+          <a
+            href="https://github.com/Esri/arcgis-js-vscode-snippets/blob/master/contributing.md#contributing-guidelines"
+            >contributing to the official extension</a
+          >:
+        </p>
+        <calcite-notice
+          active
+          color="yellow"
+          icon="exclamation-mark-triangle"
+          width="full"
+          dismissible
+        >
+          <div slot="title">Important</div>
+          <div slot="message">
+            Before submitting your custom snippet proposal, please make sure it follows the
+            <a href="#"></a
+            ><calcite-link href="https://github.com/Esri/arcgis-js-vscode-snippets/blob/master/CONTRIBUTING.md#conventions">our conventions</calcite-link>
+          </div>
+        </calcite-notice>
+        <p>
+          <calcite-button
+            icon-start="code"
+            width="full"
+            href="#"
+            target="_blank"
+            >Submit proposal</calcite-button
+          >
+        </p>
+      </div>
+      <p id="footer">
+        <b>Note</b>: You can also use the
+        <a
+          href="https://snippet-generator.app/?description=&tabtrigger=&snippet=&mode=sublimetext"
+          >snippet-generator.app</a
+        >
+        to create SublimeText and Atom snippets
+      </p>
+      <a href="https://github.com/hhkaos/vscode-snippets-builder" id="ribbon"
+        ><img
+          loading="lazy"
+          width="149"
+          height="149"
+          src="https://github.blog/wp-content/uploads/2008/12/forkme_right_darkblue_121621.png?resize=149%2C149"
+          class="attachment-full size-full"
+          alt="Fork me on GitHub"
+          data-recalc-dims="1"
+      /></a>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
