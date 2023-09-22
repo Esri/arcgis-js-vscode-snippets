@@ -1,0 +1,26 @@
+name: Enhancement
+description: Request to update a snippet
+labels: ["type/enhancement", "0 - new", "needs triage"]
+body:
+  - type: checkboxes
+    id: existing-issues
+    attributes:
+      label: Check existing issues
+      description: If someone has already opened an issue for what you are requesting, please add a 👍 reaction to the existing issue instead of creating a new one.
+      options:
+        - label: I have [checked for existing issues](https://github.com/Esri/arcgis-js-vscode-snippets/issues) to avoid duplicates
+    validations:
+      required: true
+  - type: input
+    id: snippet-name
+    attributes:
+      label: Snippet prefix
+    validations:
+      required: true
+  - type: textarea
+    id: enhancementproposal
+    attributes:
+      label: Proposal
+      description: What do you want to change? Why?
+    validations:
+      required: true

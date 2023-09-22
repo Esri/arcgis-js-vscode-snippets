@@ -1,0 +1,4 @@
+contact_links:
+  - name: New snippet
+    url: https://esri.github.io/arcgis-js-vscode-snippets/builder/
+    about: Use the snippets builder to suggest new ideas.
