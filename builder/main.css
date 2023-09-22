@@ -6,13 +6,13 @@
   max-width: 80%;
   margin: 0 auto;
 }
-form {
+#form {
   width: 50%;
 }
 #codePreview {
   width: 50%;
 }
-form,
+#form,
 #codePreview {
   float: left;
   padding: 1rem;

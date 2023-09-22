@@ -39,7 +39,13 @@ function renderSnippet() {
   const repoUrl = "https://github.com/Esri/arcgis-js-vscode-snippets";
   const title = encodeURIComponent(`Snippet proposal: ${snippet.name}`);
   const body = encodeURIComponent(`
-Please specify which type of snippet it is: JavaScript snippet (*.js), TypeScript snippet (*.ts), HTML snippet (*.html), ...
+  Please specify which type of snippet it is: 
+  * [ ] JavaScript snippet (*.js)
+  * [ ] TypeScript snippet (*.ts)
+  * [ ] HTML snippet (*.html)
+  * [ ]  ...
+  
+
 ---
 **Prefix**: ${snippet.prefix}
 **Description**: ${snippet.desc}
