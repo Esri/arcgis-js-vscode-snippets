@@ -13,6 +13,7 @@ body:
       required: true
   - type: input
     id: snippet-name
+    description: Word(s) that display the snippet in IntelliSense
     attributes:
       label: Snippet prefix
     validations:

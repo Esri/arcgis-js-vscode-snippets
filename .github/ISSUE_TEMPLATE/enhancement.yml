@@ -15,6 +15,7 @@ body:
     id: snippet-name
     attributes:
       label: Snippet prefix
+      description: Word(s) that display the snippet in IntelliSense
     validations:
       required: true
   - type: textarea
