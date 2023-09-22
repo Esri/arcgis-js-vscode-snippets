@@ -9,11 +9,11 @@ Esri welcomes contributions from anyone and everyone. Please see our [guidelines
 - [I want to contribute, what should I work on?](#i-want-to-contribute-what-should-i-work-on)
 - [Getting a development environment set up](#getting-a-development-environment-set-up)
 - [Adding a new snippet](#adding-a-new-snippet)
-- [arcgis-jsapi-snippets conventions](#arcgis-jsapi-snippets-conventions)
-  - [`prefix` conventions](#prefix-conventions)
-  - [`name` conventions](#name-conventions)
-  - [`description` conventions](#description-conventions)
-  - [`body` conventions](#body-conventions)
+- [Conventions](#conventions)
+  - [`prefix`](#prefix)
+  - [`name`](#name)
+  - [`description`](#description)
+  - [`body`](#body)
 - [Pull request](#pull-request)
 - [Additional resources](#additional-resources)
 
@@ -52,44 +52,40 @@ We accept different type of snippets:
 
 Consider using the [snippet builder](https://esri.github.io/arcgis-js-vscode-snippets/builder/) to validate your snippet, and please make sure it follows the [conventions](#conventions).
 
-## arcgis-jsapi-snippets conventions
+## Conventions 
 
-### `prefix` conventions
+### `prefix`
 
-> These [conventions were discussed on issue #10](https://github.com/Esri/arcgis-js-vscode-snippets/issues/10). 
+* Avoid acronyms (like `sms` for `SimpleMarkerSymbol`)
+* Use camelcase (not [snake_case](https://en.wikipedia.org/wiki/Snake_case), UPPERCASE, etc.)
+* Per snippet type:
+    * **Class properties objects**: add the suffix "Props".
+    * **Class constructors**: match JS SDK capitalization.
 
-* Try not to use just acronyms (like `sms` for `SimpleMarkerSymbol`)
-* If the snippet only contain and object with properties to initialize a class add the suffix "Props".
+> If you want to suggest a change, please [check the issue #10](https://github.com/Esri/arcgis-js-vscode-snippets/issues/10). 
 
-### `name` conventions
+### `name`
 
-> These [conventions were discussed on issue #20](https://github.com/Esri/arcgis-js-vscode-snippets/issues/20). 
+* Start your sentence with capitals (do not capitalize, uppercase)
+* Use spaces as needed (don't put words together or use [camelCase](https://en.wikipedia.org/wiki/Camel_case), [snake_case][https://en.wikipedia.org/wiki/Snake_case], etc.).
+* Keep the name short as possible (<35 characters max) to avoid ellipsis ("...").
 
-*To be decided*
+> If you want to suggest a change, please [check the issue #20](https://github.com/Esri/arcgis-js-vscode-snippets/issues/20). 
 
-### `description` conventions
-
-> These [conventions were discussed on issue #21](https://github.com/Esri/arcgis-js-vscode-snippets/issues/21). 
+### `description` 
 
 * It should be a proper description of what the snippet does, and reuse text from the API reference whenever possible.
 * If it is a snippet related to a class/module include the AMD and ESM paths. For example: `Convert a geometry from Web Mercator units (wkid: 3857) to geographic units (wkid: 4326). AMD path:  esri/geometry/support/webMercatorUtils | ESM path: @arcgis/core/geometry/support/webMercatorUtils.js`
 
-### `body` conventions
+> If you want to suggest a change, please [check the issue #21](https://github.com/Esri/arcgis-js-vscode-snippets/issues/21). 
 
-> These [conventions were discussed on issue #19](https://github.com/Esri/arcgis-js-vscode-snippets/issues/19). 
+### `body`
 
-* Use \t instead of spaces. [Example 1](#body-example-1)
-* Don't add comments in your snippets. [Example 2](#body-example-2)
-* Try to keep snippets small, and try not to instantiate more than one class whenever possible. [Example 3](#body-example-3)
-* Conventions about constructor objects: [Example 4](#body-example-4)
-    * Sort properties by alphabetical order. 
-    * Try to include only the most common properties.
-    * If a property expects another instance of class, add the name of the snippet (if it exists).
-    * When a property support multiple value types, add just a placeholder. 
-* After a class initialization, don't assign it to a variable. [Example 5](body-example-5)
-* For inherited methods, try make generic snippets. [Example 6](body-example-6)
+> If you want to suggest a change, please [check the issue #19](https://github.com/Esri/arcgis-js-vscode-snippets/issues/19). 
 
-#### `body` example 1
+#### 1) Use `\t` for tabs (do not use spaces)
+
+**Example:**
 
 ```js
 {
@@ -109,7 +105,9 @@ Consider using the [snippet builder](https://esri.github.io/arcgis-js-vscode-sni
 }
 ```
 
-#### `body` example 2
+#### 2) Don't add comments in your snippets
+
+**Example:**
 
 ```js
 // queries all features in the layer
@@ -118,9 +116,11 @@ myLayer.queryFeatures().then(results => {
     })
 ```
 
-#### `body` example 3
+#### 3) Keep snippets small
 
-Keeping snippets small helps make them more reusable. So insted of doing this:
+Try not to instantiate more than one class whenever possible. Keeping snippets small helps make them more reusable. So instead of doing this:
+
+**Example:**
 
 ```js
 const webmap = new WebMap({
@@ -152,7 +152,14 @@ new MapView({
 });
 ```
 
-#### `body` example 4
+#### 4) Conventions for constructor properties
+
+* Sort properties by alphabetical order. 
+* Include what you think are the most common properties.
+* If a property expects another instance of class, add the name of the snippet (if it exists).
+* When a property support multiple value types, add just a placeholder. 
+
+**Example:**
 
 ```js
 new PopupTemplate({
@@ -166,7 +173,7 @@ new PopupTemplate({
 Observe the [PopupTemplate property "content"](https://developers.arcgis.com/javascript/latest/api-reference/esri-PopupTemplate.html#content) include a list of possible values, and `popupContent` will trigger other snippets like:
 `popupCustomContent`, `popupMediaContent`, `popupFieldsContent`, `popupTextContent` and `popupAttachmentsContent`.
 
-#### `body` example 5
+#### 5) After a class initialization, don't assign it to a variable
 
 Avoid doing this: 
 
@@ -188,7 +195,7 @@ new WebMap({
 })
 ```
 
-#### `body` example 6
+#### 6) For inherited methods, try to make generic snippets.
 
 For methods like [fromJSON()](https://developers.arcgis.com/javascript/latest/api-reference/esri-renderers-Renderer.html#methods-summary), which is inherited in many classes, for example: SimpleRenderer, UniqueValueRenderer, HeatmapRenderer, ... do something like this:
 
