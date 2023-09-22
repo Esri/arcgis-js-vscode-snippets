@@ -29,8 +29,15 @@
         extension
       </p>
 
-      <form action="">
+      <div id="form">
         <h2>Custom Snippet</h2>
+        <p class="small">
+          > Official Visual Studio Code documentation:
+          <calcite-link
+            href="https://code.visualstudio.com/docs/editor/userdefinedsnippets#_snippet-syntax"
+            >Snippets syntax</calcite-link
+          >
+        </p>
         <calcite-label layout="default">
           <span
             >Prefix *
@@ -42,6 +49,7 @@
                 <div>
                   <p>
                     <b>Prefix</b><br />
+                    <img src="assets/snippet-prefix.png" class="screenshot" /><br/>
                     Defines one or more <b>trigger words</b> that display the
                     snippet in IntelliSense. Substring matching is performed on
                     prefixes, so in this case, "fc" could match "for-const".
@@ -75,6 +83,7 @@
                 <div>
                   <p>
                     <b>Name</b><br />
+                    <img src="assets/snippet-name.png" class="screenshot" /><br/>
                     Short description that follows the prefix.
                   </p>
                   <p>
@@ -95,7 +104,7 @@
           <calcite-input required id="name"></calcite-input>
         </calcite-label>
         <calcite-label layout="default">
-          <span> Description</span>
+          <span> Description
           <calcite-popover-manager>
             <calcite-popover
               label="Popover label"
@@ -104,13 +113,14 @@
               <div>
                 <p>
                   <b>Description</b><br />
+                  <img src="assets/snippet-description.png" class="screenshot" /><br/>
                   It is an optional description of the snippet displayed by
                   IntelliSense.
                 </p>
-                <!-- <p>
-                    <b>Recomendations</b><br>
-                    You can add a more detailed information about what the snippet 
-                </p> -->
+                <p>
+                  <b>Recomendations</b><br />
+                  Explain of what the snippet does, but keep it short.
+                </p>
               </div>
             </calcite-popover>
             <calcite-icon
@@ -120,6 +130,7 @@
               id="desc-popover"
             ></calcite-icon>
           </calcite-popover-manager>
+          </span>
           <calcite-input required id="desc"></calcite-input>
         </calcite-label>
         <calcite-label layout="default">
@@ -133,14 +144,14 @@
                 <div>
                   <p>
                     <b>Description</b><br />
+                    <img src="assets/snippet-body.png" class="screenshot" /><br/>
                     Code snippet that will be place in the file. Newlines and
                     embedded tabs will be formatted according to the context in
                     which the snippet is inserted.
                   </p>
                   <p>
                     <b>Recomendations</b><br />
-                    Placeholders (${1:foo}) and Choices (${1|value1,value2})
-                    when possible.
+                    Use "Placeholders" (${1:foo}) and "Choices" (${1|value1,value2}) when possible.
                   </p>
                 </div>
               </calcite-popover>
@@ -155,20 +166,9 @@
 
           <calcite-input required type="textarea" id="body"></calcite-input>
         </calcite-label>
-      </form>
+      </div>
 
       <div id="codePreview">
-        <h2>How snippets works</h2>
-        <p>
-          <img src="assets/use-sample.png" class="screenshot" />
-        </p>
-        <p class="small">
-          > Official Visual Studio Code documentation:
-          <calcite-link
-            href="https://code.visualstudio.com/docs/editor/userdefinedsnippets#_snippet-syntax"
-            >Snippets syntax</calcite-link
-          >
-        </p>
         <h2>Custom snippet code:</h2>
         <pre><code id="snippets"></code></pre>
         <p>
@@ -182,7 +182,7 @@
         
         <calcite-notice open icon="access-string-results" kind="info" closable>
           <div slot="title">Important</div>
-          <div slot="message">Before submitting your custom snippet proposal, please make sure it follows conventions.</div>
+          <div slot="message">Before submitting your custom snippet proposal, please make sure it follows the conventions.</div>
           <calcite-link slot="link" title="Read the conventions" href="https://github.com/Esri/arcgis-js-vscode-snippets/blob/master/CONTRIBUTING.md#contributing-guidelines">
               Read the arcgis-js-vscode-snippets conventions.
           </calcite-link>
