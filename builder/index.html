@@ -5,15 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>VS Code Snippets Builder</title>
-    <script
-      type="module"
-      src="https://unpkg.com/@esri/calcite-components/dist/calcite/calcite.esm.js"
-    ></script>
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://unpkg.com/@esri/calcite-components/dist/calcite/calcite.css"
-    />
+    <script type="module" src=https://js.arcgis.com/calcite-components/1.8.0/calcite.esm.js></script>
+    <link rel="stylesheet" type="text/css" href=https://js.arcgis.com/calcite-components/1.8.0/calcite.css />
 
     <link
       rel="stylesheet"
@@ -169,8 +162,8 @@
         <p>
           <img src="assets/use-sample.png" class="screenshot" />
         </p>
-        <p>
-          VS Code documentation:
+        <p class="small">
+          > Official Visual Studio Code documentation:
           <calcite-link
             href="https://code.visualstudio.com/docs/editor/userdefinedsnippets#_snippet-syntax"
             >Snippets syntax</calcite-link
@@ -182,24 +175,18 @@
           Do you think more users would benefit from this snippet? <br />
           If so, please consider
           <a
-            href="https://github.com/Esri/arcgis-js-vscode-snippets/blob/master/contributing.md#contributing-guidelines"
+            href="https://github.com/Esri/arcgis-js-vscode-snippets/blob/master/CONTRIBUTING.md#contributing-guidelines"
             >contributing to the official extension</a
           >:
         </p>
-        <calcite-notice
-          active
-          color="yellow"
-          icon="exclamation-mark-triangle"
-          width="full"
-          dismissible
-        >
+        
+        <calcite-notice open icon="access-string-results" kind="info" closable>
           <div slot="title">Important</div>
-          <div slot="message">
-            Before submitting your custom snippet proposal, please make sure it follows the
-            <a href="#"></a
-            ><calcite-link href="https://github.com/Esri/arcgis-js-vscode-snippets/blob/master/CONTRIBUTING.md#conventions">our conventions</calcite-link>
-          </div>
-        </calcite-notice>
+          <div slot="message">Before submitting your custom snippet proposal, please make sure it follows conventions.</div>
+          <calcite-link slot="link" title="Read the conventions" href="https://github.com/Esri/arcgis-js-vscode-snippets/blob/master/CONTRIBUTING.md#contributing-guidelines">
+              Read the arcgis-js-vscode-snippets conventions.
+          </calcite-link>
+      </calcite-notice>
         <p>
           <calcite-button
             icon-start="code"
