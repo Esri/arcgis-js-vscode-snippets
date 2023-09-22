@@ -1,6 +1,6 @@
 name: Bug
 description: Report a bug in a snippet
-labels: ["type/enhancement", "0 - new", "needs triage"]
+labels: ["type/bug", "0 - new", "status/needs triage"]
 body:
   - type: checkboxes
     id: existing-issues
@@ -13,9 +13,9 @@ body:
       required: true
   - type: input
     id: snippet-name
-    description: Word(s) that display the snippet in IntelliSense
     attributes:
       label: Snippet prefix
+      description: Word(s) that display the snippet in IntelliSense
     validations:
       required: true
   - type: textarea
