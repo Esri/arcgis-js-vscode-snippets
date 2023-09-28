@@ -67,8 +67,8 @@ Consider using the [snippet builder](https://esri.github.io/arcgis-js-vscode-sni
 ### `name`
 
 * Start your sentence with capitals (do not capitalize, uppercase)
-* Use spaces as needed (don't put words together or use [camelCase](https://en.wikipedia.org/wiki/Camel_case), [snake_case][https://en.wikipedia.org/wiki/Snake_case], etc.).
-* Keep the name short as possible (<35 characters max) to avoid ellipsis ("...").
+* Use plain english using spaces as needed (don't use [camelCase](https://en.wikipedia.org/wiki/Camel_case), [snake_case](https://en.wikipedia.org/wiki/Snake_case), [PascalCase](https://www.freecodecamp.org/news/snake-case-vs-camel-case-vs-pascal-case-vs-kebab-case-whats-the-difference/#pascal-case), or [kebab-case](https://en.wikipedia.org/wiki/Letter_case#Kebab_case)).
+* Keep the name short as possible (< 35 characters) to avoid ellipsis ("...").
 
 > If you want to suggest a change, please [check the issue #20](https://github.com/Esri/arcgis-js-vscode-snippets/issues/20). 
 
@@ -203,6 +203,32 @@ For methods like [fromJSON()](https://developers.arcgis.com/javascript/latest/ap
 ${1|Simple,UniqueValue,ClassBreaks,Dictionary,DotDensity,Heatmap|}Renderer.fromJSON(json)
 ```
 
+## Commit message format
+
+This project do not strictly follows [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/), but we will use the format `<type>: description [optional #issue-number]` to generate the changelog. Be sure to provide clear and sufficient information in commit messages. 
+
+For `<type>` you should use:
+
+* **feat**: A new snippet or feature
+* **fix**: A bug fix with the snippet
+** **docs**: Documentation only changes (changes in markdown)
+* **style**: Changes that do not affect the meaning of the code (conventions, white-space, formatting, missing semi-colons, etc)
+* **refactor**: A code change that neither fixes a bug nor adds a feature
+
+`description`:
+
+* The subject contains succinct description of the change
+* use the imperative, present tense: "change" not "changed" nor "changes"
+* do not capitalize first letter
+* do not place a period . at the end
+* entire length of the subject must not go over 50 characters
+* describe what the commit does, not what issue it relates to or fixes
+* **be brief, yet descriptive** - we should have a good understanding of what the commit does by reading the subject
+
+Examples:
+`style: apply prefix conventions to all snippets #30`
+`doc: update contributing guidelines and minor conventions changes #37`
+
 ## Pull request
 
 Before each PR follow these steps:
@@ -211,6 +237,7 @@ Before each PR follow these steps:
 2. Update the [CHANGELOG.md](./CHANGELOG.md) file to reflect the changes.
 3. Add the info to the [snippets table](./README.md).
 4. Submit your PR.
+    * [Link your PR to an issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue) if it exists. Use a supported keyword in the pull request description. Ex."`Closes #10`" or "`Fixes Esri/arcgis-js-vscode-snippets#10`".
 
 ## Additional resources
 
