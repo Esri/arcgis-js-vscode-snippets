@@ -234,7 +234,8 @@ Examples:
 Before each PR follow these steps:
 
 1. Update the file in the [snippets folder](./snippets) (respects the alphabetical order).
-2. Submit your PR.
+2. Add the info to the [snippets table](./README.md).
+3. Submit your PR.
     * [Link your PR to an issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue) if it exists. Use a supported keyword in the pull request description. Ex."`Closes #10`" or "`Fixes Esri/arcgis-js-vscode-snippets#10`".
 
 ## Additional resources
