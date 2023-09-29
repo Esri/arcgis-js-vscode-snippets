@@ -1,11 +1,22 @@
 {
-  "name": "arcgis-jsapi-snippets",
+  "name": "arcgis-maps-sdk-js-snippets",
   "publisher": "Esri",
   "displayName": "ArcGIS Maps SDK for JavaScript Snippets",
   "description": "Code snippets for the ArcGIS Maps SDK for JavaScript for 2D and 3D mapping and visualization.",
   "license": "See license in License.txt",
-  "keywords": ["ArcGIS", "Esri", "GIS", "map", "mapping", "ArcGIS Maps SDK for JavaScript", "ArcGIS API for JavaScript", "TypeScript", "snippet", "JavaScript"],
-  "version": "1.1.4",
+  "keywords": [
+    "ArcGIS",
+    "Esri",
+    "GIS",
+    "map",
+    "mapping",
+    "ArcGIS Maps SDK for JavaScript",
+    "ArcGIS API for JavaScript",
+    "TypeScript",
+    "snippet",
+    "JavaScript"
+  ],
+  "version": "1.0.0",
   "icon": "images/esri-logo-550.png",
   "engines": {
     "vscode": "^1.35.0"
@@ -18,21 +29,27 @@
     "Snippets"
   ],
   "contributes": {
-    "snippets": [{
-      "language": "javascript",
-      "path": "./snippets/javascript.json"
-    }, {
-      "language": "html",
-      "path": "./snippets/html.json"
-    }, {
-      "language": "json",
-      "path": "./snippets/json.json"
-    }, {
-      "language": "typescript",
-      "path": "./snippets/typescript.json"
-    }, {
-      "language": "typescriptreact",
-      "path": "./snippets/typescriptreact.json"
-    }]
+    "snippets": [
+      {
+        "language": "javascript",
+        "path": "./snippets/javascript.json"
+      },
+      {
+        "language": "html",
+        "path": "./snippets/html.json"
+      },
+      {
+        "language": "json",
+        "path": "./snippets/json.json"
+      },
+      {
+        "language": "typescript",
+        "path": "./snippets/typescript.json"
+      },
+      {
+        "language": "typescriptreact",
+        "path": "./snippets/typescriptreact.json"
+      }
+    ]
   }
 }
