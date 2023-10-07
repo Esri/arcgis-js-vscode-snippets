@@ -1,0 +1,16 @@
+:root{
+  background-color: #3970ee;
+}
+
+.header-container {
+  display: grid;
+  grid-template-columns: 10% 90%;
+  align-items: center;
+  height: 100px;
+  background-color:#f7f7f7;
+}
+.snippets-select-container{
+  display: grid;
+  grid-template-columns: 50% 50%;
+  margin: 2rem;
+}
