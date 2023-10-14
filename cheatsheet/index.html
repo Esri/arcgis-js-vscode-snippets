@@ -7,18 +7,21 @@
     <title>List to the community snippets</title>
   </head>
   <body>
-    <div id="app"></div>
-    <div>
+    <div class="page-container">
       <div class="header-container">
-        <img class="logo" src="../images/esri-logo-550.png" />
-        <h1>List to the community snippets</h1>
+        <img class="logo" src="./public/assets/images/esri-logo-550.png" />
+        <h1 class="title">Snippets Seeker</h1>
       </div>
       <div class="snippets-select-container">
-        <select name="snippets-select" id="language-select"></select>
-        <select name="general-selector" id="general-snippets-selector"></select>
+        <select class="snippets-select" name="snippets-select" id="language-select"></select>
+        <select class="general-selector" name="general-selector" id="general-snippets-selector"></select>
       </div>
+        <div class="output display-none" id="output">
+        <p id="output-prefix"></p>
+        <p id="output-description"></p>
+        <p id="output-body"></p>
+        </div>
     </div>
     <script type="module" src="/main.js"></script>
   </body>
 </html>
-
