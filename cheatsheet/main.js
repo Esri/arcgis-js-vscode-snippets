@@ -21,9 +21,8 @@ for (let i = 0; i < allLanguages.length; i++) {
   const option = document.createElement("option");
   option.setAttribute("value", allLanguages[i].value);
   if (!allLanguages[i].value) {
-    option.setAttribute("selected", true)
+    option.setAttribute("selected", true);
     option.setAttribute("disabled", true);
-    
   }
   option.innerHTML = allLanguages[i].label;
   languageSelect.appendChild(option);
@@ -50,17 +49,27 @@ const createOptionsSelectSnippet = (keyFiles) => {
     generalSelector.appendChild(option);
   }
 };
-
-const outputContainer = document.getElementById("output")
+const outputContainer = document.getElementById("output");
 const outputElementBody = document.getElementById("output-body");
 const outputElementDescription = document.getElementById("output-description");
 const outputElementPrefix = document.getElementById("output-prefix");
 
+const createBody = (body) => {
+  while (outputElementBody.firstChild) {
+    outputElementBody.removeChild(outputElementBody.firstChild);
+  }
+  for (let i = 0; i < body.length; i++) {
+    const span = document.createElement("span");
+    span.innerText = body[i];
+    outputElementBody.appendChild(span);
+  }
+};
 const onChangeGeneralSelector = (selectedValue) => {
   const selectedData = file[selectedValue];
 
   outputElementPrefix.textContent = `${selectedData.prefix}`;
-  outputElementBody.textContent = `${selectedData.body}`;
+  // outputElementBody.textContent = `${selectedData.body}`;
+  createBody(selectedData.body);
   outputElementDescription.textContent = `${selectedData.description}`;
 };
 const onChangelanguageSelect = (e) => {
@@ -72,8 +81,10 @@ const onChangelanguageSelect = (e) => {
   const keyfiles = Object.keys(file);
   createOptionsSelectSnippet(keyfiles);
   onChangeGeneralSelector(keyfiles[0]);
-  outputContainer.setAttribute("class","output")
+  outputContainer.setAttribute("class", "output");
 };
 
 languageSelect.addEventListener("change", onChangelanguageSelect);
-generalSelector.addEventListener("change",(e)=> onChangeGeneralSelector(e.target.value));
+generalSelector.addEventListener("change", (e) =>
+  onChangeGeneralSelector(e.target.value)
+);
