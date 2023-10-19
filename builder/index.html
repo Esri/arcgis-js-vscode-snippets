@@ -40,7 +40,7 @@
         </p>
         <calcite-label layout="default">
           <span
-            >Prefix *
+            >Prefix<sup>*</sup>
             <calcite-popover-manager>
               <calcite-popover
                 label="Popover label"
@@ -51,14 +51,14 @@
                     <b>Prefix</b><br />
                     <img src="assets/snippet-prefix.png" class="screenshot" /><br/>
                     Defines one or more <b>trigger words</b> that display the
-                    snippet in IntelliSense. Substring matching is performed on
-                    prefixes, so in this case, "fc" could match "for-const".
+                    snippet in IntelliSense. Approximate string matching (fuzzy search) is performed on
+                    prefixes, so in this case, "fl" could match "FeatureLayer".
                   </p>
                   <p>
-                    <b>Recomendations</b><br />
+                    <b>Recommendations</b><br />
                     Good prefixes are short and easy to remember, so you can
                     include the name of the method, class or property. Avoid
-                    using just acronyms.
+                    using just acronyms. E.g. MapView, basemapsWithAPIKeys, findLayerByTitle, popupTemplateProps. 
                   </p>
                 </div>
               </calcite-popover>
@@ -74,7 +74,7 @@
         </calcite-label>
         <calcite-label layout="default">
           <span>
-            Name *
+            Name<sup>*</sup>
             <calcite-popover-manager>
               <calcite-popover
                 label="Popover label"
@@ -87,9 +87,8 @@
                     Short description that follows the prefix.
                   </p>
                   <p>
-                    <b>Recomendations</b><br />
-                    To differentiate from other IntelliSense we recommend you to
-                    include (Esri JSAPI)
+                    <b>Recommendations</b><br />
+                    Use plain English, using spaces as needed (length &lt;35 characters). E.g. "Find layer in a MapView by title"
                   </p>
                 </div>
               </calcite-popover>
@@ -118,8 +117,8 @@
                   IntelliSense.
                 </p>
                 <p>
-                  <b>Recomendations</b><br />
-                  Explain of what the snippet does, but keep it short.
+                  <b>Recommendations</b><br />
+                  Explain of what the snippet does. Reuse text from the API reference whenever possible. Add AMD and ESM paths if it is a class initialization (new ...)
                 </p>
               </div>
             </calcite-popover>
@@ -131,11 +130,11 @@
             ></calcite-icon>
           </calcite-popover-manager>
           </span>
-          <calcite-input required id="desc"></calcite-input>
+          <calcite-input required type="textarea" id="desc"></calcite-input>
         </calcite-label>
         <calcite-label layout="default">
           <span>
-            Body *
+            Body<sup>*</sup> (<a href="https://prettier.io/playground/#N4Igxg9gdgLgprEAuEIA0IIAcYEtoDOyoAhgE5kQDuACuQkSiQDZUkCeRGARmSWAGs4MAMokAtnAAyuKHGQAzFgTg8+g4SKz9ZAc2QwyAV1UgV43AeOmCe5nACKRiPEXLTAKwIAPEXcfOrkhKzCoYAI6BcDSUWIzghLgE8IgYhiS4zHoAwhDi4iTIIFDQ8hi2ULr2AIIwhrjcRvA0cGQycm6hpgAWMOLMAOrduPAE2mBwIgwjuABuI+xFYARcILMmAJJQACYIomBkuDjVOyIw7PadYSBYlCoDfFhFt3AqZLNlILJvMDEkugUrqZtGQ3kVuCRuHBmOgbodYANcNsYN1kABGABMAAYMGQ4JFcHi-gDCsF3GlIYjkaikBiMEYVAAVSGMELXODiKHbXbbKQkSpGf5wABiEDIBTqeiKJCaEBAAF95UA" target="_blank">Prettier playground</a>)
             <calcite-popover-manager>
               <calcite-popover
                 label="Popover label"
@@ -150,7 +149,7 @@
                     which the snippet is inserted.
                   </p>
                   <p>
-                    <b>Recomendations</b><br />
+                    <b>Recommendations</b><br />
                     Use "Placeholders" (${1:foo}) and "Choices" (${1|value1,value2}) when possible.
                   </p>
                 </div>
