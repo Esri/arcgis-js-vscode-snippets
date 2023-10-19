@@ -1,0 +1,99 @@
+{
+  // Develop / test your contributions here
+  
+  // JavaScript only snippet (*.js)
+  "A JavaScript only snippet": {
+    "scope": "javascript",
+    "prefix": "myConsoleLog",
+    "body": [
+      "console.log(\"Hello Map\");"
+    ],
+    "description": "Console log \"Hello Map\""
+  },
+  
+  // HTML only snippet (*.html and *.htm)
+  "A HTML only snippet": {
+    "scope": "html",
+    "prefix": "dojoConfig",
+    "body": [
+      "<script>",
+      "\tconst locationPath = location.pathname.replace(/\\/[^\\/]+$/,\"\");",
+      "\twindow.dojoConfig = {",
+      "\tpackages:[",
+      "\t\t{",
+      "\t\tname:\"app\",",
+      "\t\tlocation: locationPath + \"/app\"",
+      "\t\t}",
+      "\t]",
+      "\t}",
+      "</script>"
+    ],
+    "description": "Loads dojoConfig"
+  },
+
+  // CSS only snippet (*.css)
+  "A CSS only snippet": {
+    "scope": "css",
+    "prefix": "smallMap",
+    "body": [
+      ".viewDiv{ width: 300px; height: 300px }"
+    ],
+    "description": "Set viewDiv to 300px x 300px"
+  },
+  
+  // JSON only snippet (*.json and *.geojson)
+  "A JSON only snippet": {
+    "scope": "json",
+    "prefix": "featureCollectionPoint",
+    "body": [
+      "{",
+      "\t\"type\": \"FeatureCollection\",",
+      "\t\"features\": [",
+      "\t\t{",
+      "\t\t\t\"type\": \"Feature\",",
+      "\t\t\t\"properties\": {},",
+      "\t\t\t\"geometry\": {",
+      "\t\t\t\t\"coordinates\": [",
+      "\t\t\t\t\t-4.795935418929616,",
+      "\t\t\t\t\t38.74031154905251",
+      "\t\t\t\t],",
+      "\t\t\t\t\"type\": \"Point\"",
+      "\t\t\t}",
+      "\t\t}",
+      "\t]",
+      "}",
+    ],
+    "description": "Sample of camera position object"
+  },
+
+  // TypeScript (*.ts)
+  "A TypeScript only snippet": {
+    "scope": "typescript",
+    "body": [
+      "declare function myDebug(value: any): void;"
+    ],
+    "description": "Example using any and void",
+    "prefix": "myDebug"
+  },
+
+  // TypeScript React (*.tsx)
+  "A TypeScript only snippet": {
+    "scope": "typescriptreact",
+    "body": [
+      "const HelloWorld = () => <h1>Hello, World!</h1>",
+	    "export default HelloWorld",
+    ],
+    "description": "Hello world usint TypeScript and React",
+    "prefix": "helloWorldTSX"
+  },
+
+  // SCSS only snippet (*.scss)
+  "A SCSS snippet": {
+    "scope": "scss",
+    "prefix": "smallMap",
+    "body": [
+      ".viewDiv{ width: 400px; height: 400px }"
+    ],
+    "description": "Set viewDiv to 400px x 400px"
+  },
+}
