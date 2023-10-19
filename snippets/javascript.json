@@ -1,5 +1,5 @@
 {
-  "Add a layer from a portal item ": {
+  "Add a layer from a portal item": {
     "body": [
       "Layer.fromPortalItem({",
       "\tportalItem: {",
@@ -9,7 +9,7 @@
       "\t\tmap.add(layer);",
       "\t});"
     ],
-    "description": "Add a layer from a portal item ",
+    "description": "Add a layer from a portal item id",
     "prefix": "addLayerFromPortalItem"
   },
   "Symbol 3D callout": {
@@ -51,7 +51,7 @@
     "prefix": "calloutSmallProps"
   },
   
-  " Create class breaks renderer": {
+  "Create class breaks renderer": {
     "body": [
       "{",
       "\ttype: \"class-breaks\",",
@@ -88,63 +88,58 @@
   },
   "Create map": {
     "body": [
-      "new Map(autocast({",
-      "\tbasemap: \"${1|arcgis-imagery,arcgis-imagery-standard,arcgis-imagery-labels,arcgis-light-gray,arcgis-dark-gray,arcgis-navigation,arcgis-navigation-night,arcgis-streets,arcgis-streets-night,arcgis-streets-relief,arcgis-topographic,arcgis-oceans,osm-standard,osm-standard-relief,osm-streets,osm-streets-relief,osm-light-gray,osm-dark-gray,arcgis-terrain,arcgis-community,arcgis-charted-territory,arcgis-colored-pencil,arcgis-nova,arcgis-modern-antique,arcgis-midcentury,arcgis-newspaper,arcgis-hillshade-light,arcgis-hillshade-dark|}\"",
-      "}));",
-    
       "new MapView({",
-      "\tcontainer:${2:\"viewDiv\"},",
-      "\tmap: map,",
-      "\tzoom: ${3: 4},",
-      "\tcenter:${4: [15,65]}",
+      "\tcontainer: ${2:\"viewDiv\"},",
+      "\tmap: {",
+      "\t  basemap: \"${1|arcgis-imagery,arcgis-imagery-standard,arcgis-imagery-labels,arcgis-light-gray,arcgis-dark-gray,arcgis-navigation,arcgis-navigation-night,arcgis-streets,arcgis-streets-night,arcgis-streets-relief,arcgis-topographic,arcgis-oceans,osm-standard,osm-standard-relief,osm-streets,osm-streets-relief,osm-light-gray,osm-dark-gray,arcgis-terrain,arcgis-community,arcgis-charted-territory,arcgis-colored-pencil,arcgis-nova,arcgis-modern-antique,arcgis-midcentury,arcgis-newspaper,arcgis-hillshade-light,arcgis-hillshade-dark|}\"",
+      "\t},",
+      "\tzoom: ${3:4},",
+      "\tcenter: ${4:[15, 65]}",
       "});"
     ],
-  "description": "Create map and map view",
-    "prefix": "map"
+    "description": "Create 2D MapView using a Map. AMD path: esri/views/MapView | ESM path: @arcgis/core/views/MapView.js",
+    "prefix": "MapViewMap"
   },
   
   "Create scene": {
     "body": [
-      "new Map({",
-      "\tbasemap: \"${1:streets}\"",
-      "});",
-      "new SceneView({",
-      "\tcontainer: \"${2:viewDiv}\",",
-      "\tmap:map",
-      "});"
-    ],
-    "description": "Create map and scene view",
-    "prefix": "scene"
+    "new SceneView({",
+    "\tcontainer: \"${2:viewDiv}\",",
+    "\tmap: {",
+    "\t\tbasemap: \"${1:streets}\"",
+    "\t}",
+    "});"
+  ],
+    "description": "Create 3D SceneView using a Map. AMD path: esri/views/SceneView | ESM path: @arcgis/core/views/SceneView.js",
+    "prefix": "SceneViewMap"
   },
   "Create web map": {
-    "body": [
-      "new WebMap({",
-      "\tportalItem: {",
-      "\t\tid: \"${1:webmap_id}\"",
-      "\t}",
-      "});",
-      "new MapView({",
-      "\tcontainer: \"${2:viewDiv}\",",
-      "\tmap: webmap",
-      "});"
-    ],
-    "description": "Create web map and a map view",
-    "prefix": "webmap"
+     "body": [
+        "new MapView({",
+        "\tcontainer: \"${2:viewDiv}\",",
+        "\tmap: new WebMap({",
+        "\t\tportalItem: {",
+        "\t\t\tid: \"${1:webmap_id}\"",
+        "\t\t}",
+        "\t}",
+        "});"
+      ],
+    "description": "Create 2D MapView using a WebMap. AMD path: esri/views/MapView | ESM path: @arcgis/core/views/MapView.js",
+    "prefix": "MapViewWebmap"
   },
   "Create web scene": {
-    "body": [
-      "new WebScene({",
-      "\tportalItem: {",
-      "\t\tid: \"${1:webscene_id}\"",
-      "\t}",
-      "});",
-      "new SceneView({",
-      "\tcontainer: \"${2:viewDiv}\",",
-      "\tmap: webscene",
-      "});"
-    ],
-    "description": "Create web scene and scene view",
-    "prefix": "webscene"
+     "body": [
+        "new SceneView({",
+        "\tcontainer: \"${2:viewDiv}\",",
+        "\tmap: new WebScene({",
+        "\t\tportalItem: {",
+        "\t\t\tid: \"${1:webscene_id}\"",
+        "\t\t}",
+        "\t}",
+        "});"
+      ],
+    "description": "Create 3D SceneView using a WebScene",
+    "prefix": "SceneViewWebScene"
   },
   "Edges": {
     "body": [
@@ -156,7 +151,7 @@
       "}"
     ],
     "description": "Creates and EdgeSymbol3D",
-    "prefix": "edges"
+    "prefix": "edgesProps"
   },
   "Elevation info": {
     "body": [
@@ -170,7 +165,7 @@
       "}"
     ],
     "description": "Create Elevation info for 3D GIS with modes, offsets, and units for features.",
-    "prefix": "elevInfo"
+    "prefix": "elevationInfoProps"
   },
   "Create 3D extruded polygon symbol": {
     "body": [
@@ -184,65 +179,65 @@
       "}"
     ],
     "description": "Generate PolygonSymbol3D with a ExtrudeSymbol3DLayer",
-    "prefix": "extrudePolygon3d"
+    "prefix": "extrudePolygon3dProps"
   },
-  "Feature reduction cluster": {
-   "body": [
-  "{",
-  "\tclusterMaxSize: 37.5,",
-  "\tclusterMinSize: 16.5,",
-  "\tclusterRadius: 60,",
-  "\tlabelingInfo: [{",
-  "\t\tdeconflictionStrategy: \"none\",",
-  "\t\tlabelExpressionInfo: {",
-  "\t\t\texpression: `",
-  "\t\t\t\t\\$feature[\"cluster_count\"];",
-  "\t\t\t\tconst value = \\$feature[\"cluster_count\"];",
-  "\t\t\t\tconst num = Count(Text(Round(value)));",
-  "\t\t\t\tconst label = When(",
-  "\t\t\t\t\tnum < 4, Text(value, \"#.#\"),",
-  "\t\t\t\t\tnum == 4, Text(value / Pow(10, 3), \"#.0k\"),",
-  "\t\t\t\t\tnum <= 6, Text(value / Pow(10, 3), \"#k\"),",
-  "\t\t\t\t\tnum == 7, Text(value / Pow(10, 6), \"#.0m\"),",
-  "\t\t\t\t\tnum > 7, Text(value / Pow(10, 6), \"#m\"),",
-  "\t\t\t\t\tText(value, \"#,###\")",
-  "\t\t\t\t);",
-  "\t\t\t\treturn label;",
-  "\t\t\t`",
-  "\t\t},",
-  "\t\tsymbol: {",
-  "\t\t\tcolor: \"rgba(240,240,240,1)\",",
-  "\t\t\tfont: {",
-  "\t\t\t\tfamily: \"Noto Sans\",",
-  "\t\t\t\tsize: \"12px\",",
-  "\t\t\t\tweight: \"bold\"",
-  "\t\t\t},",
-  "\t\t\thaloColor: \"rgba(55,56,55,1)\",",
-  "\t\t\thaloSize: 0.75,",
-  "\t\t\ttype: \"text\"",
-  "\t\t},",
-  "\t\tlabelPlacement: \"center-center\"",
-  "\t}],",
-  "\tlabelsVisible: true,",
-  "\tpopupEnabled: true,",
-  "\tpopupTemplate: {",
-  "\t\tcontent: \"This cluster represents <b>{cluster_count}</b> features.\",",
-  "\t\tfieldInfos: [{",
-  "\t\t\tfieldName: \"cluster_count\",",
-  "\t\t\tformat: {",
-  "\t\t\t\tdigitSeparator: true,",
-  "\t\t\t\tplaces: 0",
-  "\t\t\t},",
-  "\t\t\tlabel: \"Number of features\"",
-  "\t\t],",
-  "\t\ttitle: \"Cluster summary\"",
-  "\t},",
-  "\ttype: \"cluster\","
-  "}"
-],
+  "Feature reduction cluster properties": {
+    "body": [
+      "{",
+      "\tclusterMaxSize: 37.5,",
+      "\tclusterMinSize: 16.5,",
+      "\tclusterRadius: 60,",
+      "\tlabelingInfo: [{",
+      "\t\tdeconflictionStrategy: \"none\",",
+      "\t\tlabelExpressionInfo: {",
+      "\t\t\texpression: `",
+      "\t\t\t\t\\$feature[\"cluster_count\"];",
+      "\t\t\t\tconst value = \\$feature[\"cluster_count\"];",
+      "\t\t\t\tconst num = Count(Text(Round(value)));",
+      "\t\t\t\tconst label = When(",
+      "\t\t\t\t\tnum < 4, Text(value, \"#.#\"),",
+      "\t\t\t\t\tnum == 4, Text(value / Pow(10, 3), \"#.0k\"),",
+      "\t\t\t\t\tnum <= 6, Text(value / Pow(10, 3), \"#k\"),",
+      "\t\t\t\t\tnum == 7, Text(value / Pow(10, 6), \"#.0m\"),",
+      "\t\t\t\t\tnum > 7, Text(value / Pow(10, 6), \"#m\"),",
+      "\t\t\t\t\tText(value, \"#,###\")",
+      "\t\t\t\t);",
+      "\t\t\t\treturn label;",
+      "\t\t\t`",
+      "\t\t},",
+      "\t\tsymbol: {",
+      "\t\t\tcolor: \"rgba(240,240,240,1)\",",
+      "\t\t\tfont: {",
+      "\t\t\t\tfamily: \"Noto Sans\",",
+      "\t\t\t\tsize: \"12px\",",
+      "\t\t\t\tweight: \"bold\"",
+      "\t\t\t},",
+      "\t\t\thaloColor: \"rgba(55,56,55,1)\",",
+      "\t\t\thaloSize: 0.75,",
+      "\t\t\ttype: \"text\"",
+      "\t\t},",
+      "\t\tlabelPlacement: \"center-center\"",
+      "\t}],",
+      "\tlabelsVisible: true,",
+      "\tpopupEnabled: true,",
+      "\tpopupTemplate: {",
+      "\t\tcontent: \"This cluster represents <b>{cluster_count}</b> features.\",",
+      "\t\tfieldInfos: [{",
+      "\t\t\tfieldName: \"cluster_count\",",
+      "\t\t\tformat: {",
+      "\t\t\t\tdigitSeparator: true,",
+      "\t\t\t\tplaces: 0",
+      "\t\t\t},",
+      "\t\t\tlabel: \"Number of features\"",
+      "\t\t],",
+      "\t\ttitle: \"Cluster summary\"",
+      "\t},",
+      "\ttype: \"cluster\","
+      "}"
+  ],
 
-    "description": "Enable clustering on a layer",
-    "prefix": "clusterConfig"
+   "description": "Enable clustering on a layer with point geometries",
+   "prefix": "featureReductionClusterProps"
   },
   "Find a layer by it's name": {
     "prefix": "findLayer",
@@ -262,9 +257,9 @@
       "}"
     ],
     "description": "Generate MeshSymbol3D with a FillSymbol3DLayer",
-    "prefix": "fillMesh3d"
+    "prefix": "fillMesh3dProps"
   },
-   " Generate fill polygon 3D": {
+   "Generate fill polygon 3D": {
     "body": [
       "{",
       "\ttype: \"polygon-3d\",",
@@ -282,7 +277,7 @@
     "description": "Generate PolygonSymbol3D with a FillSymbol3DLayer",
     "prefix": "fillPolygon3d"
   },
-  " Generate icon Point 3D": {
+  "Generate icon Point 3D": {
     "body": [
       "{",
       "\ttype: \"point-3d\",",
@@ -295,7 +290,7 @@
       "}"
     ],
     "description": "Generate PointSymbol3D with a IconSymbol3DLayer",
-    "prefix": "iconPoint3d"
+    "prefix": "iconPoint3dProps"
   },
   "Labeling info 2D": {
     "body": [
@@ -311,8 +306,8 @@
       "\t})",
       "]"
     ],
-    "description": "Generate 2D labelingInfo for a layer",
-    "prefix": "labeling2d"
+    "description": "Generate 2D labelingInfo for a layer. AMD path: esri/layers/support/LabelClass | ESM path: @arcgis/core/layers/support/LabelClass.js",
+    "prefix": "LabelClass2D"
   },
   "Labeling info 3D": {
     "body": [
@@ -339,10 +334,10 @@
       "\t})",
       "]"
     ],
-    "description": "Generate 3D labelingInfo for a layer",
-    "prefix": "labeling3d"
+    "description": "Generate 3D labelingInfo for a layer. AMD path: esri/layers/support/LabelClass | ESM path: @arcgis/core/layers/support/LabelClass.js",
+    "prefix": "LabelClass3D"
   },
-  " Generate line 3D": {
+  "Generate line 3D": {
     "body": [
       "{",
       "\ttype: \"line-3d\",",
@@ -374,9 +369,9 @@
       "\tzoom: 10",
       "})"
     ],
-    "description": "Create an instance of esri/views/MapView."
+    "description": "Create an instance of a MapView. AMD path: esri/views/MapView | ESM path: @arcgis/core/views/MapView.js"
   },
-  " Create object point 3D": {
+  "Create object point 3D": {
     "body": [
       "{",
       "\ttype: \"point-3d\",",
@@ -391,9 +386,9 @@
       "}"
     ],
     "description": "Generate PointSymbol3D with a ObjectSymbol3DLayer",
-    "prefix": "objectPoint3d"
+    "prefix": "pointSymbol3dProps"
   },
-  " Generate path 3D": {
+  "Generate path 3D": {
     "body": [
       "{",
       "\ttype: \"line-3d\",",
@@ -411,9 +406,9 @@
       "}"
     ],
     "description": "Generate LineSymbol3D with a PathSymbol3DLayer",
-    "prefix": "path3d"
+    "prefix": "lineSymbol3DPathProps"
   },
-  " Create picture fill symbol": {
+  "Create picture fill symbol": {
     "body": [
       "{",
       "\ttype: \"picture-fill\",",
@@ -425,9 +420,9 @@
       "}"
     ],
     "description": "Create a PictureFillSymbol with customizable image-based patterns for polygons.",
-    "prefix": "pictureFillSymbol"
+    "prefix": "pictureFillSymbolProps"
   },
-  " Create Picture marker symbol": {
+  "Create Picture marker symbol": {
     "body": [
       "{",
       "\ttype: \"picture-marker\",",
@@ -437,9 +432,9 @@
       "}"
     ],
     "description": "Create a PictureMarkerSymbol, allowing custom image-based markers for points on maps",
-    "prefix": "pictureMarkerSymbol"
+    "prefix": "pictureMarkerSymbolProps"
   },
-  " Use Require": {
+  "Use Require": {
     "body": [
       "require([\"esri/Map\", \"esri/views/MapView\",\"dojo/domReady!\"],function(Map, MapView){",
       "",
@@ -460,9 +455,9 @@
       "}"
     ],
     "description": "Change the background of a scene",
-    "prefix": "sceneBackground"
+    "prefix": "sceneViewEnvironmentProps"
   },
-  " Create simple fill symbol": {
+  "Create simple fill symbol": {
     "body": [
       "{",
       "\ttype: \"simple-fill\",",
@@ -475,9 +470,9 @@
       "}"
     ],
     "description": "Create a SimpleFillSymbol",
-    "prefix": "simpleFillSymbol"
+    "prefix": "simpleFillSymbolProps"
   },
-  " Generate simple line symbol": {
+  "Generate simple line symbol": {
     "body": [
       "{",
       "\ttype: \"simple-line\",",
@@ -489,9 +484,9 @@
       "}"
     ],
     "description": "Create a SimpleLineSymbol",
-    "prefix": "simpleLineSymbol"
+    "prefix": "simpleLineSymbolProps"
   },
-  " Create simple marker symbol": {
+  "Create simple marker symbol": {
     "body": [
       "{",
       "\ttype: \"simple-marker\",",
@@ -505,7 +500,7 @@
       "}"
     ],
     "description": "Create a SimpleMarkerSymbol",
-    "prefix": "simpleMarkerSymbol"
+    "prefix": "simpleMarkerSymbolProps"
   },
   "Symbols/Simple renderer": {
     "body": [
@@ -515,7 +510,7 @@
       "}"
     ],
     "description": "Generate a SimpleRenderer",
-    "prefix": "simpleRenderer"
+    "prefix": "simpleRendererProps"
   },
   "Size visual variable": {
     "body": [
@@ -534,9 +529,9 @@
       "}"
     ],
     "description": "Generate a SizeVisualVariable.",
-    "prefix": "sizeVar"
+    "prefix": "sizeVisualVariableProps"
   },
-  " Generate unique value renderer": {
+  "Generate unique value renderer": {
     "body": [
       "{",
       "\ttype: \"unique-value\",",
@@ -550,10 +545,10 @@
       "}"
     ],
     "description": "Generate a UniqueValueRenderer",
-    "prefix": "uniqueValueRenderer"
+    "prefix": "uniqueValueRendererProps"
   },
-  " Generate water symbol 3D layer": {
-    "prefix": "waterSymbol3dLayer",
+  "Generate water symbol 3D layer": {
+    "prefix": "waterSymbol3dLayerProps",
     "body": [
       "{",
       "\ttype: \"polygon-3d\",",
@@ -569,7 +564,7 @@
     "description": "Create PolygonSymbol3D with a WaterSymbol3DLayer"
   },
   "Generate a DotDensity renderer": {
-    "prefix": "dotDensity",
+    "prefix": "dotDensityRendererProps",
     "body": [
       "{",
       "\ttype: 'dot-density',",
