@@ -228,7 +228,7 @@ When submitting, if you are working on an issue, remember to [link your PR to it
 
 Prefix are the trigger words that display the snippet in the Intellisense:
 
-![Image showing how the prefix shows in VS Code](./builder/assets/snippet-prefix.png)
+<img src="./builder/assets/snippet-prefix.png" width="550" alt="Image showing how the prefix shows in VS Code" />
 
 * Avoid acronyms (like `sms` for `SimpleMarkerSymbol`)
 * Use camelCase (not [snake_case](https://en.wikipedia.org/wiki/Snake_case), UPPERCASE, etc.)
@@ -247,7 +247,7 @@ Prefix are the trigger words that display the snippet in the Intellisense:
 
 Name is the short description that follows the prefix:
 
-![Image showing how the name shows in VS Code](./builder/assets/snippet-name.png)
+<img src="./builder/assets/snippet-name.png" width="550" alt="Image showing how the name shows in VS Code" />
 
 * Start your sentence with capitals (do not capitalize, uppercase)
 * Use plain english using spaces as needed (don't use [camelCase](https://en.wikipedia.org/wiki/Camel_case), [snake_case](https://en.wikipedia.org/wiki/Snake_case), [PascalCase](https://www.freecodecamp.org/news/snake-case-vs-camel-case-vs-pascal-case-vs-kebab-case-whats-the-difference/#pascal-case), or [kebab-case](https://en.wikipedia.org/wiki/Letter_case#Kebab_case)).
@@ -265,7 +265,7 @@ Name is the short description that follows the prefix:
 
 Description is a long description that precedes the body:
 
-![Image showing how the description shows in VS Code](./builder/assets/snippet-description.png)
+<img src="./builder/assets"snippet-description.png) width="550" alt="Image showing how the description shows in VS Code" />
 
 * It should be a proper description of what the snippet does, and reuse text from the API reference whenever possible.
 * If it is a snippet related to a class/module include the AMD and ESM paths. 
@@ -282,7 +282,7 @@ Examples:
 
 Body contain the code snippet that will be inserted:
 
-![Image showing how the body shows in VS Code](./builder/assets/snippet-body.png)
+<img src="./builder/assets/snippet-body.png" width="550" alt="Image showing how the body shows in VS Code" />
 
 > If you want to suggest a change, please [check the issue #19](https://github.com/Esri/arcgis-js-vscode-snippets/issues/19). 
 
