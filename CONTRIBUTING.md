@@ -239,7 +239,7 @@ Prefix are the trigger words that display the snippet in the Intellisense:
     * **Class properties objects**: add the suffix "Props".
     * **Class constructors**: match JS SDK capitalization.
 
-> **⚠️ Important**: when changing an exist prefix, or backwards compatibility, if the new prefix is totally different, instead of removing the previous prefix, add a new one (`prefix` support `strings` and `arrays`).
+> **⚠️ Important**: when changing an exist prefix, or backwards compatibility, if the new prefix is totally different, instead of removing the previous prefix, add a new one (`prefix` support `strings` and `arrays`), but new one as the first element in the array.
 
 **Examples**:
 * Class constructors: `SimpleMarkerSymbol`, `MapView`, ...
