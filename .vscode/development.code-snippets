@@ -85,15 +85,5 @@
     ],
     "description": "Hello world usint TypeScript and React",
     "prefix": "helloWorldTSX"
-  },
-
-  // SCSS only snippet (*.scss)
-  "A SCSS snippet": {
-    "scope": "scss",
-    "prefix": "smallMap",
-    "body": [
-      ".viewDiv{ width: 400px; height: 400px }"
-    ],
-    "description": "Set viewDiv to 400px x 400px"
-  },
+  }
 }

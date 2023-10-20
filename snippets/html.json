@@ -22,15 +22,6 @@
       "</script>"
     ],
     "description": "Sets /app folder to be able to load packages using require([\"app/your_file.js\"]);"
-  },
-  "Get Calcite": {
-    "prefix": "calcite",
-    "body": [
-      "<script type=\"module\" src=\"https://js.arcgis.com/calcite-components/${1|1.0.0-beta.58,1.0.0-beta.57,1.0.0-beta.56|}/calcite.esm.js\"></script>",
-      "<script nomodule=\"\" src=\"https://js.arcgis.com/calcite-components/${2|1.0.0-beta.58,1.0.0-beta.57,1.0.0-beta.56|}/calcite.js\"></script>",
-      "<link rel=\"stylesheet\" type=\"text/css\" href=\"https://js.arcgis.com/calcite-components/${3|1.0.0-beta.58,1.0.0-beta.57,1.0.0-beta.56|}/calcite.css\" />"
-    ],
-    "description": "Get Calcite library"
   }
 
 }

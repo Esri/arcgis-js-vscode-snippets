@@ -46,7 +46,6 @@ To be able to test your modifications, we encourage you to follow these steps, e
 * 1\) Open in VS Code a file and start typing your snippet prefix. You can use any of the provided files within the folder [playgrounds](./playgrounds/) to test it. Choose the right one based on the type of snippets you want to contribute:
   * **index.html** for HTML, CSS and JavaScript snippets.
   * **config.json** or **data.geojson** for JSON snippets.
-  * **main.scss** for SCSS snippets.
   * **index.ts** for TypeScript snippets.
   * **index.tsx** for TypeScript React snippets.
 * 2\) If everything works as expected, follow the [steps to add your changes](https://github.com/Esri/arcgis-js-vscode-snippets/blob/master/CONTRIBUTING.md#add-your-changes).
