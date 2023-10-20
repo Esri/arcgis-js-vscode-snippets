@@ -184,8 +184,9 @@ If your are not doing a lot of changes you can use `master`, otherwise we encour
 Please ensure that you have completed the following steps before making a PR:
 
 1. Update the corresponding file in the [snippets folder](./snippets). Depending on the type of snippet, you need to will have to modify: `html.json`, `javascript.json`, `json.json`, `typescript.json`, ... 
-    1. Respects the alphabetical order, snippets are sorted by `name`).
-    2. Make sure your snippet meets [our conventions]((#conventions)).
+    1. Make sure your snippet meets [our conventions]((#conventions)).
+    2. Make sure snippets are sorted in the alphabetical order, by `name`). Use any [JSON ABC](https://novicelab.org/jsonabc/) **checking "Spare plain Arrays"**.
+    3. Validate JSON and indentation with [JSONLint](https://jsonlint.com/).
 2. Update the snippets table within the [README.md](./README.md) to reflect the changes.
 3. Update the [CHANGELOG.md](./CHANGELOG.md) file to reflect the changes.
 4. Commit your changes.
@@ -220,7 +221,9 @@ For `<type>` you should use:
 
 > **Reminder**: before doing a PR, ensure that you have completed the checklist included in [Add your changes](#add-your-changes).
 
-When submitting, if you are working on an issue, remember to [link your PR to it](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue), by use a supported keyword in the pull request description. For example: "`Closes #10`" or "`Fixes Esri/arcgis-js-vscode-snippets#10`".
+When submitting:
+* If you are adding a new snippet, please provide a codepen example to help during the review process.
+* If you are working on an issue, remember to [link your PR to it](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue), by use a supported keyword in the pull request description. For example: "`Closes #10`" or "`Fixes Esri/arcgis-js-vscode-snippets#10`".
 
 ## Conventions 
 
@@ -235,6 +238,8 @@ Prefix are the trigger words that display the snippet in the Intellisense:
 * Per snippet type:
     * **Class properties objects**: add the suffix "Props".
     * **Class constructors**: match JS SDK capitalization.
+
+> **⚠️ Important**: when changing an exist prefix, or backwards compatibility, if the new prefix is totally different, instead of removing the previous prefix, add a new one (`prefix` support `strings` and `arrays`).
 
 **Examples**:
 * Class constructors: `SimpleMarkerSymbol`, `MapView`, ...
@@ -251,7 +256,7 @@ Name is the short description that follows the prefix:
 
 * Start your sentence with capitals (do not capitalize, uppercase)
 * Use plain english using spaces as needed (don't use [camelCase](https://en.wikipedia.org/wiki/Camel_case), [snake_case](https://en.wikipedia.org/wiki/Snake_case), [PascalCase](https://www.freecodecamp.org/news/snake-case-vs-camel-case-vs-pascal-case-vs-kebab-case-whats-the-difference/#pascal-case), or [kebab-case](https://en.wikipedia.org/wiki/Letter_case#Kebab_case)).
-* Keep the name short as possible (< 35 characters) to avoid ellipsis ("...").
+* Keep the name short as possible to avoid ellipsis ("..."). Ideally it should be less than 35 characters, but it also depends on the prefix(es) length, so try and adjust it.
 
 **Examples**:
 * `City scale 3D callout`
@@ -265,16 +270,17 @@ Name is the short description that follows the prefix:
 
 Description is a long description that precedes the body:
 
-<img src="./builder/assets"snippet-description.png) width="550" alt="Image showing how the description shows in VS Code" />
+<img src="./builder/assets/snippet-description.png" width="550" alt="Image showing how the description shows in VS Code" />
 
 * It should be a proper description of what the snippet does, and reuse text from the API reference whenever possible.
-* If it is a snippet related to a class/module include the AMD and ESM paths. 
+* For "Initialization of classes" snippets finish with: `AMD path: <path> | ESM path: <path>`
+* For "JS objects with constructor properties" finish with: `This snippet is usually used to set the property \"<property-name>\" of a <class-name(s)>`
 
 Examples:
-* `Create an instance of MapView using a Map.`
-* `Create an instance of MapView using a WebMap.`
-* `Convert a geometry from Web Mercator units (wkid: 3857) to geographic units (wkid: 4326). AMD path:  esri/geometry/support/webMercatorUtils | ESM path: @arcgis/core/geometry/support/webMercatorUtils.js`
-* `Create a PictureFillSymbol with customizable image-based patterns for polygons.`
+* `Load the config, Map and MapView modules using require.`
+* `Use of these basemaps requires a valid ArcGIS Online organizational subscription or an ArcGIS Enterprise license.`
+* `Specifies how features are placed on the vertical axis (z). This snippets should be used to set the property "elevationInfo" of a FeatureLayer, CSVLayer, WFSLayer, SceneLayer, StreamLayer, GeoJSONLayer, IntegratedMeshLayer, etc.`
+* `Creates the labelingInfo for labels in a layer for 3D maps. It is normally used in the property "labelingInfo[]" of a FeatureLayer, SceneLayer or any layyer with that property within a SceneView. AMD path: esri/layers/support/LabelClass | ESM path: @arcgis/core/layers/support/LabelClass.js`
 
 > If you want to suggest a change, please [check the issue #21](https://github.com/Esri/arcgis-js-vscode-snippets/issues/21). 
 
@@ -377,6 +383,7 @@ new MapView({
 #### 5) Conventions for constructor properties
 
 * Sort properties by alphabetical order. 
+  * For "JS objects with constructor properties" `type` is an exception. It can be set as the first one.
 * Include what you think are the most common properties.
 * If a property expects another instance of class, add the name of the snippet (if it exists).
 * When a property support multiple value types, add just a placeholder. 
