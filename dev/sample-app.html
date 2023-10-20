@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html,
+      body,
+      #viewDiv {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://js.arcgis.com/4.27/esri/css/main.css"
+    />
+    <script src="https://js.arcgis.com/4.27"></script>
+    <script>
+      require([
+        "esri/Map", 
+        "esri/views/MapView",
+        "esri/core/reactiveUtils",
+        "esri/layers/FeatureLayer"
+      ], function (Map, MapView, reactiveUtils, FeatureLayer) {
+        
+        const fl = new FeatureLayer({
+          url: "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/Landscape_Trees/FeatureServer/0"
+        });
+        
+        const map = new Map({
+          basemap: "topo-vector",
+          layers: [fl],    
+        });
+      
+        const view = new MapView({
+          container: "viewDiv",
+          map: map,
+          
+          extent: {
+            xmin: -9177811,
+            ymin: 4247000,
+            xmax: -9176791,
+            ymax: 4247784,
+            spatialReference: 102100
+          }
+        });
+
+
+        /* Sample snippet to contribute */
+        view.whenLayerView(fl).then(function (layerView) {
+          reactiveUtils
+            .whenOnce(() => !layerView?.updating)
+            .then(() => {
+              layerView.queryFeatures().then(function (results) {
+                console.log(results.features);
+              });
+            });
+        });
+        /* End of: Sample snippet to contribute */
+
+      });
+    </script>
+  </head>
+  <body>
+    <div id="viewDiv"></div>
+  </body>
+</html>

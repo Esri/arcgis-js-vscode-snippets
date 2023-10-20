@@ -33,3 +33,39 @@ All notable changes to the "arcgis-jsapi-snippets" extension will be documented 
 - Added React Map snippet
 - Added Calcite snippet 
 - Added latest versions to the getAPI snippet
+
+## [Version 1.1.5]
+
+- Removed Calcite snippet
+- Added `requireApiKeys` snippet
+- Added `basemapsWithoutAPIKeys` snippet
+- New prefixes added to existing snippets to match conventions:
+  - `map` -> `MapViewMap`
+  - `scene` -> `SceneViewMap`
+  - `webmap` -> `MapViewWebMap`
+  - `webscene` -> `SceneViewWebScene`
+  - `simpleRenderer` -> `simpleRendererProps`
+  - `uniqueValueRenderer` -> `uniqueValueRendererProps`
+  - `classBreaksRenderer` -> `classBreaksRendererProps`
+  - `sizeVar` -> `sizeVisualVariableProps`
+  - `colorVar` -> `colorVarProps`
+  - `clusterConfig` -> `featureReductionClusterProps`
+  - `labeling2d` -> `LabelClass2D`
+  - `labeling3d` -> `LabelClass3D`
+  - `simpleMarkerSymbol` -> `simpleMarkerSymbolProps`
+  - `pictureMarkerSymbol` -> `pictureMarkerSymbolProps`
+  - `simpleLineSymbol` -> `simpleLineSymbolProps`
+  - `simpleFillSymbol` -> `simpleFillSymbolProps`
+  - `pictureFillSymbol` -> `pictureFillSymbolProps`
+  - `icon` -> `pointSymbol3dIconProps`
+  - `line` -> `lineSymbol3DProps`
+  - `path3d` -> `lineSymbol3DPathProps`
+  - `fillMesh3d` -> `fillMesh3dProps, meshSymbol3DProps`
+  - `waterSymbol3dLayer` -> `waterSymbol3dLayerProps`
+  - `extrudePolygon3d` -> `polygonSymbol3DExtrudeProps`
+  - `edges` -> `edges3DProps`
+  - `calloutSmall` -> `callout3DSmallProps`
+  - `calloutLarge` -> `callout3DLargeProps`
+  - `elevationInfo` -> `elevationInfoProps`
+  - `background` -> `sceneViewEnvironmentProps`
+  - `basemapStyle` -> `basemapsWithAPIKeys`

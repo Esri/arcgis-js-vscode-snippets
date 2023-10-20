@@ -31,7 +31,7 @@ Visual Studio Code extension that contains a collection of snippets for common c
 To use this extension you will need to install:
 1. [Visual Studio Code](https://code.visualstudio.com/download) (version 1.35 or higher).
 2. The extension. There are two possibilities:
-    - From the [Visual Studio Code marketplace](https://marketplace.visualstudio.com/items?itemName=Esri.arcgis-jsapi-snippets).
+    - From the [Visual Studio Code marketplace](https://marketplace.visualstudio.com/items?itemName=Esri.arcgis-maps-sdk-js-snippets).
     - Using the ***[Install from VSIX](https://code.visualstudio.com/docs/editor/extension-marketplace#_install-from-a-vsix)*** command in Visual Studio Code then import the [arcgis-jsapi-snippets-1.0.0.vsix](./arcgis-jsapi-snippets-1.0.0.vsix) file.
 
 ### Usage
@@ -39,12 +39,15 @@ To use this extension you will need to install:
 After installing, there are two ways to use it:
 
 **Option 1**) Using [built-in VS Code Intellisense](https://code.visualstudio.com/docs/languages/javascript#_intellisense):
-1. Start typing the prefix for the code snippet.
-2. Select the snippet by pressing `Tab` or `Enter` key.
+1. Create an empty project with an empty `index.js` file.
+2. Start typing one the prefix of one the [available code snippets](#snippets-available). (e.g. `elev`).
+3. Select the snippet by pressing `Tab` or `Enter` key.
+4. If there are values highlighted in gray, you can move between them using `Tab` (forward) and `Shift+Tab` (backwards).
 
 <img src="./images/code-snippets.gif" width="400px" alt="Intelissense demo"/>
 
-> **Notes:**
+> **Troubleshooting:**<br>
+> If the Intellisense doesn't work:
 > - Make sure to have `"editor.tabCompletion": "on"` in the settings (`Preferences` > `Open Settings(JSON)`)
 > - If pressing Tab doesn't work then you might have several snippets with the same prefix. Press `Ctrl-Space` (`Cmd-Space` on mac) to select the one you need.
 >
@@ -57,12 +60,6 @@ After installing, there are two ways to use it:
 This extension adds a new option to the activity bar that lets you quickly browse and insert built-in and custom snippets:
 
 <img src="./images/snippets-viewer.gif" width="700px" alt="Intelissense demo"/>
-
-### Configuration
-
-If you want to create you own custom snippets you can do so. Read [about User defined snippets in Visual Studio official documentation](https://code.visualstudio.com/docs/editor/userdefinedsnippets#_create-your-own-snippets).
-
-If you do so, please consider [contributing to this repository](#contributing) or join [other developers sharing their snippets](#community-snippets).
 
 ## Snippets available
 
@@ -77,38 +74,39 @@ If you do so, please consider [contributing to this repository](#contributing) o
 
 | Prefix                 | Description                                                                                                                                                                                                   |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| require                | Load the Map and MapView modules using require                                                                                                                                                                |
-| map                    | Create a map and view. Contains placeholders for the basemap, container, zoom and center                                                                                                                      |
-| scene                  | Create a scene and view. Contains placeholders to replace the basemap and the container value.                                                                                                                |
-| webmap                 | Create a map from a WebMap. Contains a placeholder for the portal item id and for the container.                                                                                                              |
-| webscene               | Create a 3D map from a WebScene. Contains a placeholder for the portal item id and for the container.                                                                                                         |
+| require                | Load the Map and MapView modules using require 
+| requireApiKeys                | Load the config, Map and MapView modules using require require                                                                                                                                                                 |
+| MapViewMap                    | Create 2D MapView using a Map                                                                                                                      |
+| SceneViewMap                  | Create 3D SceneView using a Map.                                                                                                                |
+| MapViewWebMap                 | Create 2D map using a WebMap and a portalItem.                                                                                                              |
+| SceneViewWebScene               | Create 3D map using a WebScene and a portalItem..                                                                                                         |
 | addLayerFromPortalItem | Add a new layer to the map using a portal item id. Contains a placeholder for the portal item id.                                                                                                             |
-| simpleRenderer                 | Generate a simple renderer. Contains a placeholder for the symbol.                                                                                                                                            |
-| uniqueValueRenderer            | Generate a unique value renderer. Contains a placeholder for the field, the symbol and it generates a uniqueValueInfos array with placeholers for value, symbol and label for the legend.                     |
-| classBreaksRenderer            | Generate a class breaks renderer. Contains a placeholder for the field, the default symbol and it generates a classBreakInfos array with placeholers for minValue, maxValue, symbol and label for the legend. |
-| sizeVar                | Creates a SizeVariable with 2 size stops. The axis property is only used in 3D. It contains placeholders for field, normalizationField, the legend title and the size stop values.                            |
-| colorVar               | Creates a ColorVariable with 2 color stops. It contains placeholders for field, normalizationField, the legend title and the color stop values.                                                               |
-| clusterConfig          | Generates the configuration for clustering in a MapView. This should be set on layers containing point geometry.                                                                                              |
-| labeling2d             | Creates the labelingInfo for labels in a MapView.                                                                                                                                                             |
-| labeling3d             | Creates the labelingInfo for labels in a SceneView.                                                                                                                                                           |
-| simpleMarkerSymbol                    | Creates a SimpleMarkerSymbol in a MapView. Contains placeholder for style.                                                                                                                                    |
-| pictureMarkerSymbol                    | Creates a PictureMarkerSymbol in a MapView.                                                                                                                                                                   |
-| simpleLineSymbol                   | Creates a SimpleLineSymbol in a MapView. Contains placeholder for style, cap and join.                                                                                                                        |
-| simpleFillSymbol                    | Creates a SimpleFillSymbol in a MapView. Contains placeholder for style.                                                                                                                                      |
-| pictureFillSymbol                    | Creates a PictureFillSymbol in a MapView.                                                                                                                                                                     |
-| icon                   | Creates a PointSymbol3D with IconSymbol3DLayer in a SceneView. Contains placeholders for primitive, color and size..                                                                                          |
-| line                   | Creates a LineSymbol3D with a LineSymbol3DLayer in a SceneView. Contains placeholders for color and size.                                                                                                     |
-| path                   | Creates a LineSymbol3D with a PathSymbol3DLayer in a SceneView. Contains placeholders for profile, color, width, height, join, cap, anchor and profileRotation.                                               |
-| fill                   | Creates a PolygonSymbol3D with a FillSymbol3DLayer in a SceneView. Contains placeholders for style, material color and outline color.                                                                         |
-| water                  | Creates a PolygonSymbol3D with a WaterSymbol3DLayer in a SceneView. Contains placeholder for waterbodySize and waveStrength.                                                                                  |
-| extrude                | Creates a PolygonSymbol3D with an ExtrudeSymbol3DLayer in a SceneView. Contains placeholders for material color and size.                                                                                     |
-| mesh                   | Creates a MeshSymbol3D with a FillSymbol3DLayer in a SceneView. Contains placeholder for color.                                                                                                               |
-| edges                  | Creates an edges object that can be applied to a FillSymbol3DLayer. Contains placeholders for the type of edges (solid or sketch), the color, the size and the extensionLength.                               |
-| calloutSmall           | Generates the verticalOffset for a city scale level and the callout property. They should be set on PointSymbol3D or LabelSymbol3D. Contains placeholders for size, color and border color.                   |
-| calloutLarge           | Generates the verticalOffset for a globe scale level and the callout property. They should be set on PointSymbol3D or LabelSymbol3D. Contains placeholders for size, color and border color.                  |
-| elevationInfo          | Creates an object for elevationInfo to be set on layers. Contains placeholders for mode, offset, arcade driven expression and unit.                                                                           |
-| background             | Creates an environment object for changing the background of a scene. It should be set on a SceneView and it contains a placeholder for color.                                                                |
-| basemapStyle           | List all basemap strings                   |
+| simpleRendererProps                 | Renders all features in a Layer with one Symbol. This snippet is usually used to set the property \"renderer\" of a FeatureLayer, SceneLayer, MapImageLayer, CSVLayer, GeoJSONLayer, OGCFeatureLayer, WFSLayer, or StreamLayer..                                                                                                                                            |
+| uniqueValueRendererProps            | Generate a unique value renderer. This snippet is usually used to set the property \"renderer\" of a FeatureLayer, SceneLayer, MapImageLayer, CSVLayer, GeoJSONLayer, OGCFeatureLayer, WFSLayer, StreamLayer, ImageryLayer, or ImageryTileLayer                     |
+| classBreaksRendererProps            | Generate a ClassBreaksRenderer. This snippet is usually used to set the property \"renderer\" of a FeatureLayer, SceneLayer, MapImageLayer, CSVLayer, GeoJSONLayer, OGCFeatureLayer, WFSLayer, StreamLayer, ImageryLayer, or ImageryTileLayer. |
+| sizeVisualVariableProps                | Set size of features based on a numeric value. Creates a SizeVariable with 2 size stops. The axis property is only used in 3D. This snippet is usually used to set the property \"visualVariables[]\" of a renderer.                            |
+| colorVarProps               | Generate a ColorVariable with 2 color stops. Used to visualize features along a continuous color ramp based on the values of a numeric attribute field or an expression. This snippet is usually used to set the property \"visualVariables[]\" of a renderer class.                                                               |
+| featureReductionClusterProps          | Generates the configuration for clustering in a MapView. This should be set on layers containing point geometry. This snippet is usually used to set the property \"featureReduction\" of a FeatureLayer, CSVLayer, GeoJSONLayer, WFSLayer, or OGCFeatureLayer geometry.                                                                                              |
+| LabelClass2D             | Creates the labelingInfo for labels in a layer for 2D maps. It in normally used in the property \"labelingInfo[]\" of a FeatureLayer, CSVLayer, GeoJSONLayer, StreamLayer, OGCFeatureLayer, or WFSLayer in 2D MapViews.                                                                                                                                                             |
+| LabelClass3D             | Creates the labelingInfo for labels in a layer for 3D maps. It is normally used in the property \"labelingInfo[]\" of a FeatureLayer, SceneLayer or any layyer with that property within a SceneView.                                                                                                                                                           |
+| simpleMarkerSymbolProps                    | Create a SimpleMarkerSymbol for rendering 2D Point geometries with a simple shape and color in either a MapView or a SceneView, but for 3D it is recommended to use PointSymbol3D. This snippet is usually used to set the property \"symbol\" of renderers or individual graphics..                                                                                                                                    |
+| pictureMarkerSymbolProps                    | Create a PictureMarkerSymbol, allowing custom image-based markers for points on maps.                                                                                                                                                                   |
+| simpleLineSymbolProps                   | Create a SimpleLineSymbol for rendering 2D polyline geometries in a 2D or 3D view, but for 3D it is recommended to use LineSymbol3D. It can be used in several properties like \"symbol\" of renderers or individual graphics, but also \"outline\" of marker and fill symbols.                                                                                                                        |
+| simpleFillSymbolProps                    | Create a SimpleFillSymbol for rendering 2D polygon geometries in a 2D or 3D view, but for 3D it is recommended to use PolygonSymbol3D. It can be filled with a solid color, or a pattern. This snippet is usually used to set the property \"symbol\" of renderers or individual graphics..                                                                                                                                      |
+| pictureFillSymbolProps                    | CPictureFillSymbol uses an image in a repeating pattern to symbolize polygon features in a 2D MapView. patterns for polygons. This snippet is usually used to set the property \"symbol\" of renderers or individual graphics.                                                                                                                                                                     |
+| pointSymbol3dIconProps                   | Generate PointSymbol3D with a IconSymbol3DLayer in a SceneView. Available shapes: circle, square, cross, x, kite, and triangle. This snippet is usually used to set the property \"symbol\" of renderers or individual graphics.                                                                                          |
+| lineSymbol3DProps                   | Generate LineSymbol3D with a LineSymbol3DLayer in a SceneView. This snippet is usually used to set the property \"symbol\" of renderers or individual graphics.                                                                                                     |
+| lineSymbol3DPathProps                   | Generate LineSymbol3D with a PathSymbol3DLayer. Renders Polyline geometries by extruding a 2D profile along the line. This snippet is usually used to set the property \"symbol\" of renderers or individual graphics.                                               |
+| meshSymbol3DProps                   | Generate MeshSymbol3D with a FillSymbol3DLayer in a SceneLayer in a SceneView. This snippet is usually used to set the property \"symbol\" of renderers or individual graphics.                                                                         |
+| waterSymbol3dLayerProps                  | WaterSymbol3DLayer is used to render Polygon geometries as realistic, animated water surfaces, therefore it can only be used inside a PolygonSymbol3D. This snippet is usually used to set the property \"symbol\" of renderers or individual graphics.                                                                                  |
+| polygonSymbol3DExtrudeProps                | Generate PolygonSymbol3D with a ExtrudeSymbol3DLayer to be used in a SceneView.  It render polygon geometries by extruding them upward from the ground, creating a 3D volumetric object. This snippet is usually used to set the property \"symbol\" of renderers or individual graphics.                                                                                     |                                                                                                            |
+| edges3DProps                  | Add edge rendering visualization to existing symbols. Can only be applied to \"edges\" property of FillSymbol3DLayer on MeshSymbol3D or ExtrudeSymbol3DLayer on PolygonSymbol3D.                               |
+| callout3DSmallProps           | Generates a Callout3D with a verticalOffset for a city scale level and the callout property. They should be set on the property \"callout\" of PointSymbol3D or LabelSymbol3D.                   |
+| callout3DLargeProps           | Generates a Callout3D with a verticalOffset for a world scale level and the callout property. They should be set on the property \"callout\" of PointSymbol3D or LabelSymbol3D.                  |
+| elevationInfoProps          | Specifies how features are placed on the vertical axis (z). This snippets should be used to set the property \"elevationInfo\" of a FeatureLayer, CSVLayer, WFSLayer, SceneLayer, StreamLayer, GeoJSONLayer, IntegratedMeshLayer, etc.                                                                           |
+| sceneViewEnvironmentProps             | Creates an environment object for changing the background of a scene. This snippet is usually used to set the property \"environment\" of the SceneView.                                                                |
+| basemapsWithAPIKeys           | List all available map styles to be used without API keys. Use of these basemaps requires an ArcGIS Developer subscription or a valid ArcGIS Online organizational subscription                   |
+| basemapsWithoutAPIKeys           | List all available map styles to be used without API keys. Use of these basemaps requires an ArcGIS Developer subscription or a valid ArcGIS Online organizational subscription                   |
 
 ### [TypeScript snippets](snippets/typescript.json)
 
@@ -172,13 +170,17 @@ If you do so, please consider [contributing to this repository](#contributing) o
 
 ## Issues
 
-If something isn't working the way you expected, please take a look at [previously logged issues](https://github.com/Esri/arcgis-js-vscode-snippets/issues/) first. Have you found a new bug? Want to request a new feature? [Open a new issue](https://github.com/Esri/arcgis-js-vscode-snippets/issues/), we'd love to hear from you.
-
-If you're looking for help you can also post issues on Stack Overflow with the "[**esri-oss**](https://stackoverflow.com/questions/tagged/esri-oss)" tag.
+If something isn't working the way you expected, please take a look at [previously logged issues](https://github.com/Esri/arcgis-js-vscode-snippets/issues/) first. Have you found a new bug? Want to request an enhancement to an existing snippet? Suggest a new snippet or tool? [Open a new issue](https://github.com/Esri/arcgis-js-vscode-snippets/issues/new/choose), we'd love to hear from you.
 
 ## Contributing
 
 Esri welcomes contributions from anyone and everyone. Please see our [guidelines for contributing](./CONTRIBUTING.md).
+
+### Additional resources
+
+To learn more about **general use of code snippets in Visual Studio Code** read [Visual Studio official documentation](https://code.visualstudio.com/docs/editor/userdefinedsnippets#_create-your-own-snippets).
+
+If you create your own custom code snippets to work with the ArcGIS Maps SDK for JavaScript, please consider [contributing to this repository](#contributing) or join [other developers sharing their snippets](#community-snippets).
 
 ## License
 
