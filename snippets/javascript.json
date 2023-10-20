@@ -5,143 +5,46 @@
       "\tportalItem: {",
       "\t\tid: \"${1:af1ad38816814b7eba3fe74a3b84412d}\"",
       "\t}",
-      "\t}).then(function(layer) {",
+      "}).then(function(layer) {",
       "\t\tmap.add(layer);",
-      "\t});"
-    ],
-    "description": "Add a layer from a portal item id",
-    "prefix": "addLayerFromPortalItem"
-  },
-  "Symbol 3D callout": {
-  "body": [
-    "callout: {",
-    "\tborder: {",
-    "\t\tcolor: ${3:[0, 0, 0, 0.5]},",
-    "\t},",
-    "\tcolor: ${2:[255, 255, 255, 0.9]},",
-    "\tsize: ${1:1.5},",
-    "\ttype: \"line\",",
-    "},",
-    "verticalOffset: {",
-    "\tmaxWorldLength: 500000,",
-    "\tminWorldLength: 0,",
-    "\tscreenLength: 40,",
-    "}"
-],
-    "description": "Generate 3D callouts for world scale",
-    "prefix": "calloutLargeProps"
-  },
-  "City scale 3D callout": {
-    "body": [
-       "callout: {",
-        "\tborder: {",
-        "\t\tcolor: ${3:[0, 0, 0, 0.5]},",
-        "\t},",
-        "\tcolor: ${2:[255, 255, 255, 0.9]},",
-        "\tsize: ${1:1.5},",
-        "\ttype: \"line\",",
-        "},",
-        "verticalOffset: {",
-        "\tmaxWorldLength: 200,",
-        "\tminWorldLength: 20,",
-        "\tscreenLength: 20,",
-        "}"
-    ],
-    "description": "Generate 3D callouts for city scale",
-    "prefix": "calloutSmallProps"
-  },
-  
-  "Create class breaks renderer": {
-    "body": [
-      "{",
-      "\ttype: \"class-breaks\",",
-      "\tfield: \"${1:MAGNITUDE}\",",
-      "\tdefaultSymbol: ${2:symbol},",
-      "\tclassBreakInfos: [{",
-      "\t\tminValue: ${3:0},",
-      "\t\tmaxValue: ${4:10},",
-      "\t\tsymbol: ${2:symbol},",
-      "\t\tlabel: \"${5:label for the legend}\"",
-      "\t}]",
-      "}"
-    ],
-    "description": "Generate a ClassBreaksRenderer",
-    "prefix": "classBreaksRenderer"
-  },
-  "Color visual variable": {
-    "body": [
-      "{",
-      "\ttype: \"color\",",
-      "\tfield: \"${1:POP_POVERTY}\",",
-      "\tnormalizationField: \"${2:POP_TOT}\",",
-      "\tlegendOptions: {",
-      "\t\ttitle: \"${3:% population in poverty by county}\"",
-      "\t},",
-      "\tstops: [",
-      "\t\t{ value: ${4:0.15}, color: ${5: \"#FFFCD4\" }, label: \"${6:<15%}\" },",
-      "\t\t{ value: ${7:0.25}, color: ${8: \"#0D2644\" }, label: \"${9:>25%}\" }",
-      "\t]",
-      "}"
-    ],
-    "description": "Generate a ColorVisualVariable with 2 color stops.",
-    "prefix": "colorVar"
-  },
-  "Create map": {
-    "body": [
-      "new MapView({",
-      "\tcontainer: ${2:\"viewDiv\"},",
-      "\tmap: {",
-      "\t  basemap: \"${1|arcgis-imagery,arcgis-imagery-standard,arcgis-imagery-labels,arcgis-light-gray,arcgis-dark-gray,arcgis-navigation,arcgis-navigation-night,arcgis-streets,arcgis-streets-night,arcgis-streets-relief,arcgis-topographic,arcgis-oceans,osm-standard,osm-standard-relief,osm-streets,osm-streets-relief,osm-light-gray,osm-dark-gray,arcgis-terrain,arcgis-community,arcgis-charted-territory,arcgis-colored-pencil,arcgis-nova,arcgis-modern-antique,arcgis-midcentury,arcgis-newspaper,arcgis-hillshade-light,arcgis-hillshade-dark|}\"",
-      "\t},",
-      "\tzoom: ${3:4},",
-      "\tcenter: ${4:[15, 65]}",
       "});"
     ],
-    "description": "Create 2D MapView using a Map. AMD path: esri/views/MapView | ESM path: @arcgis/core/views/MapView.js",
-    "prefix": "MapViewMap"
+    "description": "Add a new layer to the map using a portal item id. Contains a placeholder for the portal item id. AMD path: esri/layers/Layer | ESM path: @arcgis/core/layers/Layer.js",
+    "prefix": "addLayerFromPortalItem"
   },
-  
-  "Create scene": {
+  "Add ArcGIS JS SDK require": {
     "body": [
-    "new SceneView({",
-    "\tcontainer: \"${2:viewDiv}\",",
-    "\tmap: {",
-    "\t\tbasemap: \"${1:streets}\"",
-    "\t}",
-    "});"
-  ],
-    "description": "Create 3D SceneView using a Map. AMD path: esri/views/SceneView | ESM path: @arcgis/core/views/SceneView.js",
-    "prefix": "SceneViewMap"
+      "require([",
+      "\t\"esri/Map\",",
+      "\t\"esri/views/MapView\"",
+      "], function(",
+      "\tMap,",
+      "\tMapView",
+      "){",
+      "\t",
+      "});"
+    ],
+    "description": "Load the Map and MapView modules using require.",
+    "prefix": "require"
   },
-  "Create web map": {
-     "body": [
-        "new MapView({",
-        "\tcontainer: \"${2:viewDiv}\",",
-        "\tmap: new WebMap({",
-        "\t\tportalItem: {",
-        "\t\t\tid: \"${1:webmap_id}\"",
-        "\t\t}",
-        "\t}",
-        "});"
-      ],
-    "description": "Create 2D MapView using a WebMap. AMD path: esri/views/MapView | ESM path: @arcgis/core/views/MapView.js",
-    "prefix": "MapViewWebmap"
+  "Add ArcGIS JS SDK require (API keys)": {
+    "body": [
+      "require([",
+      "\t\"esri/config\",",
+      "\t\"esri/Map\",",
+      "\t\"esri/views/MapView\"",
+      "], function(",
+      "\tesriConfig,",
+      "\tMap,",
+      "\tMapView",
+      "){",
+      "\tesriConfig = \"${1:YOUR_API_KEY}\";",
+      "});"
+    ],
+    "description": "Load the config, Map and MapView modules using require",
+    "prefix": "requireApiKeys"
   },
-  "Create web scene": {
-     "body": [
-        "new SceneView({",
-        "\tcontainer: \"${2:viewDiv}\",",
-        "\tmap: new WebScene({",
-        "\t\tportalItem: {",
-        "\t\t\tid: \"${1:webscene_id}\"",
-        "\t\t}",
-        "\t}",
-        "});"
-      ],
-    "description": "Create 3D SceneView using a WebScene",
-    "prefix": "SceneViewWebScene"
-  },
-  "Edges": {
+  "Add edges to 3D symbols": {
     "body": [
       "{",
       "\ttype: \"${1|solid,sketch|}\",",
@@ -150,36 +53,120 @@
       "\textensionLength: ${4:0}",
       "}"
     ],
-    "description": "Creates and EdgeSymbol3D",
-    "prefix": "edgesProps"
+    "description": "Add edge rendering visualization to existing symbols. Can only be applied to \"edges\" property of FillSymbol3DLayer on MeshSymbol3D or ExtrudeSymbol3DLayer on PolygonSymbol3D.",
+    "prefix": "edges3DProps"
   },
-  "Elevation info": {
+  "City scale 3D callout": {
     "body": [
       "{",
-      "\tmode: \"${1|on-the-ground,relative-to-ground,absolute-height,relative-to-scene|}\",",
-      "\toffset: ${2:10},",
-      "\tfeatureExpressionInfo: {",
-      "\t\texpression: \"${3:Geometry(\\$feature).z\"}",
+      "\tborder: {",
+      "\t\tcolor: ${1:[0, 0, 0, 0.5]},",
       "\t},",
-      "\tunit: \"${4|feet,meters,kilometers,miles,us-feet,yards|}\"",
+      "\tcolor: ${2:[255, 255, 255, 0.9]},",
+      "\tsize: ${3:1.5},",
+      "\ttype: \"line\",",
+      "},",
+      "verticalOffset: {",
+      "\tmaxWorldLength: 200,",
+      "\tminWorldLength: 20,",
+      "\tscreenLength: 20,",
       "}"
     ],
-    "description": "Create Elevation info for 3D GIS with modes, offsets, and units for features.",
-    "prefix": "elevationInfoProps"
+    "description": "Generates a Callout3D with a verticalOffset for a city scale level and the callout property. They should be set on the property \"callout\" of PointSymbol3D or LabelSymbol3D.",
+    "prefix": [
+      "callout3DSmallProps"
+    ]
   },
-  "Create 3D extruded polygon symbol": {
+  "Create 2D MapView from a portalItem": {
+    "body": [
+      "new MapView({",
+      "\tcontainer: \"${1:viewDiv}\",",
+      "\tmap: new WebMap({",
+      "\t\tportalItem: {",
+      "\t\t\tid: \"${2:webmap_id}\"",
+      "\t\t}",
+      "\t})",
+      "});"
+    ],
+    "description": "Create 2D map using a WebMap and a portalItem. AMD paths: esri/views/MapView & esri/WebMap | ESM paths: @arcgis/core/views/MapView.js & @arcgis/core/WebMap.js",
+    "prefix": [
+      "MapViewWebMap"
+    ]
+  },
+  "Create 3D map from a portalItem": {
+    "body": [
+      "new SceneView({",
+      "\tcontainer: \"${1:viewDiv}\",",
+      "\tmap: new WebScene({",
+      "\t\tportalItem: {",
+      "\t\t\tid: \"${2:webscene_id}\"",
+      "\t\t}",
+      "\t})",
+      "});"
+    ],
+    "description": "Create 3D map using a WebScene and a portalItem. AMD paths: esri/views/SceneView & esri/WebScene | ESM Paths: @arcgis/core/views/SceneView.js & @arcgis/core/WebScene.js",
+    "prefix": [
+      "SceneViewWebScene"
+    ]
+  },
+  "Create basic 2D map": {
+    "body": [
+      "new MapView({",
+      "\tcontainer: ${1:\"viewDiv\"},",
+      "\tmap: {",
+      "\t  basemap: \"${2|arcgis-imagery,arcgis-imagery-standard,arcgis-imagery-labels,arcgis-light-gray,arcgis-dark-gray,arcgis-navigation,arcgis-navigation-night,arcgis-streets,arcgis-streets-night,arcgis-streets-relief,arcgis-topographic,arcgis-oceans,osm-standard,osm-standard-relief,osm-streets,osm-streets-relief,osm-light-gray,osm-dark-gray,arcgis-terrain,arcgis-community,arcgis-charted-territory,arcgis-colored-pencil,arcgis-nova,arcgis-modern-antique,arcgis-midcentury,arcgis-newspaper,arcgis-hillshade-light,arcgis-hillshade-dark|}\"",
+      "\t},",
+      "\tzoom: ${3:4},",
+      "\tcenter: ${4:[15, 65]}",
+      "});"
+    ],
+    "description": "Create 2D MapView using a Map. AMD path: esri/views/MapView | ESM path: @arcgis/core/views/MapView.js",
+    "prefix": [
+      "MapViewMap"
+    ]
+  },
+  "Create basic 3D map": {
+    "body": [
+      "new SceneView({",
+      "\tcontainer: \"${1:viewDiv}\",",
+      "\tmap: {",
+      "\t\tbasemap: \"${2:streets}\"",
+      "\t}",
+      "});"
+    ],
+    "description": "Create 3D SceneView using a Map. AMD path: esri/views/SceneView | ESM path: @arcgis/core/views/SceneView.js",
+    "prefix": [
+      "SceneViewMap"
+    ]
+  },
+  "Create object point 3D": {
     "body": [
       "{",
-      "\ttype: \"polygon-3d\",",
+      "\ttype: \"point-3d\",",
       "\tsymbolLayers: [{",
-      "\t\ttype: \"extrude\",",
-      "\t\tmaterial: { color: ${1:[255, 250, 239, 0.8]} },",
-      "\t\tsize: ${2:20}",
+      "\t\ttype: \"object\",",
+      "\t\tresource: { primitive: \"${1|sphere,cylinder,cube,cone,inverted-cone,diamond,tetrahedron|}\"},",
+      "\t\tmaterial: { color: ${2:[255, 250, 239, 0.8]} },",
+      "\t\tdepth: ${3:15},",
+      "\t\theight: ${4:20},",
+      "\t\twidth: ${5:5}",
       "\t}]",
       "}"
     ],
-    "description": "Generate PolygonSymbol3D with a ExtrudeSymbol3DLayer",
-    "prefix": "extrudePolygon3dProps"
+    "description": "Generate PointSymbol3D with a ObjectSymbol3DLayer",
+    "prefix": "pointSymbol3dProps"
+  },
+  "Create Picture marker symbol": {
+    "body": [
+      "{",
+      "\ttype: \"picture-marker\",",
+      "\turl: \"image-url\",",
+      "\theight: 12,",
+      "\twidth: 12",
+      "}"
+    ],
+    "description": "Create a PictureMarkerSymbol, allowing custom image-based markers for points on maps",
+    "prefix": "pictureMarkerSymbolProps"
   },
   "Feature reduction cluster properties": {
     "body": [
@@ -232,339 +219,23 @@
       "\t\t],",
       "\t\ttitle: \"Cluster summary\"",
       "\t},",
-      "\ttype: \"cluster\","
+      "\ttype: \"cluster\",",
       "}"
-  ],
-
-   "description": "Enable clustering on a layer with point geometries",
-   "prefix": "featureReductionClusterProps"
+    ],
+    "description": "Generates the configuration for clustering in a MapView. This should be set on layers containing point geometry. This snippet is usually used to set the property \"featureReduction\" of a FeatureLayer, CSVLayer, GeoJSONLayer, WFSLayer, or OGCFeatureLayer",
+    "prefix": [
+      "featureReductionClusterProps",
+      "clusterConfig"
+    ]
   },
   "Find a layer by it's name": {
-    "prefix": "findLayer",
     "body": [
       "view.map.layers.find( l => l.title === \"${1:LayerTitle}\" );"
     ],
-    "description": "Find a layer in the MapView by it's title"
-  },
-  "Generate fill mesh 3D symbol": {
-    "body": [
-      "{",
-      "\ttype: \"mesh-3d\",",
-      "\tsymbolLayers: [{",
-      "\t\ttype: \"fill\",",
-      "\t\tmaterial: { color: ${1:[255, 250, 239, 0.8]} },",
-      "\t}]",
-      "}"
-    ],
-    "description": "Generate MeshSymbol3D with a FillSymbol3DLayer",
-    "prefix": "fillMesh3dProps"
-  },
-   "Generate fill polygon 3D": {
-    "body": [
-      "{",
-      "\ttype: \"polygon-3d\",",
-      "\tsymbolLayers: [{",
-      "\t\ttype: \"fill\",",
-      "\t\tpattern: {",
-      "\t\t\ttype: \"style\",",
-      "\t\t\tstyle: \"${1|solid,vertical,horizontal,forward-diagonal,diagonal-cross,cross,backward-diagonal|}\"",
-      "\t\t},",
-      "\t\tmaterial: { color: ${2:[255, 250, 239, 0.8]} },",
-      "\t\toutline: { color: ${3:[70, 70, 70, 0.7]}}",
-      "\t}]",
-      "}"
-    ],
-    "description": "Generate PolygonSymbol3D with a FillSymbol3DLayer",
-    "prefix": "fillPolygon3d"
-  },
-  "Generate icon Point 3D": {
-    "body": [
-      "{",
-      "\ttype: \"point-3d\",",
-      "\tsymbolLayers: [{",
-      "\t\ttype: \"icon\",",
-      "\t\tresource: { primitive: \"${1|circle,square,cross,x,kite,triangle|}\"},",
-      "\t\tmaterial: { color: ${2:[255, 250, 239, 0.8]} },",
-      "\t\tsize: ${3:20}",
-      "\t}]",
-      "}"
-    ],
-    "description": "Generate PointSymbol3D with a IconSymbol3DLayer",
-    "prefix": "iconPoint3dProps"
-  },
-  "Labeling info 2D": {
-    "body": [
-      "[",
-      "\tnew LabelClass({",
-      "\t\tlabelExpressionInfo: { expression: \"${1:\\$feature.NAME}\"},",
-      "\t\tsymbol: {",
-      "\t\t\ttype: \"text\",",
-      "\t\t\tcolor: ${2:[0, 0, 0, 0.5]},",
-      "\t\t\thaloSize: ${3:1},",
-      "\t\t\thaloColor: ${4:[255, 255, 255, 0.9]}",
-      "\t\t}",
-      "\t})",
-      "]"
-    ],
-    "description": "Generate 2D labelingInfo for a layer. AMD path: esri/layers/support/LabelClass | ESM path: @arcgis/core/layers/support/LabelClass.js",
-    "prefix": "LabelClass2D"
-  },
-  "Labeling info 3D": {
-    "body": [
-      "[",
-      "\tnew LabelClass({",
-      "\t\tlabelExpressionInfo: { expression: \"${1:\\$feature.NAME}\"},",
-      "\t\tsymbol: {",
-      "\t\t\ttype: \"label-3d\",",
-      "\t\t\tsymbolLayers: [{",
-      "\t\t\t\ttype: \"text\",",
-      "\t\t\t\tmaterial: {",
-      "\t\t\t\t\tcolor: ${2:[0, 0, 0, 0.5]}",
-      "\t\t\t\t},",
-      "\t\t\t\thalo: {",
-      "\t\t\t\t\tsize: ${3: 1},",
-      "\t\t\t\t\tcolor: ${4:[255, 255, 255, 0.9]}",
-      "\t\t\t\t},",
-      "\t\t\t\tfont: {",
-      "\t\t\t\t\tsize: ${5: 11},",
-      "\t\t\t\t\tfamily: ${6:\"sans-serif\"}",
-      "\t\t\t\t}",
-      "\t\t\t}]",
-      "\t\t}",
-      "\t})",
-      "]"
-    ],
-    "description": "Generate 3D labelingInfo for a layer. AMD path: esri/layers/support/LabelClass | ESM path: @arcgis/core/layers/support/LabelClass.js",
-    "prefix": "LabelClass3D"
-  },
-  "Generate line 3D": {
-    "body": [
-      "{",
-      "\ttype: \"line-3d\",",
-      "\tsymbolLayers: [{",
-      "\t\ttype: \"line\",",
-      "\t\tmaterial: { color: ${1:[255, 250, 239, 0.8]} },",
-      "\t\tsize: ${2:15}",
-      "\t}]",
-      "}"
-    ],
-    "description": "Generate LineSymbol3D with a LineSymbol3DLayer",
-    "prefix": "line3d"
-  },
-  "List map styles": {
-    "prefix": "basemapStyle",
-    "body": [
-      "\"${1|arcgis-imagery,arcgis-imagery-standard,arcgis-imagery-labels,arcgis-light-gray,arcgis-dark-gray,arcgis-navigation,arcgis-navigation-night,arcgis-streets,arcgis-streets-night,arcgis-streets-relief,arcgis-topographic,arcgis-oceans,osm-standard,osm-standard-relief,osm-streets,osm-streets-relief,osm-light-gray,osm-dark-gray,arcgis-terrain,arcgis-community,arcgis-charted-territory,arcgis-colored-pencil,arcgis-nova,arcgis-modern-antique,arcgis-midcentury,arcgis-newspaper,arcgis-hillshade-light,arcgis-hillshade-dark|}\""
-    ],
-    "description": "Retrieve a list of available map styles for basemaps, including imagery, streets, and more",
-  },
-  
-  "Load a Map view (2D)": {
-    "prefix": "MapView",
-    "body": [
-      "new MapView({",
-      "\tcenter: Number[] | Point",
-      "\tcontainer: String | HTMLDivElement,",
-      "\tmap: Map,",
-      "\tzoom: 10",
-      "})"
-    ],
-    "description": "Create an instance of a MapView. AMD path: esri/views/MapView | ESM path: @arcgis/core/views/MapView.js"
-  },
-  "Create object point 3D": {
-    "body": [
-      "{",
-      "\ttype: \"point-3d\",",
-      "\tsymbolLayers: [{",
-      "\t\ttype: \"object\",",
-      "\t\tresource: { primitive: \"${1|sphere,cylinder,cube,cone,inverted-cone,diamond,tetrahedron|}\"},",
-      "\t\tmaterial: { color: ${2:[255, 250, 239, 0.8]} },",
-      "\t\tdepth: ${3:15},",
-      "\t\theight: ${4:20},",
-      "\t\twidth: ${5:5}",
-      "\t}]",
-      "}"
-    ],
-    "description": "Generate PointSymbol3D with a ObjectSymbol3DLayer",
-    "prefix": "pointSymbol3dProps"
-  },
-  "Generate path 3D": {
-    "body": [
-      "{",
-      "\ttype: \"line-3d\",",
-      "\tsymbolLayers: [{",
-      "\t\ttype: \"path\",",
-      "\t\tprofile: \"${1|circle,quad|}\",",
-      "\t\tmaterial: { color: ${2:[255, 250, 239, 0.8]} },",
-      "\t\twidth: ${3:15},",
-      "\t\theight: ${3:15},",
-      "\t\tjoin: \"${4|miter,bevel,round|}\",",
-      "\t\tcap: \"${5|butt,square,round,none|}\",",
-      "\t\tanchor: \"${6|bottom,center|}\",",
-      "\t\tprofileRotation: \"${7|all,heading|}\"",
-      "\t}]",
-      "}"
-    ],
-    "description": "Generate LineSymbol3D with a PathSymbol3DLayer",
-    "prefix": "lineSymbol3DPathProps"
-  },
-  "Create picture fill symbol": {
-    "body": [
-      "{",
-      "\ttype: \"picture-fill\",",
-      "\turl: \"image-url\",",
-      "\twidth: 12,",
-      "\theight: 12,",
-      "\txoffset: 0,",
-      "\tyoffset: 0",
-      "}"
-    ],
-    "description": "Create a PictureFillSymbol with customizable image-based patterns for polygons.",
-    "prefix": "pictureFillSymbolProps"
-  },
-  "Create Picture marker symbol": {
-    "body": [
-      "{",
-      "\ttype: \"picture-marker\",",
-      "\turl: \"image-url\",",
-      "\theight: 12,",
-      "\twidth: 12",
-      "}"
-    ],
-    "description": "Create a PictureMarkerSymbol, allowing custom image-based markers for points on maps",
-    "prefix": "pictureMarkerSymbolProps"
-  },
-  "Use Require": {
-    "body": [
-      "require([\"esri/Map\", \"esri/views/MapView\",\"dojo/domReady!\"],function(Map, MapView){",
-      "",
-      " });"
-    ],
-    "description": "Simple require example",
-    "prefix": "require"
-  },
-   "Generate scene background": {
-    "body": [
-      "environment: {",
-      "\tbackground: {",
-      "\t\ttype: \"color\",",
-      "\t\tcolor: ${1:[0, 0, 0, 0]}",
-      "\t},",
-      "\tstarsEnabled: false,",
-      "\tatmosphereEnabled: false",
-      "}"
-    ],
-    "description": "Change the background of a scene",
-    "prefix": "sceneViewEnvironmentProps"
-  },
-  "Create simple fill symbol": {
-    "body": [
-      "{",
-      "\ttype: \"simple-fill\",",
-      "\tcolor: [0, 0, 0, 0.25],",
-      "\tstyle: \"${1|solid,backward-diagonal,cross,diagonal-cross,forward-diagonal,horizontal,none,vertical|}\",",
-      "\toutline: {",
-      "\t\twidth: 1,",
-      "\t\tcolor: [255, 255, 255, 1]",
-      "\t}",
-      "}"
-    ],
-    "description": "Create a SimpleFillSymbol",
-    "prefix": "simpleFillSymbolProps"
-  },
-  "Generate simple line symbol": {
-    "body": [
-      "{",
-      "\ttype: \"simple-line\",",
-      "\twidth: 1,",
-      "\tcolor: [255, 255, 255, 1],",
-      "\tstyle: \"${1|solid,none,dash,dash-dot,dot,long-dash,long-dash-dot,long-dash-dot-dot,short-dash,short-dash-dot,short-dash-dot-dot,short-dot|}\",",
-      "\tcap: \"${2|round,butt,square|}\",",
-      "\tjoin: \"${3|round,miter,bevel|}\"",
-      "}"
-    ],
-    "description": "Create a SimpleLineSymbol",
-    "prefix": "simpleLineSymbolProps"
-  },
-  "Create simple marker symbol": {
-    "body": [
-      "{",
-      "\ttype: \"simple-marker\",",
-      "\tcolor: [255, 255, 255, 0.25],",
-      "\tsize: 12,",
-      "\tstyle: \"${1|circle,square,cross,x,diamond,triangle,path|}\",",
-      "\toutline: {",
-      "\t\twidth: 1,",
-      "\t\tcolor: [255, 255, 255, 1]",
-      "\t}",
-      "}"
-    ],
-    "description": "Create a SimpleMarkerSymbol",
-    "prefix": "simpleMarkerSymbolProps"
-  },
-  "Symbols/Simple renderer": {
-    "body": [
-      "{",
-      "\ttype: \"simple\",",
-      "\tsymbol: ${1:symbol}",
-      "}"
-    ],
-    "description": "Generate a SimpleRenderer",
-    "prefix": "simpleRendererProps"
-  },
-  "Size visual variable": {
-    "body": [
-      "{",
-      "\ttype: \"size\",",
-      "\tfield: \"${1:POP_POVERTY}\",",
-      "\tnormalizationField: \"${2:POP_TOT}\",",
-      "\taxis: \"height\",",
-      "\tlegendOptions: {",
-      "\t\ttitle: \"${3:% population in poverty by county}\"",
-      "\t},",
-      "\tstops: [",
-      "\t\t{ value: ${4:0.15}, size: ${5:4}, label: \"${6:<15%}\" },",
-      "\t\t{ value: ${7:0.25}, size: ${8:12}, label: \"${9:25%}\" }",
-      "\t]",
-      "}"
-    ],
-    "description": "Generate a SizeVisualVariable.",
-    "prefix": "sizeVisualVariableProps"
-  },
-  "Generate unique value renderer": {
-    "body": [
-      "{",
-      "\ttype: \"unique-value\",",
-      "\tfield: \"${1:REGION}\",",
-      "\tdefaultSymbol: ${2:symbol},",
-      "\tuniqueValueInfos: [{",
-      "\t\tvalue: \"${3:value}\",",
-      "\t\tsymbol: ${2:symbol},",
-      "\t\tlabel: \"${4:label for the legend}\"",
-      "\t}]",
-      "}"
-    ],
-    "description": "Generate a UniqueValueRenderer",
-    "prefix": "uniqueValueRendererProps"
-  },
-  "Generate water symbol 3D layer": {
-    "prefix": "waterSymbol3dLayerProps",
-    "body": [
-      "{",
-      "\ttype: \"polygon-3d\",",
-      "\tsymbolLayers: [{",
-      "\t\ttype: \"water\",",
-      "\t\twaveDirection: 180,",
-      "\t\tcolor: \"#5975a3\",",
-      "\t\twaveStrength: \"${1|calm,rippled,slight,moderate|}\",",
-      "\t\twaterbodySize: \"${2|small,medium,large|}\"",
-      "\t}]",
-      "}"
-    ],
-    "description": "Create PolygonSymbol3D with a WaterSymbol3DLayer"
+    "description": "Find a layer in the MapView by it's title",
+    "prefix": "findLayer"
   },
   "Generate a DotDensity renderer": {
-    "prefix": "dotDensityRendererProps",
     "body": [
       "{",
       "\ttype: 'dot-density',",
@@ -587,6 +258,400 @@
       "\t]",
       "}"
     ],
-    "description": "Generate a DotDensity Renderer"
+    "description": "Generate a DotDensity Renderer",
+    "prefix": "dotDensityRendererProps"
+  },
+  "Generate fill polygon 3D": {
+    "body": [
+      "{",
+      "\ttype: \"polygon-3d\",",
+      "\tsymbolLayers: [{",
+      "\t\ttype: \"fill\",",
+      "\t\tpattern: {",
+      "\t\t\ttype: \"style\",",
+      "\t\t\tstyle: \"${1|solid,vertical,horizontal,forward-diagonal,diagonal-cross,cross,backward-diagonal|}\"",
+      "\t\t},",
+      "\t\tmaterial: { color: ${2:[255, 250, 239, 0.8]} },",
+      "\t\toutline: { color: ${3:[70, 70, 70, 0.7]}}",
+      "\t}]",
+      "}"
+    ],
+    "description": "Generate PolygonSymbol3D with a FillSymbol3DLayer",
+    "prefix": "fillPolygon3d"
+  },
+  "How features are placed on the vertical axis (z)": {
+    "body": [
+      "{",
+      "\tmode: \"${1|on-the-ground,relative-to-ground,absolute-height,relative-to-scene|}\",",
+      "\toffset: ${2:10},",
+      "\tfeatureExpressionInfo: {",
+      "\t\texpression: \"${3:Geometry(\\$feature).z\"}",
+      "\t},",
+      "\tunit: \"${4|feet,meters,kilometers,miles,us-feet,yards|}\"",
+      "}"
+    ],
+    "description": "Specifies how features are placed on the vertical axis (z). This snippets should be used to set the property \"elevationInfo\" of a FeatureLayer, CSVLayer, WFSLayer, SceneLayer, StreamLayer, GeoJSONLayer, IntegratedMeshLayer, etc.",
+    "prefix": "elevationInfoProps"
+  },
+  "LabelingInfo for labels in a MapView": {
+    "body": [
+      "new LabelClass({",
+      "\tlabelExpressionInfo: { expression: \"${1:\\$feature.NAME}\"},",
+      "\tsymbol: {",
+      "\t\ttype: \"text\",",
+      "\t\tcolor: ${2:[0, 0, 0, 0.5]},",
+      "\t\thaloSize: ${3:1},",
+      "\t\thaloColor: ${4:[255, 255, 255, 0.9]}",
+      "\t}",
+      "})"
+    ],
+    "description": "Creates the labelingInfo for labels in a layer for 2D maps. It in normally used in the property \"labelingInfo[]\" of a FeatureLayer, CSVLayer, GeoJSONLayer, StreamLayer, OGCFeatureLayer, or WFSLayer in 2D MapViews. AMD path: esri/layers/support/LabelClass | ESM path: @arcgis/core/layers/support/LabelClass.js",
+    "prefix": [
+      "LabelClass2D",
+      "labeling2d"
+    ]
+  },
+  "LabelingInfo for labels in a SceneView": {
+    "body": [
+      "new LabelClass({",
+      "\tlabelExpressionInfo: { expression: \"${1:\\$feature.NAME}\"},",
+      "\tsymbol: {",
+      "\t\ttype: \"label-3d\",",
+      "\t\tsymbolLayers: [{",
+      "\t\t\ttype: \"text\",",
+      "\t\t\tmaterial: {",
+      "\t\t\t\tcolor: ${2:[0, 0, 0, 0.5]}",
+      "\t\t\t},",
+      "\t\t\thalo: {",
+      "\t\t\t\tsize: ${3: 1},",
+      "\t\t\t\tcolor: ${4:[255, 255, 255, 0.9]}",
+      "\t\t\t},",
+      "\t\t\tfont: {",
+      "\t\t\t\tsize: ${5: 11},",
+      "\t\t\t\tfamily: ${6:\"sans-serif\"}",
+      "\t\t\t}",
+      "\t\t}]",
+      "\t}",
+      "})"
+    ],
+    "description": "Creates the labelingInfo for labels in a layer for 3D maps. It is normally used in the property \"labelingInfo[]\" of a FeatureLayer, SceneLayer or any layyer with that property within a SceneView. AMD path: esri/layers/support/LabelClass | ESM path: @arcgis/core/layers/support/LabelClass.js",
+    "prefix": [
+      "LabelClass3D",
+      "labeling3d"
+    ]
+  },
+  "Render 2D points with a shape & color": {
+    "body": [
+      "{",
+      "\ttype: \"simple-marker\",",
+      "\tcolor: [255, 255, 255, 0.25],",
+      "\tsize: 12,",
+      "\tstyle: \"${1|circle,square,cross,x,diamond,triangle,path|}\",",
+      "\toutline: {",
+      "\t\twidth: 1,",
+      "\t\tcolor: [255, 255, 255, 1]",
+      "\t}",
+      "}"
+    ],
+    "description": "Create a SimpleMarkerSymbol for rendering 2D Point geometries with a simple shape and color in either a MapView or a SceneView, but for 3D it is recommended to use PointSymbol3D. This snippet is usually used to set the property \"symbol\" of renderers or individual graphics.",
+    "prefix": [
+      "simpleMarkerSymbolProps"
+    ]
+  },
+  "Render 2D polygons geometries": {
+    "body": [
+      "{",
+      "\ttype: \"simple-fill\",",
+      "\tcolor: [0, 0, 0, 0.25],",
+      "\tstyle: \"${1|solid,backward-diagonal,cross,diagonal-cross,forward-diagonal,horizontal,none,vertical|}\",",
+      "\toutline: {",
+      "\t\twidth: 1,",
+      "\t\tcolor: [255, 255, 255, 1]",
+      "\t}",
+      "}"
+    ],
+    "description": "Create a SimpleFillSymbol for rendering 2D polygon geometries in a 2D or 3D view, but for 3D it is recommended to use PolygonSymbol3D. It can be filled with a solid color, or a pattern. This snippet is usually used to set the property \"symbol\" of renderers or individual graphics.",
+    "prefix": "simpleFillSymbolProps"
+  },
+  "Render 2D polyline geometries": {
+    "body": [
+      "{",
+      "\ttype: \"simple-line\",",
+      "\twidth: 1,",
+      "\tcolor: [255, 255, 255, 1],",
+      "\tstyle: \"${1|solid,none,dash,dash-dot,dot,long-dash,long-dash-dot,long-dash-dot-dot,short-dash,short-dash-dot,short-dash-dot-dot,short-dot|}\",",
+      "\tcap: \"${2|round,butt,square|}\",",
+      "\tjoin: \"${3|round,miter,bevel|}\"",
+      "}"
+    ],
+    "description": "Create a SimpleLineSymbol for rendering 2D polyline geometries in a 2D or 3D view, but for 3D it is recommended to use LineSymbol3D. It can be used in several properties like \"symbol\" of renderers or individual graphics, but also \"outline\" of marker and fill symbols.",
+    "prefix": [
+      "simpleLineSymbolProps"
+    ]
+  },
+  "Render 3D mesh polygon features in a 3D": {
+    "body": [
+      "{",
+      "\ttype: \"mesh-3d\",",
+      "\tsymbolLayers: [{",
+      "\t\ttype: \"fill\",",
+      "\t\tmaterial: { color: ${1:[255, 250, 239, 0.8]} },",
+      "\t}]",
+      "}"
+    ],
+    "description": "Generate MeshSymbol3D with a FillSymbol3DLayer in a SceneLayer in a SceneView. This snippet is usually used to set the property \"symbol\" of renderers or individual graphics.",
+    "prefix": [
+      "fillMesh3dProps",
+      "meshSymbol3DProps"
+    ]
+  },
+  "Render all features with one symbol": {
+    "body": [
+      "{",
+      "\ttype: \"simple\",",
+      "\tsymbol: ${1:symbol}",
+      "}"
+    ],
+    "description": "Renders all features in a Layer with one Symbol. This snippet is usually used to set the property \"renderer\" of a FeatureLayer, SceneLayer, MapImageLayer, CSVLayer, GeoJSONLayer, OGCFeatureLayer, WFSLayer, or StreamLayer.",
+    "prefix": [
+      "simpleRendererProps"
+    ]
+  },
+  "Render an image in a repeating pattern (2D)": {
+    "body": [
+      "{",
+      "\ttype: \"picture-fill\",",
+      "\turl: \"${1:image-url}\",",
+      "\twidth: 12,",
+      "\theight: 12,",
+      "\txoffset: 0,",
+      "\tyoffset: 0",
+      "}"
+    ],
+    "description": "PictureFillSymbol uses an image in a repeating pattern to symbolize polygon features in a 2D MapView. patterns for polygons. This snippet is usually used to set the property \"symbol\" of renderers or individual graphics.",
+    "prefix": "pictureFillSymbolProps"
+  },
+  "Render points using a flat 2D icon": {
+    "body": [
+      "{",
+      "\ttype: \"point-3d\",",
+      "\tsymbolLayers: [{",
+      "\t\ttype: \"icon\",",
+      "\t\tresource: { primitive: \"${1|circle,square,cross,x,kite,triangle|}\"},",
+      "\t\tmaterial: { color: ${2:[255, 250, 239, 0.8]} },",
+      "\t\tsize: ${3:20}",
+      "\t}]",
+      "}"
+    ],
+    "description": "Generate PointSymbol3D with a IconSymbol3DLayer in a SceneView. Available shapes: circle, square, cross, x, kite, and triangle. This snippet is usually used to set the property \"symbol\" of renderers or individual graphics.",
+    "prefix": "pointSymbol3dIconProps"
+  },
+  "Render polygons as animated water surfaces": {
+    "body": [
+      "{",
+      "\ttype: \"polygon-3d\",",
+      "\tsymbolLayers: [{",
+      "\t\ttype: \"water\",",
+      "\t\twaveDirection: 180,",
+      "\t\tcolor: \"#5975a3\",",
+      "\t\twaveStrength: \"${1|calm,rippled,slight,moderate|}\",",
+      "\t\twaterbodySize: \"${2|small,medium,large|}\"",
+      "\t}]",
+      "}"
+    ],
+    "description": "WaterSymbol3DLayer is used to render Polygon geometries as realistic, animated water surfaces, therefore it can only be used inside a PolygonSymbol3D. This snippet is usually used to set the property \"symbol\" of renderers or individual graphics.",
+    "prefix": "waterSymbol3dLayerProps"
+  },
+  "Render polygons by extruding them": {
+    "body": [
+      "{",
+      "\ttype: \"polygon-3d\",",
+      "\tsymbolLayers: [{",
+      "\t\ttype: \"extrude\",",
+      "\t\tmaterial: { color: ${1:[255, 250, 239, 0.8]} },",
+      "\t\tsize: ${2:20}",
+      "\t}]",
+      "}"
+    ],
+    "description": "Generate PolygonSymbol3D with a ExtrudeSymbol3DLayer to be used in a SceneView.  It render polygon geometries by extruding them upward from the ground, creating a 3D volumetric object. This snippet is usually used to set the property \"symbol\" of renderers or individual graphics.",
+    "prefix": [
+      "polygonSymbol3DExtrudeProps",
+      "extrudePolygon3d"
+    ]
+  },
+  "Render polylines by extruding 2D profile": {
+    "body": [
+      "{",
+      "\ttype: \"line-3d\",",
+      "\tsymbolLayers: [{",
+      "\t\ttype: \"path\",",
+      "\t\tprofile: \"${1|circle,quad|}\",",
+      "\t\tmaterial: { color: ${2:[255, 250, 239, 0.8]} },",
+      "\t\twidth: ${3:15},",
+      "\t\theight: ${3:15},",
+      "\t\tjoin: \"${4|miter,bevel,round|}\",",
+      "\t\tcap: \"${5|butt,square,round,none|}\",",
+      "\t\tanchor: \"${6|bottom,center|}\",",
+      "\t\tprofileRotation: \"${7|all,heading|}\"",
+      "\t}]",
+      "}"
+    ],
+    "description": "Generate LineSymbol3D with a PathSymbol3DLayer. Renders Polyline geometries by extruding a 2D profile along the line. This snippet is usually used to set the property \"symbol\" of renderers or individual graphics.",
+    "prefix": [
+      "lineSymbol3DPathProps",
+      "path3d"
+    ]
+  },
+  "Render polylines using a flat 3D line": {
+    "body": [
+      "{",
+      "\ttype: \"line-3d\",",
+      "\tsymbolLayers: [{",
+      "\t\ttype: \"line\",",
+      "\t\tmaterial: { color: ${1:[255, 250, 239, 0.8]} },",
+      "\t\tsize: ${2:15}",
+      "\t}]",
+      "}"
+    ],
+    "description": "Generate LineSymbol3D with a LineSymbol3DLayer in a SceneView. This snippet is usually used to set the property \"symbol\" of renderers or individual graphics",
+    "prefix": [
+      "lineSymbol3DProps"
+    ]
+  },
+  "Set color of features based on a numeric value": {
+    "body": [
+      "{",
+      "\tfield: \"${1:POP_POVERTY}\",",
+      "\tlegendOptions: {",
+      "\t\ttitle: \"${3:% population in poverty by county}\"",
+      "\t},",
+      "\tnormalizationField: \"${2:POP_TOT}\",",
+      "\tstops: [",
+      "\t\t{ value: ${4:0.15}, color: ${5: \"#FFFCD4\" }, label: \"${6:<15%}\" },",
+      "\t\t{ value: ${7:0.25}, color: ${8: \"#0D2644\" }, label: \"${9:>25%}\" }",
+      "\t],",
+      "\ttype: \"color\"",
+      "}"
+    ],
+    "description": "Generate a ColorVariable with 2 color stops. Used to visualize features along a continuous color ramp based on the values of a numeric attribute field or an expression. This snippet is usually used to set the property \"visualVariables[]\" of a renderer class.",
+    "prefix": [
+      "colorVarProps"
+    ]
+  },
+  "Set environment for a scene background": {
+    "body": [
+      "{",
+      "\tbackground: {",
+      "\t\ttype: \"color\",",
+      "\t\tcolor: ${1:[0, 0, 0, 0]}",
+      "\t},",
+      "\tstarsEnabled: false,",
+      "\tatmosphereEnabled: false",
+      "}"
+    ],
+    "description": "Creates an environment object for changing the background of a scene. This snippet is usually used to set the property \"environment\" of the SceneView.",
+    "prefix": [
+      "sceneViewEnvironmentProps",
+      "background"
+    ]
+  },
+  "Set size of features based on a numeric value": {
+    "body": [
+      "{",
+      "\ttype: \"size\",",
+      "\tfield: \"${1:POP_POVERTY}\",",
+      "\tnormalizationField: \"${2:POP_TOT}\",",
+      "\taxis: \"height\",",
+      "\tlegendOptions: {",
+      "\t\ttitle: \"${3:% population in poverty by county}\"",
+      "\t},",
+      "\tstops: [",
+      "\t\t{ value: ${4:0.15}, size: ${5:4}, label: \"${6:<15%}\" },",
+      "\t\t{ value: ${7:0.25}, size: ${8:12}, label: \"${9:25%}\" }",
+      "\t]",
+      "}"
+    ],
+    "description": "Set size of features based on a numeric value. Creates a SizeVariable with 2 size stops. The axis property is only used in 3D. This snippet is usually used to set the property \"visualVariables[]\" of a renderer.",
+    "prefix": [
+      "sizeVisualVariableProps",
+      "sizeVar"
+    ]
+  },
+  "Styles with API keys": {
+    "body": [
+      "\"${1|arcgis-imagery,arcgis-imagery-standard,arcgis-imagery-labels,arcgis-light-gray,arcgis-dark-gray,arcgis-navigation,arcgis-navigation-night,arcgis-streets,arcgis-streets-night,arcgis-streets-relief,arcgis-topographic,arcgis-oceans,osm-standard,osm-standard-relief,osm-streets,osm-streets-relief,osm-light-gray,osm-dark-gray,arcgis-terrain,arcgis-community,arcgis-charted-territory,arcgis-colored-pencil,arcgis-nova,arcgis-modern-antique,arcgis-midcentury,arcgis-newspaper,arcgis-hillshade-light,arcgis-hillshade-dark|}\""
+    ],
+    "description": "Use of these basemaps requires a valid ArcGIS Online organizational subscription or an ArcGIS Enterprise license.",
+    "prefix": [
+      "basemapsWithAPIKeys"
+    ]
+  },
+  "Styles without API keys": {
+    "body": [
+      "\"${1|satellite,hybrid,oceans,osm,terrain,dark-gray-vector,gray-vector,streets-vector,streets-night-vector,streets-navigation-vector,topo-vector,streets-relief-vector|}\""
+    ],
+    "description": "List all available map styles to be used without API keys. Use of these basemaps requires an ArcGIS Developer subscription or a valid ArcGIS Online organizational subscription.",
+    "prefix": [
+      "basemapStyle",
+      "basemapsWithoutAPIKeys"
+    ]
+  },
+  "Symbolize using categorical values": {
+    "body": [
+      "{",
+      "\ttype: \"unique-value\",",
+      "\tfield: \"${1:REGION}\",",
+      "\tdefaultSymbol: ${2:symbol},",
+      "\tuniqueValueInfos: [{",
+      "\t\tvalue: \"${3:value}\",",
+      "\t\tsymbol: ${4:symbol},",
+      "\t\tlabel: \"${5:label for the legend}\"",
+      "\t}]",
+      "}"
+    ],
+    "description": "Generate a unique value renderer. This snippet is usually used to set the property \"renderer\" of a FeatureLayer, SceneLayer, MapImageLayer, CSVLayer, GeoJSONLayer, OGCFeatureLayer, WFSLayer, StreamLayer, ImageryLayer, or ImageryTileLayer",
+    "prefix": [
+      "uniqueValueRendererProps"
+    ]
+  },
+  "Symbols based on classes or ranges": {
+    "body": [
+      "{",
+      "\tclassBreakInfos: [{",
+      "\t\tlabel: \"${1:label for the legend}\",",
+      "\t\tmaxValue: ${2:10},",
+      "\t\tminValue: ${3:0},",
+      "\t\tsymbol: ${4:symbol}",
+      "\t}],",
+      "\tdefaultSymbol: ${5:symbol},",
+      "\tfield: \"${6:MAGNITUDE}\",",
+      "\ttype: \"class-breaks\",",
+      "}"
+    ],
+    "description": "Generate a ClassBreaksRenderer. This snippet is usually used to set the property \"renderer\" of a FeatureLayer, SceneLayer, MapImageLayer, CSVLayer, GeoJSONLayer, OGCFeatureLayer, WFSLayer, StreamLayer, ImageryLayer, or ImageryTileLayer.",
+    "prefix": [
+      "classBreaksRendererProps"
+    ]
+  },
+  "World scale 3D callout": {
+    "body": [
+      "callout: {",
+      "\tborder: {",
+      "\t\tcolor: ${1:[0, 0, 0, 0.5]},",
+      "\t},",
+      "\tcolor: ${2:[255, 255, 255, 0.9]},",
+      "\tsize: ${3:1.5},",
+      "\ttype: \"line\",",
+      "},",
+      "verticalOffset: {",
+      "\tmaxWorldLength: 500000,",
+      "\tminWorldLength: 0,",
+      "\tscreenLength: 40,",
+      "}"
+    ],
+    "description": "Generates a Callout3D with a verticalOffset for a world scale level and the callout property. They should be set on the property \"callout\" of PointSymbol3D or LabelSymbol3D.",
+    "prefix": [
+      "callout3DLargeProps"
+    ]
   }
 }
