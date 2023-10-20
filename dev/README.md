@@ -6,9 +6,6 @@ To contribute without messing around with other snippets you might use in other 
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**: 
 
-- [Before you get started](#before-you-get-started)
-  - [How Visual Studio Intellisense works](#how-visual-studio-intellisense-works)
-  - [Project folder structure](#project-folder-structure)
 - [Getting started](#getting-started)
   - [Add a new snippet](#add-a-new-snippet)
   - [Enhance an existing snippet](#enhance-an-existing-snippet)
@@ -22,40 +19,6 @@ To contribute without messing around with other snippets you might use in other 
 - [Additional resources](#additional-resources)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
-
-## Before you get started
-
-### How Visual Studio Intellisense works
-
-The first thing you should familiarize yourself with, if you have never created a custom snippet in Visual Studio Code, is the different components that make up Intellisense (intelligent code completion) in Visual Studio Code:
-
-![](../builder/assets/use-sample.png)
-
-These fields are shown in the image above: `Name`, `prefix`, `Body`, and `Description`, have to be defined in a JSON object that looks like this:
-
-```js
-"Name": {
-"prefix": "PREFIX",
-"body": [
-	"BODY",
-],
-"description": "Description"
-}
-```
-
-Later on, we will see where we will have to enter this code. To help you creating the snippet code we provide you with an user interface, the [Snippets Builder](https://esri.github.io/arcgis-js-vscode-snippets/builder/).
-
-### Project folder structure
-
-Let's see the most relevant files and folders in this repository and what they contain:
-
-* **[.vscode/](../.vscode/)**: the most important file in this folder is `development.code-snippets` that you will use to test the snippets you will contribute.
-* **[builder/](../builder/)**: this folder include the code of the [Snippets Builder  application](https://esri.github.io/arcgis-js-vscode-snippets/builder/).
-* **[dev/](.)**: the folder you are currently in have the files to help you during your development proccess, and the instructions to use them.
-* **[images/](.)**: contains the assets being used in the README files as well as the icon being use in the Visual Studio Code marketplace.
-* **[snippets/](../snippets/)**: this folder have all the available snippets within the official extension that is published (defined in the [package.json file](../package.json)).
-* **[CHANGELOG.md](../CHANGELOG.md)**: this file keeps a log or record of all notable changes made to the project.
 
 ## Getting started
 

@@ -6,8 +6,13 @@ Esri welcomes contributions from anyone and everyone. Please see our [guidelines
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents** 
 
+- [Before you get started](#before-you-get-started)
+  - [How Visual Studio Intellisense works](#how-visual-studio-intellisense-works)
+  - [Project folder structure](#project-folder-structure)
 - [I want to contribute, what should I work on?](#i-want-to-contribute-what-should-i-work-on)
-- [Type of snippets accepted](#type-of-snippets-accepted)
+- [Suggesting new snippets](#suggesting-new-snippets)
+  - [JavaScript and TypeScript snippets](#javascript-and-typescript-snippets)
+  - [Other snippets](#other-snippets)
 - [Development environment](#development-environment)
 - [Add your changes](#add-your-changes)
 - [Commit message format](#commit-message-format)
@@ -22,31 +27,151 @@ Esri welcomes contributions from anyone and everyone. Please see our [guidelines
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+## Before you get started
+
+### How Visual Studio Intellisense works
+
+The first thing you should familiarize yourself with, if you have never created a custom snippet in Visual Studio Code, is the most important components that make up Intellisense (intelligent code completion) in Visual Studio Code:
+
+![](./images/vscode-intelisense-components.png)
+
+These fields are shown in the image above: `prefix`, `name`, `description`, and `body`, have to be defined in a JSON object that looks like this:
+
+```json
+"Layer View query features": {
+"prefix": ["layerView", "layerViewQF"],
+"body": [
+	"layerView.queryFeatures().then(function(results){",
+    "\tconsole.log(results.features);",
+    "});",
+],
+"description": "Get features in the layer"
+}
+``` 
+
+Where:
+* "Layer View query features": is the snippet name. It is displayed via IntelliSense if no `description` is provided
+* `prefix` defines **one or more** trigger words that display the snippet in IntelliSense. Substring matching (fuzzy search) is performed on prefixes, that's why in this case, "lq" matched "layerViewQF"
+* `body` is one or more lines of content, which will be joined as multiple lines upon insertion. Newlines and embedded tabs will be formatted according to the context in which the snippet is inserted.
+* `description` is a description of the snippet displayed by IntelliSense.
+
+> **Note**: there is another optional component ([scope](https://code.visualstudio.com/docs/editor/userdefinedsnippets#_snippet-scope)) that can be used to specify in which context ([language](https://code.visualstudio.com/docs/languages/identifiers#_known-language-identifiers)) the snippet is relevant.
+
+To improve accessibility and usability, Visual Studio Code have a special syntax that can be used inside the `body`, for example [placeholders](https://code.visualstudio.com/docs/editor/userdefinedsnippets#_placeholders), and [choices](https://code.visualstudio.com/docs/editor/userdefinedsnippets#_choice):
+![IPlaceholders and Choices](./images/places-and-choices.png) 
+
+Later on, we will see in which file(s) we will have to add this code and the user interface we provide to facilitate the creation of the snippet code.
+
+### Project folder structure
+
+The most relevant files and folders in this repository are:
+
+* **[.vscode/](./.vscode/)**: the most important file in this folder is `development.code-snippets` that you will use to test the snippets you will contribute.
+* **[builder/](./builder/)**: this folder include the code of the [Snippets Builder  application](https://esri.github.io/arcgis-js-vscode-snippets/builder/).
+* **[dev/](./dev)**: this folder contains the files to help you during your development proccess, and the instructions on how to use them.
+* **[images/](./images/)**: contains the assets being used in the README files as well as the icon being use in the Visual Studio Code marketplace.
+* **[snippets/](./snippets/)**: this folder have all the available snippets within the official extension that is published (defined in the [package.json file](./package.json)).
+* **[CHANGELOG.md](./CHANGELOG.md)**: this file keeps a log or record of all notable changes made to the project.
+
 ## I want to contribute, what should I work on?
 
 You can help mostly by:
 
-* Adding ideas for snippets using the [snippet builder](https://esri.github.io/arcgis-js-vscode-snippets/builder/).
-* Requesting updates for existing snippets by creating a [Enhancement issue](https://github.com/Esri/arcgis-js-vscode-snippets/issues/new?assignees=&labels=type%2Fenhancement%2C0+-+new%2Cneeds+triage&projects=&template=enhancement.yml).
-* Reporting problems by creating a [Bug issue](https://github.com/Esri/arcgis-js-vscode-snippets/issues/new?assignees=&labels=type%2Fenhancement%2C0+-+new%2Cneeds+triage&projects=&template=bug.yml).
-* Working on the issues marked as `help wanted`. There is also a `good first issue` label if you are just getting started.
+* **Adding ideas for snippets** using the [snippet builder](https://esri.github.io/arcgis-js-vscode-snippets/builder/). If you are planning to do so, check [Suggesting new snippets](#suggesting-new-snippets).
+* **Requesting enhancements** for existing snippets by creating a [Enhancement issue](https://github.com/Esri/arcgis-js-vscode-snippets/issues/new?assignees=&labels=type%2Fenhancement%2C0+-+new%2Cneeds+triage&projects=&template=enhancement.yml).
+* **Reporting problems** by creating a [Bug issue](https://github.com/Esri/arcgis-js-vscode-snippets/issues/new?assignees=&labels=type%2Fenhancement%2C0+-+new%2Cneeds+triage&projects=&template=bug.yml).
+* **Working on the issues** marked as `help wanted`. There is also a `good first issue` label if you are just getting started.
     * Comment on the issue and check if any additional context is needed before you start working. This will also help everyone knows that you are already working on it.
-* Sharing your own list to the [community snippets](https://github.com/Esri/arcgis-js-vscode-snippets#community-snippets)
+* **Sharing your own list of snippets** to the [community snippets](https://github.com/Esri/arcgis-js-vscode-snippets#community-snippets)
 
-## Type of snippets accepted
+## Suggesting new snippets
 
-We accept different type of snippets:
+If you plan to propose new snippets, this section contains an overview of the main type of snippets this extension contains for each language, but if you have any another idea(s), do not hesitate to share them.
 
-* Initialization of classes. (E.g. `new FeatureLayer({ ... })`).
-* JS objects with constructor properties (`{ url: ... }`).
-* Common procedures (E.g. query a layer, disable navigation, project a geometry, ...).
-* Enumeration of possible values (E.g: basemap styles, renderer and symbol types, ...).
+### JavaScript and TypeScript snippets
+
+The list below summarize the main type of snippets within [snippets/javascript.json](./snippets/javascript.json), [snippets/typescript.json](./snippets/typescript.json), and [snippets/typescriptreact.json](./snippets/typescriptreact.json).
+
+**1) Initialization of classes.** 
+
+Instantiate an object of a new class like MapView, FeatureLayers, widgets (e.g. Search widget with multple configurations: multiple sources, custom sources, ...).
+
+Examples: `FeatureLayerClientSide`
+
+```js
+new FeatureLayer({
+    fields: [{
+        name: "OBJECTID",
+        type: "oid"
+    }, {
+        name: "${1:url}",
+        type: "string"
+    }],
+    objectIdField: "OBJECTID",
+    popupTemplate: {
+        content: "${2:<img src='{url}'>}"
+    },
+    renderer: ${3:Renderer},
+    source: ${4:graphics}, 
+});
+```
+
+**2) JS objects with constructor properties**
+ 
+JavaScript objects to facilitate class configuration:
+
+Examples: `featureReductionClusterProps`
+
+```js
+{
+    type: "cluster",
+    clusterMaxSize: ${1:37.5},
+    clusterMinSize: ${2:16.5},
+    clusterRadius: ${3:60},
+    labelingInfo: ${4:LabelClass},
+    labelsVisible: true
+    popupEnabled: true,
+    popupTemplate: ${5:PopupTemplate},
+}
+```
+
+**3) Common procedures and programming patterns**
+
+Like query a layer, disable navigation, project a geometry, ...
+
+Example: `queryLayerView`
+
+```js
+view.whenLayerView(${1:fl}).then(function (layerView) {
+    layerView.queryFeatures().then(function (results) {
+        console.log(results.features);
+    });
+});
+```
+**4) Enumeration of possible values**
+
+Snippets to help choosing between multiple enumerations, like [basemap styles](https://developers.arcgis.com/javascript/latest/api-reference/esri-Map.html#basemap), [renderer types](https://developers.arcgis.com/javascript/latest/api-reference/esri-renderers-Renderer.html#type), [symbol types](https://developers.arcgis.com/javascript/latest/api-reference/esri-symbols-Symbol.html#type), [layer types](https://developers.arcgis.com/javascript/latest/api-reference/esri-layers-Layer.html#type), ... 
+
+Example: `basemapsWithAPIKeys`
+
+```
+${1|arcgis-imagery,arcgis-imagery-standard,arcgis-imagery-labels,arcgis-light-gray,arcgis-dark-gray,arcgis-navigation,arcgis-navigation-night,arcgis-streets,arcgis-streets-night,arcgis-streets-relief,arcgis-topographic,arcgis-oceans,osm-standard,osm-standard-relief,osm-streets,osm-streets-relief,osm-light-gray,osm-dark-gray,arcgis-terrain,arcgis-community,arcgis-charted-territory,arcgis-colored-pencil,arcgis-nova,arcgis-modern-antique,arcgis-midcentury,arcgis-newspaper,arcgis-hillshade-light,arcgis-hillshade-dark|}
+```
+
+### Other snippets
+
+The list of snippets within [html.json](./snippets/html.json), and [json.json](./snippets/json.json) is short, so we encourage you to check yourself.
+
 
 ## Development environment
 
-A local development environment with instructions is provided in the [dev folder](./dev).
+At this point you are almost ready to start doing your contribution. 
+
+Go to the [dev folder](./dev), and read the instructions to learn how to setup and use your local development environment.
 
 ## Add your changes
+
+Do you have your contribution ready? If so, keep reading.
 
 Although it is possible to make your changes directly through the GitHub web interface, we recommend that you add your changes to a local copy of the repository.
 
@@ -55,7 +180,8 @@ If your are not doing a lot of changes you can use `master`, otherwise we encour
 * For changes associated with an issue: `<username>/<issue-description>-<issue-id>`.
 * For changes without an associated issue: `<username>/<issue-description>`.
 
-**These are the steps required:**
+**Checklist before doing a Pull Request**<br>
+Please ensure that you have completed the following steps before making a PR:
 
 1. Update the corresponding file in the [snippets folder](./snippets). Depending on the type of snippet, you need to will have to modify: `html.json`, `javascript.json`, `json.json`, `typescript.json`, ... 
     1. Respects the alphabetical order, snippets are sorted by `name`).
@@ -91,6 +217,8 @@ For `<type>` you should use:
 * `doc: update contributing guidelines and minor conventions changes #37`
 
 ## Pull request
+
+> **Reminder**: before doing a PR, ensure that you have completed the checklist included in [Add your changes](#add-your-changes).
 
 When submitting, if you are working on an issue, remember to [link your PR to it](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue), by use a supported keyword in the pull request description. For example: "`Closes #10`" or "`Fixes Esri/arcgis-js-vscode-snippets#10`".
 
