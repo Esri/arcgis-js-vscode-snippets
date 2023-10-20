@@ -129,9 +129,9 @@ Examples: `featureReductionClusterProps`
     clusterMinSize: ${2:16.5},
     clusterRadius: ${3:60},
     labelingInfo: ${4:LabelClass},
-    labelsVisible: true
+    labelsVisible: true,
     popupEnabled: true,
-    popupTemplate: ${5:PopupTemplate},
+    popupTemplate: ${5:PopupTemplate}
 }
 ```
 
