@@ -10,11 +10,11 @@ const languageSelect = document.getElementById("language-select");
 let file;
 const allLanguages = [
   { value: "", label: "Select a language" },
-  { value: "HtmlJson", label: "Html" },
-  { value: "JavascriptJson", label: "Javascript" },
-  { value: "JsonJson", label: "Json" },
-  { value: "ScssJson", label: "Scss" },
-  { value: "TypescriptJson", label: "Typescript" },
+  { value: "HtmlJson", label: "HTML" },
+  { value: "JavascriptJson", label: "JavaScript" },
+  { value: "JsonJson", label: "JSON" },
+  { value: "ScssJson", label: "Sass" },
+  { value: "TypescriptJson", label: "TypeScript" },
   { value: "TypescriptReactJson", label: "Typescript React" },
 ];
 for (let i = 0; i < allLanguages.length; i++) {
@@ -42,12 +42,13 @@ const getFileBylanguageSelect = (languageSelected) => {
 };
 
 const createOptionsSelectSnippet = (keyFiles) => {
-  for (let i = 0; i < keyFiles.length; i++) {
-    const option = document.createElement("option");
-    option.setAttribute("value", keyFiles[i]);
-    option.innerHTML = keyFiles[i];
-    generalSelector.appendChild(option);
-  }
+    keyFiles.forEach(element => {
+      const option = document.createElement("option");
+      option.setAttribute("value", element);
+      option.innerHTML = element;
+      generalSelector.appendChild(option);
+    });
+  
 };
 const outputContainer = document.getElementById("output");
 const outputElementBody = document.getElementById("output-body");
@@ -55,27 +56,23 @@ const outputElementDescription = document.getElementById("output-description");
 const outputElementPrefix = document.getElementById("output-prefix");
 
 const createBody = (body) => {
-  while (outputElementBody.firstChild) {
-    outputElementBody.removeChild(outputElementBody.firstChild);
-  }
-  for (let i = 0; i < body.length; i++) {
+  outputElementBody.innerHTML = ""
+  body.forEach((element) => {
     const span = document.createElement("span");
-    span.innerText = body[i];
+    span.innerText = element;
     outputElementBody.appendChild(span);
-  }
+  })
 };
 const onChangeGeneralSelector = (selectedValue) => {
   const selectedData = file[selectedValue];
 
   outputElementPrefix.textContent = `${selectedData.prefix}`;
-  // outputElementBody.textContent = `${selectedData.body}`;
   createBody(selectedData.body);
   outputElementDescription.textContent = `${selectedData.description}`;
 };
 const onChangelanguageSelect = (e) => {
-  while (generalSelector.firstChild) {
-    generalSelector.removeChild(generalSelector.firstChild);
-  }
+   generalSelector.innerHTML = ""
+    
   const languageSelected = e.target.value;
   file = getFileBylanguageSelect(languageSelected);
   const keyfiles = Object.keys(file);

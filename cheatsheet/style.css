@@ -66,4 +66,5 @@ body {
 #output-body {
   display: flex;
   flex-direction: column;
+  text-wrap: wrap;
 }
