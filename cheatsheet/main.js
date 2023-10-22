@@ -2,7 +2,6 @@ import "./style.css";
 import HtmlJson from "../snippets/html.json";
 import JavascriptJson from "../snippets/javascript.json";
 import JsonJson from "../snippets/json.json";
-import ScssJson from "../snippets/scss.json";
 import TypescriptJson from "../snippets/typescript.json";
 import TypescriptReactJson from "../snippets/typescriptreact.json";
 
@@ -13,7 +12,6 @@ const allLanguages = [
   { value: "HtmlJson", label: "HTML" },
   { value: "JavascriptJson", label: "JavaScript" },
   { value: "JsonJson", label: "JSON" },
-  { value: "ScssJson", label: "Sass" },
   { value: "TypescriptJson", label: "TypeScript" },
   { value: "TypescriptReactJson", label: "Typescript React" },
 ];
@@ -34,7 +32,6 @@ const getFileBylanguageSelect = (languageSelected) => {
     HtmlJson: HtmlJson,
     JavascriptJson: JavascriptJson,
     JsonJson: JsonJson,
-    ScssJson: ScssJson,
     TypescriptJson: TypescriptJson,
     TypescriptReactJson: TypescriptReactJson,
   };
@@ -66,7 +63,11 @@ const createBody = (body) => {
 const onChangeGeneralSelector = (selectedValue) => {
   const selectedData = file[selectedValue];
 
-  outputElementPrefix.textContent = `${selectedData.prefix}`;
+  outputElementPrefix.textContent = `${
+    Array.isArray(selectedData.prefix)
+      ? selectedData.prefix[0]
+      : selectedData.prefix
+  }`;
   createBody(selectedData.body);
   outputElementDescription.textContent = `${selectedData.description}`;
 };
