@@ -13,7 +13,7 @@ const allLanguages = [
   { value: "JavascriptJson", label: "JavaScript" },
   { value: "JsonJson", label: "JSON" },
   { value: "TypescriptJson", label: "TypeScript" },
-  { value: "TypescriptReactJson", label: "Typescript React" },
+  { value: "TypescriptReactJson", label: "TypeScript React" },
 ];
 for (let i = 0; i < allLanguages.length; i++) {
   const option = document.createElement("option");
