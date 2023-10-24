@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>List to the community snippets</title>
+  </head>
+  <body>
+    <div class="page-container">
+      <div class="header-container">
+        <img class="logo" src="./public/assets/images/esri-logo-550.png" />
+        <h1 class="title">Snippets Seeker</h1>
+      </div>
+      <div>
+        <p class="intro-page">
+          Here you will find a brief summary of Esri snippets. In the first
+          selector, some of the code languages ​​appear and in the second the
+          snippets of the selected code and finally once we have the two
+          selectors a summary box will appear with the prefix, a brief
+          description and the code that prints
+        </p>
+      </div>
+      <div class="snippets-select-container">
+        <select
+          class="snippets-select"
+          name="snippets-select"
+          id="language-select"
+        ></select>
+        <select
+          class="general-selector"
+          name="general-selector"
+          id="general-snippets-selector"
+        ></select>
+      </div>
+      <div class="output display-none" id="output">
+        <div>
+          <span class="info-name">Prefix: </span
+          ><span id="output-prefix"></span>
+        </div>
+        <div>
+          <span class="info-name">Description: </span
+          ><span id="output-description"></span>
+        </div>
+        <div>
+          <span class="info-name">Body: </span>
+          <div>
+            <pre id="output-body"></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
