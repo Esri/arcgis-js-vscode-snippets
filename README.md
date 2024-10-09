@@ -107,6 +107,9 @@ This extension adds a new option to the activity bar that lets you quickly brows
 | sceneViewEnvironmentProps             | Creates an environment object for changing the background of a scene. This snippet is usually used to set the property \"environment\" of the SceneView.                                                                |
 | basemapsWithAPIKeys           | List all available map styles to be used without API keys. Use of these basemaps requires an ArcGIS Developer subscription or a valid ArcGIS Online organizational subscription                   |
 | basemapsWithoutAPIKeys           | List all available map styles to be used without API keys. Use of these basemaps requires an ArcGIS Developer subscription or a valid ArcGIS Online organizational subscription                   |
+| searchWidget           | The Search widget provides a way to perform search operations on services or features provided by Esri.                   |
+| searchWidgetWithCustomSources           | The search widget provides the capability to provide search capabilities to third-party services. To use a custom source with the search widget, you must set the widget's sources property with your own custom source. To create a custom search source, you need to construct a search source with on object containing two functions, getSuggestions and getResults.                   |
+| searchWidgetWithSources           | The Search widget to search multiple Layer Sources based on given fields. To use multiple sources with the Search widget, you must set the widget's sources property.                   |
 
 ### [TypeScript snippets](snippets/typescript.json)
 
