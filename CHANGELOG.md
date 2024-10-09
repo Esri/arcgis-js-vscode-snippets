@@ -69,3 +69,9 @@ All notable changes to the "arcgis-jsapi-snippets" extension will be documented 
   - `elevationInfo` -> `elevationInfoProps`
   - `background` -> `sceneViewEnvironmentProps`
   - `basemapStyle` -> `basemapsWithAPIKeys`
+
+## [Version 1.1.6]
+
+- Added `searchWidget` snippet
+- Added `searchWidgetWithCustomSources` snippet
+- Added `searchWidgetWithSources` snippet
