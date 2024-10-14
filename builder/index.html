@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>VS Code Snippets Builder</title>
-    <script type="module" src=https://js.arcgis.com/calcite-components/1.8.0/calcite.esm.js></script>
-    <link rel="stylesheet" type="text/css" href=https://js.arcgis.com/calcite-components/1.8.0/calcite.css />
+    <script type="module" src="https://js.arcgis.com/calcite-components/2.13.0/calcite.esm.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/calcite-components/2.13.0/calcite.css" />
 
     <link
       rel="stylesheet"
@@ -102,6 +102,66 @@
           <calcite-input required id="name"></calcite-input>
         </calcite-label>
         <calcite-label layout="default">
+          <span
+            >Language Snippet Scope<sup>*</sup>
+            <calcite-popover-manager>
+              <calcite-popover
+                label="Popover label"
+                reference-element="language-scope-popover"
+              >
+                <div>
+                  <p>
+                    <b>Language Snippet Scope</b><br />
+                    Determines which programming languages or file types a 
+                    snippet will appear in.
+                  </p>
+                  <p>
+                    <b>Recommendations</b><br />
+                    You can select multiple scopes for your snippet e.g "javascript, html"
+                  </p>
+                </div>
+              </calcite-popover>
+              <calcite-icon
+                icon="question"
+                scale="s"
+                class="popover"
+                id="language-scope-popover"
+              ></calcite-icon>
+            </calcite-popover-manager>
+          </span>
+          <div id="language-selection">
+            <label>
+              <input type="checkbox" value="json" id="lang-json" />
+              JSON
+            </label>
+            <label>
+              <input type="checkbox" value="css" id="lang-css" />
+              CSS
+            </label>
+            <label>
+              <input type="checkbox" value="html" id="lang-html" />
+              HTML
+            </label>
+            <label>
+              <input type="checkbox" value="scss" id="lang-scss" />
+              SCSS
+            </label>
+            <br>
+            <label>
+              <input type="checkbox" value="javascript" id="lang-javascript" />
+              JavaScript
+            </label>
+            <label>
+              <input type="checkbox" value="typescript" id="lang-typescript" />
+              TypeScript
+            </label>
+            <label>
+              <input type="checkbox" value="typescriptreact" id="lang-typescriptreact" />
+              TypeScript JSX
+            </label>
+          </div>
+        </calcite-label>
+        <calcite-label layout="default">
           <span> Description
           <calcite-popover-manager>
             <calcite-popover
@@ -129,7 +189,7 @@
             ></calcite-icon>
           </calcite-popover-manager>
           </span>
-          <calcite-input required type="textarea" id="desc"></calcite-input>
+          <calcite-text-area required id="desc"></calcite-text-area>
         </calcite-label>
         <calcite-label layout="default">
           <span>
@@ -162,13 +222,48 @@
             </calcite-popover-manager>
           </span>
 
-          <calcite-input required type="textarea" id="body"></calcite-input>
+          <calcite-text-area required id="body"></calcite-text-area>
+        </calcite-label>
+        <calcite-label layout="default">
+          <span
+          >Import Snippet<sup></sup>
+            <calcite-popover-manager>
+              <calcite-popover
+                label="Popover label"
+                reference-element="import-snippet-popover"
+              >
+              <div>
+                <p>
+                  <b>Import Snippet</b><br />
+                 Upload JSON snippet files directly from the computer.
+                </p>
+                <p>
+                <p>
+                  <b>Recommendations</b><br />
+                  Ensure that the JSON snippet file adheres to the correct format, including 
+                  required fields such as <b>name</b>, <b>prefix</b>, <b>body</b>, and <b>description</b>. 
+                </p>
+              </div>
+            </calcite-popover>
+            <calcite-icon
+              icon="question"
+              scale="s"
+              class="popover"
+              id="import-snippet-popover"
+            ></calcite-icon>
+          </calcite-popover-manager>
+        </span>
+        
+         <input type="file" id="import-snippet" accept=".json">
         </calcite-label>
       </div>
 
       <div id="codePreview">
         <h2>Custom snippet code:</h2>
-        <pre><code id="snippets"></code></pre>
+        <pre>
+          <code id="snippets"></code>
+          <button id="copy-button"> Copy </button>
+        </pre>
         <p>
           Do you think more users would benefit from this snippet? <br />
           If so, please consider
