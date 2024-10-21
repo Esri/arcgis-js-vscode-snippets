@@ -2,8 +2,8 @@
   "Get the API from the CDN": {
     "prefix": "getApi",
     "body": [
-      "<link rel=\"stylesheet\" href=\"https://js.arcgis.com/${1|4.28,4.27,4.26,4.25,4.24,4.23,4.22,4.21,4.20,4.19,4.18,4.17,4.16,1.15,4.14|}/esri/css/main.css\">",
-      "<script src=\"https://js.arcgis.com/${2|4.28,4.27,4.26,4.25,4.24,4.23,4.22,4.21,4.20,4.19,4.18,4.17,4.16,4.15,4.14|}\"></script>"
+      "<link rel=\"stylesheet\" href=\"https://js.arcgis.com/${1|4.30,4.28,4.27,4.26,4.25,4.24,4.23,4.22,4.21,4.20,4.19,4.18,4.17,4.16,1.15,4.14|}/esri/css/main.css\">",
+      "<script src=\"https://js.arcgis.com/${2|4.30,4.28,4.27,4.26,4.25,4.24,4.23,4.22,4.21,4.20,4.19,4.18,4.17,4.16,4.15,4.14|}\"></script>"
     ],
     "description": "Add script and link tags for jsapi"
   },
