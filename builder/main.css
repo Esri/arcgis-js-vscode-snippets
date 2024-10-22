@@ -16,8 +16,10 @@
 #codePreview {
   float: left;
   padding: 1rem;
+  position: relative;
 }
-textarea#body {
+#desc,
+#body {
   height: 200px;
 }
 .screenshot {
@@ -61,4 +63,26 @@ calcite-popover div {
 }
 p{
   font-size: .9rem;
+}
+pre {
+  position: relative;
+}
+#copy-button {
+  position: absolute;
+  top: 1.4em;
+  right: 0px;
+  padding: 2px 8px 2px 8px;
+  margin-top: 3px;
+  margin-right: 6px;
+  border-radius: 2px;
+  background: none;
+  color: #ccc;
+  border: none;
+  cursor: pointer;
+}
+#copy-button:hover {
+  background-color: #80808080;
+}
+#language-selection label {
+  margin-right: 12px;
 }
