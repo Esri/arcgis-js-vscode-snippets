@@ -1,0 +1,10 @@
+{
+    "A JavaScript only snippet": {
+        "scope": "javascript",
+        "prefix": "myConsoleLog",
+        "body": [
+            "console.log(\"Hello Map\");"
+        ],
+        "description": "Console log \"Hello Map\""
+    }
+  }

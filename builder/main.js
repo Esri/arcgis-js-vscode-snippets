@@ -39,21 +39,16 @@ document.querySelectorAll('#language-selection input[type="checkbox"]').forEach(
     if (!Array.isArray(snippet.scope)) {
       snippet.scope = [];
     }
-
-    // If the checkbox is checked, add the value to the scope array
     if (this.checked) {
       if (!snippet.scope.includes(this.value)) {
         snippet.scope.push(this.value);
       }
     } else {
-      // If unchecked, remove the value from the scope array
       const index = snippet.scope.indexOf(this.value);
       if (index > -1) {
         snippet.scope.splice(index, 1);
       }
     }
-
-    // Render the snippet to reflect changes
     renderSnippet();
   });
 });
@@ -90,8 +85,11 @@ ${snippet.toString()}
   ).href = `${repoUrl}/issues/new?title=${title}&body=${body}`;
 }
 
-document.getElementById("import-snippet").addEventListener("change", (event) => {
-  const file = event.target.files[0];
+const inputElement = document.getElementById("import-snippet");
+if (inputElement) {
+  inputElement.addEventListener("change", (event) => {
+    const file = event.target.files[0];
+  console.log("Selected file:", file);
 
   if (file) {
     const reader = new FileReader();
@@ -99,12 +97,27 @@ document.getElementById("import-snippet").addEventListener("change", (event) => 
     reader.onload = function(e) {
       try {
         const fileContent = e.target.result;
+        console.log("File content:", fileContent);
+
         const snippetObject = JSON.parse(fileContent);
 
-        const snippetDisplay = document.getElementById("snippets");
-        snippetDisplay.innerText = JSON.stringify(snippetObject, null, 2);
+      const firstSnippet = Object.values(snippetObject)[0];
+      snippet.name = Object.keys(snippetObject)[0];
+      snippet.prefix = firstSnippet.prefix;
+      snippet.scope = firstSnippet.scope.split(', ');
+      snippet.body = firstSnippet.body.join('\n');
+      snippet.desc = firstSnippet.description;
 
-        hljs.highlightElement(snippetDisplay);
+      document.getElementById("name").value = snippet.name;
+      document.getElementById("prefix").value = snippet.prefix;
+      document.getElementById("desc").value = snippet.desc;
+      document.getElementById("body").value = snippet.body;
+
+      document.querySelectorAll('#language-selection input[type="checkbox"]').forEach((checkbox) => {
+          checkbox.checked = snippet.scope.includes(checkbox.value);
+      });
+
+      renderSnippet();
 
       } catch (error) {
         console.error("Failed to parse the snippet JSON: ", error);
@@ -114,8 +127,10 @@ document.getElementById("import-snippet").addEventListener("change", (event) => 
 
     reader.readAsText(file);
   }
-});
-
+  });
+} else {
+  console.error("Element with ID 'import-snippet' not found.");
+}
 
 const copyButton = document.getElementById("copy-button");
 
@@ -131,9 +146,19 @@ copyButton.addEventListener("click", (event) => {
     }, 1000);    
 });
 
-document.querySelectorAll("calcite-input").forEach((item) => {
+document.querySelectorAll("calcite-input:not([type='file'])").forEach((item) => {
   item.addEventListener("keyup", (evt) => {
-    snippet[evt.target.closest("calcite-input").id] = evt.target.value.replace(
+    snippet[evt.target.closest("calcite-input:not([type='file'])").id] = evt.target.value.replace(
+      /\"/g,
+      '\\"'
+    );
+    renderSnippet();
+  });
+});
+
+document.querySelectorAll("calcite-text-area").forEach((item) => {
+  item.addEventListener("keyup", (evt) => {
+    snippet[evt.target.closest("calcite-text-area").id] = evt.target.value.replace(
       /\"/g,
       '\\"'
     );
