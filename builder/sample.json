@@ -1,6 +1,6 @@
 {
     "A JavaScript only snippet": {
-        "scope": "javascript",
+        "scope": "javascript", 
         "prefix": "myConsoleLog",
         "body": [
             "console.log(\"Hello Map\");"

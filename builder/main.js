@@ -114,7 +114,9 @@ if (inputElement) {
       document.getElementById("body").value = snippet.body;
 
       document.querySelectorAll('#language-selection input[type="checkbox"]').forEach((checkbox) => {
-          checkbox.checked = snippet.scope.includes(checkbox.value);
+        const scopeValues = checkbox.value.split(',').map(scope => scope.trim());
+        checkbox.checked = snippet.scope.includes(checkbox.value);
+        checkbox.checked = scopeValues.some(scope => snippet.scope.includes(scope));
       });
 
       renderSnippet();
