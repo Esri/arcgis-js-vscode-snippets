@@ -653,5 +653,868 @@
     "prefix": [
       "callout3DLargeProps"
     ]
+  },
+  "Add CSV Layer": {
+    "body": [
+    "CSVLayer({",
+    "\turl: \"${1:https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.csv}\",",
+    "\tcopyright: \"${2:USGS Earthquakes}\",",
+    "\tpopupTemplate: ${3:template}",
+    "});",
+    "map.add(csvLayer);"
+    ],
+    "description": "Add a CSVLayer with a URL",
+    "prefix": "csvLayer"
+  },
+  "Add CSV Layer from Blob": {
+    "body": [
+    "const blob = new Blob([${1:csv}], {",
+    "\ttype: \"plain/text\"",
+    "});",
+    "let url = URL.createObjectURL(blob);",
+    "",
+    "const layer = new CSVLayer({",
+    "\turl: ${2:url}",
+    "});",
+    "map.add(layer);"
+    ],
+    "description": "Create and add a CSVLayer from a Blob object",
+    "prefix": "csvLayerFromBlob"
+  },
+  "Add GeoJSONLayer with URL": {
+    "body": [
+    "GeoJSONLayer({",
+    "\turl: \"${1:https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson}\",",
+    "\tcopyright: \"${2:USGS Earthquakes}\"",
+    "});",
+    "map.add(geojsonlayer);"
+    ],
+    "description": "Add GeoJSONLayer using URL",
+    "prefix": "geoJSONLayer"
+  },
+  "Create GeoRSSLayer with URL": {
+    "body": [
+    "GeoRSSLayer({",
+    "\turl: \"${1:https://arcgis.github.io/arcgis-samples-javascript/sample-data/layers-georss/sample-georss.xml}\"",
+    "});",
+    "map.add(geoRSSLayer);"
+    ],
+    "description": "Add GeoRSSLayer using URL",
+    "prefix": "addGeoRSSLayer"
+  },
+  "Add Graphics to GraphicsLayer": {
+    "body": [
+    "map.add(graphicsLayer);",  
+    "Graphic({",
+    "\tgeometry: ${1:point,polyline, polygon,}",
+    "\tsymbol: ${2:simpleMarkerSymbol,simpleLineSymbol,simpleFillSymbol,}",
+    "});",
+    "graphicsLayer.add(pointGraphic);"
+    ],
+    "description": "Create a graphic and add it to a GraphicsLayer",
+    "prefix": "graphicsLayer"
+  },
+  "Create FeatureLayer with PortalItem": {
+      "body": [
+        "FeatureLayer({",
+        "\tportalItem: {",
+        "\t\tid: \"${1:123f4410054b43d7a0bacc1533ceb8dc}\"",
+        "\t}",
+        "});",
+        "",
+        "table.load().then(function() {",
+        "\tif (table.isTable) {",
+        "\t\tmap.tables.add(table);",
+        "\t}",
+        "});"
+      ],
+      "description": "Create a FeatureLayer using a PortalItem ID",
+      "prefix": "featureLayerWithPortalItem"
+    },
+  "Create FeatureLayer with Client-Side Graphics": {
+      "body": [
+        "FeatureLayer({",
+        "\tfields: [",
+        "\t\t{",
+        "\t\t\tname: \"${1:ObjectID}\",",
+        "\t\t\talias: \"${2:ObjectID}\",",
+        "\t\t\ttype: \"${3:oid}\"",
+        "\t\t},",
+        "\t\t{",
+        "\t\t\tname: \"${4:type}\",",
+        "\t\t\talias: \"${5:Type}\",",
+        "\t\t\ttype: \"${6:string}\"",
+        "\t\t},",
+        "\t\t{",
+        "\t\t\tname: \"${7:place}\",",
+        "\t\t\talias: \"${8:Place}\",",
+        "\t\t\ttype: \"${9:string}\"",
+        "\t\t},",
+        "\t\t{",
+        "\t\t\tname: \"${10:recordedDate}\",",
+        "\t\t\talias: \"${11:recordedDate}\",",
+        "\t\t\ttype: \"${12:date}\"",
+        "\t\t}",
+        "\t],",
+        "\tdateFieldsTimeZone: \"${13:America/New_York}\",",
+        "\tobjectIdField: \"${14:ObjectID}\",",
+        "\tgeometryType: \"${15:point}\",",
+        "\tspatialReference: { wkid: ${16:4326} },",
+        "\tsource: graphics,",
+        "\tpopupTemplate: pTemplate,",
+        "\trenderer: uvRenderer",
+        "});",
+        "",
+        "map.add(featureLayer);"
+      ],
+      "description": "Create a FeatureLayer with Client-Side Graphics",
+      "prefix": "featureLayerwithClientSideGraphics"
+    },
+  "Load WebMap with MapNotes Layer": {
+    "body": [
+    "const map = new WebMap({",
+    "\tportalItem: {",
+    "\t\tid: ${1:\"6b3bfc4900214761a709b5d5a6a3d92b\"}",
+    "\t}",
+    "});",
+    "",
+    "const view = new MapView({",
+    "\tcontainer: \"viewDiv\",",
+    "\tmap",
+    "});",
+    "",
+    "view.when(() => {",
+    "\tconsole.log(map.layers.at(0).type);",
+    "\tconsole.log(map.layers.items[0].sublayers.items[0].sublayers.items[0].attributes.title);",
+    "\tmap.layers.items[0].sublayers.items[1].sublayers.items[0].popupTemplate.content = \"{title} has an updated popup\";",
+    "});"
+    ],
+    "description": "Load an existing web map that contains a MapNotes layer and update its popup template.",
+    "prefix": "webMapwithMapNotesLayer"
+  },
+  "Load Map Notes Layer with Portal Item": {
+    "body": [
+    "const map = new Map({",
+    "\tbasemap: ${1:\"topo-vector\"}",
+    "});",
+    "",
+    "const view = new MapView({",
+    "\tcontainer: \"viewDiv\",",
+    "\tmap",
+    "});",
+    "",
+    "const promise = Layer.fromPortalItem({",
+    "\tportalItem: {",
+    "\t\tid: ${2:\"2e2f6840647d4cb9a384532652e5100f\"}",
+    "\t}",
+    "});",
+    "promise.then((layer) => {",
+    "\tconsole.log(layer.type);",
+    "\tmap.add(layer);",
+    "",
+    "\tPromise.all([view.when(), layer.load()]).then(() => {",
+    "\t\tview.goTo(layer.fullExtent);",
+    "\t});",
+    "});"
+    ],
+    "description": "Load a Map Notes Layer with a portal item",
+    "prefix": "mapNotesLayerfromPortalItem"
+  },
+  "Add OGC Feature Layer": {
+    "body": [
+    "OGCFeatureLayer({",
+    "\turl: \"${1:https://vtp2.geo-solutions.it/geoserver/ogc/features}\",",
+    "\tcollectionId: \"${2:ne:countries50m}\"",
+    "});",
+    "map.add(${3:countriesLayer});"
+    ],
+    "description": "Create an OGCFeatureLayer from URL and collection ID",
+    "prefix": "ogcFeatureLayer"
+  },
+  "Routing with RouteLayer": {
+      "body": [
+        "const apiKey = \"${1:<your api key>}\";",
+        "",
+        "const stops = [",
+        "\tnew Stop({ geometry: { x: ${2:-117.1825}, y: ${3:34.054722} }}),",
+        "\tnew Stop({ geometry: { x: ${4:-116.545278}, y: ${5:33.830278} }})",
+        "];",
+        "",
+        "const routeLayer = new RouteLayer({",
+        "\tstops",
+        "});",
+        "",
+        "const view = new MapView({",
+        "\tcontainer: \"${6:viewDiv}\",",
+        "\tmap: new Map({",
+        "\t\tbasemap: \"${7:dark-gray-vector}\",",
+        "\t\tlayers: [ routeLayer ]",
+        "\t})",
+        "});",
+        "",
+        "view.when().then(async () => {",
+        "\tconst results = await routeLayer.solve({ apiKey });",
+        "",
+        "\trouteLayer.update(results);",
+        "",
+        "\tview.goTo(routeLayer.routeInfo.geometry);",
+        "});"
+      ],
+      "description": "Set up a routing scenario with RouteLayer and visualize the route.",
+      "prefix": "routeLayer"
+    },
+  "Add Stream Layer from service URL": {
+    "body": [
+    "StreamLayer({",
+    "\turl: \"${1:https://geoeventsample1.esri.com:6443/arcgis/rest/services/LABus/StreamServer}\",",
+    "\tpurgeOptions: {",
+    "\t\tdisplayCount: ${2:10000}",
+    "\t},",
+    "\tmaxReconnectionAttempts: ${3:100},",
+    "\tmaxReconnectionInterval: ${4:10},",
+    "\trenderer: ${5:renderer}",
+    "});",
+    "map.add(streamLayer);"
+    ],
+    "description": "Create a StreamLayer from a service URL",
+    "prefix": "streamLayer"
+  },
+  "Add Stream Layer with WebSocketURL": {
+    "body": [
+    "StreamLayer({",
+    "\tpopupTemplate: {",
+    "\t\tcontent: \"OBJECTID=${1:OBJECTID}, TRACKID=${2:TRACKID}\",",
+    "\t},",
+    "\twebSocketUrl: \"${3:ws://localhost:8000}\",",
+    "\tfields: [",
+    "\t\t{",
+    "\t\t\tname: \"OBJECTID\",",
+    "\t\t\talias: \"ObjectId\",",
+    "\t\t\ttype: \"oid\"",
+    "\t\t},",
+    "\t\t{",
+    "\t\t\tname: \"TRACKID\",",
+    "\t\t\talias: \"TrackId\",",
+    "\t\t\ttype: \"long\"",
+    "\t\t}",
+    "\t],",
+    "\ttimeInfo: {",
+    "\t\ttrackIdField: \"TRACKID\"",
+    "\t},",
+    "\tgeometryType: \"point\",",
+    "\tmaxReconnectionAttempts: ${3:100},",
+    "\tmaxReconnectionInterval: ${4:10},",
+    "\trenderer: ${5:renderer}",
+    "});",
+    "map.add(streamLayer);"
+    ],
+    "description": "Create a StreamLayer by referencing a custom stream service",
+    "prefix": "streamLayerwithWebSocketURL"
+  },
+  "Add Vector Tile Layer": {
+    "body": [
+    "VectorTileLayer({",
+    "\tstyle: {",
+    "\t\t\"version\": 8,",
+    "\t\t\"sources\": {",
+    "\t\t\t\"esri\": {",
+    "\t\t\t\t\"type\": \"vector\",",
+    "\t\t\t\t\"url\": \"${2:https://VectorTileServiceURL}\"",
+    "\t\t\t}",
+    "\t\t},",
+    "\t\t\"layers\": [",
+    "\t\t\t{",
+    "\t\t\t\t\"id\": \"${3:layerId}\",",
+    "\t\t\t\t\"type\": \"fill\",",
+    "\t\t\t\t\"paint\": {",
+    "\t\t\t\t\t\"fill-color\": \"${4:#000000}\",",
+    "\t\t\t\t\t\"fImageryTileLayerill-opacity\": ${5:1}",
+    "\t\t\t\t}",
+    "\t\t\t}",
+    "\t\t]",
+    "\t},",
+    "});",
+    "map.add(vectorTileLayer);"
+    ],
+    "description": "Create a VectorTileLayer with a style object",
+    "prefix": "vectorTileLayer"
+  },
+  "Add WFS Layer": {
+    "body": [
+    "WFSLayer({",
+    "\turl: \"${2:https://geobretagne.fr/geoserver/ows}\",",
+    "\tname: \"${3:fma:bvme_zhp_vs_culture}\"",
+    "});"
+    ],
+    "description": "Create a WFSLayer from a URL and FeatureType name",
+    "prefix": "wfsLayer"
+  },
+  "Add Imagery Layer": {
+    "body": [
+    "ImageryLayer({",
+    "\turl: ${1:serviceUrl}",
+    "});"
+    ],
+    "description": "Add an ImageryLayer with a service URL",
+    "prefix": "imageryLayer"
+  },
+  "add Imagery Tile Layer with COG": {
+      "body": [
+        "ImageryTileLayer({",
+        "\turl: \"${1:https://ss6imagery.arcgisonline.com/imagery_sample/landsat8/Bolivia_LC08_L1TP_001069_20190719_MS.tiff}\",",
+        "\tbandIds: [${2:3}, ${3:2}, ${4:1}]",
+        "});"
+      ],
+      "description": "Create an ImageryTileLayer with with COG",
+      "prefix": "imageryTileLayerwithCOG"
+    },
+  "Create a Transposed Multidimensional Imagery Tile Layer": {
+      "body": [
+        "ImageryTileLayer({",
+        "\turl: \"${1:https://tiledimageservices.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/NLDAS2011_daily_wind_magdir/ImageServer}\",",
+        "\ttitle: \"${2:2011 wind - 10 meters above surface}\",",
+        "\trenderer: {",
+        "\t\ttype: \"vector-field\",",
+        "\t\tstyle: \"${3:beaufort-m}\",",
+        "\t\tflowRepresentation: \"${4:flow-to}\",",
+        "\t\tsymbolTileSize: ${5:30},",
+        "\t\tvisualVariables: [",
+        "\t\t\t{",
+        "\t\t\t\ttype: \"size\",",
+        "\t\t\t\tfield: \"${6:Magnitude}\",",
+        "\t\t\t\tmaxDataValue: ${7:32},",
+        "\t\t\t\tmaxSize: \"${8:60px}\",",
+        "\t\t\t\tminDataValue: ${9:0.04},",
+        "\t\t\t\tminSize: \"${10:20px}\"",
+        "\t\t\t},",
+        "\t\t\t{",
+        "\t\t\t\ttype: \"rotation\",",
+        "\t\t\t\tfield: \"${11:Direction}\",",
+        "\t\t\t\trotationType: \"${12:geographic}\"",
+        "\t\t\t}",
+        "\t\t]",
+        "\t}",
+        "});"
+      ],
+      "description": "Create a Transposed Multidimensional Imagery Tile Layer",
+      "prefix": "transposedMultidimensionalImageryTileLayerwith"
+    },
+  "Add WebTileLayer": {
+      "body": [
+        "WebTileLayer({",
+        "\turlTemplate: \"${1:https://{subDomain}.tile.opentopomap.org/{z}/{x}/{y}.png}\",",
+        "\tsubDomains: [\"${2:a}\", \"${3:b}\", \"${4:c}\"],",
+        "\tcopyright: \"${5:https://www.openstreetmap.org/copyright}\" ",
+        "});",
+        "",
+        "map.add(tiledLayer);"
+      ],
+      "description": "Create a WebTileLayer with a service URL.",
+      "prefix": "webTileLayer"
+    },
+  "Add WMS Layer": {
+    "body": [
+    "WMSLayer({",
+    "\turl: \"${1:service url}\"",
+    "});",
+    "await ${2:wmsLayer}.load();",
+    "",
+    "const sublayer = ${2:wmsLayer}.findSublayerByName(\"${3:My Sublayer}\");",
+    "if (sublayer) {",
+    "\t${2:wmsLayer}.sublayers = [sublayer];",
+    "}",
+    "map.add(${2:wmsLayer});"
+    ],
+    "description": "Add a WMSLayer and filter by sublayer",
+    "prefix": "wmsLayer"
+  },
+  "Add WMTS Layer": {
+    "body": [
+    "WMTSLayer({",
+    "\turl: \"${1:https://gibs.earthdata.nasa.gov/wmts/epsg4326/best}\",",
+    "\tactiveLayer: {",
+    "\t\tid: \"${2:SRTM_Color_Index}\"",
+    "\t}",
+    "});"
+    ],
+    "description": "Add a WMTSLayer",
+    "prefix": "wmtsLayer"
+  },
+  "Add WCS Layer": {
+    "body": [
+    "WCSLayer({",
+    "\turl: \"${1:https://sampleserver6.arcgisonline.com/arcgis/services/ScientificData/SeaTemperature/ImageServer/WCSServer}\",",
+    "\trenderer: ${2:renderer},",
+    "\tmultidimensionalDefinition: ${3:multidimensionalDefinition},",
+    "\tversion: \"${4:2.0.1}\",",
+    "\topacity: ${5:0.5}",
+    "});",
+    "map.add(wcsLayer);"
+    ],
+    "description": "Add a WCSLayer",
+    "prefix": "wcsLayer"
+  },
+  "Add Traffic Time-based Map Image Layer": {
+    "body": [
+    "MapImageLayer({",
+    "\turl: \"${1:https://traffic.arcgis.com/arcgis/rest/services/World/Traffic/MapServer}\",",
+    "\tdpi: ${2:48},",
+    "\timageFormat: \"${3:png32}\",",
+    "\trefreshInterval: ${4:3},",
+    "\tuseViewTime: ${5:false}",
+    "});",
+    "map.add(mapImageLayer);"
+    ],
+    "description": "Add a Traffic Time-based MapImageLayer",
+    "prefix": "mapImageLayer"
+  },
+  "OpenStreetMapLayer": {
+      "body": [
+        "const osmLayer = new OpenStreetMapLayer();",
+        "map.add(osmLayer);"
+      ],
+      "description": "Add an OpenStreetMapLayer to the map.",
+      "prefix": "openStreetMapLayer"
+    },
+  "Add Bing Maps Layer": {
+    "body": [
+    "BingMapsLayer({",
+    "\tstyle: \"${1:aerial, road, hybrid}\",",
+    "\tkey: \"${2:Bing maps key}\"",
+    "});",
+    "map.add(bingMapsLayer);"
+    ],
+    "description": "Add a BingMapsLayer with style and key",
+    "prefix": "bingMapsLayer"
+  },
+  "Filter a Scene Layer with SQL expressions": {
+    "body": [
+    "SceneLayer({",
+    "\turl: \"${1:https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/Paris_3D_Local_WSL2/SceneServer/layers/0}\",",
+    "\tdefinitionExpression: \"${2:SQL Expression}\"",
+    "});"
+    ],
+    "description": "Filter a Scene Layer with SQL expressions",
+    "prefix": "sceneLayer"
+  },
+  "Add Elevation Layer": {
+    "body": [
+    "ElevationLayer({",
+    "\turl: ${1:\"https://sampleserver6.arcgisonline.com/arcgis/rest/services/Elevation/MtBaldy_Elevation/ImageServer\"}",
+    "});",
+    "map.ground.layers.add(${2:layer});"
+    ],
+    "description": "Add an Elevation Layer",
+    "prefix": "elevationLayer"
+  },
+  "AddPointCloudLayerRenderer": {
+      "body": [
+        "const pointCloudLayer = new PointCloudLayer({",
+        "\turl: \"${1:https://tiles.arcgis.com/tiles/V6ZHFr6zdgNZuVG0/arcgis/rest/services/BARNEGAT_BAY_LiDAR_UTM/SceneServer}\"",
+        "});",
+        "",
+        "typeRendererCreator.createPCClassRenderer({",
+        "\tlayer: pointCloudLayer,",
+        "\tfield: \"${2:CLASS_CODE}\"",
+        "}).then((response) => {",
+        "\tpointCloudLayer.renderer = response.renderer;",
+        "});"
+      ],
+      "description": "Add a PointCloudLayer to the map and apply a class-based color renderer.",
+      "prefix": "pointCloudLayerRenderer"
+    },
+    "Add PointCloudLayer with intensity color modulation": {
+    "body": [
+      "PointCloudLayer({",
+      "\turl: \"${1:https://tiles.arcgis.com/tiles/z2tnIkrLQ2BRzr6P/arcgis/rest/services/SONOMA_AREA1_LiDAR_RGB/SceneServer}\",",
+      "\trenderer: {",
+      "\t\ttype: \"point-cloud-unique-value\",",
+      "\t\tfield: \"${2:CLASS_CODE}\",",
+      "\t\tcolorModulation: ${3:colorModulation},",
+      "\t\tpointsPerInch: ${4:35},",
+      "\t\tcolorUniqueValueInfos: [",
+      "\t\t\t{",
+      "\t\t\t\tvalues: [\"${5:1}\"],",
+      "\t\t\t\tlabel: \"${6:Unclassified}\",",
+      "\t\t\t\tcolor: [${7:178}, ${8:178}, ${9:178}]",
+      "\t\t\t},",
+      "\t\t\t{",
+      "\t\t\t\tvalues: [\"${10:2}\"],",
+      "\t\t\t\tlabel: \"${11:Ground}\",",
+      "\t\t\t\tcolor: [${12:168}, ${13:112}, ${14:0}]",
+      "\t\t\t},",
+      "\t\t\t{",
+      "\t\t\t\tvalues: [\"${15:5}\"],",
+      "\t\t\t\tlabel: \"${16:High Vegetation}\",",
+      "\t\t\t\tcolor: [${17:205}, ${18:245}, ${19:121}]",
+      "\t\t\t},",
+      "\t\t\t{",
+      "\t\t\t\tvalues: [\"${20:6}\"],",
+      "\t\t\t\tlabel: \"${21:Building}\",",
+      "\t\t\t\tcolor: [${22:229}, ${23:75}, ${24:65}]",
+      "\t\t\t},",
+      "\t\t\t{",
+      "\t\t\t\tvalues: [\"${25:7}\"],",
+      "\t\t\t\tlabel: \"${26:Low Point(noise)}\",",
+      "\t\t\t\tcolor: [${27:229}, ${28:0}, ${29:0}]",
+      "\t\t\t},",
+      "\t\t\t{",
+      "\t\t\t\tvalues: [\"${30:9}\"],",
+      "\t\t\t\tlabel: \"${31:Water}\",",
+      "\t\t\t\tcolor: [${32:0}, ${33:92}, ${34:230}]",
+      "\t\t\t}",
+      "\t\t]",
+      "\t}",
+      "});"
+    ],
+    "description": "Add a PointCloudLayer with intensity color modulation",
+    "prefix": "pointCloudLayerColorModulation"
+  },
+  "Adjust Point Cloud Layer": {
+      "body": [
+        "const pointCloudSizeDensity = {",
+        "\ttype: \"${1:point-cloud-rgb}\",",
+        "\tfield: \"${2:RGB}\",",
+        "\tpointSizeAlgorithm: {",
+        "\t\ttype: \"${3:fixed-size}\",",
+        "\t\tuseRealWorldSymbolSizes: ${4:false},",
+        "\t\tsize: ${5:10}",
+        "\t},",
+        "\tpointsPerInch: ${6:15}",
+        "};"
+      ],
+      "description": "Adjust the size and the density of the points on a Point Cloud Layer.",
+      "prefix": "pointCloudSizeDensity"
+    },
+  "Add Point Cloud Layer Value Filter": {
+      "body": [
+    "const pointValueFilter = {",
+        "\ttype: \"${1:value}\",",
+        "\tfield: \"${2:CLASS_CODE}\",",
+        "\tmode: \"${3:include}\",",
+        "\tvalues: [${4:5}]",
+        "};",
+        "",
+        "${5:pcLayer}.filters.push(${6:valueFilter});"
+      ],
+      "description": "Add a value filter to a PointCloudLayer",
+      "prefix": "pointCloudValueFilter"
+    },
+  "Add Point Cloud Layer Return Filter": {
+      "body": [
+        "const pointCloudReturnFilter={",
+        "\ttype: \"${1:return}\",",
+        "\tfield: \"${2:RETURNS}\",",
+        "\tincludedReturns: [\"${3:firstOfMany}\", \"${4:single}\"]",
+        "};",
+        "",
+        "${5:pcLayer}.filters.push(${6:returnFilter});"
+      ],
+      "description": "Add a return filter to a PointCloudLayer",
+      "prefix": "pointCloudReturnFilter"
+    },
+  "Add Building Scene Layer": {
+    "body": [
+    "BuildingSceneLayer({",
+    "\turl: \"${1:https://tiles.arcgis.com/tiles/V6ZHFr6zdgNZuVG0/arcgis/rest/services/Esri_Admin_Building/SceneServer}\",",
+    "\ttitle: \"${2:Administration Building, Redlands - Building Scene Layer}\"",
+    "});",
+    "webscene.layers.add(buildingLayer);"
+    ],
+    "description": "Add a BuildingSceneLayer to the map",
+    "prefix": "buildingSceneLayer"
+  },
+  "Add Line Of Sight Layer": {
+    "body": [
+    "LineOfSightLayer({",
+    "\tobserver: new LineOfSightAnalysisObserver({ position: ${1:somePoint} }),",
+    "\ttargets: [",
+    "\t\tnew LineOfSightAnalysisTarget({ position: ${2:someOtherPoint} })",
+    "\t]",
+    "});",
+    "",
+    "view.map.add(lineOfSightLayer);",
+    "",
+    "await reactiveUtils.whenOnce(() => !view.updating);",
+    "",
+    "const analysisView = await view.whenAnalysisView(lineOfSightLayer.analysis);",
+    "const results = analysisView.results;"
+    ],
+    "description": "Add a LineOfSightLayer to the SceneView and retrieve analysis results",
+    "prefix": "lineOfSightLayer"
+  },
+  "Add Dimension Layer": {
+    "body": [
+    "DimensionLayer({",
+    "\ttitle: ${1: \"Programmatic dimensions\"},",
+    "\tsource: new DimensionAnalysis()",
+    "});",
+    "view.map.add(dimensionLayer);"
+    ],
+    "description": "Add a Dimension Layer",
+    "prefix": "dimensionLayer"
+  },
+  "Add Integrated Mesh Layer": {
+    "body": [
+    "IntegratedMeshLayer({",
+    "\turl: ${1:\"https://tiles.arcgis.com/tiles/u0sSNqDXr7puKJrF/arcgis/rest/services/Frankfurt2017_v17/SceneServer/layers/0\"}",
+    "});",
+    "",
+    "view.map.add(integratedMeshLayer);"
+    ],
+    "description": "Add an Integrated Mesh Layer from a URL.",
+    "prefix": "integratedMeshLayer"
+  },
+  "Create Voxel Layer with Service URL": {
+    "body": [
+    "VoxelLayer({",
+    "\turl: \"${1:https://tiles.arcgis.com/tiles/z2tnIkrLQ2BRzr6P/arcgis/rest/services/EMU_Caribbean_Voxel/SceneServer}\"",
+    "});",
+    "",
+    "const map = new Map({",
+    "\tlayers: [voxelLayer],",
+    "\tbasemap: {",
+    "\t\tbaseLayers: [",
+    "\t\t\tnew VectorTileLayer({",
+    "\t\t\t\turl: \"${2:https://basemaps.arcgis.com/arcgis/rest/services/OpenStreetMap_GCS_v2/VectorTileServer}\"",
+    "\t\t\t})",
+    "\t\t]",
+    "\t}",
+    "});"
+    ],
+    "description": "Create a Voxel Layer with a Service URL.",
+    "prefix": "voxelLayer"
+  },
+    "Add Media Layer with Video": {
+    "body": [
+      "const element = new VideoElement({",
+      "\tvideo: \"${1:https://arcgis.github.io/arcgis-samples-javascript/sample-data/media-layer/videos/hurricanes_aerosol-aug.mp4}\",",
+      "\tgeoreference: new ExtentAndRotationGeoreference({",
+      "\t\textent: new Extent({",
+      "\t\txmin: ${2:-150},",
+      "\t\tymin: ${3:1},",
+      "\t\txmax: ${4:20},",
+      "\t\tymax: ${5:80},",
+      "\t\tspatialReference: {",
+      "\t\t\twkid: ${6:4326}",
+      "\t\t}",
+      "\t\t})",
+      "\t})",
+      "});",
+      "",
+      "const layer = new MediaLayer({",
+      "\tsource: [element],",
+      "\ttitle: \"${7:2017 Hurricanes and Aerosols Simulation}\",",
+      "\tcopyright: \"${8:NASA's Goddard Space Flight Center}\"",
+      "});"
+    ],
+    "description": "Add a Media Layer with a video.",
+    "prefix": "mediaLayerwithVideo"
+  },
+  "Add MediaLayer with Control Points Georeference": {
+    "body": [
+    "const swCornerMapPoint = new Point({ x: ${1:-107.875}, y: ${2:37.875}, spatialReference });",
+    "const nwCornerMapPoint = new Point({ x: ${4:-107.875}, y: ${5:38}, spatialReference });",
+    "const neCornerMapPoint = new Point({ x: ${6:-107.75}, y: ${7:38}, spatialReference });",
+    "const seCornerMapPoint = new Point({ x: ${8:-107.75}, y: ${9:37.875}, spatialReference });",
+    "",
+    "const graphicsLayer = new GraphicsLayer({",
+    "\tgraphics: [",
+    "\t\tcreateGraphic(swCornerMapPoint, \"${10:green}\", 0),",
+    "\t\tcreateGraphic(nwCornerMapPoint, \"${11:purple}\", 1),",
+    "\t\tcreateGraphic(neCornerMapPoint, \"${12:blue}\", 2),",
+    "\t\tcreateGraphic(seCornerMapPoint, \"${13:red}\", 3)",
+    "\t]",
+    "});",
+    "",
+    "const swCornerControlPoint = {",
+    "\tsourcePoint: { x: ${14:89}, y: ${15:1918} },",
+    "\tmapPoint: swCornerMapPoint",
+    "};",
+    "const nwCornerControlPoint = {",
+    "\tsourcePoint: { x: ${16:83}, y: ${17:101} },",
+    "\tmapPoint: nwCornerMapPoint",
+    "};",
+    "const neCornerControlPoint = {",
+    "\tsourcePoint: { x: ${18:1508}, y: ${19:97} },",
+    "\tmapPoint: neCornerMapPoint",
+    "};",
+    "const seCornerControlPoint = {",
+    "\tsourcePoint: { x: ${20:1517}, y: ${21:1906} },",
+    "\tmapPoint: seCornerMapPoint",
+    "};",
+    "",
+    "const controlPoints = [",
+    "\tswCornerControlPoint,",
+    "\tnwCornerControlPoint,",
+    "\tneCornerControlPoint,",
+    "\tseCornerControlPoint",
+    "];",
+    "",
+    "const controlPointsGeoreference = new ControlPointsGeoreference({",
+    "\tcontrolPoints,",
+    "\twidth: ${22:1585},",
+    "\theight: ${23:2048}",
+    "});",
+    "",
+    "const imageElement = new ImageElement({",
+    "\timage: \"${24:https://arcgis.github.io/arcgis-samples-javascript/sample-data/media-layer/telluride/TellurideQuad.webp}\",",
+    "\tgeoreference: controlPointsGeoreference",
+    "});",
+    "",
+    "const mediaLayer = new MediaLayer({",
+    "\tsource: [imageElement],",
+    "\ttitle: \"${25:Geologic Map of the Telluride Quadrangle, Southwestern Colorado}\",",
+    "\tcopyright: \"${26:Wilbur S Burbank and Robert G. Luedke, 1966}\",",
+    "\tspatialReference",
+    "});"
+    ],
+    "description": "Add a MediaLayer with a control points georeference to map an image accurately.",
+    "prefix": "mediaLayerControlPoints"
+  },
+  "Add KML Layer": {
+    "body": [
+    "KMLLayer({",
+    "\turl: \"http://quickmap.dot.ca.gov/data/lcs.kml\"",
+    "});",
+    "map.add(kmlLayer);"
+    ],
+    "description": "Add a KML layer",
+    "prefix": "kmlLayer"
+  },
+    "Add GroupLayer with LayerList": {
+      "body": [
+        "LayerList({",
+        "\tview: ${1:view},",
+        "\tlistItemCreatedFunction: ${2:defineActions}",
+        "});",
+        "",
+        "async function ${2:defineActions}(event) {",
+        "\tconst item = event.item;",
+        "\tawait item.layer.when();",
+        "",
+        "\tif (item.title === \"${3:US Demographics}\") {",
+        "\t\titem.actionsSections = [",
+        "\t\t\t[",
+        "\t\t\t\t{",
+        "\t\t\t\t\ttitle: \"${4:Go to full extent}\",",
+        "\t\t\t\t\ticon: \"${5:zoom-out-fixed}\",",
+        "\t\t\t\t\tid: \"${6:full-extent}\"",
+        "\t\t\t\t},",
+        "\t\t\t\t{",
+        "\t\t\t\t\ttitle: \"${7:Layer information}\",",
+        "\t\t\t\t\ticon: \"${8:information}\",",
+        "\t\t\t\t\tid: \"${9:information}\"",
+        "\t\t\t\t}",
+        "\t\t\t],",
+        "\t\t\t[",
+        "\t\t\t\t{",
+        "\t\t\t\t\ttitle: \"${10:Increase opacity}\",",
+        "\t\t\t\t\ticon: \"${11:chevron-up}\",",
+        "\t\t\t\t\tid: \"${12:increase-opacity}\"",
+        "\t\t\t\t},",
+        "\t\t\t\t{",
+        "\t\t\t\t\ttitle: \"${13:Decrease opacity}\",",
+        "\t\t\t\t\ticon: \"${14:chevron-down}\",",
+        "\t\t\t\t\tid: \"${15:decrease-opacity}\"",
+        "\t\t\t\t}",
+        "\t\t\t]",
+        "\t\t];",
+        "\t}",
+        "}"
+      ],
+      "description": "Creates a Group Layer with LayerList Widget",
+      "prefix": "groupLayerwithLayerListWidget"
+    },
+  "Add Subtype Group Layer": {
+    "body": [
+    "{",
+    "\turl: ${1: \"https://sampleserver7.arcgisonline.com/server/rest/services/UtilityNetwork/NapervilleElectric/FeatureServer/0\"}",
+    "\tsublayers: [",
+    "\t\t{",
+    "\t\t\tsubtypeCode: 12,",
+    "\t\t\tvisible: true,",
+    "\t\t\trenderer: simpleRenderer",
+    "\t\t},",
+    "\t\t{",
+    "\t\t\tsubtypeCode: 14,",
+    "\t\t\tvisible: false,",
+    "\t\t\trenderer: classBreaksRenderer",
+    "\t\t},",
+    "\t\t{",
+    "\t\t\tsubtypeCode: 16,",
+    "\t\t\tvisible: true,",
+    "\t\t\trenderer: classBreaksRenderer,",
+    "\t\t\tpopupTemplate: popupTemplate",
+    "\t\t}",
+    "\t]",
+    "};",
+    "map.add(stgl);"
+    ],
+    "description": "Create and add a Subtype Group Layer with sublayers",
+    "prefix": "subtypeGroupLayer"
+  },
+  "Add Imagery Tile Layer with CovergeJSON object": {
+    "body": [
+    "ImageryTileLayer({",
+    "\tsource: {",
+    "\t\ttype: \"Coverage\",",
+    "\t\tdomain: {",
+    "\t\t\ttype: \"Domain\",",
+    "\t\t\tdomainType: \"Grid\",",
+    "\t\t\taxes: {",
+    "\t\t\t\tx: { values: ${1:[-10, -5, 0]} },",
+    "\t\t\t\ty: { values: ${2:[40, 50]} },",
+    "\t\t\t\tt: { values: [${3:\"2010-01-01T00:12:20Z\"}] }",
+    "\t\t\t},",
+    "\t\t\treferencing: [",
+    "\t\t\t{",
+    "\t\t\t\tcoordinates: [\"x\", \"y\"],",
+    "\t\t\t\tsystem: {",
+    "\t\t\t\t\ttype: ${4:\"GeographicCRS\"},",
+    "\t\t\t\t\tid: ${5:\"http://www.opengis.net/def/crs/OGC/1.3/CRS84\"}",
+    "\t\t\t\t}",
+    "\t\t\t},",
+    "\t\t\t{",
+    "\t\t\t\tcoordinates: [\"t\"],",
+    "\t\t\t\tsystem: {",
+    "\t\t\t\t\ttype: \"TemporalRS\",",
+    "\t\t\t\t\tcalendar: \"Gregorian\"",
+    "\t\t\t\t}",
+    "\t\t\t}",
+    "\t\t\t]",
+    "\t\t},",
+    "\t\tparameters: {",
+    "\t\t},",
+    "\t\tranges: {",
+    "\t\t\tLC: {",
+    "\t\t\t\ttype: \"NdArray\",",
+    "\t\t\t\tdataType: \"integer\",",
+    "\t\t\t\taxisNames: [\"t\", \"y\", \"x\"],",
+    "\t\t\t\tshape: [1, 2, 3],",
+    "\t\t\t\tvalues: [${6: 1, 1, null, 2, 1, 2}]",
+    "\t\t\t}",
+    "\t\t}",
+    "\t}",
+    "});",
+    "map.add(layer);"
+    ],
+    "description": "Create and add an Imagery Tile Layer with CovergeJSON object",
+    "prefix": ["imageryTileLayerwithCovergeJSON", 
+    "tileManager"
+  ]
+  },
+  "Add Knowledge Graph Layer": {
+    "body": [
+    "KnowledgeGraphLayer({",
+    "\turl: ${1:\"https://sampleserver7.arcgisonline.com/arcgis/rest/services/Hosted/SupplyChain/KnowledgeGraphServer\"}",
+    "});",
+    "",
+    "kgl.load().then(() => {",
+    "\tmap.add(kgl);",
+    "});"
+    ],
+    "description": "Create and add a Knowledge Graph Layer",
+    "prefix": "knowledgeGraphLayer"
   }
-}
+} 
