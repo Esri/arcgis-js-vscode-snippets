@@ -656,15 +656,13 @@
   },
   "Add CSV Layer": {
     "body": [
-    "CSVLayer({",
+    "new CSVLayer({",
     "\turl: \"${1:https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.csv}\",",
-    "\tcopyright: \"${2:USGS Earthquakes}\",",
-    "\tpopupTemplate: ${3:template}",
-    "});",
-    "map.add(csvLayer);"
+    "\tcopyright: \"${2:USGS Earthquakes}\"",
+    "})"
     ],
     "description": "Add a CSVLayer with a URL",
-    "prefix": "csvLayer"
+    "prefix": "CSVLayer"
   },
   "Add CSV Layer from Blob": {
     "body": [
@@ -683,36 +681,33 @@
   },
   "Add GeoJSONLayer with URL": {
     "body": [
-    "GeoJSONLayer({",
+    "new GeoJSONLayer({",
     "\turl: \"${1:https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson}\",",
     "\tcopyright: \"${2:USGS Earthquakes}\"",
     "});",
     "map.add(geojsonlayer);"
     ],
     "description": "Add GeoJSONLayer using URL",
-    "prefix": "geoJSONLayer"
+    "prefix": "GeoJSONLayer"
   },
   "Create GeoRSSLayer with URL": {
     "body": [
-    "GeoRSSLayer({",
+    "new GeoRSSLayer({",
     "\turl: \"${1:https://arcgis.github.io/arcgis-samples-javascript/sample-data/layers-georss/sample-georss.xml}\"",
-    "});",
-    "map.add(geoRSSLayer);"
+    "});"
     ],
     "description": "Add GeoRSSLayer using URL",
-    "prefix": "addGeoRSSLayer"
+    "prefix": "GeoRSSLayer"
   },
   "Add Graphics to GraphicsLayer": {
-    "body": [
-    "map.add(graphicsLayer);",  
-    "Graphic({",
-    "\tgeometry: ${1:point,polyline, polygon,}",
+    "body": [ 
+    "new Graphic({",
+    "\tgeometry: ${1:Point, Polyline, Polygon,}",
     "\tsymbol: ${2:simpleMarkerSymbol,simpleLineSymbol,simpleFillSymbol,}",
-    "});",
-    "graphicsLayer.add(pointGraphic);"
+    "});"
     ],
     "description": "Create a graphic and add it to a GraphicsLayer",
-    "prefix": "graphicsLayer"
+    "prefix": "GraphicsLayer"
   },
   "Create FeatureLayer with PortalItem": {
       "body": [
