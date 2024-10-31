@@ -676,7 +676,7 @@ new CSVLayer({",
     "});",
     ],
     "description": "Add a CSVLayer (point layer) based on a CSV file (.csv, .txt) from in-memory CSV data by passing a Blob object. AMD path: esri/layers/CSVLayer | ESM path: @arcgis/core/layers/CSVLayer.js",
-    "prefix": "csvLayerFromBlob"
+    "prefix": "CSVLayerFromBlob"
   },
   "Add GeoJSONLayer with URL": {
     "body": [
