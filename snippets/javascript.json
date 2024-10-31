@@ -674,7 +674,6 @@
 new CSVLayer({",
     "\turl: ${2:url}",
     "});",
-    "map.add(layer);"
     ],
     "description": "Create and add a CSVLayer from a Blob object",
     "prefix": "csvLayerFromBlob"
