@@ -661,7 +661,7 @@
     "\tcopyright: \"${2:USGS Earthquakes}\"",
     "})"
     ],
-    "description": "Add a CSVLayer with a URL",
+    "description": "Add a CSVLayer (point layer) based on a CSV file (.csv, .txt) with a URL. CSV is a plain-text file format used to represent tabular data, including geographic point features (latitude, longitude). AMD path: esri/layers/CSVLayer | ESM path: @arcgis/core/layers/CSVLayer.js",
     "prefix": "CSVLayer"
   },
   "Add CSV Layer from Blob": {
