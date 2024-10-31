@@ -656,450 +656,441 @@
   },
   "Add CSV Layer": {
     "body": [
-    "new CSVLayer({",
-    "\turl: \"${1:https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.csv}\",",
-    "\tcopyright: \"${2:USGS Earthquakes}\"",
-    "})"
+      "new CSVLayer({",
+      "\turl: \"${1:https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.csv}\",",
+      "\tcopyright: \"${2:USGS Earthquakes}\"",
+      "})"
     ],
     "description": "Add a CSVLayer (point layer) based on a CSV file (.csv, .txt) with a URL. CSV is a plain-text file format used to represent tabular data, including geographic point features (latitude, longitude). AMD path: esri/layers/CSVLayer | ESM path: @arcgis/core/layers/CSVLayer.js",
     "prefix": "CSVLayer"
   },
   "Add CSV Layer from Blob": {
     "body": [
-    "new CSVLayer({",
-    "\turl: ${2:url}",
-    "});"
+      "new CSVLayer({",
+      "\turl: ${2:url}",
+      "});"
     ],
     "description": "Add a CSVLayer (point layer) based on a CSV file (.csv, .txt) from in-memory CSV data by passing a Blob object. AMD path: esri/layers/CSVLayer | ESM path: @arcgis/core/layers/CSVLayer.js",
     "prefix": "CSVLayerFromBlob"
   },
   "Add GeoJSONLayer with URL": {
     "body": [
-    "new GeoJSONLayer({",
-    "\turl: \"${1:https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson}\",",
-    "\tcopyright: \"${2:USGS Earthquakes}\"",
-    "});"
+      "new GeoJSONLayer({",
+      "\turl: \"${1:https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson}\",",
+      "\tcopyright: \"${2:USGS Earthquakes}\"",
+      "});"
     ],
     "description": "Add GeoJSONLayer based on GeoJSON data with a URL. GeoJSON is a format for encoding a variety of geographic data structures. AMD path: esri/layers/GeoJSONLayer | ESM path: @arcgis/core/layers/GeoJSONLayer.js",
     "prefix": "GeoJSONLayer"
   },
   "Create GeoRSSLayer with URL": {
     "body": [
-    "new GeoRSSLayer({",
-    "\turl: \"${1:https://arcgis.github.io/arcgis-samples-javascript/sample-data/layers-georss/sample-georss.xml}\"",
-    "});"
+      "new GeoRSSLayer({",
+      "\turl: \"${1:https://arcgis.github.io/arcgis-samples-javascript/sample-data/layers-georss/sample-georss.xml}\"",
+      "});"
     ],
     "description": "Add GeoRSSLayer based on a GeoRSS file with a URL. GeoRSS is a format of adding geographic information to an RSS feed. The layer supports both GeoRSS-Simple and GeoRSS GML. AMD path: esri/layers/GeoRSSLayer | ESM path: @arcgis/core/layers/GeoRSSLayer.js",
     "prefix": "GeoRSSLayer"
   },
   "Add Graphics to GraphicsLayer": {
-    "body": [ 
-    "new Graphic({",
-    "\tgeometry: ${1:Point, Polyline, Polygon,}",
-    "\tsymbol: ${2:simpleMarkerSymbol,simpleLineSymbol,simpleFillSymbol,}",
-    "});"
+    "body": [
+      "new Graphic({",
+      "\tgeometry: ${1:Point, Polyline, Polygon,}",
+      "\tsymbol: ${2:simpleMarkerSymbol,simpleLineSymbol,simpleFillSymbol,}",
+      "});"
     ],
     "description": "Create a Graphic to add to a GraphicsLayer via the add() method directly to the Graphics property. A GraphicsLayer contains one or more client-side Graphics. AMD path: esri/layers/GraphicsLayer | ESM path: @arcgis/core/layers/GraphicsLayer.js",
     "prefix": "GraphicsLayer"
   },
   "Create FeatureLayer with PortalItem": {
-      "body": [
-        "new FeatureLayer({",
-        "\tportalItem: {",
-        "\t\tid: \"${1:123f4410054b43d7a0bacc1533ceb8dc}\"",
-        "\t}",
-        "});"
-      ],
-      "description": "Create a FeatureLayer using an ArcGIS Enterprise PortalItem ID. A FeatureLayer can be either a spatial (has geographic features) or non-spatial (table). AMD path: esri/layers/FeatureLayer | ESM path: @arcgis/core/layers/FeatureLayer.js",
-      "prefix": "FeatureLayerWithPortalItem"
-    },
-  "Create FeatureLayer with Client-Side Graphics": {
-      "body": [
-        "new FeatureLayer({",
-        "\tfields: [",
-        "\t\t{",
-        "\t\t\tname: \"${1:ObjectID}\",",
-        "\t\t\talias: \"${2:ObjectID}\",",
-        "\t\t\ttype: \"${3:oid}\"",
-        "\t\t},",
-        "\t\t{",
-        "\t\t\tname: \"${4:type}\",",
-        "\t\t\talias: \"${5:Type}\",",
-        "\t\t\ttype: \"${6:string}\"",
-        "\t\t},",
-        "\t\t{",
-        "\t\t\tname: \"${10:recordedDate}\",",
-        "\t\t\talias: \"${11:recordedDate}\",",
-        "\t\t\ttype: \"${12:date}\"",
-        "\t\t}",
-        "\t],",
-        "\tdateFieldsTimeZone: \"${13:America/New_York}\",",
-        "\tobjectIdField: \"${14:ObjectID}\",",
-        "\tgeometryType: \"${15:point}\",",
-        "\tspatialReference: { wkid: ${16:4326} },",
-        "\tsource: graphics,",
-        "\trenderer: uvRenderer",
-        "});"
-      ],
-      "description": "Add a FeatureLayer with Client-Side Graphics. If working with spatial layers, the geometry type of the features must be indicated.  Both spatial and non-spatial feature collections require an objectId field.  AMD path: esri/layers/FeatureLayer | ESM path: @arcgis/core/layers/FeatureLayer.js",
-      "prefix": "FeatureLayerwithClientSideGraphics"
-    },
-  "Load WebMap with MapNotes Layer": {
     "body": [
-    "const mapNotesLayer = new MapNotesLayer({",
-    "\ttitle: \"${1:My Map Notes}\"",
-    "});"
+      "new FeatureLayer({",
+      "\tportalItem: {",
+      "\t\tid: \"${1:123f4410054b43d7a0bacc1533ceb8dc}\"",
+      "\t}",
+      "});"
+    ],
+    "description": "Create a FeatureLayer using an ArcGIS Enterprise PortalItem ID. A FeatureLayer can be either a spatial (has geographic features) or non-spatial (table). AMD path: esri/layers/FeatureLayer | ESM path: @arcgis/core/layers/FeatureLayer.js",
+    "prefix": "FeatureLayerWithPortalItem"
+  },
+  "Create FeatureLayer with Client-Side Graphics": {
+    "body": [
+      "new FeatureLayer({",
+      "\tfields: [",
+      "\t\t{",
+      "\t\t\tname: \"${1:ObjectID}\",",
+      "\t\t\talias: \"${2:ObjectID}\",",
+      "\t\t\ttype: \"${3:oid}\"",
+      "\t\t},",
+      "\t\t{",
+      "\t\t\tname: \"${4:type}\",",
+      "\t\t\talias: \"${5:Type}\",",
+      "\t\t\ttype: \"${6:string}\"",
+      "\t\t},",
+      "\t\t{",
+      "\t\t\tname: \"${7:recordedDate}\",",
+      "\t\t\talias: \"${8:recordedDate}\",",
+      "\t\t\ttype: \"${9:date}\"",
+      "\t\t}",
+      "\t],",
+      "\tdateFieldsTimeZone: \"${10:America/New_York}\",",
+      "\tobjectIdField: \"${11:ObjectID}\",",
+      "\tgeometryType: \"${12:point}\",",
+      "\tspatialReference: { wkid: ${13:4326} },",
+      "\tsource: graphics,",
+      "\trenderer: uvRenderer",
+      "});"
+    ],
+    "description": "Add a FeatureLayer with Client-Side Graphics. If working with spatial layers, the geometry type of the features must be indicated.  Both spatial and non-spatial feature collections require an objectId field.  AMD path: esri/layers/FeatureLayer | ESM path: @arcgis/core/layers/FeatureLayer.js",
+    "prefix": "FeatureLayerwithClientSideGraphics"
+  },
+  "Add MapNotes Layer": {
+    "body": [
+      "new MapNotesLayer({",
+      "\ttitle: \"${1:My Map Notes}\"",
+      "});"
     ],
     "description": "Add a MapNotesLayer. The MapNotesLayer lets you display and modify map notes (features sketched on a web map) from the Map Viewer. AMD path: esri/layers/MapNotesLayer | ESM path: @arcgis/core/layers/MapNotesLayer.js",
     "prefix": "MapNotesLayer"
   },
   "Add OGC Feature Layer": {
     "body": [
-    "new OGCFeatureLayer({",
-    "\turl: \"${1:https://vtp2.geo-solutions.it/geoserver/ogc/features}\",",
-    "\tcollectionId: \"${2:ne:countries50m}\"",
-    "});"
+      "new OGCFeatureLayer({",
+      "\turl: \"${1:https://vtp2.geo-solutions.it/geoserver/ogc/features}\",",
+      "\tcollectionId: \"${2:ne:countries50m}\"",
+      "});"
     ],
     "description": "Add an OGCFeatureLayer with URL and collection ID. OGCFeatureLayer only supports collection items encoded in GeoJSON. AMD path: esri/layers/OGCFeatureLayer | ESM path: @arcgis/core/layers/OGCFeatureLayer.js",
     "prefix": "OGCFeatureLayer"
   },
   "Add RouteLayer": {
-      "body": [
-        "new RouteLayer({",
-    "\tstops: [",
-    "\t\t{ geometry: { x: ${1:-117.1825}, y: ${2:34.054722} } },",
-    "\t\t{ geometry: { x: ${3:-116.545278}, y: ${4:33.830278} } }",
-    "\t],",
-    "\tpointBarriers: [",
-    "\t\t{ geometry: { x: ${5:-117.2}, y: ${6:34.05} } }",
-    "\t],",
-    "\tpolylineBarriers: [",
-    "\t\t{ geometry: { paths: [[[${7:-117.3}, ${8:34.05}], [${9:-117.5}, ${10:34.1}]]] } }",
-    "\t],",
-    "\tpolygonBarriers: [",
-    "\t\t{ geometry: { rings: [[[${11:-117.3}, ${12:34.05}], [${13:-117.5}, ${14:34.1}], [${15:-117.4}, ${16:34.2}], [${11}, ${12}]]] } }",
-    "\t]",
-    "});"
-      ],
-      "description": "Add a RouteLayer and visualize the route using stops, point, polygon and polyline barriers. The results of a solved route include overall travel time, distance, and turn-by-turn directions. AMD path: esri/layers/RouteLayer | ESM path: @arcgis/core/layers/RouteLayer.js",
-      "prefix": "routeLayer"
-    },
+    "body": [
+      "new RouteLayer({",
+      "\tstops: [",
+      "\t\t{ geometry: { x: ${1:-117.1825}, y: ${2:34.054722} } },",
+      "\t\t{ geometry: { x: ${3:-116.545278}, y: ${4:33.830278} } }",
+      "\t],",
+      "\tpointBarriers: [",
+      "\t\t{ geometry: { x: ${5:-117.2}, y: ${6:34.05} } }",
+      "\t],",
+      "\tpolylineBarriers: [",
+      "\t\t{ geometry: { paths: [[[${7:-117.3}, ${8:34.05}], [${9:-117.5}, ${10:34.1}]]] } }",
+      "\t],",
+      "\tpolygonBarriers: [",
+      "\t\t{ geometry: { rings: [[[${11:-117.3}, ${12:34.05}], [${13:-117.5}, ${14:34.1}], [${15:-117.4}, ${16:34.2}], [${11}, ${12}]]] } }",
+      "\t]",
+      "});"
+    ],
+    "description": "Add a RouteLayer and visualize the route using stops, point, polygon and polyline barriers. The results of a solved route include overall travel time, distance, and turn-by-turn directions. AMD path: esri/layers/RouteLayer | ESM path: @arcgis/core/layers/RouteLayer.js",
+    "prefix": "RouteLayer"
+  },
   "Add Stream Layer with a URL": {
     "body": [
-    "new StreamLayer({",
-    "\turl: \"${1:https://geoeventsample1.esri.com:6443/arcgis/rest/services/LABus/StreamServer}\",",
-    "\tpurgeOptions: {",
-    "\t\tdisplayCount: ${2:10000}",
-    "\t},",
-    "\tmaxReconnectionAttempts: ${3:100},",
-    "\tmaxReconnectionInterval: ${4:10},",
-    "\trenderer: ${5:renderer}",
-    "});"
+      "new StreamLayer({",
+      "\turl: \"${1:https://geoeventsample1.esri.com:6443/arcgis/rest/services/LABus/StreamServer}\",",
+      "\tpurgeOptions: {",
+      "\t\tdisplayCount: ${2:10000}",
+      "\t},",
+      "\tmaxReconnectionAttempts: ${3:100},",
+      "\tmaxReconnectionInterval: ${4:10},",
+      "\trenderer: ${5:renderer}",
+      "});"
     ],
     "description": "Add a StreamLayer with a URL. A StreamLayer displays the observation streams, including changes to location, attributes, or both, associated with a set of tracked objects in real-time. AMD path: esri/layers/StreamLayer | ESM path: @arcgis/core/layers/StreamLayer.js",
     "prefix": "StreamLayer"
   },
   "Add Stream Layer with WebSocketURL": {
     "body": [
-    "new StreamLayer({",
-    "\twebSocketUrl: \"${3:ws://localhost:8000}\",",
-    "\tfields: [",
-    "\t\t{",
-    "\t\t\tname: \"OBJECTID\",",
-    "\t\t\talias: \"ObjectId\",",
-    "\t\t\ttype: \"oid\"",
-    "\t\t},",
-    "\t\t{",
-    "\t\t\tname: \"TRACKID\",",
-    "\t\t\talias: \"TrackId\",",
-    "\t\t\ttype: \"long\"",
-    "\t\t}",
-    "\t],",
-    "\ttimeInfo: {",
-    "\t\ttrackIdField: \"TRACKID\"",
-    "\t},",
-    "\tgeometryType: \"point\",",
-    "\tmaxReconnectionAttempts: ${3:100},",
-    "\tmaxReconnectionInterval: ${4:10},",
-    "\trenderer: ${5:renderer}",
-    "});"
+      "new StreamLayer({",
+      "\twebSocketUrl: \"${1:ws://localhost:8000}\",",
+      "\tfields: [",
+      "\t\t{",
+      "\t\t\tname: \"OBJECTID\",",
+      "\t\t\talias: \"ObjectId\",",
+      "\t\t\ttype: \"oid\"",
+      "\t\t},",
+      "\t\t{",
+      "\t\t\tname: \"TRACKID\",",
+      "\t\t\talias: \"TrackId\",",
+      "\t\t\ttype: \"long\"",
+      "\t\t}",
+      "\t],",
+      "\ttimeInfo: {",
+      "\t\ttrackIdField: \"TRACKID\"",
+      "\t},",
+      "\tgeometryType: \"point\",",
+      "\tmaxReconnectionAttempts: ${2:100},",
+      "\tmaxReconnectionInterval: ${3:10},",
+      "\trenderer: ${4:renderer}",
+      "});"
     ],
     "description": "Add a StreamLayer by referencing a custom stream service. The geometryType property is used to set the features' geometry type. AMD path: esri/layers/StreamLayer | ESM path: @arcgis/core/layers/StreamLayer.js",
     "prefix": "StreamLayerwithWebSocketURL"
   },
   "Add Vector Tile Layer": {
     "body": [
-    "new VectorTileLayer({",
-   "\tstyle: {",
-    "\t\tglyphs: \"${1:glyphsUrl}/{fontstack}/{range}.pbf\",",
-    "\t\tversion: ${2:8},",
-    "\t\tsprite: \"${3:spritesUrl/sprites/sprite}\",",
-    "\t\tsources: {",
-    "\t\t\tesri: {",
-    "\t\t\t\turl: \"${4:https://basemaps.arcgis.com/arcgis/rest/services/World_Basemap_v2/VectorTileServer}\",",
-    "\t\t\t\ttype: \"${5:vector}\"",
-    "\t\t\t}",
-    "\t\t}",
-    "\t}",
-    "});"
+      "new VectorTileLayer({",
+      "\turl: \"${1:https://www.arcgis.com/sharing/rest/content/items/4cf7e1fb9f254dcda9c8fbadb15cf0f8/resources/styles/root.json}\"",
+      "});"
     ],
-    "description": "Add a VectorTileLayer with a style JSON object. VectorTileLayer accesses cached tiles of data and renders it in vector format. AMD path: esri/layers/VectorTileLayer | ESM path: @arcgis/core/layers/VectorTileLayer.js",
-    "prefix": "VectorTileLayerwithStyleJSONObjects"
+    "description": "Add a VectorTileLayer with a URL. VectorTileLayer accesses cached tiles of data and renders it in vector format. AMD path: esri/layers/VectorTileLayer | ESM path: @arcgis/core/layers/VectorTileLayer.js",
+    "prefix": "VectorTileLayer"
   },
   "Add WFS Layer": {
     "body": [
-    "new WFSLayer({",
-    "\turl: \"${2:https://geobretagne.fr/geoserver/ows}\",",
-    "\tname: \"${3:fma:bvme_zhp_vs_culture}\"",
-    "});"
+      "new WFSLayer({",
+      "\turl: \"${2:https://geobretagne.fr/geoserver/ows}\",",
+      "\tname: \"${3:fma:bvme_zhp_vs_culture}\"",
+      "});"
     ],
     "description": "Add a WFSLayer based on an OGC Web Feature Service (WFS) with a URL. AMD path: esri/layers/WFSLayer | ESM path: @arcgis/core/layers/WFSLayer.js",
     "prefix": "WFSLayer"
   },
   "Add Imagery Layer": {
     "body": [
-    "new ImageryLayer({",
-    "\turl: ${1:serviceUrl}",
-    "});"
+      "new ImageryLayer({",
+      "\turl: ${1:serviceUrl}",
+      "});"
     ],
     "description": "Add an ImageryLayer with a service URL. An ImageryLayer retrieves and displays data from dynamic image services. AMD path: esri/layers/ImageryLayer | ESM path: @arcgis/core/layers/ImageryLayer.js",
     "prefix": "ImageryLayer"
   },
   "Add Imagery Tile Layer with COG": {
-      "body": [
-        "new ImageryTileLayerCOG({",
-        "\turl: \"${1:https://ss6imagery.arcgisonline.com/imagery_sample/landsat8/Bolivia_LC08_L1TP_001069_20190719_MS.tiff}\",",
-        "\tbandIds: [${2:3}, ${3:2}, ${4:1}]",
-        "});"
-      ],
-      "description": "Create an ImageryTileLayer that references a Cloud Optimized GeoTiff(COG) file. A Cloud Optimized GeoTiff (COG) file is a regular GeoTiff file that is hosted on CORS enabled HTTPS server. AMD path: esri/layers/ImageryLayer | ESM path: @arcgis/core/layers/ImageryLayer.js",
-      "prefix": "ImageryTileLayerwithCOG"
-    },
+    "body": [
+      "new ImageryTileLayerCOG({",
+      "\turl: \"${1:https://ss6imagery.arcgisonline.com/imagery_sample/landsat8/Bolivia_LC08_L1TP_001069_20190719_MS.tiff}\",",
+      "\tbandIds: [${2:3}, ${3:2}, ${4:1}]",
+      "});"
+    ],
+    "description": "Create an ImageryTileLayer that references a Cloud Optimized GeoTiff(COG) file. A Cloud Optimized GeoTiff (COG) file is a regular GeoTiff file that is hosted on CORS enabled HTTPS server. AMD path: esri/layers/ImageryLayer | ESM path: @arcgis/core/layers/ImageryLayer.js",
+    "prefix": "ImageryTileLayerwithCOG"
+  },
   "Create a Transposed Multidimensional Imagery Tile Layer": {
-      "body": [
-        "new MultidimensionalImageryTileLayer({",
-        "\turl: \"${1:https://tiledimageservices.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/NLDAS2011_daily_wind_magdir/ImageServer}\",",
-        "\ttitle: \"${2:2011 wind - 10 meters above surface}\",",
-        "\trenderer: {",
-        "\t\ttype: \"vector-field\",",
-        "\t\tstyle: \"${3:beaufort-m}\",",
-        "\t\tflowRepresentation: \"${4:flow-to}\",",
-        "\t\tsymbolTileSize: ${5:30},",
-        "\t\tvisualVariables: [",
-        "\t\t\t{",
-        "\t\t\t\ttype: \"size\",",
-        "\t\t\t\tfield: \"${6:Magnitude}\",",
-        "\t\t\t\tmaxDataValue: ${7:32},",
-        "\t\t\t\tmaxSize: \"${8:60px}\",",
-        "\t\t\t\tminDataValue: ${9:0.04},",
-        "\t\t\t\tminSize: \"${10:20px}\"",
-        "\t\t\t},",
-        "\t\t\t{",
-        "\t\t\t\ttype: \"rotation\",",
-        "\t\t\t\tfield: \"${11:Direction}\",",
-        "\t\t\t\trotationType: \"${12:geographic}\"",
-        "\t\t\t}",
-        "\t\t]",
-        "\t}",
-        "});"
-      ],
-      "description": "Create a Transposed Multidimensional Imagery Tile Layer. Transposed Multidimensional Imagery Tile Layers are created for optimizing performance when accessing pixel values across all multidimensional slices rather than for visualization at different map scales. AMD path: esri/layers/ImageryLayer | ESM path: @arcgis/core/layers/ImageryLayer.js",
-      "prefix": "TransposedMultidimensionalImageryTileLayer"
-    },
+    "body": [
+      "new MultidimensionalImageryTileLayer({",
+      "\turl: \"${1:https://tiledimageservices.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/NLDAS2011_daily_wind_magdir/ImageServer}\",",
+      "\ttitle: \"${2:2011 wind - 10 meters above surface}\",",
+      "\trenderer: {",
+      "\t\ttype: \"vector-field\",",
+      "\t\tstyle: \"${3:beaufort-m}\",",
+      "\t\tflowRepresentation: \"${4:flow-to}\",",
+      "\t\tsymbolTileSize: ${5:30},",
+      "\t\tvisualVariables: [",
+      "\t\t\t{",
+      "\t\t\t\ttype: \"size\",",
+      "\t\t\t\tfield: \"${6:Magnitude}\",",
+      "\t\t\t\tmaxDataValue: ${7:32},",
+      "\t\t\t\tmaxSize: \"${8:60px}\",",
+      "\t\t\t\tminDataValue: ${9:0.04},",
+      "\t\t\t\tminSize: \"${10:20px}\"",
+      "\t\t\t},",
+      "\t\t\t{",
+      "\t\t\t\ttype: \"rotation\",",
+      "\t\t\t\tfield: \"${11:Direction}\",",
+      "\t\t\t\trotationType: \"${12:geographic}\"",
+      "\t\t\t}",
+      "\t\t]",
+      "\t}",
+      "});"
+    ],
+    "description": "Create a Transposed Multidimensional Imagery Tile Layer. Transposed Multidimensional Imagery Tile Layers are created for optimizing performance when accessing pixel values across all multidimensional slices rather than for visualization at different map scales. AMD path: esri/layers/ImageryLayer | ESM path: @arcgis/core/layers/ImageryLayer.js",
+    "prefix": "TransposedMultidimensionalImageryTileLayer"
+  },
   "Add WebTileLayer": {
-      "body": [
-        "new WebTileLayer({",
-        "\turlTemplate: \"${1:https://{subDomain}.tile.opentopomap.org/{level}/{col}/{row}.png}\",",
-        "\tsubDomains: [\"${2:a}\", \"${3:b}\", \"${4:c}\"],",
-        "\tcopyright: \"${5:https://www.openstreetmap.org/copyright}\" ",
-        "});"
-      ],
-      "description": "Create a WebTileLayer with a service URL. WebTileLayer provides a simple way to add non-ArcGIS Server map tiles as a layer to a map. The constructor takes a URL template that usually follows a pattern of http://some.domain.com/{level}/{col}/{row}/ where level corresponds to a zoom level, and column and row represent tile column and row, respectively. AMD path: esri/layers/WebTileLayer | ESM path: @arcgis/core/layers/WebTileLayer.js",
-      "prefix": "WebTileLayer"
-    },
+    "body": [
+      "new WebTileLayer({",
+      "\turlTemplate: \"${1:https://{subDomain}.tile.opentopomap.org/{level}/{col}/{row}.png}\",",
+      "\tsubDomains: [\"${2:a}\", \"${3:b}\", \"${4:c}\"],",
+      "\tcopyright: \"${5:https://www.openstreetmap.org/copyright}\" ",
+      "});"
+    ],
+    "description": "Create a WebTileLayer with a service URL. WebTileLayer provides a simple way to add non-ArcGIS Server map tiles as a layer to a map. The constructor takes a URL template that usually follows a pattern of http://some.domain.com/{level}/{col}/{row}/ where level corresponds to a zoom level, and column and row represent tile column and row, respectively. AMD path: esri/layers/WebTileLayer | ESM path: @arcgis/core/layers/WebTileLayer.js",
+    "prefix": "WebTileLayer"
+  },
   "Add WMS Layer": {
     "body": [
-    "new WMSLayer({",
-    "\turl: \"${1:service url}\"",
-    "});"
+      "new WMSLayer({",
+      "\turl: \"${1:service url}\"",
+      "});",
+      "await wmsLayer.load();"
     ],
     "description": "Add a WMSLayer based on OGC Web Map Services (WMS) with a URL.  AMD path: esri/layers/WMSLayer | ESM path: @arcgis/core/layers/WMSLayer.js",
     "prefix": "WMSLayer"
   },
   "Add WMTS Layer": {
     "body": [
-    "new WMTSLayer({",
-    "\turl: \"${1:https://gibs.earthdata.nasa.gov/wmts/epsg4326/best}\",",
-    "\tactiveLayer: {",
-    "\t\tid: \"${2:SRTM_Color_Index}\"",
-    "\t}",
-    "});"
+      "new WMTSLayer({",
+      "\turl: \"${1:https://gibs.earthdata.nasa.gov/wmts/epsg4326/best}\",",
+      "\tactiveLayer: {",
+      "\t\tid: \"${2:SRTM_Color_Index}\"",
+      "\t}",
+      "});"
     ],
     "description": "Add a WMTSLayer based on OGC Web Map Tile Services (WMTS) with URL. The WMTS service acts as a directory of WMTS layers and you can set a specific layer using the activeLayer property. AMD path: esri/layers/WMTSLayer | ESM path: @arcgis/core/layers/WMTSLayer.js",
     "prefix": "WMTSLayer"
   },
   "Add WCS Layer": {
     "body": [
-    "new WCSLayer({",
-    "\turl: \"${1:https://sampleserver6.arcgisonline.com/arcgis/services/ScientificData/SeaTemperature/ImageServer/WCSServer}\",",
-    "\trenderer: ${2:renderer},",
-    "\tmultidimensionalDefinition: ${3:multidimensionalDefinition},",
-    "\tversion: \"${4:2.0.1}\",",
-    "\topacity: ${5:0.5}",
-    "});"
+      "new WCSLayer({",
+      "\turl: \"${1:https://sampleserver6.arcgisonline.com/arcgis/services/ScientificData/SeaTemperature/ImageServer/WCSServer}\",",
+      "\trenderer: ${2:renderer},",
+      "\tmultidimensionalDefinition: ${3:multidimensionalDefinition},",
+      "\tversion: \"${4:2.0.1}\",",
+      "\topacity: ${5:0.5}",
+      "});"
     ],
     "description": "Add a WCSLayer with URL. WCS presents raster data from a OGC Web Coverage Service. Raster data is projected and rendered on the client-side. AMD path: esri/layers/WCSLayer | ESM path: @arcgis/core/layers/WCSLayer.js",
     "prefix": "WCSLayer"
   },
   "Add Traffic Time-based Map Image Layer": {
     "body": [
-    "new MapImageLayer({",
-    "\turl: \"${1:https://traffic.arcgis.com/arcgis/rest/services/World/Traffic/MapServer}\",",
-    "\tdpi: ${2:48},",
-    "\timageFormat: \"${3:png32}\",",
-    "\trefreshInterval: ${4:3},",
-    "\tuseViewTime: ${5:false}",
-    "});"
+      "new MapImageLayer({",
+      "\turl: \"${1:https://traffic.arcgis.com/arcgis/rest/services/World/Traffic/MapServer}\",",
+      "\tdpi: ${2:48},",
+      "\timageFormat: \"${3:png32}\",",
+      "\trefreshInterval: ${4:3},",
+      "\tuseViewTime: ${5:false}",
+      "});"
     ],
     "description": "Add a MapImageLayer within a specified time extent with URL. MapImageLayer allows you to display and analyze data from sublayers defined in a map service, exporting images instead of features. AMD path: esri/layers/MapImageLayer | ESM path: @arcgis/core/layers/MapImageLayer.js",
     "prefix": "MapImageLayer"
   },
   "OpenStreetMapLayer": {
-      "body": [
-        "new OpenStreetMapLayer();"
-      ],
-      "description": "Add a OpenStreetMapLayer to the map. OpenStreetMapLayer allows the use basemaps from OpenStreetMap. AMD path: esri/layers/OpenStreetMapLayer | ESM path: @arcgis/core/layers/OpenStreetMapLayer.js",
-      "prefix": "OpenStreetMapLayer"
-    },
+    "body": [
+      "new OpenStreetMapLayer();"
+    ],
+    "description": "Add an OpenStreetMapLayer to the map. OpenStreetMapLayer allows the use basemaps from OpenStreetMap. AMD path: esri/layers/OpenStreetMapLayer | ESM path: @arcgis/core/layers/OpenStreetMapLayer.js",
+    "prefix": "OpenStreetMapLayer"
+  },
   "Add Bing Maps Layer": {
     "body": [
-    "new BingMapsLayer({",
-    "\tstyle: \"${1:Aerial, Road, Hybrid}\",",
-    "\tkey: \"${2:Bing maps key}\"",
-    "});"
+      "new BingMapsLayer({",
+      "\tstyle: \"${1:Aerial, Road, Hybrid}\",",
+      "\tkey: \"${2:Bing maps key}\"",
+      "});"
     ],
     "description": "Add a BingMapsLayer with Bing Maps Key. BingMapsLayer supports Microsoft's Bing tiled map content and the map styles supported are Road, Aerial and Hybrid. AMD path: esri/layers/BingMapsLayer | ESM path: @arcgis/core/layers/BingMapsLayer.js",
     "prefix": "BingMapsLayer"
   },
   "Filter a Scene Layer with SQL expressions": {
     "body": [
-    "new SceneLayer({",
-    "\turl: \"${1:https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/Paris_3D_Local_WSL2/SceneServer/layers/0}\",",
-    "\tdefinitionExpression: \"${2:SQL Expression}\"",
-    "});"
+      "new SceneLayer({",
+      "\turl: \"${1:https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/Paris_3D_Local_WSL2/SceneServer/layers/0}\",",
+      "\tdefinitionExpression: \"${2:SQL Expression}\"",
+      "});"
     ],
     "description": "Add a Scene Layer with URL that can be filtered using an SQL where clause.  SceneLayer is designed for on-demand streaming and displaying large amounts of data in a SceneView. It supports two geoometry types: Point and 3D Objects (e.g. Buildings). AMD path: esri/layers/SceneLayer | ESM path: @arcgis/core/layers/SceneLayer.js",
     "prefix": "SceneLayer"
   },
   "Add Elevation Layer": {
     "body": [
-    "new ElevationLayer({",
-    "\turl: ${1:\"https://sampleserver6.arcgisonline.com/arcgis/rest/services/Elevation/MtBaldy_Elevation/ImageServer\"}",
-    "});"
+      "new ElevationLayer({",
+      "\turl: ${1:\"https://sampleserver6.arcgisonline.com/arcgis/rest/services/Elevation/MtBaldy_Elevation/ImageServer\"}",
+      "});"
     ],
     "description": "Add an Elevation Layer with URL. ElevationLayer is a tile layer used for rendering elevations in SceneViews. AMD path: esri/layers/ElevationLayer | ESM path: @arcgis/core/layers/ElevationLayer.js",
     "prefix": "ElevationLayer"
   },
   "AddPointCloudLayerRenderer": {
-      "body": [
-        "new PointCloudLayer({",
-        "\turl: \"${1:https://tiles.arcgis.com/tiles/V6ZHFr6zdgNZuVG0/arcgis/rest/services/BARNEGAT_BAY_LiDAR_UTM/SceneServer}\"",
-        "});"
-      ],
-      "description": "Add a PointCloudLayer with a URL. The PointCloudLayer is designed for visualizing large collections of point cloud data, post-processed spatially organized lidar data that consists of large collections of 3D points, in a SceneView. AMD path: esri/layers/PointCloudLayer | ESM path: @arcgis/core/layers/PointCloudLayer.js",
-      "prefix": "PointCloudLayer"
-    },
+    "body": [
+      "new PointCloudLayer({",
+      "\turl: \"${1:https://tiles.arcgis.com/tiles/V6ZHFr6zdgNZuVG0/arcgis/rest/services/BARNEGAT_BAY_LiDAR_UTM/SceneServer}\"",
+      "});"
+    ],
+    "description": "Add a PointCloudLayer with a URL. The PointCloudLayer is designed for visualizing large collections of point cloud data, post-processed spatially organized lidar data that consists of large collections of 3D points, in a SceneView. AMD path: esri/layers/PointCloudLayer | ESM path: @arcgis/core/layers/PointCloudLayer.js",
+    "prefix": "PointCloudLayer"
+  },
   "Add Building Scene Layer": {
     "body": [
-    "new BuildingSceneLayer({",
-    "\turl: \"${1:https://tiles.arcgis.com/tiles/V6ZHFr6zdgNZuVG0/arcgis/rest/services/Esri_Admin_Building/SceneServer}\",",
-    "\ttitle: \"${2:Administration Building, Redlands - Building Scene Layer}\"",
-    "});"
+      "new BuildingSceneLayer({",
+      "\turl: \"${1:https://tiles.arcgis.com/tiles/V6ZHFr6zdgNZuVG0/arcgis/rest/services/Esri_Admin_Building/SceneServer}\",",
+      "\ttitle: \"${2:Administration Building, Redlands - Building Scene Layer}\"",
+      "});"
     ],
     "description": "Add a BuildingSceneLayer with URL. BuildingSceneLayer is designed for visualizing complex digital models of buildings and interacting with all the components of the building. AMD path: esri/layers/BuildingSceneLayer | ESM path: @arcgis/core/layers/BuildingSceneLayer.js",
     "prefix": "BuildingSceneLayer"
   },
   "Add Line Of Sight Layer": {
     "body": [
-    "new LineOfSightLayer({",
-    "\tobserver: { position: ${1:somePoint}},",
-    "\ttargets: [",
-    "\t\t{position: ${2:someOtherPoint}}",
-    "\t]",
-    "});"
+      "new LineOfSightLayer({",
+      "\tobserver: { position: ${1:somePoint}},",
+      "\ttargets: [",
+      "\t\t{position: ${2:someOtherPoint}}",
+      "\t]",
+      "});"
     ],
     "description": "Add a LineOfSightLayer visualized in a 3D SceneView. LineOfSightLayer computes the line of sight from a single observer position towards a set of targets. AMD path: esri/layers/LineOfSightLayer | ESM path: @arcgis/core/layers/LineOfSightLayer.js",
     "prefix": "LineOfSightLayer"
   },
   "Add Dimension Layer": {
     "body": [
-    "new DimensionLayer({",
-    "\tsource: {",
-    "\t\tdimensions: [",
-    "\t\t\t{",
-    "\t\t\t\tstartPoint: {",
-    "\t\t\t\t\tspatialReference: { wkid: 102100 },",
-    "\t\t\t\t\tx: ${1:rings[i][0]},",
-    "\t\t\t\t\ty: ${2:rings[i][1]},",
-    "\t\t\t\t\tz: ${3:feature.attributes[\"Elevation\"] + feature.attributes[\"FloorHeight\"]}",
-    "\t\t\t\t},",
-    "\t\t\t\tendPoint: {",
-    "\t\t\t\t\tspatialReference: { wkid: 102100 },",
-    "\t\t\t\t\tx: ${4:rings[i + 1][0]},",
-    "\t\t\t\t\ty: ${5:rings[i + 1][1]},",
-    "\t\t\t\t\tz: ${6:feature.attributes[\"Elevation\"] + feature.attributes[\"FloorHeight\"]}",
-    "\t\t\t\t}",
-    "\t\t\t}",
-    "\t\t]",
-    "\t},",
-    "\tstyle: {",
-    "\t\tcolor: \"${7:white}\"",
-    "\t}",
-    "});"
+      "new DimensionLayer({",
+      "\tsource: {",
+      "\t\tdimensions: [",
+      "\t\t\t{",
+      "\t\t\t\tstartPoint: {",
+      "\t\t\t\t\tspatialReference: { wkid: 102100 },",
+      "\t\t\t\t\tx: ${1:rings[i][0]},",
+      "\t\t\t\t\ty: ${2:rings[i][1]},",
+      "\t\t\t\t\tz: ${3:feature.attributes[\"Elevation\"] + feature.attributes[\"FloorHeight\"]}",
+      "\t\t\t\t},",
+      "\t\t\t\tendPoint: {",
+      "\t\t\t\t\tspatialReference: { wkid: 102100 },",
+      "\t\t\t\t\tx: ${4:rings[i + 1][0]},",
+      "\t\t\t\t\ty: ${5:rings[i + 1][1]},",
+      "\t\t\t\t\tz: ${6:feature.attributes[\"Elevation\"] + feature.attributes[\"FloorHeight\"]}",
+      "\t\t\t\t}",
+      "\t\t\t}",
+      "\t\t]",
+      "\t},",
+      "\tstyle: {",
+      "\t\tcolor: \"${7:white}\"",
+      "\t}",
+      "});"
     ],
     "description": "Add a Dimension Layer using a DimensionAnalysis Object. A Dimension layer displays measurement annotations of lengths and distances in a 3D SceneView. AMD path: esri/layers/DimensionLayer| ESM path: @arcgis/core/layers/DimensionLayer.js",
     "prefix": "DimensionLayer"
   },
   "Add Integrated Mesh Layer": {
     "body": [
-    "new IntegratedMeshLayer({",
-    "\turl: ${1:\"https://tiles.arcgis.com/tiles/u0sSNqDXr7puKJrF/arcgis/rest/services/Frankfurt2017_v17/SceneServer/layers/0\"}",
-    "});"
+      "new IntegratedMeshLayer({",
+      "\turl: ${1:\"https://tiles.arcgis.com/tiles/u0sSNqDXr7puKJrF/arcgis/rest/services/Frankfurt2017_v17/SceneServer/layers/0\"}",
+      "});"
     ],
     "description": "Add an Integrated Mesh Layer with a URL. The IntegratedMeshLayer is designed for visualizing accurate representations of built and natural environments, captured by an automated process for constructing 3D objects from large sets of overlapping imagery, in a SceneView. AMD path: esri/layers/IntegratedMeshLayer | ESM path: @arcgis/core/layers/IntegratedMeshLayer.js",
     "prefix": "IntegratedMeshLayer"
   },
   "Add Voxel Layer": {
     "body": [
-    "new VoxelLayer({",
-    "\turl: \"${1:https://tiles.arcgis.com/tiles/z2tnIkrLQ2BRzr6P/arcgis/rest/services/EMU_Caribbean_Voxel/SceneServer}\"",
-    "});"
+      "new VoxelLayer({",
+      "\turl: \"${1:https://tiles.arcgis.com/tiles/z2tnIkrLQ2BRzr6P/arcgis/rest/services/EMU_Caribbean_Voxel/SceneServer}\"",
+      "});"
     ],
     "description": "Add a Voxel Layer with a URL. A voxel layer represents multidimensional volumetric data such as atmospheric or oceanic data, geological underground models, or space-time cubes. The layer is used to explore spatial relationships with other content. AMD path: esri/layers/VoxelLayer| ESM path: @arcgis/core/layers/VoxelLayer.js",
     "prefix": "VoxelLayer"
   },
-    "Add Media Layer with Video": {
+  "Add Media Layer with Video": {
     "body": [
-    "new MediaLayer({",
-    "\tsource: [",
-    "\t\t{",
-    "\t\t\tvideo: \"${1:https://arcgis.github.io/arcgis-samples-javascript/sample-data/media-layer/videos/hurricanes_aerosol-aug.mp4}\",",
-    "\t\t\tgeoreference: {",
-    "\t\t\t\textent: {",
-    "\t\t\t\t\txmin: ${2:-150},",
-    "\t\t\t\t\tymin: ${3:1},",
-    "\t\t\t\t\txmax: ${4:20},",
-    "\t\t\t\t\tymax: ${5:80},",
-    "\t\t\t\t\tspatialReference: {",
-    "\t\t\t\t\t\twkid: ${6:4326}",
-    "\t\t\t\t\t}",
-    "\t\t\t\t}",
-    "\t\t\t}",
-    "\t\t}",
-    "\t],",
-    "\ttitle: \"${7:2017 Hurricanes and Aerosols Simulation}\",",
-    "\tcopyright: \"${8:NASA's Goddard Space Flight Center}\"",
-    "});"
+      "new MediaLayer({",
+      "\tsource: [",
+      "\t\t{",
+      "\t\t\tvideo: \"${1:https://arcgis.github.io/arcgis-samples-javascript/sample-data/media-layer/videos/hurricanes_aerosol-aug.mp4}\",",
+      "\t\t\tgeoreference: {",
+      "\t\t\t\textent: {",
+      "\t\t\t\t\txmin: ${2:-150},",
+      "\t\t\t\t\tymin: ${3:1},",
+      "\t\t\t\t\txmax: ${4:20},",
+      "\t\t\t\t\tymax: ${5:80},",
+      "\t\t\t\t\tspatialReference: {",
+      "\t\t\t\t\t\twkid: ${6:4326}",
+      "\t\t\t\t\t}",
+      "\t\t\t\t}",
+      "\t\t\t}",
+      "\t\t}",
+      "\t],",
+      "\ttitle: \"${7:2017 Hurricanes and Aerosols Simulation}\",",
+      "\tcopyright: \"${8:NASA's Goddard Space Flight Center}\"",
+      "});"
     ],
     "description": "Add a Media Layer with a video element in a 3D SceneView. MediaLayer is used to display static images and videos on the map by specifying their geographic locations using extent and rotation or the corner points of the bounding box. AMD path: esri/layers/MediaLayer| ESM path: @arcgis/core/layers/MediaLayer.js",
     "prefix": "MediaLayerVideo"
@@ -1107,144 +1098,145 @@
   "Add MediaLayer with Control Points Georeference": {
     "body": [
       "new MediaLayer({",
-			"\tsource: [",
-			"\t\t{",
-			"\t\t\timage: \"https://arcgis.github.io/arcgis-samples-javascript/sample-data/media-layer/telluride/TellurideQuad.webp\",",
-			"\t\t\tgeoreference: {",
-			"\t\t\t\tcontrolPoints: [",
-			"\t\t\t\t\t{",
-			"\t\t\t\t\t\tsourcePoint: { x: 89, y: 1918 },",
-			"\t\t\t\t\t\tmapPoint: new Point({ x: -107.875, y: 37.875, spatialReference })",
-			"\t\t\t\t\t},",
-			"\t\t\t\t\t{",
-			"\t\t\t\t\t\tsourcePoint: { x: 83, y: 101 },",
-			"\t\t\t\t\t\tmapPoint: new Point({ x: -107.875, y: 38, spatialReference })",
-			"\t\t\t\t\t},",
-			"\t\t\t\t\t{",
-			"\t\t\t\t\t\tsourcePoint: { x: 1508, y: 97 },",
-			"\t\t\t\t\t\tmapPoint: new Point({ x: -107.75, y: 38, spatialReference })",
-			"\t\t\t\t\t},",
-			"\t\t\t\t\t{",
-			"\t\t\t\t\t\tsourcePoint: { x: 1517, y: 1906 },",
-			"\t\t\t\t\t\tmapPoint: new Point({ x: -107.75, y: 37.875, spatialReference })",
-			"\t\t\t\t\t}",
-			"\t\t\t\t],",
-			"\t\t\t\twidth: 1585,",
-			"\t\t\t\theight: 2048",
-			"\t\t\t}",
-			"\t\t}",
-			"\t],",
-			"\ttitle: \"Geologic Map of the Telluride Quadrangle, Southwestern Colorado\",",
-			"\tcopyright: \"Wilbur S Burbank and Robert G. Luedke, 1966\",",
-			"\tspatialReference",
-			"});"
+      "\tsource: [",
+      "\t\t{",
+      "\t\t\timage: \"https://arcgis.github.io/arcgis-samples-javascript/sample-data/media-layer/telluride/TellurideQuad.webp\",",
+      "\t\t\tgeoreference: {",
+      "\t\t\t\tcontrolPoints: [",
+      "\t\t\t\t\t{",
+      "\t\t\t\t\t\tsourcePoint: { x: 89, y: 1918 },",
+      "\t\t\t\t\t\tmapPoint: new Point({ x: -107.875, y: 37.875, spatialReference })",
+      "\t\t\t\t\t},",
+      "\t\t\t\t\t{",
+      "\t\t\t\t\t\tsourcePoint: { x: 83, y: 101 },",
+      "\t\t\t\t\t\tmapPoint: new Point({ x: -107.875, y: 38, spatialReference })",
+      "\t\t\t\t\t},",
+      "\t\t\t\t\t{",
+      "\t\t\t\t\t\tsourcePoint: { x: 1508, y: 97 },",
+      "\t\t\t\t\t\tmapPoint: new Point({ x: -107.75, y: 38, spatialReference })",
+      "\t\t\t\t\t},",
+      "\t\t\t\t\t{",
+      "\t\t\t\t\t\tsourcePoint: { x: 1517, y: 1906 },",
+      "\t\t\t\t\t\tmapPoint: new Point({ x: -107.75, y: 37.875, spatialReference })",
+      "\t\t\t\t\t}",
+      "\t\t\t\t],",
+      "\t\t\t\twidth: 1585,",
+      "\t\t\t\theight: 2048",
+      "\t\t\t}",
+      "\t\t}",
+      "\t],",
+      "\ttitle: \"Geologic Map of the Telluride Quadrangle, Southwestern Colorado\",",
+      "\tcopyright: \"Wilbur S Burbank and Robert G. Luedke, 1966\",",
+      "\tspatialReference",
+      "});"
     ],
     "description": "Add a MediaLayer with Control Points Georeference. A control point has a sourcePoint, a point on the element measured in pixels from the top left corner, and a mapPoint, a known geographic location. This allows us to position the images in map space. AMD path: esri/layers/MediaLayer| ESM path: @arcgis/core/layers/MediaLayer.js",
     "prefix": "MediaLayerControlPoints"
   },
   "Add KML Layer": {
     "body": [
-    "new KMLLayer({",
-    "\turl: \"http://quickmap.dot.ca.gov/data/lcs.kml\"",
-    "});"
+      "new KMLLayer({",
+      "\turl: \"http://quickmap.dot.ca.gov/data/lcs.kml\"",
+      "});"
     ],
     "description": "Add a KML layer based on a KML file (.kml, .kmz) with a URL. KML is an XML-based file format used to represent geographic features. AMD path: esri/layers/KMLLayer| ESM path: @arcgis/core/layers/KMLLayer.js",
     "prefix": "KMLLayer"
   },
-    "Add GroupLayer": {
-      "body": [
+  "Add GroupLayer": {
+    "body": [
       "new GroupLayer({",
-			"\tlayers: [",
-			"\t\t{",
-			"\t\t\turl: \"https://example.com/featureLayer\"",
-			"\t\t},",
-			"\t\t{",
-			"\t\t\turl: \"https://example.com/tileLayer\"",
-			"\t\t}",
-			"\t],",
-			"\ttitle: \"My Group Layer\",",
-			"\topacity: 0.8",
-			"});"
-      ],
-      "description": "Add a Group Layer with feature and/or tile layer URLs. GroupLayer provides the ability to organize several sublayers into one common layer.  AMD path: esri/layers/GroupLayer| ESM path: @arcgis/core/layers/GroupLayer.js",
-      "prefix": "GroupLayer"
-    },
+      "\tlayers: [",
+      "\t\t{",
+      "\t\t\turl: \"https://example.com/featureLayer\"",
+      "\t\t},",
+      "\t\t{",
+      "\t\t\turl: \"https://example.com/tileLayer\"",
+      "\t\t}",
+      "\t],",
+      "\ttitle: \"My Group Layer\",",
+      "\topacity: 0.8",
+      "});"
+    ],
+    "description": "Add a Group Layer with feature and/or tile layer URLs. GroupLayer provides the ability to organize several sublayers into one common layer.  AMD path: esri/layers/GroupLayer| ESM path: @arcgis/core/layers/GroupLayer.js",
+    "prefix": "GroupLayer"
+  },
   "Add Subtype Group Layer": {
     "body": [
-    "new SubtypeGroupLayer({",
-    "\turl: ${1: \"https://sampleserver7.arcgisonline.com/server/rest/services/UtilityNetwork/NapervilleElectric/FeatureServer/0\"}",
-    "\tsublayers: [",
-    "\t\t{",
-    "\t\t\tsubtypeCode: 12,",
-    "\t\t\tvisible: true,",
-    "\t\t\trenderer: simpleRenderer",
-    "\t\t},",
-    "\t]",
-    "};"
+      "new SubtypeGroupLayer({",
+      "\turl: ${1: \"https://sampleserver7.arcgisonline.com/server/rest/services/UtilityNetwork/NapervilleElectric/FeatureServer/0\"}",
+      "\tsublayers: [",
+      "\t\t{",
+      "\t\t\tsubtypeCode: 12,",
+      "\t\t\tvisible: true,",
+      "\t\t\trenderer: simpleRenderer",
+      "\t\t},",
+      "\t]",
+      "};"
     ],
     "description": "Add a Subtype Group Layer with a URL. The SubtypeGroupLayer is a single layer that automatically creates a SubtypeSublayer for each subtype in its corresponding feature service. AMD path: esri/layers/SubtypeGroupLayer | ESM path: @arcgis/core/layers/SubtypeGroupLayer.js",
     "prefix": "SubtypeGroupLayer"
   },
   "Add Imagery Tile Layer with CovergeJSON object": {
     "body": [
-    "new ImageryTileLayer({",
-    "\tsource: {",
-    "\t\ttype: \"Coverage\",",
-    "\t\tdomain: {",
-    "\t\t\ttype: \"Domain\",",
-    "\t\t\tdomainType: \"Grid\",",
-    "\t\t\taxes: {",
-    "\t\t\t\tx: { values: ${1:[-10, -5, 0]} },",
-    "\t\t\t\ty: { values: ${2:[40, 50]} },",
-    "\t\t\t\tt: { values: [${3:\"2010-01-01T00:12:20Z\"}] }",
-    "\t\t\t},",
-    "\t\t\treferencing: [",
-    "\t\t\t{",
-    "\t\t\t\tcoordinates: [\"x\", \"y\"],",
-    "\t\t\t\tsystem: {",
-    "\t\t\t\t\ttype: ${4:\"GeographicCRS\"},",
-    "\t\t\t\t\tid: ${5:\"http://www.opengis.net/def/crs/OGC/1.3/CRS84\"}",
-    "\t\t\t\t}",
-    "\t\t\t},",
-    "\t\t\t{",
-    "\t\t\t\tcoordinates: [\"t\"],",
-    "\t\t\t\tsystem: {",
-    "\t\t\t\t\ttype: \"TemporalRS\",",
-    "\t\t\t\t\tcalendar: \"Gregorian\"",
-    "\t\t\t\t}",
-    "\t\t\t}",
-    "\t\t\t]",
-    "\t\t},",
-    "\t\tparameters: {",
-    "\t\t},",
-    "\t\tranges: {",
-    "\t\t\tLC: {",
-    "\t\t\t\ttype: \"NdArray\",",
-    "\t\t\t\tdataType: \"integer\",",
-    "\t\t\t\taxisNames: [\"t\", \"y\", \"x\"],",
-    "\t\t\t\tshape: [1, 2, 3],",
-    "\t\t\t\tvalues: [${6: 1, 1, null, 2, 1, 2}]",
-    "\t\t\t}",
-    "\t\t}",
-    "\t}",
-    "});"
+      "new ImageryTileLayer({",
+      "\tsource: {",
+      "\t\ttype: \"Coverage\",",
+      "\t\tdomain: {",
+      "\t\t\ttype: \"Domain\",",
+      "\t\t\tdomainType: \"Grid\",",
+      "\t\t\taxes: {",
+      "\t\t\t\tx: { values: ${1:[-10, -5, 0]} },",
+      "\t\t\t\ty: { values: ${2:[40, 50]} },",
+      "\t\t\t\tt: { values: [${3:\"2010-01-01T00:12:20Z\"}] }",
+      "\t\t\t},",
+      "\t\t\treferencing: [",
+      "\t\t\t{",
+      "\t\t\t\tcoordinates: [\"x\", \"y\"],",
+      "\t\t\t\tsystem: {",
+      "\t\t\t\t\ttype: ${4:\"GeographicCRS\"},",
+      "\t\t\t\t\tid: ${5:\"http://www.opengis.net/def/crs/OGC/1.3/CRS84\"}",
+      "\t\t\t\t}",
+      "\t\t\t},",
+      "\t\t\t{",
+      "\t\t\t\tcoordinates: [\"t\"],",
+      "\t\t\t\tsystem: {",
+      "\t\t\t\t\ttype: \"TemporalRS\",",
+      "\t\t\t\t\tcalendar: \"Gregorian\"",
+      "\t\t\t\t}",
+      "\t\t\t}",
+      "\t\t\t]",
+      "\t\t},",
+      "\t\tparameters: {",
+      "\t\t},",
+      "\t\tranges: {",
+      "\t\t\tLC: {",
+      "\t\t\t\ttype: \"NdArray\",",
+      "\t\t\t\tdataType: \"integer\",",
+      "\t\t\t\taxisNames: [\"t\", \"y\", \"x\"],",
+      "\t\t\t\tshape: [1, 2, 3],",
+      "\t\t\t\tvalues: [${6: 1, 1, null, 2, 1, 2}]",
+      "\t\t\t}",
+      "\t\t}",
+      "\t}",
+      "});"
     ],
     "description": "Add an Imagery Tile Layer with CovergeJSON object. CoverageJSON is an OGC format for storing data such as grids, time and elevation profiles. ImageryTileLayer presents raster data from a tiled image service. AMD path: esri/layers/ImageryTileLayer| ESM path: @arcgis/core/layers/ImageryTileLayer.js",
-    "prefix": ["ImageryTileLayerwithCovergeJSON", 
-    "TileLayer"
-  ]
+    "prefix": [
+      "ImageryTileLayerwithCovergeJSON",
+      "TileLayer"
+    ]
   },
   "Add Knowledge Graph Layer": {
     "body": [
-    "new KnowledgeGraphLayer({",
-    "\turl: ${1:\"https://sampleserver7.arcgisonline.com/arcgis/rest/services/Hosted/SupplyChain/KnowledgeGraphServer\"}",
-    "\tinclusionModeDefinition: {",
-    "\t\tgenerateAllSublayers: ${2:false},",
-    "\t\tnamedTypeDefinitions: ${3:namedTypes}",
-    "\t}",
-    "});"
+      "new KnowledgeGraphLayer({",
+      "\turl: ${1:\"https://sampleserver7.arcgisonline.com/arcgis/rest/services/Hosted/SupplyChain/KnowledgeGraphServer\"}",
+      "\tinclusionModeDefinition: {",
+      "\t\tgenerateAllSublayers: ${2:false},",
+      "\t\tnamedTypeDefinitions: ${3:namedTypes}",
+      "\t}",
+      "});"
     ],
     "description": "Add a Knowledge Graph Layer with a URL. A KnowledgeGraphLayer is a composite layer that represents a knowledge graph service on a map.  A KnowledgeGraphLayer also optionally takes an inclusion definition that specifies a set of named types and/or specific entities and relationships to be included in the layer. AMD path: esri/layers/KnowledgeGraphLayer| ESM path: @arcgis/core/layers/KnowledgeGraphLayer.js",
     "prefix": "KnowledgeGraphLayer"
   }
-} 
+}
