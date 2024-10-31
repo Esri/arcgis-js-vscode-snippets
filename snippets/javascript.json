@@ -671,7 +671,7 @@
     "});",
     "let url = URL.createObjectURL(blob);",
     "",
-    "const layer = new CSVLayer({",
+new CSVLayer({",
     "\turl: ${2:url}",
     "});",
     "map.add(layer);"
