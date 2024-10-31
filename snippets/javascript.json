@@ -837,7 +837,7 @@
     "\trenderer: ${5:renderer}",
     "});"
     ],
-    "description": "Add a StreamLayer with a URL. A StreamLayer displays the observation streams ,including changes to location, attributes, or both, associated with a set of tracked objects in real-time. AMD path: esri/layers/StreamLayer | ESM path: @arcgis/core/layers/StreamLayer.js",
+    "description": "Add a StreamLayer with a URL. A StreamLayer displays the observation streams, including changes to location, attributes, or both, associated with a set of tracked objects in real-time. AMD path: esri/layers/StreamLayer | ESM path: @arcgis/core/layers/StreamLayer.js",
     "prefix": "StreamLayer"
   },
   "Add Stream Layer with WebSocketURL": {
@@ -1002,7 +1002,7 @@
     "\tuseViewTime: ${5:false}",
     "});"
     ],
-    "description": "Add a Traffic Time-based MapImageLayer",
+    "description": "Add a MapImageLayer within a specified time extent with URL. MapImageLayer allows you to display and analyze data from sublayers defined in a map service, exporting images instead of features. AMD path: esri/layers/MapImageLayer | ESM path: @arcgis/core/layers/MapImageLayer.js",
     "prefix": "MapImageLayer"
   },
   "OpenStreetMapLayer": {
@@ -1020,7 +1020,7 @@
     "\tkey: \"${2:Bing maps key}\"",
     "});"
     ],
-    "description": "Add a BingMapsLayer with style and key",
+    "description": "Add a BingMapsLayer with Bing Maps Key. BingMapsLayer supports Microsoft's Bing tiled map content and the map styles supported are Road, Aerial and Hybrid. AMD path: esri/layers/BingMapsLayer | ESM path: @arcgis/core/layers/BingMapsLayer.js",
     "prefix": "BingMapsLayer"
   },
   "Filter a Scene Layer with SQL expressions": {
@@ -1030,7 +1030,7 @@
     "\tdefinitionExpression: \"${2:SQL Expression}\"",
     "});"
     ],
-    "description": "Filter a Scene Layer with SQL expressions",
+    "description": "Add a Scene Layer with URL that can be filtered using an SQL where clause.  SceneLayer is designed for on-demand streaming and displaying large amounts of data in a SceneView. It supports two geoometry types: Point and 3D Objects (e.g. Buildings). AMD path: esri/layers/SceneLayer | ESM path: @arcgis/core/layers/SceneLayer.js",
     "prefix": "SceneLayer"
   },
   "Add Elevation Layer": {
@@ -1039,12 +1039,12 @@
     "\turl: ${1:\"https://sampleserver6.arcgisonline.com/arcgis/rest/services/Elevation/MtBaldy_Elevation/ImageServer\"}",
     "});"
     ],
-    "description": "Add an Elevation Layer",
+    "description": "Add an Elevation Layer with URL. ElevationLayer is a tile layer used for rendering elevations in SceneViews. AMD path: esri/layers/ElevationLayer | ESM path: @arcgis/core/layers/ElevationLayer.js",
     "prefix": "ElevationLayer"
   },
   "AddPointCloudLayerRenderer": {
       "body": [
-        "const pointCloudLayer = new PointCloudLayer({",
+        "new PointCloudLayer({",
         "\turl: \"${1:https://tiles.arcgis.com/tiles/V6ZHFr6zdgNZuVG0/arcgis/rest/services/BARNEGAT_BAY_LiDAR_UTM/SceneServer}\"",
         "});",
         "",
@@ -1155,26 +1155,19 @@
     "\ttitle: \"${2:Administration Building, Redlands - Building Scene Layer}\"",
     "});"
     ],
-    "description": "Add a BuildingSceneLayer to the map",
+    "description": "Add a BuildingSceneLayer with URL. BuildingSceneLayer is designed for visualizing complex digital models of buildings and interacting with all the components of the building. AMD path: esri/layers/BuildingSceneLayer | ESM path: @arcgis/core/layers/BuildingSceneLayer.js",
     "prefix": "BuildingSceneLayer"
   },
   "Add Line Of Sight Layer": {
     "body": [
     "new LineOfSightLayer({",
-    "\tobserver: new LineOfSightAnalysisObserver({ position: ${1:somePoint} }),",
+    "\tobserver: { position: ${1:somePoint}},",
     "\ttargets: [",
-    "\t\tnew LineOfSightAnalysisTarget({ position: ${2:someOtherPoint} })",
+    "\t\t{position: ${2:someOtherPoint}}",
     "\t]",
-    "});",
-    "",
-    "view.map.add(lineOfSightLayer);",
-    "",
-    "await reactiveUtils.whenOnce(() => !view.updating);",
-    "",
-    "const analysisView = await view.whenAnalysisView(lineOfSightLayer.analysis);",
-    "const results = analysisView.results;"
+    "});"
     ],
-    "description": "Add a LineOfSightLayer to the SceneView and retrieve analysis results",
+    "description": "Add a LineOfSightLayer visualized in a 3D SceneView. LineOfSightLayer computes the line of sight from a single observer position towards a set of targets. AMD path: esri/layers/LineOfSightLayer | ESM path: @arcgis/core/layers/LineOfSightLayer.js",
     "prefix": "LineOfSightLayer"
   },
   "Add Dimension Layer": {
@@ -1184,7 +1177,7 @@
     "\tsource: new DimensionAnalysis()",
     "});"
     ],
-    "description": "Add a Dimension Layer",
+    "description": "Add a Dimension Layer using a DimensionAnalysis Object . A Dimension layer displays measurement annotations of lengths and distances in a 3D SceneView. AMD path: esri/layers/DimensionLayer| ESM path: @arcgis/core/layers/DimensionLayer.js",
     "prefix": "DimensionLayer"
   },
   "Add Integrated Mesh Layer": {
@@ -1193,115 +1186,40 @@
     "\turl: ${1:\"https://tiles.arcgis.com/tiles/u0sSNqDXr7puKJrF/arcgis/rest/services/Frankfurt2017_v17/SceneServer/layers/0\"}",
     "});"
     ],
-    "description": "Add an Integrated Mesh Layer from a URL.",
+    "description": "Add an Integrated Mesh Layer with a URL. The IntegratedMeshLayer is designed for visualizing accurate representations of built and natural environments, captured by an automated process for constructing 3D objects from large sets of overlapping imagery, in a SceneView. AMD path: esri/layers/IntegratedMeshLayer | ESM path: @arcgis/core/layers/IntegratedMeshLayer.js",
     "prefix": "IntegratedMeshLayer"
   },
-  "Create Voxel Layer with Service URL": {
+  "Add Voxel Layer": {
     "body": [
     "VoxelLayer({",
     "\turl: \"${1:https://tiles.arcgis.com/tiles/z2tnIkrLQ2BRzr6P/arcgis/rest/services/EMU_Caribbean_Voxel/SceneServer}\"",
-    "});",
-    "",
-    "const map = new Map({",
-    "\tlayers: [voxelLayer],",
-    "\tbasemap: {",
-    "\t\tbaseLayers: [",
-    "\t\t\tnew VectorTileLayer({",
-    "\t\t\t\turl: \"${2:https://basemaps.arcgis.com/arcgis/rest/services/OpenStreetMap_GCS_v2/VectorTileServer}\"",
-    "\t\t\t})",
-    "\t\t]",
-    "\t}",
     "});"
     ],
-    "description": "Create a Voxel Layer with a Service URL.",
-    "prefix": "voxelLayer"
+    "description": "Add a Voxel Layer with a URL. A voxel layer represents multidimensional volumetric data such as atmospheric or oceanic data, geological underground models, or space-time cubes. The layer is used to explore spatial relationships with other content. AMD path: esri/layers/VoxelLayer| ESM path: @arcgis/core/layers/VoxelLayer.js",
+    "prefix": "VoxelLayer"
   },
     "Add Media Layer with Video": {
     "body": [
-      "const element = new VideoElement({",
-      "\tvideo: \"${1:https://arcgis.github.io/arcgis-samples-javascript/sample-data/media-layer/videos/hurricanes_aerosol-aug.mp4}\",",
-      "\tgeoreference: new ExtentAndRotationGeoreference({",
-      "\t\textent: new Extent({",
-      "\t\txmin: ${2:-150},",
-      "\t\tymin: ${3:1},",
-      "\t\txmax: ${4:20},",
-      "\t\tymax: ${5:80},",
-      "\t\tspatialReference: {",
-      "\t\t\twkid: ${6:4326}",
-      "\t\t}",
-      "\t\t})",
-      "\t})",
-      "});",
-      "",
-      "const layer = new MediaLayer({",
-      "\tsource: [element],",
-      "\ttitle: \"${7:2017 Hurricanes and Aerosols Simulation}\",",
-      "\tcopyright: \"${8:NASA's Goddard Space Flight Center}\"",
-      "});"
+    "new MediaLayer({",
+    "\tsource: [${1:videoElement}],",
+    "\ttitle: \"${2:2017 Hurricanes and Aerosols Simulation}\",",
+    "\tcopyright: \"${3:NASA's Goddard Space Flight Center}\"",
+    "});"
     ],
-    "description": "Add a Media Layer with a video.",
-    "prefix": "mediaLayerwithVideo"
+    "description": "Add a Media Layer with a video element in a 3D SceneView. MediaLayer is used to display static images and videos on the map by specifying their geographic locations using extent and rotation or the corner points of the bounding box. AMD path: esri/layers/MediaLayer| ESM path: @arcgis/core/layers/MediaLayer.js",
+    "prefix": "MediaLayerVideo"
   },
   "Add MediaLayer with Control Points Georeference": {
     "body": [
-    "const swCornerMapPoint = new Point({ x: ${1:-107.875}, y: ${2:37.875}, spatialReference });",
-    "const nwCornerMapPoint = new Point({ x: ${4:-107.875}, y: ${5:38}, spatialReference });",
-    "const neCornerMapPoint = new Point({ x: ${6:-107.75}, y: ${7:38}, spatialReference });",
-    "const seCornerMapPoint = new Point({ x: ${8:-107.75}, y: ${9:37.875}, spatialReference });",
-    "",
-    "const graphicsLayer = new GraphicsLayer({",
-    "\tgraphics: [",
-    "\t\tcreateGraphic(swCornerMapPoint, \"${10:green}\", 0),",
-    "\t\tcreateGraphic(nwCornerMapPoint, \"${11:purple}\", 1),",
-    "\t\tcreateGraphic(neCornerMapPoint, \"${12:blue}\", 2),",
-    "\t\tcreateGraphic(seCornerMapPoint, \"${13:red}\", 3)",
-    "\t]",
-    "});",
-    "",
-    "const swCornerControlPoint = {",
-    "\tsourcePoint: { x: ${14:89}, y: ${15:1918} },",
-    "\tmapPoint: swCornerMapPoint",
-    "};",
-    "const nwCornerControlPoint = {",
-    "\tsourcePoint: { x: ${16:83}, y: ${17:101} },",
-    "\tmapPoint: nwCornerMapPoint",
-    "};",
-    "const neCornerControlPoint = {",
-    "\tsourcePoint: { x: ${18:1508}, y: ${19:97} },",
-    "\tmapPoint: neCornerMapPoint",
-    "};",
-    "const seCornerControlPoint = {",
-    "\tsourcePoint: { x: ${20:1517}, y: ${21:1906} },",
-    "\tmapPoint: seCornerMapPoint",
-    "};",
-    "",
-    "const controlPoints = [",
-    "\tswCornerControlPoint,",
-    "\tnwCornerControlPoint,",
-    "\tneCornerControlPoint,",
-    "\tseCornerControlPoint",
-    "];",
-    "",
-    "const controlPointsGeoreference = new ControlPointsGeoreference({",
-    "\tcontrolPoints,",
-    "\twidth: ${22:1585},",
-    "\theight: ${23:2048}",
-    "});",
-    "",
-    "const imageElement = new ImageElement({",
-    "\timage: \"${24:https://arcgis.github.io/arcgis-samples-javascript/sample-data/media-layer/telluride/TellurideQuad.webp}\",",
-    "\tgeoreference: controlPointsGeoreference",
-    "});",
-    "",
-    "const mediaLayer = new MediaLayer({",
-    "\tsource: [imageElement],",
-    "\ttitle: \"${25:Geologic Map of the Telluride Quadrangle, Southwestern Colorado}\",",
-    "\tcopyright: \"${26:Wilbur S Burbank and Robert G. Luedke, 1966}\",",
+    "new MediaLayer({",
+    "\tsource: [${1:imageElement}],",
+    "\ttitle: \"${2:Geologic Map of the Telluride Quadrangle, Southwestern Colorado}\",",
+    "\tcopyright: \"${3:Wilbur S Burbank and Robert G. Luedke, 1966}\",",
     "\tspatialReference",
     "});"
     ],
-    "description": "Add a MediaLayer with a control points georeference to map an image accurately.",
-    "prefix": "mediaLayerControlPoints"
+    "description": "Add a MediaLayer with Control Points Georeference. A control point has a sourcePoint, a point on the element measured in pixels from the top left corner, and a mapPoint, a known geographic location. This allows us to position the images in map space. AMD path: esri/layers/MediaLayer| ESM path: @arcgis/core/layers/MediaLayer.js",
+    "prefix": "MediaLayerControlPoints"
   },
   "Add KML Layer": {
     "body": [
@@ -1309,8 +1227,8 @@
     "\turl: \"http://quickmap.dot.ca.gov/data/lcs.kml\"",
     "});"
     ],
-    "description": "Add a KML layer",
-    "prefix": "kmlLayer"
+    "description": "Add a KML layer based on a KML file (.kml, .kmz) with a URL. KML is an XML-based file format used to represent geographic features. AMD path: esri/layers/KMLLayer| ESM path: @arcgis/core/layers/KMLLayer.js",
+    "prefix": "KMLLayer"
   },
     "Add GroupLayer with LayerList": {
       "body": [
@@ -1353,12 +1271,12 @@
         "\t}",
         "}"
       ],
-      "description": "Creates a Group Layer with LayerList Widget",
-      "prefix": "groupLayerwithLayerListWidget"
+      "description": "Creates a Group Layer with LayerList Widget. AMD path: esri/layers/GroupLayer| ESM path: @arcgis/core/layers/GroupLayer.js",
+      "prefix": "GroupLayerwithLayerListWidget"
     },
   "Add Subtype Group Layer": {
     "body": [
-    "{",
+    "new SubtypeGroupLayer({",
     "\turl: ${1: \"https://sampleserver7.arcgisonline.com/server/rest/services/UtilityNetwork/NapervilleElectric/FeatureServer/0\"}",
     "\tsublayers: [",
     "\t\t{",
@@ -1366,21 +1284,10 @@
     "\t\t\tvisible: true,",
     "\t\t\trenderer: simpleRenderer",
     "\t\t},",
-    "\t\t{",
-    "\t\t\tsubtypeCode: 14,",
-    "\t\t\tvisible: false,",
-    "\t\t\trenderer: classBreaksRenderer",
-    "\t\t},",
-    "\t\t{",
-    "\t\t\tsubtypeCode: 16,",
-    "\t\t\tvisible: true,",
-    "\t\t\trenderer: classBreaksRenderer,",
-    "\t\t\tpopupTemplate: popupTemplate",
-    "\t\t}",
     "\t]",
     "};"
     ],
-    "description": "Create and add a Subtype Group Layer with sublayers",
+    "description": "Add a Subtype Group Layer with a URL. The SubtypeGroupLayer is a single layer that automatically creates a SubtypeSublayer for each subtype in its corresponding feature service. AMD path: esri/layers/SubtypeGroupLayer | ESM path: @arcgis/core/layers/SubtypeGroupLayer.js",
     "prefix": "SubtypeGroupLayer"
   },
   "Add Imagery Tile Layer with CovergeJSON object": {
@@ -1427,9 +1334,9 @@
     "\t}",
     "});"
     ],
-    "description": "Create and add an Imagery Tile Layer with CovergeJSON object",
+    "description": "Add an Imagery Tile Layer with CovergeJSON object. CoverageJSON is an OGC format for storing data such as grids, time and elevation profiles. ImageryTileLayer presents raster data from a tiled image service. AMD path: esri/layers/ImageryTileLayer| ESM path: @arcgis/core/layers/ImageryTileLayer.js",
     "prefix": ["ImageryTileLayerwithCovergeJSON", 
-    "TileManager"
+    "TileLayer"
   ]
   },
   "Add Knowledge Graph Layer": {
@@ -1442,7 +1349,7 @@
     "\tmap.add(kgl);",
     "});"
     ],
-    "description": "Create and add a Knowledge Graph Layer",
+    "description": "Create and add a Knowledge Graph Layer. AMD path: esri/layers/MediaLayer| ESM path: @arcgis/core/layers/MediaLayer.js",
     "prefix": "KnowledgeGraphLayer"
   }
 } 
