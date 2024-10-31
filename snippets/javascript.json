@@ -746,53 +746,12 @@
     },
   "Load WebMap with MapNotes Layer": {
     "body": [
-    "new WebMap({",
-    "\tportalItem: {",
-    "\t\tid: ${1:\"6b3bfc4900214761a709b5d5a6a3d92b\"}",
-    "\t}",
-    "});",
-    "",
-    "const view = new MapView({",
-    "\tcontainer: \"viewDiv\",",
-    "\tmap",
-    "});",
-    "",
-    "view.when(() => {",
-    "\tconsole.log(map.layers.at(0).type);",
-    "\tconsole.log(map.layers.items[0].sublayers.items[0].sublayers.items[0].attributes.title);",
-    "\tmap.layers.items[0].sublayers.items[1].sublayers.items[0].popupTemplate.content = \"{title} has an updated popup\";",
+    "const mapNotesLayer = new MapNotesLayer({",
+    "\ttitle: \"${1:My Map Notes}\"",
     "});"
     ],
-    "description": "Add a MapNotesLayer . The MapNotesLayer lets you display and modify map notes (features sketched on a web map) from the Map Viewer. AMD path: esri/layers/MapNotesLayer | ESM path: @arcgis/core/layers/MapNotesLayer.js",
-    "prefix": "webMapwithMapNotesLayer"
-  },
-  "Load Map Notes Layer with Portal Item": {
-    "body": [
-    "new Map({",
-    "\tbasemap: ${1:\"topo-vector\"}",
-    "});",
-    "",
-    "const view = new MapView({",
-    "\tcontainer: \"viewDiv\",",
-    "\tmap",
-    "});",
-    "",
-    "const promise = Layer.fromPortalItem({",
-    "\tportalItem: {",
-    "\t\tid: ${2:\"2e2f6840647d4cb9a384532652e5100f\"}",
-    "\t}",
-    "});",
-    "promise.then((layer) => {",
-    "\tconsole.log(layer.type);",
-    "\tmap.add(layer);",
-    "",
-    "\tPromise.all([view.when(), layer.load()]).then(() => {",
-    "\t\tview.goTo(layer.fullExtent);",
-    "\t});",
-    "});"
-    ],
-    "description": "Load a Map Notes Layer with a portal item. AMD path: esri/layers/MapNotesLayer | ESM path: @arcgis/core/layers/MapNotesLayer.js",
-    "prefix": "mapNotesLayerfromPortalItem"
+    "description": "Add a MapNotesLayer. The MapNotesLayer lets you display and modify map notes (features sketched on a web map) from the Map Viewer. AMD path: esri/layers/MapNotesLayer | ESM path: @arcgis/core/layers/MapNotesLayer.js",
+    "prefix": "MapNotesLayer"
   },
   "Add OGC Feature Layer": {
     "body": [
@@ -1007,11 +966,10 @@
   },
   "OpenStreetMapLayer": {
       "body": [
-        "new OpenStreetMapLayer();",
-        "map.add(osmLayer);"
+        "new OpenStreetMapLayer();"
       ],
-      "description": "Add an OpenStreetMapLayer to the map.",
-      "prefix": "openStreetMapLayer"
+      "description": "Add a OpenStreetMapLayer to the map. OpenStreetMapLayer allows the use basemaps from OpenStreetMap. AMD path: esri/layers/OpenStreetMapLayer | ESM path: @arcgis/core/layers/OpenStreetMapLayer.js",
+      "prefix": "OpenStreetMapLayer"
     },
   "Add Bing Maps Layer": {
     "body": [
@@ -1046,107 +1004,10 @@
       "body": [
         "new PointCloudLayer({",
         "\turl: \"${1:https://tiles.arcgis.com/tiles/V6ZHFr6zdgNZuVG0/arcgis/rest/services/BARNEGAT_BAY_LiDAR_UTM/SceneServer}\"",
-        "});",
-        "",
-        "typeRendererCreator.createPCClassRenderer({",
-        "\tlayer: pointCloudLayer,",
-        "\tfield: \"${2:CLASS_CODE}\"",
-        "}).then((response) => {",
-        "\tpointCloudLayer.renderer = response.renderer;",
         "});"
       ],
-      "description": "Add a PointCloudLayer to the map and apply a class-based color renderer.",
-      "prefix": "pointCloudLayerRenderer"
-    },
-    "Add PointCloudLayer with intensity color modulation": {
-    "body": [
-      "new PointCloudLayer({",
-      "\turl: \"${1:https://tiles.arcgis.com/tiles/z2tnIkrLQ2BRzr6P/arcgis/rest/services/SONOMA_AREA1_LiDAR_RGB/SceneServer}\",",
-      "\trenderer: {",
-      "\t\ttype: \"point-cloud-unique-value\",",
-      "\t\tfield: \"${2:CLASS_CODE}\",",
-      "\t\tcolorModulation: ${3:colorModulation},",
-      "\t\tpointsPerInch: ${4:35},",
-      "\t\tcolorUniqueValueInfos: [",
-      "\t\t\t{",
-      "\t\t\t\tvalues: [\"${5:1}\"],",
-      "\t\t\t\tlabel: \"${6:Unclassified}\",",
-      "\t\t\t\tcolor: [${7:178}, ${8:178}, ${9:178}]",
-      "\t\t\t},",
-      "\t\t\t{",
-      "\t\t\t\tvalues: [\"${10:2}\"],",
-      "\t\t\t\tlabel: \"${11:Ground}\",",
-      "\t\t\t\tcolor: [${12:168}, ${13:112}, ${14:0}]",
-      "\t\t\t},",
-      "\t\t\t{",
-      "\t\t\t\tvalues: [\"${15:5}\"],",
-      "\t\t\t\tlabel: \"${16:High Vegetation}\",",
-      "\t\t\t\tcolor: [${17:205}, ${18:245}, ${19:121}]",
-      "\t\t\t},",
-      "\t\t\t{",
-      "\t\t\t\tvalues: [\"${20:6}\"],",
-      "\t\t\t\tlabel: \"${21:Building}\",",
-      "\t\t\t\tcolor: [${22:229}, ${23:75}, ${24:65}]",
-      "\t\t\t},",
-      "\t\t\t{",
-      "\t\t\t\tvalues: [\"${25:7}\"],",
-      "\t\t\t\tlabel: \"${26:Low Point(noise)}\",",
-      "\t\t\t\tcolor: [${27:229}, ${28:0}, ${29:0}]",
-      "\t\t\t},",
-      "\t\t\t{",
-      "\t\t\t\tvalues: [\"${30:9}\"],",
-      "\t\t\t\tlabel: \"${31:Water}\",",
-      "\t\t\t\tcolor: [${32:0}, ${33:92}, ${34:230}]",
-      "\t\t\t}",
-      "\t\t]",
-      "\t}",
-      "});"
-    ],
-    "description": "Add a PointCloudLayer with intensity color modulation",
-    "prefix": "PointCloudLayerColorModulation"
-  },
-  "Adjust Point Cloud Layer": {
-      "body": [
-        "const pointCloudSizeDensity = {",
-        "\ttype: \"${1:point-cloud-rgb}\",",
-        "\tfield: \"${2:RGB}\",",
-        "\tpointSizeAlgorithm: {",
-        "\t\ttype: \"${3:fixed-size}\",",
-        "\t\tuseRealWorldSymbolSizes: ${4:false},",
-        "\t\tsize: ${5:10}",
-        "\t},",
-        "\tpointsPerInch: ${6:15}",
-        "};"
-      ],
-      "description": "Adjust the size and the density of the points on a Point Cloud Layer.",
-      "prefix": "pointCloudSizeDensity"
-    },
-  "Add Point Cloud Layer Value Filter": {
-      "body": [
-    "const pointValueFilter = {",
-        "\ttype: \"${1:value}\",",
-        "\tfield: \"${2:CLASS_CODE}\",",
-        "\tmode: \"${3:include}\",",
-        "\tvalues: [${4:5}]",
-        "};",
-        "",
-        "${5:pcLayer}.filters.push(${6:valueFilter});"
-      ],
-      "description": "Add a value filter to a PointCloudLayer",
-      "prefix": "PointCloudValueFilter"
-    },
-  "Add Point Cloud Layer Return Filter": {
-      "body": [
-        "const pointCloudReturnFilter={",
-        "\ttype: \"${1:return}\",",
-        "\tfield: \"${2:RETURNS}\",",
-        "\tincludedReturns: [\"${3:firstOfMany}\", \"${4:single}\"]",
-        "};",
-        "",
-        "${5:pcLayer}.filters.push(${6:returnFilter});"
-      ],
-      "description": "Add a return filter to a PointCloudLayer",
-      "prefix": "pointCloudReturnFilter"
+      "description": "Add a PointCloudLayer with a URL. The PointCloudLayer is designed for visualizing large collections of point cloud data, post-processed spatially organized lidar data that consists of large collections of 3D points, in a SceneView. AMD path: esri/layers/PointCloudLayer | ESM path: @arcgis/core/layers/PointCloudLayer.js",
+      "prefix": "PointCloudLayer"
     },
   "Add Building Scene Layer": {
     "body": [
@@ -1173,11 +1034,30 @@
   "Add Dimension Layer": {
     "body": [
     "new DimensionLayer({",
-    "\ttitle: ${1: \"Programmatic dimensions\"},",
-    "\tsource: new DimensionAnalysis()",
+    "\tsource: {",
+    "\t\tdimensions: [",
+    "\t\t\t{",
+    "\t\t\t\tstartPoint: {",
+    "\t\t\t\t\tspatialReference: { wkid: 102100 },",
+    "\t\t\t\t\tx: ${1:rings[i][0]},",
+    "\t\t\t\t\ty: ${2:rings[i][1]},",
+    "\t\t\t\t\tz: ${3:feature.attributes[\"Elevation\"] + feature.attributes[\"FloorHeight\"]}",
+    "\t\t\t\t},",
+    "\t\t\t\tendPoint: {",
+    "\t\t\t\t\tspatialReference: { wkid: 102100 },",
+    "\t\t\t\t\tx: ${4:rings[i + 1][0]},",
+    "\t\t\t\t\ty: ${5:rings[i + 1][1]},",
+    "\t\t\t\t\tz: ${6:feature.attributes[\"Elevation\"] + feature.attributes[\"FloorHeight\"]}",
+    "\t\t\t\t}",
+    "\t\t\t}",
+    "\t\t]",
+    "\t},",
+    "\tstyle: {",
+    "\t\tcolor: \"${7:white}\"",
+    "\t}",
     "});"
     ],
-    "description": "Add a Dimension Layer using a DimensionAnalysis Object . A Dimension layer displays measurement annotations of lengths and distances in a 3D SceneView. AMD path: esri/layers/DimensionLayer| ESM path: @arcgis/core/layers/DimensionLayer.js",
+    "description": "Add a Dimension Layer using a DimensionAnalysis Object. A Dimension layer displays measurement annotations of lengths and distances in a 3D SceneView. AMD path: esri/layers/DimensionLayer| ESM path: @arcgis/core/layers/DimensionLayer.js",
     "prefix": "DimensionLayer"
   },
   "Add Integrated Mesh Layer": {
@@ -1191,7 +1071,7 @@
   },
   "Add Voxel Layer": {
     "body": [
-    "VoxelLayer({",
+    "new VoxelLayer({",
     "\turl: \"${1:https://tiles.arcgis.com/tiles/z2tnIkrLQ2BRzr6P/arcgis/rest/services/EMU_Caribbean_Voxel/SceneServer}\"",
     "});"
     ],
@@ -1201,9 +1081,24 @@
     "Add Media Layer with Video": {
     "body": [
     "new MediaLayer({",
-    "\tsource: [${1:videoElement}],",
-    "\ttitle: \"${2:2017 Hurricanes and Aerosols Simulation}\",",
-    "\tcopyright: \"${3:NASA's Goddard Space Flight Center}\"",
+    "\tsource: [",
+    "\t\t{",
+    "\t\t\tvideo: \"${1:https://arcgis.github.io/arcgis-samples-javascript/sample-data/media-layer/videos/hurricanes_aerosol-aug.mp4}\",",
+    "\t\t\tgeoreference: {",
+    "\t\t\t\textent: {",
+    "\t\t\t\t\txmin: ${2:-150},",
+    "\t\t\t\t\tymin: ${3:1},",
+    "\t\t\t\t\txmax: ${4:20},",
+    "\t\t\t\t\tymax: ${5:80},",
+    "\t\t\t\t\tspatialReference: {",
+    "\t\t\t\t\t\twkid: ${6:4326}",
+    "\t\t\t\t\t}",
+    "\t\t\t\t}",
+    "\t\t\t}",
+    "\t\t}",
+    "\t],",
+    "\ttitle: \"${7:2017 Hurricanes and Aerosols Simulation}\",",
+    "\tcopyright: \"${8:NASA's Goddard Space Flight Center}\"",
     "});"
     ],
     "description": "Add a Media Layer with a video element in a 3D SceneView. MediaLayer is used to display static images and videos on the map by specifying their geographic locations using extent and rotation or the corner points of the bounding box. AMD path: esri/layers/MediaLayer| ESM path: @arcgis/core/layers/MediaLayer.js",
@@ -1211,12 +1106,38 @@
   },
   "Add MediaLayer with Control Points Georeference": {
     "body": [
-    "new MediaLayer({",
-    "\tsource: [${1:imageElement}],",
-    "\ttitle: \"${2:Geologic Map of the Telluride Quadrangle, Southwestern Colorado}\",",
-    "\tcopyright: \"${3:Wilbur S Burbank and Robert G. Luedke, 1966}\",",
-    "\tspatialReference",
-    "});"
+      "new MediaLayer({",
+			"\tsource: [",
+			"\t\t{",
+			"\t\t\timage: \"https://arcgis.github.io/arcgis-samples-javascript/sample-data/media-layer/telluride/TellurideQuad.webp\",",
+			"\t\t\tgeoreference: {",
+			"\t\t\t\tcontrolPoints: [",
+			"\t\t\t\t\t{",
+			"\t\t\t\t\t\tsourcePoint: { x: 89, y: 1918 },",
+			"\t\t\t\t\t\tmapPoint: new Point({ x: -107.875, y: 37.875, spatialReference })",
+			"\t\t\t\t\t},",
+			"\t\t\t\t\t{",
+			"\t\t\t\t\t\tsourcePoint: { x: 83, y: 101 },",
+			"\t\t\t\t\t\tmapPoint: new Point({ x: -107.875, y: 38, spatialReference })",
+			"\t\t\t\t\t},",
+			"\t\t\t\t\t{",
+			"\t\t\t\t\t\tsourcePoint: { x: 1508, y: 97 },",
+			"\t\t\t\t\t\tmapPoint: new Point({ x: -107.75, y: 38, spatialReference })",
+			"\t\t\t\t\t},",
+			"\t\t\t\t\t{",
+			"\t\t\t\t\t\tsourcePoint: { x: 1517, y: 1906 },",
+			"\t\t\t\t\t\tmapPoint: new Point({ x: -107.75, y: 37.875, spatialReference })",
+			"\t\t\t\t\t}",
+			"\t\t\t\t],",
+			"\t\t\t\twidth: 1585,",
+			"\t\t\t\theight: 2048",
+			"\t\t\t}",
+			"\t\t}",
+			"\t],",
+			"\ttitle: \"Geologic Map of the Telluride Quadrangle, Southwestern Colorado\",",
+			"\tcopyright: \"Wilbur S Burbank and Robert G. Luedke, 1966\",",
+			"\tspatialReference",
+			"});"
     ],
     "description": "Add a MediaLayer with Control Points Georeference. A control point has a sourcePoint, a point on the element measured in pixels from the top left corner, and a mapPoint, a known geographic location. This allows us to position the images in map space. AMD path: esri/layers/MediaLayer| ESM path: @arcgis/core/layers/MediaLayer.js",
     "prefix": "MediaLayerControlPoints"
@@ -1230,49 +1151,23 @@
     "description": "Add a KML layer based on a KML file (.kml, .kmz) with a URL. KML is an XML-based file format used to represent geographic features. AMD path: esri/layers/KMLLayer| ESM path: @arcgis/core/layers/KMLLayer.js",
     "prefix": "KMLLayer"
   },
-    "Add GroupLayer with LayerList": {
+    "Add GroupLayer": {
       "body": [
-        "new LayerList({",
-        "\tview: ${1:view},",
-        "\tlistItemCreatedFunction: ${2:defineActions}",
-        "});",
-        "",
-        "async function ${2:defineActions}(event) {",
-        "\tconst item = event.item;",
-        "\tawait item.layer.when();",
-        "",
-        "\tif (item.title === \"${3:US Demographics}\") {",
-        "\t\titem.actionsSections = [",
-        "\t\t\t[",
-        "\t\t\t\t{",
-        "\t\t\t\t\ttitle: \"${4:Go to full extent}\",",
-        "\t\t\t\t\ticon: \"${5:zoom-out-fixed}\",",
-        "\t\t\t\t\tid: \"${6:full-extent}\"",
-        "\t\t\t\t},",
-        "\t\t\t\t{",
-        "\t\t\t\t\ttitle: \"${7:Layer information}\",",
-        "\t\t\t\t\ticon: \"${8:information}\",",
-        "\t\t\t\t\tid: \"${9:information}\"",
-        "\t\t\t\t}",
-        "\t\t\t],",
-        "\t\t\t[",
-        "\t\t\t\t{",
-        "\t\t\t\t\ttitle: \"${10:Increase opacity}\",",
-        "\t\t\t\t\ticon: \"${11:chevron-up}\",",
-        "\t\t\t\t\tid: \"${12:increase-opacity}\"",
-        "\t\t\t\t},",
-        "\t\t\t\t{",
-        "\t\t\t\t\ttitle: \"${13:Decrease opacity}\",",
-        "\t\t\t\t\ticon: \"${14:chevron-down}\",",
-        "\t\t\t\t\tid: \"${15:decrease-opacity}\"",
-        "\t\t\t\t}",
-        "\t\t\t]",
-        "\t\t];",
-        "\t}",
-        "}"
+      "new GroupLayer({",
+			"\tlayers: [",
+			"\t\t{",
+			"\t\t\turl: \"https://example.com/featureLayer\"",
+			"\t\t},",
+			"\t\t{",
+			"\t\t\turl: \"https://example.com/tileLayer\"",
+			"\t\t}",
+			"\t],",
+			"\ttitle: \"My Group Layer\",",
+			"\topacity: 0.8",
+			"});"
       ],
-      "description": "Creates a Group Layer with LayerList Widget. AMD path: esri/layers/GroupLayer| ESM path: @arcgis/core/layers/GroupLayer.js",
-      "prefix": "GroupLayerwithLayerListWidget"
+      "description": "Add a Group Layer with feature and/or tile layer URLs. GroupLayer provides the ability to organize several sublayers into one common layer.  AMD path: esri/layers/GroupLayer| ESM path: @arcgis/core/layers/GroupLayer.js",
+      "prefix": "GroupLayer"
     },
   "Add Subtype Group Layer": {
     "body": [
@@ -1343,13 +1238,13 @@
     "body": [
     "new KnowledgeGraphLayer({",
     "\turl: ${1:\"https://sampleserver7.arcgisonline.com/arcgis/rest/services/Hosted/SupplyChain/KnowledgeGraphServer\"}",
-    "});",
-    "",
-    "kgl.load().then(() => {",
-    "\tmap.add(kgl);",
+    "\tinclusionModeDefinition: {",
+    "\t\tgenerateAllSublayers: ${2:false},",
+    "\t\tnamedTypeDefinitions: ${3:namedTypes}",
+    "\t}",
     "});"
     ],
-    "description": "Create and add a Knowledge Graph Layer. AMD path: esri/layers/MediaLayer| ESM path: @arcgis/core/layers/MediaLayer.js",
+    "description": "Add a Knowledge Graph Layer with a URL. A KnowledgeGraphLayer is a composite layer that represents a knowledge graph service on a map.  A KnowledgeGraphLayer also optionally takes an inclusion definition that specifies a set of named types and/or specific entities and relationships to be included in the layer. AMD path: esri/layers/KnowledgeGraphLayer| ESM path: @arcgis/core/layers/KnowledgeGraphLayer.js",
     "prefix": "KnowledgeGraphLayer"
   }
 } 
