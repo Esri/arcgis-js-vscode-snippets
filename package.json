@@ -16,7 +16,7 @@
     "snippet",
     "JavaScript"
   ],
-  "version": "1.0.0",
+  "version": "1.1.0",
   "icon": "images/esri-logo-550.png",
   "engines": {
     "vscode": "^1.35.0"
