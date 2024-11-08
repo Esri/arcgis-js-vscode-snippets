@@ -32,7 +32,7 @@ To use this extension you will need to install:
 1. [Visual Studio Code](https://code.visualstudio.com/download) (version 1.35 or higher).
 2. The extension. There are two possibilities:
     - From the [Visual Studio Code marketplace](https://marketplace.visualstudio.com/items?itemName=Esri.arcgis-maps-sdk-js-snippets).
-    - Using the ***[Install from VSIX](https://code.visualstudio.com/docs/editor/extension-marketplace#_install-from-a-vsix)*** command in Visual Studio Code then import the [arcgis-jsapi-snippets-1.0.0.vsix](./arcgis-jsapi-snippets-1.0.0.vsix) file.
+    - Using the ***[Install from VSIX](https://code.visualstudio.com/docs/editor/extension-marketplace#_install-from-a-vsix)*** command in Visual Studio Code then import the [arcgis-jsapi-snippets-1.1.0.vsix](./arcgis-jsapi-snippets-1.1.0.vsix) file.
 
 ### Usage
 
