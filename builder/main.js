@@ -20,7 +20,9 @@ let snippet = {
       })
       .join("\n");
 
-    return `[${x}]`;
+    return `[
+    ${x}
+    ]`;
   },
   toString: () => {
     return `"${snippet.name}": {
@@ -60,6 +62,7 @@ function renderSnippet() {
   const body = encodeURIComponent(`
 **Prefix**: ${snippet.prefix}
 **Description**: ${snippet.desc}
+**Scope**: ${Array.isArray(snippet.scope) ? snippet.scope.join(', ') : ''}
 **Snippet**:
 \`\`\`js
 ${snippet.body}
