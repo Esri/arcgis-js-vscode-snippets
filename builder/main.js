@@ -20,16 +20,14 @@ let snippet = {
       })
       .join("\n");
 
-    return `[
-${x}
-]`;
+    return `[${x}]`;
   },
   toString: () => {
     return `"${snippet.name}": {
 "prefix": "${snippet.prefix}",
 "scope": "${Array.isArray(snippet.scope) ? snippet.scope.join(', ') : ''}",
 "body": ${snippet.parse(snippet.body)},
-"description": "${snippet.desc}"
+"description": "${snippet.desc.replace(/\n/g, '\\n')}"
 }`;
   },
 };
@@ -60,14 +58,6 @@ function renderSnippet() {
   const repoUrl = "https://github.com/Esri/arcgis-js-vscode-snippets";
   const title = encodeURIComponent(`Snippet proposal: ${snippet.name}`);
   const body = encodeURIComponent(`
-  Please specify which type of snippet it is: 
-  * [ ] JavaScript snippet (*.js)
-  * [ ] TypeScript snippet (*.ts)
-  * [ ] HTML snippet (*.html)
-  * [ ]  ...
-  
-
----
 **Prefix**: ${snippet.prefix}
 **Description**: ${snippet.desc}
 **Snippet**:
@@ -89,46 +79,46 @@ const inputElement = document.getElementById("import-snippet");
 if (inputElement) {
   inputElement.addEventListener("change", (event) => {
     const file = event.target.files[0];
-  console.log("Selected file:", file);
+    console.log("Selected file:", file);
 
-  if (file) {
-    const reader = new FileReader();
+    if (file) {
+      const reader = new FileReader();
 
-    reader.onload = function(e) {
-      try {
-        const fileContent = e.target.result;
-        console.log("File content:", fileContent);
+      reader.onload = function (e) {
+        try {
+          const fileContent = e.target.result;
+          console.log("File content:", fileContent);
 
-        const snippetObject = JSON.parse(fileContent);
+          const snippetObject = JSON.parse(fileContent);
 
-      const firstSnippet = Object.values(snippetObject)[0];
-      snippet.name = Object.keys(snippetObject)[0];
-      snippet.prefix = firstSnippet.prefix;
-      snippet.scope = firstSnippet.scope.split(', ');
-      snippet.body = firstSnippet.body.join('\n');
-      snippet.desc = firstSnippet.description;
+          const firstSnippet = Object.values(snippetObject)[0];
+          snippet.name = Object.keys(snippetObject)[0];
+          snippet.prefix = firstSnippet.prefix;
+          snippet.scope = firstSnippet.scope.split(', ');
+          snippet.body = firstSnippet.body.join('\n');
+          snippet.desc = firstSnippet.description;
 
-      document.getElementById("name").value = snippet.name;
-      document.getElementById("prefix").value = snippet.prefix;
-      document.getElementById("desc").value = snippet.desc;
-      document.getElementById("body").value = snippet.body;
+          document.getElementById("name").value = snippet.name;
+          document.getElementById("prefix").value = snippet.prefix;
+          document.getElementById("desc").value = snippet.desc;
+          document.getElementById("body").value = snippet.body;
 
-      document.querySelectorAll('#language-selection input[type="checkbox"]').forEach((checkbox) => {
-        const scopeValues = checkbox.value.split(',').map(scope => scope.trim());
-        checkbox.checked = snippet.scope.includes(checkbox.value);
-        checkbox.checked = scopeValues.some(scope => snippet.scope.includes(scope));
-      });
+          document.querySelectorAll('#language-selection input[type="checkbox"]').forEach((checkbox) => {
+            const scopeValues = checkbox.value.split(',').map(scope => scope.trim());
+            checkbox.checked = snippet.scope.includes(checkbox.value);
+            checkbox.checked = scopeValues.some(scope => snippet.scope.includes(scope));
+          });
 
-      renderSnippet();
+          renderSnippet();
 
-      } catch (error) {
-        console.error("Failed to parse the snippet JSON: ", error);
-        document.getElementById("snippets").innerText = "Error parsing JSON. Please upload a valid snippet.";
-      }
-    };
+        } catch (error) {
+          console.error("Failed to parse the snippet JSON: ", error);
+          document.getElementById("snippets").innerText = "Error parsing JSON. Please upload a valid snippet.";
+        }
+      };
 
-    reader.readAsText(file);
-  }
+      reader.readAsText(file);
+    }
   });
 } else {
   console.error("Element with ID 'import-snippet' not found.");
@@ -143,9 +133,9 @@ copyButton.addEventListener("click", (event) => {
     .then(() => {
       copyButton.textContent = "Copied";
     })
-    setTimeout(() => {
-      copyButton.textContent = "Copy";
-    }, 1000);    
+  setTimeout(() => {
+    copyButton.textContent = "Copy";
+  }, 1000);
 });
 
 document.querySelectorAll("calcite-input:not([type='file'])").forEach((item) => {
