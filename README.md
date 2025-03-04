@@ -68,10 +68,11 @@ This extension adds a new option to the activity bar that lets you quickly brows
 
 ### [HTML snippets](snippets/html.json)
 
-| Prefix               | Description                                                                                                                            |
-| -------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | --- |
-| getApi               | Add the CSS and JavaScript for the Esri ArcGIS Maps SDK for JavaScript from the CDN. This snippet also stubs out the package paths.    |
-| getApiPlusComponents | Add the CSS and JavaScript for the Esri ArcGIS Maps SDK for JavaScript from the CDN and the ArcGIS Maps SDK for JavaScript Components. |     |
+| Prefix                | Description                                                                                                                            |
+| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| addArcgisMapComponent | Add the Arcgis Map component to your HTML file and optionally include the arcgis-home and arcgis-zoom components.                      |
+| getApi                | Add the CSS and JavaScript for the Esri ArcGIS Maps SDK for JavaScript from the CDN. This snippet also stubs out the package paths.    |
+| getApiPlusComponents  | Add the CSS and JavaScript for the Esri ArcGIS Maps SDK for JavaScript and the ArcGIS Maps SDK for JavaScript components from the CDN. |
 
 ### [JavaScript snippets](snippets/javascript.json)
 

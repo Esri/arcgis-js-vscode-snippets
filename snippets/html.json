@@ -1,4 +1,14 @@
 {
+  "Add ArcGIS Map Component": {
+    "prefix": "addArcgisMapComponent",
+    "body": [
+      "<arcgis-map item-id=\"${1:item-id}\">",
+      "\t${2:<arcgis-home position=\"${3|top-left,top-right,bottom-left,bottom-right|}\"></arcgis-home>}",
+      "\t${4:<arcgis-zoom position=\"${5|top-left,top-right,bottom-left,bottom-right|}\"></arcgis-zoom>}",
+      "</arcgis-map>"
+    ],
+    "description": "Add ArcGIS Map Component"
+  },
   "Get the API from the CDN": {
     "prefix": "getApi",
     "body": [

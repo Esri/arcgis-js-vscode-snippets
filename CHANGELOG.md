@@ -79,4 +79,5 @@ All notable changes to the "arcgis-jsapi-snippets" extension will be documented 
 ## [Version 1.1.7]
 
 - Updated the getApi snippet to use the selected version for both the css and javascript to prevent having to choose the same version twice.
-- Added a new snippet `getApiPlusComponents' snippet.
+- Added `getApiPlusComponents` snippet.
+- Added `addArcgisMapComponent`snippet
