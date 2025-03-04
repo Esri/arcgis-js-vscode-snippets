@@ -75,3 +75,14 @@ All notable changes to the "arcgis-jsapi-snippets" extension will be documented 
 - Added `searchWidget` snippet
 - Added `searchWidgetWithCustomSources` snippet
 - Added `searchWidgetWithSources` snippet
+
+## [Version 1.1.7]
+
+- Added `CircleGeometry` snippet
+- Added `ExtentGeometry` snippet
+- Added `MeshGeometry` snippet
+- Added `MultipointGeometry` snippet
+- Added `PointGeometry` snippet
+- Added `PolylineGeometry` snippet
+- Added `PolygonGeometry` snippet
+- Added `SpatialReferenceGeometry` snippet

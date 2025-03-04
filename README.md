@@ -110,6 +110,14 @@ This extension adds a new option to the activity bar that lets you quickly brows
 | searchWidget           | The Search widget provides a way to perform search operations on services or features provided by Esri.                   |
 | searchWidgetWithCustomSources           | The search widget provides the capability to provide search capabilities to third-party services. To use a custom source with the search widget, you must set the widget's sources property with your own custom source. To create a custom search source, you need to construct a search source with on object containing two functions, getSuggestions and getResults.                   |
 | searchWidgetWithSources           | The Search widget to search multiple Layer Sources based on given fields. To use multiple sources with the Search widget, you must set the widget's sources property.                   |
+| CircleGeometry           | A circle is a Polygon created by specifying a center point and a radius. The point can be provided as a Point object or an array of latitude/longitude values.                   |
+| ExtentGeometry           | Extent is used to describe the visible portion of a MapView.                   |
+| MeshGeometry           | A mesh is a general, client-side 3D geometry type composed of vertices with attributes. The mesh geometry class has a number of convenience functions to create simple primitive shapes. Mesh geometries can be manually created by specifying vertexAttributes and components.                   |
+| MultipointGeometry           | An ordered collection of points.                   |
+| PointGeometry           | A location defined by X, Y, and Z coordinates.                   |
+| PolylineGeometry           | A polyline contains an array of paths and spatialReference. Each path is represented as an array of points.                   |
+| PolygonGeometry           | A polygon contains an array of rings and a spatialReference. Each ring is represented as an array of points. The first and last points of a ring must be the same.                   |
+| SpatialReferenceGeometry           | Defines the spatial reference of a view, layer, or method parameters.                   |
 
 ### [TypeScript snippets](snippets/typescript.json)
 
