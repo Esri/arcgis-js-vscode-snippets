@@ -12,6 +12,98 @@
     "description": "Add a new layer to the map using a portal item id. Contains a placeholder for the portal item id. AMD path: esri/layers/Layer | ESM path: @arcgis/core/layers/Layer.js",
     "prefix": "addLayerFromPortalItem"
   },
+  "Add a Circle Geometry": {
+    "body": [
+      "new Circle({",
+      "\tcenter: [-113, 36],",
+      "\tgeodesic: true,",
+      "\tnumberOfPoints: 100,",
+      "\tradius: 100,",
+      "\tradiusUnit: \"kilometers\"",
+      "});"
+    ],
+    "description": "A circle is a Polygon created by specifying a center point and a radius. The point can be provided as a Point object or an array of latitude/longitude values.",
+    "prefix": "CircleGeometry"
+  },
+  "Add a Extent Geometry": {
+    "body": [
+      "new Extent({",
+      "\tmmin: -462,",
+      "\tmmax: 130,",
+      "\txmin: -462,",
+      "\txmax: 130",
+      "});"
+    ],
+    "description": "Extent is used to describe the visible portion of a MapView.",
+    "prefix": "ExtentGeometry"
+  },
+  "Add a Mesh Geometry": {
+    "body": [
+      "new Mesh({",
+      "\tvertexAttributes: vertexAttributes,",
+      "\thasZ: false,",
+      "\thasM: true,",
+      "});"
+    ],
+    "description": "A mesh is a general, client-side 3D geometry type composed of vertices with attributes. The mesh geometry class has a number of convenience functions to create simple primitive shapes. Mesh geometries can be manually created by specifying vertexAttributes and components.",
+    "prefix": "MeshGeometry"
+  },
+  "Add a Multipoint Geometry": {
+    "body": [
+      "new Multipoint(",
+      "\tnew SpatialReference(",
+      "\t\t{ wkid:4326 })",
+      ");"
+    ],
+    "description": "An ordered collection of points.",
+    "prefix": "MultipointGeometry"
+  },
+  "Add a Point Geometry": {
+    "body": [
+      "new Point({",
+      "\tx: -107.875,",
+      "\ty: 37.875,",
+      "\tz: 0,",
+      "\tspatialReference",
+      "});"
+    ],
+    "description": "A location defined by X, Y, and Z coordinates.",
+    "prefix": "PointGeometry"
+  },
+  "Add a Polyline Geometry": {
+    "body": [
+      "new Polyline({",
+      "\thasZ: false,",
+      "\thasM: true,",
+      "\tpaths: paths,",
+      "\tspatialReference: { wkid: 4326 }",
+      "});"
+    ],
+    "description": "A polyline contains an array of paths and spatialReference. Each path is represented as an array of points.",
+    "prefix": "PolylineGeometry"
+  },
+  "Add a Polygon Geometry": {
+    "body": [
+      "new Polygon({",
+      "\thasZ: true,",
+      "\thasM: true,",
+      "\trings: rings,",
+      "\tspatialReference: { wkid: 4326 }",
+      "});"
+    ],
+    "description": "A polygon contains an array of rings and a spatialReference. Each ring is represented as an array of points. The first and last points of a ring must be the same.",
+    "prefix": "PolygonGeometry"
+  },
+  "Add a SpatialReference Geometry": {
+    "body": [
+      "new SpatialReference({",
+      "\twkid: 4326,",
+      "\tunit: \"150-kilometers\"",
+      "});"
+    ],
+    "description": "Defines the spatial reference of a view, layer, or method parameters.",
+    "prefix": "SpatialReferenceGeometry"
+  },
   "Add a Search Widget": {
     "body": [
       "new Search({",
