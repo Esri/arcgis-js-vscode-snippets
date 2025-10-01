@@ -14,7 +14,7 @@ All notable changes to the "arcgis-jsapi-snippets" extension will be documented 
 
 - Add latest versions to the getAPI snippet
 - Fix typo in package.json
-- Update tsconfig snippet to include ```importHelpers``` and ```moduleResolution```
+- Update tsconfig snippet to include `importHelpers` and `moduleResolution`
 
 ## [Version 1.1.2]
 
@@ -31,7 +31,7 @@ All notable changes to the "arcgis-jsapi-snippets" extension will be documented 
 ## [Version 1.1.4]
 
 - Added React Map snippet
-- Added Calcite snippet 
+- Added Calcite snippet
 - Added latest versions to the getAPI snippet
 
 ## [Version 1.1.5]
@@ -86,3 +86,6 @@ All notable changes to the "arcgis-jsapi-snippets" extension will be documented 
 - Added `PolylineGeometry` snippet
 - Added `PolygonGeometry` snippet
 - Added `SpatialReferenceGeometry` snippet
+- Updated the getApi snippet to use the selected version for both the css and javascript to prevent having to choose the same version twice.
+- Added `getApiPlusComponents` snippet.
+- Added `addArcgisMapComponent`snippet
