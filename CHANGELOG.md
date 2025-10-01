@@ -78,6 +78,14 @@ All notable changes to the "arcgis-jsapi-snippets" extension will be documented 
 
 ## [Version 1.1.7]
 
+- Added `CircleGeometry` snippet
+- Added `ExtentGeometry` snippet
+- Added `MeshGeometry` snippet
+- Added `MultipointGeometry` snippet
+- Added `PointGeometry` snippet
+- Added `PolylineGeometry` snippet
+- Added `PolygonGeometry` snippet
+- Added `SpatialReferenceGeometry` snippet
 - Updated the getApi snippet to use the selected version for both the css and javascript to prevent having to choose the same version twice.
 - Added `getApiPlusComponents` snippet.
 - Added `addArcgisMapComponent`snippet
